@@ -1,0 +1,7 @@
+Dernier score entré
+Meilleurs scores: liste des jeux et le meilleur score du joueur connecté pour chacun
+Meilleurs scores par département
+Nombre de parties joués par le joueur: liste des jeux et le nombre de parties joués pour chacun
+Nombre de parties joués par le département
+
+
