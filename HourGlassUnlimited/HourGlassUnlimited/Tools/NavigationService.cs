@@ -19,9 +19,6 @@ namespace HourGlassUnlimited.Tools
         private static SignUp _signUp;
         private static EditAccount _editAccount;
 
-        private static Launcher _launcher;
-        private static Frame _subHolder;
-
         private static GameList _gameList;
         private static Rankings _rankings;
 
@@ -36,9 +33,6 @@ namespace HourGlassUnlimited.Tools
         public static SignUp SignUpView { get { return _signUp; } set { _signUp = value; } }
         public static EditAccount EditAccountView { get { return _editAccount; } set { _editAccount = value; } }
 
-        public static Launcher LauncherView { get { return _launcher; } set { _launcher = value; } }
-        public static Frame SubHolder { get { return _subHolder; } set { _subHolder = value; } }
-
         public static GameList GameListView { get { return _gameList; } set { _gameList = value; } }
         public static Rankings RankingsView { get { return _rankings; } set { _rankings = value; } }
 
@@ -49,11 +43,10 @@ namespace HourGlassUnlimited.Tools
         {
             MainWindowView = mainWindow;
             Holder = MainWindowView.Holder;
+
             SignInView = new SignIn();
             SignUpView = new SignUp();
             EditAccountView = new EditAccount();
-            LauncherView = new Launcher();
-            SubHolder = LauncherView.Holder;
             GameListView = new GameList();
             RankingsView = new Rankings();
         }
@@ -77,14 +70,12 @@ namespace HourGlassUnlimited.Tools
 
         public static void GameList()
         {
-            Holder.NavigationService.Navigate(LauncherView);
-            SubHolder.NavigationService.Navigate(GameListView);
+            Holder.NavigationService.Navigate(GameListView);
         }
 
         public static void Rankings()
         {
-            Holder.NavigationService.Navigate(SignInView);
-            SubHolder.NavigationService.Navigate(RankingsView);
+            Holder.NavigationService.Navigate(RankingsView);
         }
         #endregion
     }
