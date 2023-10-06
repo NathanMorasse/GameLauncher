@@ -24,9 +24,9 @@ namespace HourGlassUnlimited.Views
         {
             InitializeComponent();
 
-            NavigationService.InitializeService(this);
+            Navigator.InitializeService(this);
 
-            NavigationService.GameList();
+            Navigator.SignIn();
         }
     }
 }

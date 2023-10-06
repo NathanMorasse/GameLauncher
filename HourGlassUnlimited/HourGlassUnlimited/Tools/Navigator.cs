@@ -1,14 +1,14 @@
-﻿using HourGlassUnlimited.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HourGlassUnlimited.Views;
 using System.Windows.Controls;
 
 namespace HourGlassUnlimited.Tools
 {
-    public static class NavigationService
+    public static class Navigator
     {
         #region Attributes
 

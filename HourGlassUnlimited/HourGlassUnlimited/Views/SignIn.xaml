@@ -5,10 +5,19 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HourGlassUnlimited.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="1080" d:DesignWidth="1920"
       Title="SignIn">
-
     <Grid>
-        
+        <Grid Height="600" Width="500" Background="Aquamarine">
+            <StackPanel>
+                <TextBlock FontSize="50" TextAlignment="Center" Height="100">Connexion</TextBlock>
+                <Label>Nom d'utilisateur</Label>
+                <TextBox></TextBox>
+                <Label>Mot de passe</Label>
+                <TextBox></TextBox>
+                <Button x:Name="SignIn_Button" Click="SignIn_Button_Click" Content="Connection"></Button>
+                <Button x:Name="SignUp_Button" Click="SignUp_Button_Click">Créer un compte</Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>
