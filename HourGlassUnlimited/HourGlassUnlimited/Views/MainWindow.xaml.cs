@@ -23,10 +23,6 @@ namespace HourGlassUnlimited.Views
         public MainWindow()
         {
             InitializeComponent();
-
-            Navigator.InitializeService(this);
-
-            Navigator.SignIn();
         }
     }
 }

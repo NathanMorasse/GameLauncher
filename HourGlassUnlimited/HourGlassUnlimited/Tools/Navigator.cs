@@ -39,9 +39,9 @@ namespace HourGlassUnlimited.Tools
         #endregion
 
         #region Initialization
-        public static void InitializeService(MainWindow mainWindow)
+        public static void InitializeService()
         {
-            MainWindowView = mainWindow;
+            MainWindowView = new MainWindow();
             Holder = MainWindowView.Holder;
 
             SignInView = new SignIn();

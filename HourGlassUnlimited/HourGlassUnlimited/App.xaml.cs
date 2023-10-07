@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HourGlassUnlimited.Tools;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,14 @@ namespace HourGlassUnlimited
     /// </summary>
     public partial class App : Application
     {
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            Navigator.InitializeService();
+
+            Navigator.MainWindowView.Show();
+
+            Navigator.SignIn();
+        }
     }
 }
