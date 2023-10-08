@@ -21,15 +21,23 @@
         <Grid x:Name="Header" Grid.Row="0" Grid.ColumnSpan="3" Background="AliceBlue" Margin="20 0">
             <TextBlock x:Name="BrandName" FontSize="30" VerticalAlignment="Center" Width="500" HorizontalAlignment="Left">HourGlass Unlimited</TextBlock>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                <TextBlock FontSize="20" Margin="0 0 10 0" TextDecorations="Underline">Jeux</TextBlock>
-                <TextBlock FontSize="20" Margin="10 0">Classement</TextBlock>
-                <TextBlock FontSize="20" Margin="10 0">Compte</TextBlock>
-                <TextBlock FontSize="20" Margin="10 0 0 0">Disconnect</TextBlock>
+            <StackPanel x:Name="NavBar" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Button x:Name="GameList_Button" Click="GameList_Button_Click" Margin="0 0 10 0">
+                    <TextBlock FontSize="20" Padding="10 0">Jeux</TextBlock>
+                </Button>
+                <Button x:Name="Rankings_Button" Click="Rankings_Button_Click" Margin="10 0">
+                    <TextBlock FontSize="20" Padding="10 0">Classement</TextBlock>
+                </Button>
+                <Button x:Name="Account_Button" Click="Account_Button_Click" Margin="10 0">
+                    <TextBlock FontSize="20" Padding="10 0">Compte</TextBlock>
+                </Button>
+                <Button x:Name="SignOff_Button" Click="SignOff_Button_Click" Margin="10 0 0 0">
+                    <TextBlock FontSize="20" Padding="10 0">Déconnexion</TextBlock>
+                </Button>
             </StackPanel>
         </Grid>
 
-        <Frame x:Name="Holder" Grid.Row="1" Grid.Column="1" NavigationUIVisibility="Hidden"></Frame>
+        <Frame x:Name="Holder" Navigated="Holder_Navigated" Grid.Row="1" Grid.Column="1" NavigationUIVisibility="Hidden"></Frame>
 
         <Grid x:Name="Footer" Grid.Row="2" Grid.ColumnSpan="3" Background="AliceBlue">
             

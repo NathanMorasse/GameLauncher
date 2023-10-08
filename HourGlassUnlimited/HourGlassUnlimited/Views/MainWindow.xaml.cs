@@ -24,5 +24,39 @@ namespace HourGlassUnlimited.Views
         {
             InitializeComponent();
         }
+
+        private void Holder_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+            if ((Holder.Content as Page).Title.Contains("Sign"))
+            {
+                if (NavBar.Visibility == Visibility.Visible)
+                    NavBar.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                if (NavBar.Visibility == Visibility.Hidden)
+                    NavBar.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void GameList_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Navigator.GameList();
+        }
+
+        private void Rankings_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Navigator.Rankings();
+        }
+
+        private void Account_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Navigator.EditAccount();
+        }
+
+        private void SignOff_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Navigator.SignIn();
+        }
     }
 }

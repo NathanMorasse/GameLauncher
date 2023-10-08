@@ -16,7 +16,7 @@
                 <Label>Mot de passe</Label>
                 <TextBox></TextBox>
                 <Button x:Name="SignIn_Button" Click="SignIn_Button_Click" Content="Connection"></Button>
-                <Button x:Name="SignUp_Button" Click="SignUp_Button_Click">Créer un compte</Button>
+                <Button x:Name="SignUp_Button" Click="SignUp_Button_Click" Content="Créer un compte"></Button>
             </StackPanel>
         </Grid>
     </Grid>

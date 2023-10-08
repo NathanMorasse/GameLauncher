@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HourGlassUnlimited.Tools;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,11 @@ namespace HourGlassUnlimited.Views
         public EditAccount()
         {
             InitializeComponent();
+        }
+
+        private void Edit_Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
