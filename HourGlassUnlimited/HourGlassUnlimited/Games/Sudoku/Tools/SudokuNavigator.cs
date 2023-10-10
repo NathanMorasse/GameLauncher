@@ -22,11 +22,11 @@ namespace HourGlassUnlimited.Games.Sudoku.Tools
 
         #region Properties
 
-        public static MainWindow MainWindowView { get { return _mainWindow; } set { _mainWindow = value; } }
+        public static MainWindow MainWindow { get { return _mainWindow; } set { _mainWindow = value; } }
         public static Frame Holder { get { return _holder; } set { _holder = value; } }
 
-        public static GamePage GamePageView { get { return _gamePage; } set { _gamePage = value; } }
-        public static GameMenu GameMenuView { get { return _gameMenu; } set { _gameMenu = value; } }
+        public static GamePage GamePage { get { return _gamePage; } set { _gamePage = value; } }
+        public static GameMenu GameMenu { get { return _gameMenu; } set { _gameMenu = value; } }
 
         #endregion
 
@@ -34,14 +34,29 @@ namespace HourGlassUnlimited.Games.Sudoku.Tools
 
         public static void Start()
         {
+            MainWindow = new MainWindow();
+            Holder = MainWindow.Holder;
 
+            GamePage = new GamePage();
+            GameMenu = new GameMenu();
+
+            MainWindow.Show();
+            Holder.NavigationService.Navigate(GameMenu);
         }
 
         #endregion
 
         #region Navigation
 
+        public static void GamePageView()
+        {
+            Holder.NavigationService.Navigate(GamePage);
+        }
 
+        public static void GameMenuView()
+        {
+            Holder.NavigationService.Navigate(GameMenu);
+        }
 
         #endregion
     }

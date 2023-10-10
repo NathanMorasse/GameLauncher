@@ -23,5 +23,19 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
         {
             InitializeComponent();
         }
+
+        private void Holder_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+            if ((Holder.Content as Page).Title.Contains("Menu"))
+            {
+                if (Menu_Button.Visibility == Visibility.Visible)
+                    Menu_Button.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                if (Menu_Button.Visibility == Visibility.Hidden)
+                    Menu_Button.Visibility = Visibility.Visible;
+            }
+        }
     }
 }

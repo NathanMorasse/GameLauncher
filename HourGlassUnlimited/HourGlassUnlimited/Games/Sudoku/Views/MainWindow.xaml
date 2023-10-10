@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HourGlassUnlimited.Games.Sudoku.Views"
         mc:Ignorable="d"
-        Title="Sudoku" Height="1080" Width="1920">
+        Title="Sudoku" 
+        Height="1080"
+        Width="1920"
+        WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -19,9 +22,24 @@
         </Grid.ColumnDefinitions>
 
         <Grid x:Name="Header" Grid.Row="0" Grid.ColumnSpan="3" Background="AliceBlue" Margin="20 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="BrandName" Grid.Column="1" FontSize="30" VerticalAlignment="Center" Width="500" TextAlignment="Center">HourGlass Unlimited</TextBlock>
+
+            <Button x:Name="Launcher_Button" Grid.Column="0" Width="300" HorizontalAlignment="Left">
+                <TextBlock FontSize="20" Padding="10 0" Text="&lt; Plateforme de jeu"></TextBlock>
+            </Button>
+            
+            <Button x:Name="Menu_Button" Grid.Column="2" Width="300" HorizontalAlignment="Right">
+                <TextBlock FontSize="20" Padding="10 0" Text="Menu du jeu &gt;"></TextBlock>
+            </Button>
         </Grid>
 
-        <Frame x:Name="Holder" Grid.Row="1" Grid.Column="1" NavigationUIVisibility="Hidden"></Frame>
+        <Frame x:Name="Holder" Navigated="Holder_Navigated" Grid.Row="1" Grid.Column="1" NavigationUIVisibility="Hidden"></Frame>
 
         <Grid x:Name="Footer" Grid.Row="2" Grid.ColumnSpan="3" Background="AliceBlue">
 

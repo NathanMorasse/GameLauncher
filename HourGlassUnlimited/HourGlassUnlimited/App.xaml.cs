@@ -9,6 +9,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using HourGlassUnlimited.Games.Sudoku.Tools;
+using System.IO;
+using System.Reflection;
 
 namespace HourGlassUnlimited
 {
@@ -25,6 +28,17 @@ namespace HourGlassUnlimited
             Navigator.MainWindow.Show();
 
             Navigator.SignInView();
+
+            string[] str;
+
+            str = GameAccess.ListGames();
+
+            GameAccess.LaunchGame(str[0]);
+        }
+
+        private void TestFunc()
+        {
+
         }
     }
 }
