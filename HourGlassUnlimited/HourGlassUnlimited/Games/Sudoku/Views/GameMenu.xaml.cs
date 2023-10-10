@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace HourGlassUnlimited.Games.Sudoku.Views
 {
     /// <summary>
-    /// Logique d'interaction pour Game.xaml
+    /// Logique d'interaction pour GameMenu.xaml
     /// </summary>
-    public partial class Game : Page
+    public partial class GameMenu : Page
     {
-        public Game()
+        public GameMenu()
         {
             InitializeComponent();
         }

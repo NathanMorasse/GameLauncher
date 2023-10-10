@@ -9,6 +9,6 @@
       Title="GameList">
 
     <Grid Background="AntiqueWhite">
-        
+        <Button x:Name="Sudoku_Launch" Width="200" Height="100">Sudoku</Button>
     </Grid>
 </Page>

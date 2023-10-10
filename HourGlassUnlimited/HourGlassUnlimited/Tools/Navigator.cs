@@ -5,11 +5,36 @@ using System.Text;
 using System.Threading.Tasks;
 using HourGlassUnlimited.Views;
 using System.Windows.Controls;
+using System.Windows;
 
 namespace HourGlassUnlimited.Tools
 {
-    public static class Navigator
+    public class Navigator
     {
+        #region Singleton
+
+        private static Navigator instance;
+
+        private Navigator()
+        {
+
+        }
+
+        public static Navigator Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new Navigator();
+                }
+
+                return instance;
+            }
+        }
+
+        #endregion
+
         #region Attributes
 
         private static MainWindow _mainWindow;
@@ -26,57 +51,61 @@ namespace HourGlassUnlimited.Tools
 
         #region Properties
 
-        public static MainWindow MainWindowView { get { return _mainWindow; } set { _mainWindow = value; } }
+        public static MainWindow MainWindow { get { return _mainWindow; } set { _mainWindow = value; } }
         public static Frame Holder { get { return _holder; } set { _holder = value; } }
 
-        public static SignIn SignInView { get { return _signIn; } set { _signIn = value; } }
-        public static SignUp SignUpView { get { return _signUp; } set { _signUp = value; } }
-        public static EditAccount EditAccountView { get { return _editAccount; } set { _editAccount = value; } }
+        public static SignIn SignIn { get { return _signIn; } set { _signIn = value; } }
+        public static SignUp SignUp { get { return _signUp; } set { _signUp = value; } }
+        public static EditAccount EditAccount { get { return _editAccount; } set { _editAccount = value; } }
 
-        public static GameList GameListView { get { return _gameList; } set { _gameList = value; } }
-        public static Rankings RankingsView { get { return _rankings; } set { _rankings = value; } }
+        public static GameList GameList { get { return _gameList; } set { _gameList = value; } }
+        public static Rankings Rankings { get { return _rankings; } set { _rankings = value; } }
 
-        #endregion
-
-        #region Initialization
-        public static void InitializeService()
-        {
-            MainWindowView = new MainWindow();
-            Holder = MainWindowView.Holder;
-
-            SignInView = new SignIn();
-            SignUpView = new SignUp();
-            EditAccountView = new EditAccount();
-            GameListView = new GameList();
-            RankingsView = new Rankings();
-        }
         #endregion
 
         #region Navigation
-        public static void SignIn()
+        public void Start()
         {
-            Holder.NavigationService.Navigate(SignInView);
+            MainWindow = new MainWindow();
+            Holder = MainWindow.Holder;
+
+            SignIn = new SignIn();
+            SignUp = new SignUp();
+            EditAccount = new EditAccount();
+
+            GameList = new GameList();
+            Rankings = new Rankings();
+
+
+            MainWindow.Show();
+            SignInView();
         }
 
-        public static void SignUp()
+        public void SignInView()
         {
-            Holder.NavigationService.Navigate(SignUpView);
+            Holder.NavigationService.Navigate(SignIn);
         }
 
-        public static void EditAccount()
+        public void SignUpView()
         {
-            Holder.NavigationService.Navigate(EditAccountView);
+            Holder.NavigationService.Navigate(SignUp);
         }
 
-        public static void GameList()
+        public void EditAccountView()
         {
-            Holder.NavigationService.Navigate(GameListView);
+            Holder.NavigationService.Navigate(EditAccount);
         }
 
-        public static void Rankings()
+        public void GameListView()
         {
-            Holder.NavigationService.Navigate(RankingsView);
+            Holder.NavigationService.Navigate(GameList);
         }
+
+        public void RankingsView()
+        {
+            Holder.NavigationService.Navigate(Rankings);
+        }
+
         #endregion
     }
 }

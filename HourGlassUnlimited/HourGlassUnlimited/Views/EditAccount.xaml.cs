@@ -25,10 +25,5 @@ namespace HourGlassUnlimited.Views
         {
             InitializeComponent();
         }
-
-        private void Edit_Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

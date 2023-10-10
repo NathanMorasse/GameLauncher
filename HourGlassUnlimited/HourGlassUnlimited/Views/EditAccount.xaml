@@ -20,7 +20,7 @@
                 <TextBox></TextBox>
                 <Label>Département</Label>
                 <ComboBox></ComboBox>
-                <Button x:Name="Edit_Button" Click="Edit_Button_Click" Content="Modifier"></Button>
+                <Button x:Name="Edit_Button" Content="Modifier"></Button>
             </StackPanel>
         </Grid>
     </Grid>

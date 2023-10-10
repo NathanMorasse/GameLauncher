@@ -20,8 +20,8 @@
                 <TextBox></TextBox>
                 <Label>Département</Label>
                 <ComboBox></ComboBox>
-                <Button x:Name="SignUp_Button" Click="SignUp_Button_Click" Content="Créer"></Button>
-                <Button x:Name="Undo_Button" Click="Undo_Button_Click" Content="Annuler"></Button>
+                <Button x:Name="SignUp_Button" Content="Créer"></Button>
+                <Button x:Name="Undo_Button" Content="Annuler"></Button>
             </StackPanel>
         </Grid>
     </Grid>

@@ -41,22 +41,22 @@ namespace HourGlassUnlimited.Views
 
         private void GameList_Button_Click(object sender, RoutedEventArgs e)
         {
-            Navigator.GameList();
+            
         }
 
         private void Rankings_Button_Click(object sender, RoutedEventArgs e)
         {
-            Navigator.Rankings();
+            
         }
 
         private void Account_Button_Click(object sender, RoutedEventArgs e)
         {
-            Navigator.EditAccount();
+            
         }
 
         private void SignOff_Button_Click(object sender, RoutedEventArgs e)
         {
-            Navigator.SignIn();
+            
         }
     }
 }

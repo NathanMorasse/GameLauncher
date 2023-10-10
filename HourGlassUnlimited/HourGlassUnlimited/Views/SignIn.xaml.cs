@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HourGlassUnlimited.Tools;
+using HourGlassUnlimited.ViewModels;
 
 namespace HourGlassUnlimited.Views
 {
@@ -24,16 +25,7 @@ namespace HourGlassUnlimited.Views
         public SignIn()
         {
             InitializeComponent();
-        }
-
-        private void SignIn_Button_Click(object sender, RoutedEventArgs e)
-        {
-            Navigator.GameList();
-        }
-
-        private void SignUp_Button_Click(object sender, RoutedEventArgs e)
-        {
-            Navigator.SignUp();
+            DataContext = Navigator.SignIn;
         }
     }
 }

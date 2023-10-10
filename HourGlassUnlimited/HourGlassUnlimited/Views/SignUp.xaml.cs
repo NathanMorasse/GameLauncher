@@ -25,15 +25,5 @@ namespace HourGlassUnlimited.Views
         {
             InitializeComponent();
         }
-
-        private void SignUp_Button_Click(object sender, RoutedEventArgs e)
-        {
-            Navigator.GameList();
-        }
-
-        private void Undo_Button_Click(object sender, RoutedEventArgs e)
-        {
-            Navigator.SignIn();
-        }
     }
 }

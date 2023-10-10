@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HourGlassUnlimited.Games.Sudoku.Views"
         mc:Ignorable="d"
-        Title="Sudoku" Height="450" Width="800">
+        Title="Sudoku" Height="1080" Width="1920">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid x:Name="Header" Grid.Row="0" Grid.ColumnSpan="3" Background="AliceBlue" Margin="20 0">
+        </Grid>
+
+        <Frame x:Name="Holder" Grid.Row="1" Grid.Column="1" NavigationUIVisibility="Hidden"></Frame>
+
+        <Grid x:Name="Footer" Grid.Row="2" Grid.ColumnSpan="3" Background="AliceBlue">
+
+        </Grid>
     </Grid>
 </Window>
