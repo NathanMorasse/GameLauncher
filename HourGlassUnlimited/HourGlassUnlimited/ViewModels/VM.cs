@@ -19,11 +19,6 @@ namespace HourGlassUnlimited.ViewModels
             }
         }
 
-        public Navigator Nav;
-
-        protected VM()
-        {
-              Nav = Navigator.Instance;
-        }
+        public VM() { }
     }
 }

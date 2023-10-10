@@ -9,31 +9,8 @@ using System.Windows;
 
 namespace HourGlassUnlimited.Tools
 {
-    public class Navigator
+    public static class Navigator
     {
-        #region Singleton
-
-        private static Navigator instance;
-
-        private Navigator()
-        {
-
-        }
-
-        public static Navigator Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new Navigator();
-                }
-
-                return instance;
-            }
-        }
-
-        #endregion
 
         #region Attributes
 
@@ -64,7 +41,8 @@ namespace HourGlassUnlimited.Tools
         #endregion
 
         #region Navigation
-        public void Start()
+
+        public static void Start()
         {
             MainWindow = new MainWindow();
             Holder = MainWindow.Holder;
@@ -75,33 +53,29 @@ namespace HourGlassUnlimited.Tools
 
             GameList = new GameList();
             Rankings = new Rankings();
-
-
-            MainWindow.Show();
-            SignInView();
         }
 
-        public void SignInView()
+        public static void SignInView()
         {
             Holder.NavigationService.Navigate(SignIn);
         }
 
-        public void SignUpView()
+        public static void SignUpView()
         {
             Holder.NavigationService.Navigate(SignUp);
         }
 
-        public void EditAccountView()
+        public static void EditAccountView()
         {
             Holder.NavigationService.Navigate(EditAccount);
         }
 
-        public void GameListView()
+        public static void GameListView()
         {
             Holder.NavigationService.Navigate(GameList);
         }
 
-        public void RankingsView()
+        public static void RankingsView()
         {
             Holder.NavigationService.Navigate(Rankings);
         }

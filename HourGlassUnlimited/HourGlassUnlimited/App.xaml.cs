@@ -20,11 +20,11 @@ namespace HourGlassUnlimited
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            Navigator.Instance.Start();
+            Navigator.Start();
 
-            //Navigator.MainWindowView.Show();
+            Navigator.MainWindow.Show();
 
-            //Navigator.SignIn();
+            Navigator.SignInView();
         }
     }
 }

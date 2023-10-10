@@ -4,6 +4,80 @@
              xmlns:local="clr-namespace:HourGlassUnlimited"
              Startup="Application_Startup">
     <Application.Resources>
-         
+        <Style x:Key="StandardButton" TargetType="Button">
+            <Setter Property="Background" Value="LightGray" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="15">
+                            <Border Name="border_over" Background="Transparent" BorderBrush="Transparent" CornerRadius="15">
+                                <Viewbox Margin="30 0" MaxHeight="50">
+                                    <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                                </Viewbox>
+                            </Border>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Background" Value="LightGray" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="Gray" />
+                                <Setter Property="Foreground" Value="DarkGray" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border_over" Property="Background" Value="#33FFFFFF" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <!-- -->
+
+        <Style x:Key="LinkButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="DarkBlue" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="15">
+                            <TextBlock x:Name="TBlock" TextDecorations="Underline">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </TextBlock>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Background" Value="LightGray" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="Gray" />
+                                <Setter Property="Foreground" Value="DarkGray" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="TBlock" Property="Foreground" Value="Blue" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>

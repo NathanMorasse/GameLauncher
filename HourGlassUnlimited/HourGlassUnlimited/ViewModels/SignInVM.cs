@@ -10,8 +10,12 @@ namespace HourGlassUnlimited.ViewModels
 {
     public class SignInVM : VM
     {
-        public ICommand _SignIn;
-        public ICommand SignIn { get { return _SignIn; } set { _SignIn = value; } }
+        private ICommand _SignIn;
+        public ICommand SignIn 
+        { 
+            get { return _SignIn; } 
+            set { _SignIn = value; } 
+        }
 
         public SignInVM()
         {
@@ -21,7 +25,7 @@ namespace HourGlassUnlimited.ViewModels
         private bool SignIn_CanExecute(object parameter) { return true; }
         private void SignIn_Execute(object parameter)
         {
-            Nav.GameListView();
+            Navigator.GameListView();
         }
     }
 }
