@@ -31,9 +31,9 @@
                     <Label>Mot de passe</Label>
                     <TextBox></TextBox>
                 </StackPanel>
-                
-                <Button x:Name="SignIn_Button" Style="{StaticResource StandardButton}"  Grid.Row="3" Content="Connection"></Button>
-                <Button x:Name="SignUp_Button" Style="{StaticResource LinkButton}" Grid.Row="4" Content="Créer un compte"></Button>
+
+                <Button x:Name="SignIn_Button" Command="{Binding GoToGameList}" Style="{StaticResource StandardButton}"  Grid.Row="3" Content="Connection"></Button>
+                <Button x:Name="SignUp_Button" Command="{Binding GoToSignUp}" Style="{StaticResource LinkButton}" Grid.Row="4" Content="Créer un compte"></Button>
             </Grid>
         </Border>
     </Grid>

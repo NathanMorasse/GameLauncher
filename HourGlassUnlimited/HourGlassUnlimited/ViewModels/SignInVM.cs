@@ -10,22 +10,19 @@ namespace HourGlassUnlimited.ViewModels
 {
     public class SignInVM : VM
     {
-        private ICommand _SignIn;
-        public ICommand SignIn 
-        { 
-            get { return _SignIn; } 
-            set { _SignIn = value; } 
-        }
+        public ICommand GoToGameList { get; set; }
+        public ICommand GoToSignUp { get; set; }
 
         public SignInVM()
         {
-            this.SignIn = new CommandLink(SignIn_Execute, SignIn_CanExecute);
+            this.GoToGameList = new CommandLink(GoToGameList_Execute, GoToGameList_CanExecute);
+            this.GoToSignUp = new CommandLink(GoToSignUp_Execute, GoToSignUp_CanExecute);
         }
 
-        private bool SignIn_CanExecute(object parameter) { return true; }
-        private void SignIn_Execute(object parameter)
-        {
-            Navigator.GameListView();
-        }
+        private bool GoToGameList_CanExecute(object parameter) { return true; }
+        private void GoToGameList_Execute(object parameter) { Navigator.GameListView(); }
+
+        private bool GoToSignUp_CanExecute(object parameter) { return true; }
+        private void GoToSignUp_Execute(object parameter) { Navigator.SignUpView(); }
     }
 }

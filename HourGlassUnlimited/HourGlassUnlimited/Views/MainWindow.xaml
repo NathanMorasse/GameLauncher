@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HourGlassUnlimited.Views"
+        xmlns:viewModel="clr-namespace:HourGlassUnlimited.ViewModels"
+        d:DataContext="{d:DesignInstance Type=viewModel:MainWindowVM}"
         mc:Ignorable="d"
         Title="HourGlass Unlimited" Height="1080" Width="1920">
     <Grid>
@@ -22,18 +24,23 @@
             <TextBlock x:Name="BrandName" FontSize="30" VerticalAlignment="Center" Width="500" HorizontalAlignment="Left">HourGlass Unlimited</TextBlock>
 
             <StackPanel x:Name="NavBar" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                <Button x:Name="GameList_Button" Click="GameList_Button_Click" Margin="0 0 10 0">
+                
+                <Button x:Name="GameList_Button" Command="{Binding GoToGameList}" Margin="0 0 10 0">
                     <TextBlock FontSize="20" Padding="10 0">Jeux</TextBlock>
                 </Button>
-                <Button x:Name="Rankings_Button" Click="Rankings_Button_Click" Margin="10 0">
+
+                <Button x:Name="Rankings_Button" Command="{Binding GoToRankings}" Margin="10 0">
                     <TextBlock FontSize="20" Padding="10 0">Classement</TextBlock>
                 </Button>
-                <Button x:Name="Account_Button" Click="Account_Button_Click" Margin="10 0">
+
+                <Button x:Name="Account_Button" Command="{Binding GoToEditAccount}" Margin="10 0">
                     <TextBlock FontSize="20" Padding="10 0">Compte</TextBlock>
                 </Button>
-                <Button x:Name="SignOff_Button" Click="SignOff_Button_Click" Margin="10 0 0 0">
+
+                <Button x:Name="SignOff_Button" Command="{Binding GoToSignIn}" Margin="10 0 0 0">
                     <TextBlock FontSize="20" Padding="10 0">Déconnexion</TextBlock>
                 </Button>
+                
             </StackPanel>
         </Grid>
 

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using HourGlassUnlimited.Tools;
+using HourGlassUnlimited.ViewModels;
 
 namespace HourGlassUnlimited.Views
 {
@@ -23,6 +24,7 @@ namespace HourGlassUnlimited.Views
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainWindowVM();
         }
 
         private void Holder_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
@@ -37,26 +39,6 @@ namespace HourGlassUnlimited.Views
                 if (NavBar.Visibility == Visibility.Hidden)
                     NavBar.Visibility = Visibility.Visible;
             }
-        }
-
-        private void GameList_Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void Rankings_Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void Account_Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void SignOff_Button_Click(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }

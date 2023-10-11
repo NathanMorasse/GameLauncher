@@ -29,11 +29,11 @@ namespace HourGlassUnlimited
 
             Navigator.SignInView();
 
-            string[] str;
+            //string[] str;
 
-            str = GameAccess.ListGames();
+            //str = GameAccess.ListGames();
 
-            GameAccess.LaunchGame(str[0]);
+            //GameAccess.LaunchGame(str[0]);
         }
 
         private void TestFunc()

@@ -25,7 +25,7 @@ namespace HourGlassUnlimited.Views
         public SignIn()
         {
             InitializeComponent();
-            DataContext = Navigator.SignIn;
+            DataContext = new SignInVM();
         }
     }
 }
