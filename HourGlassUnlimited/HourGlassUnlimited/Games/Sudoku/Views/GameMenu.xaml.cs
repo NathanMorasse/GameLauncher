@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HourGlassUnlimited.Games.Sudoku.ViewModels;
 
 namespace HourGlassUnlimited.Games.Sudoku.Views
 {
@@ -23,6 +24,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
         public GameMenu()
         {
             InitializeComponent();
+            this.DataContext = new GameMenuVM();
         }
     }
 }

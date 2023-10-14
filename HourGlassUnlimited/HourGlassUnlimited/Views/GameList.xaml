@@ -4,11 +4,13 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HourGlassUnlimited.Views"
+      xmlns:viewModel="clr-namespace:HourGlassUnlimited.ViewModels"
+      d:DataContext="{d:DesignInstance Type=viewModel:GameListVM}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="GameList">
 
     <Grid Background="AntiqueWhite">
-        <Button x:Name="Sudoku_Launch" Width="200" Height="100">Sudoku</Button>
+        <Button x:Name="Sudoku_Launch" Command="{Binding LaunchGame}" Width="200" Height="100">Sudoku</Button>
     </Grid>
 </Page>

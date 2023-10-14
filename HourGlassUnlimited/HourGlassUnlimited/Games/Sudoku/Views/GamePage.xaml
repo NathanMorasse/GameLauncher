@@ -4,11 +4,290 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HourGlassUnlimited.Games.Sudoku.Views"
+      xmlns:viewModel="clr-namespace:HourGlassUnlimited.Games.Sudoku.ViewModels"
+      d:DataContext="{d:DesignInstance Type=viewModel:GamePageVM}"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="GamePage">
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="GamePage" Background="White">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="900"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="900"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="600"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid x:Name="SudokuGrid" Grid.Row="1" Grid.Column="1" Background="AliceBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="TopLeft" Grid.Row="0" Grid.Column="0" Background="#484848">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="0"></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="1"></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="2"></TextBox>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="0"></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="1"></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="2"></TextBox>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="0"></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="1"></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="2"></TextBox>
+            </Grid>
+
+            <Grid x:Name="Top" Grid.Row="0" Grid.Column="1" Background="Gray">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="0"></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="1"></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="2"></TextBox>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="0"></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="1"></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="2"></TextBox>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="0" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="1" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="2" ></TextBox>
+            </Grid>
+
+            <Grid x:Name="TopRight" Grid.Row="0" Grid.Column="2" Background="#484848">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="0" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="1" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="2" ></TextBox>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="0" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="1" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="2" ></TextBox>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="0" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="1" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="2" ></TextBox>
+            </Grid>
+
+
+
+
+
+            <Grid x:Name="Left" Grid.Row="1" Grid.Column="0" Background="Gray">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="0"></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="1"></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="2"></TextBox>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="0"></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="1"></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="2"></TextBox>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="0" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="1" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="2" ></TextBox>
+            </Grid>
+
+            <Grid x:Name="Middle" Grid.Row="1" Grid.Column="1" Background="#484848">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="0" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="1" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="2" ></TextBox>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="0" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="1" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="2" ></TextBox>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="0" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="1" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="2" ></TextBox>
+            </Grid>
+
+            <Grid x:Name="Right" Grid.Row="1" Grid.Column="2" Background="Gray">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="0" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="1" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="2" ></TextBox>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="0" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="1" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="2" ></TextBox>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="0" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="1" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="2" ></TextBox>
+            </Grid>
+
+
+
+
+
+            <Grid x:Name="BottomLeft" Grid.Row="2" Grid.Column="0" Background="#484848">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="0" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="1" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="2" ></TextBox>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="0" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="1" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="2" ></TextBox>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="0" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="1" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="2" ></TextBox>
+            </Grid>
+
+            <Grid x:Name="Bottom" Grid.Row="2" Grid.Column="1" Background="Gray">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="0" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="1" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="2" ></TextBox>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="0" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="1" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="2" ></TextBox>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="0" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="1" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="2" ></TextBox>
+            </Grid>
+
+            <Grid x:Name="BottomRight" Grid.Row="2" Grid.Column="2" Background="#484848">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="0" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="1" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="0" Grid.Column="2" ></TextBox>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="0" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="1" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="1" Grid.Column="2" ></TextBox>
+
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="0" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="1" ></TextBox>
+                <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="2" ></TextBox>
+            </Grid>
+        </Grid>
+
+
+        <Grid Grid.Row="1" Grid.Column="3" Background="DarkGray">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="130">00:00:00</TextBlock>
+            </Grid>
+            <Grid Grid.Row="2"></Grid>
+            <Grid Grid.Row="4">
+                <Button Margin="5" Width="480" HorizontalAlignment="Left" FontSize="50" Background="LightGray">Vérifier</Button>
+                <Button Margin="5" Width="100" HorizontalAlignment="Right" FontSize="50" Background="DeepSkyBlue" FontFamily="Segoe mdl2 assets">&#xE72C;</Button>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>

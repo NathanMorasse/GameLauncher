@@ -7,7 +7,9 @@
         xmlns:viewModel="clr-namespace:HourGlassUnlimited.ViewModels"
         d:DataContext="{d:DesignInstance Type=viewModel:MainWindowVM}"
         mc:Ignorable="d"
-        Title="HourGlass Unlimited" Height="1080" Width="1920">
+        Title="HourGlass Unlimited" 
+        Height="1080" Width="1920"
+        WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>

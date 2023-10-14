@@ -4,6 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HourGlassUnlimited.Games.Sudoku.Views"
+      xmlns:viewModel="clr-namespace:HourGlassUnlimited.Games.Sudoku.ViewModels"
+      d:DataContext="{d:DesignInstance Type=viewModel:GameMenuVM}"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="GameMenu"
@@ -20,5 +22,7 @@
             <ColumnDefinition Width="1200"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+
+        <Button x:Name="Normal_Button" Command="{Binding Normal}" Grid.Row="1" Grid.Column="1" Width="200" Height="100">Normal</Button>
     </Grid>
 </Page>
