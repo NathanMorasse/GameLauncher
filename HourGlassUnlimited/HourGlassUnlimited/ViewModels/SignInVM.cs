@@ -15,8 +15,8 @@ namespace HourGlassUnlimited.ViewModels
 
         public SignInVM()
         {
-            this.GoToGameList = new CommandLink(GoToGameList_Execute, GoToGameList_CanExecute);
-            this.GoToSignUp = new CommandLink(GoToSignUp_Execute, GoToSignUp_CanExecute);
+            GoToGameList = new CommandLink(GoToGameList_Execute, GoToGameList_CanExecute);
+            GoToSignUp = new CommandLink(GoToSignUp_Execute, GoToSignUp_CanExecute);
         }
 
         private bool GoToGameList_CanExecute(object parameter) { return true; }

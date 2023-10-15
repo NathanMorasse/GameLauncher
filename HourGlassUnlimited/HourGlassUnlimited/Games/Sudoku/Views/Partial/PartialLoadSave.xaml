@@ -10,14 +10,14 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="900"/>
             <ColumnDefinition/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <TextBlock VerticalAlignment="Center" TextWrapping="Wrap" Grid.Column="0" FontSize="50">Une ancienne partie a été détectée. Voulez-vous la continuer ou écraser la sauvegarde et commencer une nouvelle partie?</TextBlock>
 
-        <Button Width="300" Height="100" Grid.Column="1">Écraser</Button>
-        <Button Width="300" Height="100" Grid.Column="2">Continuer</Button>
+        <Button Width="300" Height="100" Grid.Column="1" FontSize="50">Écraser</Button>
+        <Button Width="300" Height="100" Grid.Column="2" FontSize="50">Continuer</Button>
     </Grid>
 </Page>

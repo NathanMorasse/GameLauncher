@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HourGlassUnlimited.Models
+namespace HourGlassUnlimited.Models.Base
 {
-    internal class GameBase
+    public abstract class ModelBase
     {
+        public int Id { get; set; }
     }
 }

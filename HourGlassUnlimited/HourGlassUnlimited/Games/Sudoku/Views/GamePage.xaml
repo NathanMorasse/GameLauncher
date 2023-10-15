@@ -24,7 +24,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="SudokuGrid" Grid.Row="1" Grid.Column="1" Background="AliceBlue">
+        <!--<Grid x:Name="SudokuGrid" Grid.Row="1" Grid.Column="1" Background="AliceBlue">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -268,8 +268,30 @@
                 <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="1" ></TextBox>
                 <TextBox Style="{StaticResource SudokuCase}" PreviewTextInput="TextBox_PreviewTextInput" Grid.Row="2" Grid.Column="2" ></TextBox>
             </Grid>
-        </Grid>
+        </Grid>-->
 
+        <Grid Grid.Row="1" Grid.Column="1" Background="AliceBlue">
+            <!-- Outer ItemsControl for Rows -->
+            <ItemsControl ItemsSource="{Binding Board}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <!-- Inner ItemsControl for Cells -->
+                        <ItemsControl ItemsSource="{Binding}" Orientation="Horizontal" ItemsPanel="{StaticResource HorizontalStackPanelTemplate}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBox Text="{Binding}" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </Grid>
 
         <Grid Grid.Row="1" Grid.Column="3" Background="DarkGray">
             <Grid.RowDefinitions>
