@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using HourGlassUnlimited.Games.Sudoku.ViewModels;
+using HourGlassUnlimited.Games.Sudoku.Models;
 
 namespace HourGlassUnlimited.Games.Sudoku.ViewModels
 {
-    public class GameMenuVM : VM
-    {
+    public class GameMenuVM : VM 
+    {     
         public ICommand Normal { get; set; }
 
         public GameMenuVM()

@@ -11,23 +11,31 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
 {
     public class GamePageVM : VM
     {
-        private SudokuGame sudokuGame;
+        private SudokuGame _currentGame;
 
-        private ObservableCollection<ObservableCollection<int>> _board;
+
+        public SudokuGame CurrentGame
+        {
+            get { return _currentGame; }
+            set 
+            {
+                _currentGame = value;
+                ChangeValue("Current");
+            }
+        }
 
         public ObservableCollection<ObservableCollection<int>> Board
         {
-            get { return _board; }
+            get { return _currentGame.GameBoard.Grid; }
             set
             {
-                _board = value;
+                _currentGame.GameBoard.Grid = value;
                 ChangeValue("Board");
             }
         }
 
-        public GamePageVM(SudokuGame game)
+        public GamePageVM()
         {
-            Board = game.GameBoard.Grid;
         }
 
     }
