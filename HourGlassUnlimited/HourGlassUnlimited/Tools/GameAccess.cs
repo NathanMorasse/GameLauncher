@@ -30,7 +30,7 @@ namespace HourGlassUnlimited.Tools
         {
             string[] games;
 
-            games = Directory.GetDirectories("../../../Games");
+            games = Directory.GetDirectories(ToolKit.GetDefaultPath() + "/Games");
 
             int cpt = 0;
 
@@ -42,6 +42,46 @@ namespace HourGlassUnlimited.Tools
             }
 
             return games;
+        }
+
+        public static void LoadGames()
+        {
+            string[] gameList = ListGames();
+            string mainPath = ToolKit.GetDefaultPath();
+            List<string[]> games = new List<string[]>();
+
+            foreach (string gameName in gameList)
+            {
+                string pathToGame = ToolKit.GetDefaultPath() + "/" + gameName;
+
+                if (ImgExists(pathToGame))
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+        }
+
+        public static bool ImgExists(string pathToGame)
+        {
+            string[] directories;
+
+            directories = Directory.GetDirectories(pathToGame);
+
+            foreach (string path in directories)
+            {
+                string name = Path.GetFileName(path);
+
+                if (name == "Img")
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
