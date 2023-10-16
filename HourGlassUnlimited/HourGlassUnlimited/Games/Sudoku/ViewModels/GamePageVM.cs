@@ -1,6 +1,5 @@
 ﻿using HourGlassUnlimited.ViewModels;
 using HourGlassUnlimited.Games.Sudoku.Models;
-using HourGlassUnlimited.Games.Sudoku.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

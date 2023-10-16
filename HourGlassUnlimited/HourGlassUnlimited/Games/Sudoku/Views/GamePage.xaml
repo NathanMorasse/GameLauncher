@@ -271,12 +271,10 @@
         </Grid>-->
 
         <Grid Grid.Row="1" Grid.Column="1" Background="AliceBlue">
-            <!-- Outer ItemsControl for Rows -->
             <ItemsControl ItemsSource="{Binding Board}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <!-- Inner ItemsControl for Cells -->
-                        <ItemsControl ItemsSource="{Binding}" Orientation="Horizontal" ItemsPanel="{StaticResource HorizontalStackPanelTemplate}">
+                        <ItemsControl ItemsSource="{Binding}" ItemsPanel="{StaticResource HorizontalStackPanelTemplate}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <TextBox Text="{Binding}" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
