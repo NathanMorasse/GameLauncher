@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using HourGlassUnlimited.Games.Sudoku.ViewModels;
 using HourGlassUnlimited.Games.Sudoku.Models;
+using HourGlassUnlimited.Games.Sudoku.DataAccesLayer;
 
 namespace HourGlassUnlimited.Games.Sudoku.ViewModels
 {
@@ -19,9 +20,18 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         public GameMenuVM()
         {
             this.Normal = new CommandLink(Normal_Execute, Normal_CanExecute);
+            
         }
 
         private bool Normal_CanExecute(object parameter) { return true; }
-        private void Normal_Execute(object parameter) { SudokuNavigator.GamePageView(); }
+        private async void Normal_Execute(object parameter) 
+        {
+            SudokuGame game = new SudokuGame();
+            game.IsDaily = true;
+            DAL dal = new DAL();
+            game.GameBoard = await dal.SudokuFact.GenerateBoard("easy");
+            SudokuNavigator.GamePage.SetGame(game);
+            SudokuNavigator.GamePageView(); 
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Models
 {
     public class Board: ModelBase
     {
-        public ObservableCollection<ObservableCollection<int>> Grid { get; set; }
+        public ObservableCollection<ObservableCollection<int>> Grid { get; set; } = new ObservableCollection<ObservableCollection<int>>();
 
     }
 }

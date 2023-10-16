@@ -16,9 +16,9 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
         {
 			try
 			{
-				HttpResponseMessage response = await APIClient.GetAsync(BaseUri + $"Board?dificulty={difficulty}");
+				HttpResponseMessage response = await APIClient.GetAsync(BaseUri + $"board?difficulty={difficulty}");
                 string content = await response.Content.ReadAsStringAsync();
-                Board board = JsonConvert.DeserializeObject<Board>(content);
+                Board board = JsonConvert.DeserializeObject<Board>(content.Replace("board", "Grid"));
                 return board;
             }
 			catch (Exception e)

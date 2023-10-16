@@ -274,10 +274,10 @@
             <ItemsControl ItemsSource="{Binding Board}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <ItemsControl ItemsSource="{Binding}" ItemsPanel="{StaticResource HorizontalStackPanelTemplate}">
+                        <ItemsControl ItemsSource="{Binding}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBox Text="{Binding}" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    <TextBox Text="{Binding Mode=OneWay}" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>

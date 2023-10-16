@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HourGlassUnlimited.Games.Sudoku.Models;
 using HourGlassUnlimited.Games.Sudoku.ViewModels;
 
 namespace HourGlassUnlimited.Games.Sudoku.Views
@@ -25,6 +26,13 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
         {
             InitializeComponent();
             this.DataContext = new GamePageVM();
+        }
+
+        public void SetGame(SudokuGame game)
+        {
+            var vm = (GamePageVM)this.DataContext;
+            vm.CurrentGame = game;
+            vm.Board = game.GameBoard.Grid;
         }
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)

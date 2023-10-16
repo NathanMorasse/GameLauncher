@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using HourGlassUnlimited.Games.Sudoku.Tools;
+using System.Windows.Input;
 
 namespace HourGlassUnlimited.Games.Sudoku.ViewModels
 {
@@ -13,10 +15,16 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
     {
         private SudokuGame _currentGame;
 
-
         public SudokuGame CurrentGame
         {
-            get { return _currentGame; }
+            get 
+            {
+                if (_currentGame == null)
+                {
+                    _currentGame = new SudokuGame();
+                }
+                return _currentGame; 
+            }
             set 
             {
                 _currentGame = value;
@@ -26,10 +34,13 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
 
         public ObservableCollection<ObservableCollection<int>> Board
         {
-            get { return _currentGame.GameBoard.Grid; }
+            get 
+            {
+                return CurrentGame.GameBoard.Grid; 
+            }
             set
             {
-                _currentGame.GameBoard.Grid = value;
+                CurrentGame.GameBoard.Grid = value;
                 ChangeValue("Board");
             }
         }
@@ -37,6 +48,5 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         public GamePageVM()
         {
         }
-
     }
 }
