@@ -271,13 +271,20 @@
         </Grid>-->
 
         <Grid Grid.Row="1" Grid.Column="1" Background="AliceBlue">
+            <!-- Outer ItemsControl for Rows -->
             <ItemsControl ItemsSource="{Binding Board}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
+                        <!-- Inner ItemsControl for Cells -->
                         <ItemsControl ItemsSource="{Binding}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBox Text="{Binding Mode=OneWay}" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    <TextBox Text="{Binding Mode=OneWay}" FontSize="50" Width="100" Height="100" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
