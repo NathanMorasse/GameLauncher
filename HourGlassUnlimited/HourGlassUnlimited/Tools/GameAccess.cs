@@ -26,6 +26,36 @@ namespace HourGlassUnlimited.Tools
             }
         }
 
+        public static List<string[]> LoadGames()
+        {
+            string[] gameList = ListGames();
+            string mainPath = ToolKit.GetDefaultPath();
+            List<string[]> games = new List<string[]>();
+
+            foreach (string gameName in gameList)
+            {
+                string[] game = new string[2];
+                game[0] = gameName;
+                game[1] = ToolKit.DefaultImgPath;
+
+                string traveler = ToolKit.GetDefaultPath() + "/Games/" + gameName;
+
+                if (ImgExists(traveler))
+                {
+                    traveler = traveler + "/Img";
+
+                    if (LogoExists(traveler))
+                    {
+                        game[1] = traveler + "/Logo.png";
+                    }
+                }
+
+                games.Add(game);
+            }
+
+            return games;
+        }
+
         public static string[] ListGames()
         {
             string[] games;
@@ -44,28 +74,7 @@ namespace HourGlassUnlimited.Tools
             return games;
         }
 
-        public static void LoadGames()
-        {
-            string[] gameList = ListGames();
-            string mainPath = ToolKit.GetDefaultPath();
-            List<string[]> games = new List<string[]>();
-
-            foreach (string gameName in gameList)
-            {
-                string pathToGame = ToolKit.GetDefaultPath() + "/" + gameName;
-
-                if (ImgExists(pathToGame))
-                {
-
-                }
-                else
-                {
-
-                }
-            }
-        }
-
-        public static bool ImgExists(string pathToGame)
+        private static bool ImgExists(string pathToGame)
         {
             string[] directories;
 
@@ -76,6 +85,25 @@ namespace HourGlassUnlimited.Tools
                 string name = Path.GetFileName(path);
 
                 if (name == "Img")
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private static bool LogoExists(string pathToImg)
+        {
+            string[] files;
+
+            files = Directory.GetFiles(pathToImg);
+
+            foreach (string path in files)
+            {
+                string name = Path.GetFileName(path);
+
+                if (name == "Logo.png")
                 {
                     return true;
                 }

@@ -29,7 +29,7 @@ namespace HourGlassUnlimited
 
             Navigator.SignInView();
 
-            GameAccess.ListGames();
+            GameAccess.LoadGames();
 
             //string[] str;
 

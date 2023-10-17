@@ -9,6 +9,8 @@ namespace HourGlassUnlimited.Tools
 {
     public static class ToolKit
     {
+        public static string DefaultImgPath { get { return GetDefaultPath() + "/Img/DefaultLogo.png"; } }
+
         public static string GetDefaultPath()
         {
             DirectoryInfo info;
