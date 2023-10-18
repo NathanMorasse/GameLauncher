@@ -32,7 +32,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
         {
             var vm = (GamePageVM)this.DataContext;
             vm.CurrentGame = game;
-            vm.Board = game.GameBoard.Grid;
+            vm.CurrentBoard = game.GameBoard.Grid;
         }
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -47,11 +47,6 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
         private bool IsDigit(string text)
         {
             return int.TryParse(text, out _);
-        }
-
-        private void TextBox_PreviewTextInput_1(object sender, TextCompositionEventArgs e)
-        {
-
         }
     }
 }

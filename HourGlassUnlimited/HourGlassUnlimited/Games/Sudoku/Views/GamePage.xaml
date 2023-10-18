@@ -26,7 +26,7 @@
 
         <Grid Grid.Row="1" Grid.Column="1" Background="Transparent">
             <!-- Outer ItemsControl for Rows -->
-            <ItemsControl ItemsSource="{Binding Board}">
+            <ItemsControl ItemsSource="{Binding CurrentBoard}" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <!-- Inner ItemsControl for Cells -->
@@ -38,7 +38,7 @@
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBox Text="{Binding Mode=TwoWay}" FontSize="50" Width="100" Height="100" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    <TextBox Style="{StaticResource SudokuCase}" Text="{Binding Value, Mode=TwoWay}" PreviewTextInput="TextBox_PreviewTextInput" Width="80" Height="80"/>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
@@ -66,7 +66,7 @@
             </Grid>
             <Grid Grid.Row="2"></Grid>
             <Grid Grid.Row="4">
-                <Button Margin="5" Width="480" HorizontalAlignment="Left" FontSize="50" Background="LightGray">Vérifier</Button>
+                <Button Command="{Binding Validate}" Margin="5" Width="480" HorizontalAlignment="Left" FontSize="50" Background="LightGray">Vérifier</Button>
                 <Button Margin="5" Width="100" HorizontalAlignment="Right" FontSize="50" Background="DeepSkyBlue" FontFamily="Segoe mdl2 assets">&#xE72C;</Button>
             </Grid>
         </Grid>
