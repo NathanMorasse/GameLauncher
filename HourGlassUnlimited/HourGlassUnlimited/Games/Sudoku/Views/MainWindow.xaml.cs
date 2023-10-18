@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HourGlassUnlimited.Games.Sudoku.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new SudokuWindowVM();
         }
 
         private void Holder_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)

@@ -48,6 +48,11 @@ namespace HourGlassUnlimited.Games.Sudoku.Tools
 
         #region Navigation
 
+        public static void Close()
+        {
+            _mainWindow.Close();
+        }
+
         public static void GamePageView()
         {
             Holder.NavigationService.Navigate(GamePage);

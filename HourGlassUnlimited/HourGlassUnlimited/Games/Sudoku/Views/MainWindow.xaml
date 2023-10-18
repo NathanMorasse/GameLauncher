@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HourGlassUnlimited.Games.Sudoku.Views"
+        xmlns:viewModel="clr-namespace:HourGlassUnlimited.Games.Sudoku.ViewModels"
+        d:DataContext="{d:DesignInstance Type=viewModel:SudokuWindowVM}"
         mc:Ignorable="d"
         Title="Sudoku" 
         Height="1080"
@@ -30,11 +32,11 @@
 
             <TextBlock x:Name="BrandName" Grid.Column="1" FontSize="30" VerticalAlignment="Center" Width="500" TextAlignment="Center">HourGlass Unlimited</TextBlock>
 
-            <Button x:Name="Launcher_Button" Grid.Column="0" Width="300" HorizontalAlignment="Left">
+            <Button x:Name="Launcher_Button" Grid.Column="0" Width="300" HorizontalAlignment="Left" Command="{Binding Exit_To_Launcher}">
                 <TextBlock FontSize="20" Padding="10 0" Text="&lt; Plateforme de jeu"></TextBlock>
             </Button>
-            
-            <Button x:Name="Menu_Button" Grid.Column="2" Width="300" HorizontalAlignment="Right">
+
+            <Button x:Name="Menu_Button" Grid.Column="2" Width="300" HorizontalAlignment="Right" Command="{Binding Back_To_Menu}">
                 <TextBlock FontSize="20" Padding="10 0" Text="Menu du jeu &gt;"></TextBlock>
             </Button>
         </Grid>
