@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HourGlassUnlimited.Games.Sudoku.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,10 @@ namespace HourGlassUnlimited.Games.Sudoku.Views.Partial
     /// </summary>
     public partial class PartialLoadSave : Page
     {
-        public PartialLoadSave()
+        public PartialLoadSave(GameMenuVM context)
         {
             InitializeComponent();
+            this.DataContext = context;
         }
     }
 }

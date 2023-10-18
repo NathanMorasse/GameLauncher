@@ -36,9 +36,9 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
 
         public ObservableCollection<ObservableCollection<Cell>> CurrentBoard
         {
-            get 
+            get
             {
-                return CurrentGame.GameBoard.Grid; 
+                return CurrentGame.GameBoard.Grid;
             }
             set
             {
@@ -54,9 +54,19 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
             string valid = await dal.SudokuFact.ValidateBoard(CurrentGame.GameBoard);
         }
 
+        public ICommand Reset { get; set; }
+        private bool Reset_CanExecute(object parameter) { return true; }
+        private async void Reset_Execute(object parameter)
+        {
+            DAL dal = new DAL();
+            Board newBoard = await dal.SudokuFact.GenerateBoard("random");
+            CurrentBoard = newBoard.Grid;
+        }
+
         public GamePageVM()
         {
             Validate = new CommandLink(Validate_Execute, Validate_CanExecute);
+            Reset = new CommandLink(Reset_Execute, Reset_CanExecute);
         }
     }
 }

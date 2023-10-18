@@ -5,11 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HourGlassUnlimited.Games.Sudoku.Views"
       xmlns:viewModel="clr-namespace:HourGlassUnlimited.Games.Sudoku.ViewModels"
+      xmlns:converters="clr-namespace:HourGlassUnlimited.Games.Sudoku.Tools"
       d:DataContext="{d:DesignInstance Type=viewModel:GamePageVM}"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="GamePage" Background="White">
-
+    <Page.Resources>
+        <converters:CellZeroConverter x:Key="CellZeroConverter"/>
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -38,7 +41,7 @@
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBox Style="{StaticResource SudokuCase}" Text="{Binding Value, Mode=TwoWay}" PreviewTextInput="TextBox_PreviewTextInput" Width="80" Height="80"/>
+                                    <TextBox Style="{StaticResource SudokuCase}" Text="{Binding Value, Mode=TwoWay, Converter={StaticResource CellZeroConverter}}" PreviewTextInput="TextBox_PreviewTextInput" Width="80" Height="80"/>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
@@ -67,7 +70,7 @@
             <Grid Grid.Row="2"></Grid>
             <Grid Grid.Row="4">
                 <Button Command="{Binding Validate}" Margin="5" Width="480" HorizontalAlignment="Left" FontSize="50" Background="LightGray">Vérifier</Button>
-                <Button Margin="5" Width="100" HorizontalAlignment="Right" FontSize="50" Background="DeepSkyBlue" FontFamily="Segoe mdl2 assets">&#xE72C;</Button>
+                <Button Command="{Binding Reset}" Margin="5" Width="100" HorizontalAlignment="Right" FontSize="50" Background="DeepSkyBlue" FontFamily="Segoe mdl2 assets">&#xE72C;</Button>
             </Grid>
         </Grid>
     </Grid>
