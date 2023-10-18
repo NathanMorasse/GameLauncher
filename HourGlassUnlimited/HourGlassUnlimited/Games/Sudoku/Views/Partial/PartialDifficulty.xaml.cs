@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HourGlassUnlimited.Games.Sudoku.ViewModels;
 
 namespace HourGlassUnlimited.Games.Sudoku.Views
 {
@@ -20,9 +21,10 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
     /// </summary>
     public partial class PartialDifficulty : Page
     {
-        public PartialDifficulty()
+        public PartialDifficulty(GameMenuVM context)
         {
             InitializeComponent();
+            this.DataContext = context;
         }
     }
 }

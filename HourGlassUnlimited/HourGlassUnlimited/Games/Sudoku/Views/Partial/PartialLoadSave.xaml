@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:HourGlassUnlimited.Games.Sudoku.Views.Partial"
       mc:Ignorable="d" 
       d:DesignHeight="250" d:DesignWidth="1600"
-      Title="PartialLoadSave">
+      Title="PartialLoadSave" Background="White">
 
     <Grid>
         <Grid.ColumnDefinitions>

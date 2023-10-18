@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using HourGlassUnlimited.Games.Sudoku.Views;
+using HourGlassUnlimited.Games.Sudoku.ViewModels;
+using HourGlassUnlimited.Games.Sudoku.Views.Partial;
 
 namespace HourGlassUnlimited.Games.Sudoku.Tools
 {
@@ -17,6 +19,8 @@ namespace HourGlassUnlimited.Games.Sudoku.Tools
 
         private static GamePage _gamePage;
         private static GameMenu _gameMenu;
+        private static PartialDifficulty _partialDifficulty;
+        private static PartialLoadSave _partialLoadSave;
 
         #endregion
 
@@ -27,6 +31,8 @@ namespace HourGlassUnlimited.Games.Sudoku.Tools
 
         public static GamePage GamePage { get { return _gamePage; } set { _gamePage = value; } }
         public static GameMenu GameMenu { get { return _gameMenu; } set { _gameMenu = value; } }
+        public static PartialDifficulty PartialDifficulty { get { return _partialDifficulty; } set { _partialDifficulty = value; } }
+        public static PartialLoadSave PartialLoadSave { get { return _partialLoadSave; } set { _partialLoadSave = value; } }
 
         #endregion
 
@@ -39,7 +45,9 @@ namespace HourGlassUnlimited.Games.Sudoku.Tools
 
             GamePage = new GamePage();
             GameMenu = new GameMenu();
-
+            PartialDifficulty = new PartialDifficulty((GameMenuVM)GameMenu.DataContext);
+            PartialLoadSave = new PartialLoadSave((GameMenuVM)GameMenu.DataContext);
+            
             MainWindow.Show();
             Holder.NavigationService.Navigate(GameMenu);
         }
@@ -63,6 +71,10 @@ namespace HourGlassUnlimited.Games.Sudoku.Tools
             Holder.NavigationService.Navigate(GameMenu);
         }
 
+        public static void PartialDifficultyView()
+        {
+            GameMenu.Partial_PopUp.NavigationService.Navigate(PartialDifficulty);
+        }
         #endregion
     }
 }
