@@ -30,8 +30,8 @@
             <TextBlock TextAlignment="Center" VerticalAlignment="Bottom" FontSize="100">Choisissez un mode de jeu</TextBlock>
         </Border>
 
-        <Button x:Name="Normal_Button" Command="{Binding Normal}" Grid.Row="2" Grid.Column="1" Width="300" Height="100"  FontSize="50">Normal</Button>
-        <Button x:Name="Daily_Button" Command="{Binding Daily}" Grid.Row="2" Grid.Column="2" Width="300" Height="100"  FontSize="50">Quotidien</Button>
+        <Button x:Name="Normal_Button" Command="{Binding Launch_Classic}" Grid.Row="2" Grid.Column="1" Width="300" Height="100"  FontSize="50">Normal</Button>
+        <Button x:Name="Daily_Button" Command="{Binding Launch_Daily}" Grid.Row="2" Grid.Column="2" Width="300" Height="100"  FontSize="50">Quotidien</Button>
 
         <Border Padding="10" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="3">
             <Grid x:Name="Partial_PopUp">
