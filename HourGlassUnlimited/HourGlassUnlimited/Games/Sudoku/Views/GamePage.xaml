@@ -38,7 +38,7 @@
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBox Text="{Binding Mode=OneWay}" FontSize="50" Width="100" Height="100" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    <TextBox Text="{Binding Mode=TwoWay}" FontSize="50" Width="100" Height="100" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>

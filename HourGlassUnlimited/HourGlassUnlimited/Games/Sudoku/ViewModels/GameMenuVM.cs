@@ -25,14 +25,12 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         private bool Normal_CanExecute(object parameter) { return true; }
         private async void Normal_Execute(object parameter) 
         {
-            SudokuNavigator.GamePageView();
-
-            //SudokuGame game = new SudokuGame();
-            //game.IsDaily = true;
-            //DAL dal = new DAL();
-            //game.GameBoard = await dal.SudokuFact.GenerateBoard("easy");
-            //SudokuNavigator.GamePage.SetGame(game);
-            //SudokuNavigator.GamePageView(); 
+            SudokuGame game = new SudokuGame();
+            game.IsDaily = true;
+            DAL dal = new DAL();
+            game.GameBoard = await dal.SudokuFact.GenerateBoard("easy");
+            SudokuNavigator.GamePage.SetGame(game);
+            SudokuNavigator.GamePageView(); 
         }
     }
 }
