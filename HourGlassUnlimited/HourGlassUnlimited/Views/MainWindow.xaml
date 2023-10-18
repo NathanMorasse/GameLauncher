@@ -22,7 +22,7 @@
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="Header" Grid.Row="0" Grid.ColumnSpan="3" Background="AliceBlue" Margin="20 0">
+        <Grid x:Name="Header" Grid.Row="0" Grid.ColumnSpan="3" Background="Transparent" Margin="20 0">
             <TextBlock x:Name="BrandName" FontSize="30" VerticalAlignment="Center" Width="500" HorizontalAlignment="Left">HourGlass Unlimited</TextBlock>
 
             <StackPanel x:Name="NavBar" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
@@ -48,7 +48,7 @@
 
         <Frame x:Name="Holder" Navigated="Holder_Navigated" Grid.Row="1" Grid.Column="1" NavigationUIVisibility="Hidden"></Frame>
 
-        <Grid x:Name="Footer" Grid.Row="2" Grid.ColumnSpan="3" Background="AliceBlue">
+        <Grid x:Name="Footer" Grid.Row="2" Grid.ColumnSpan="3" Background="Transparent">
             
         </Grid>
     </Grid>
