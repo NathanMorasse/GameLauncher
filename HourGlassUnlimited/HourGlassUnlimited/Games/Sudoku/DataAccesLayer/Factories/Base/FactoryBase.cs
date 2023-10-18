@@ -20,7 +20,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories.Base
             {
                 if (_cnnStr == string.Empty)
                 {
-                    _cnnStr = "Server=sql.decinfo-cchic.ca;Port=33306;Database=a23_web3_2133133;Uid=dev-2133133;Pwd=Mangamac21frizer";
+                    _cnnStr = "Server=sql.decinfo-cchic.ca;Port=33306;Database=a23_déploiement_a23_2133752;Uid=dev-2133752;Pwd=Mateo235";
                 }
                 return _cnnStr;
             }

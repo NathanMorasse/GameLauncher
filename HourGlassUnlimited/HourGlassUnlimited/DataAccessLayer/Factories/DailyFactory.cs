@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HourGlassUnlimited.DataAccessLayer.Factories
 {
-    public class GameFactory : FactoryBase
+    public class DailyFactory : FactoryBase
     {
     }
 }
