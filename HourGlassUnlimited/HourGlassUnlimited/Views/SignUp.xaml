@@ -4,6 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HourGlassUnlimited.Views"
+      xmlns:viewModel="clr-namespace:HourGlassUnlimited.ViewModels"
+      d:DataContext="{d:DesignInstance Type=viewModel:SignUpVM}"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="SignUp">
@@ -13,13 +15,13 @@
             <StackPanel>
                 <TextBlock FontSize="50" TextAlignment="Center" Height="100">Créer un compte</TextBlock>
                 <Label>Nom d'utilisateur</Label>
-                <TextBox></TextBox>
+                <TextBox Text="{Binding Username, Mode=OneWayToSource}"></TextBox>
                 <Label>Mot de passe</Label>
-                <TextBox></TextBox>
+                <TextBox Text="{Binding Password, Mode=OneWayToSource}"></TextBox>
                 <Label>Confirmation du mot de passe</Label>
-                <TextBox></TextBox>
+                <TextBox Text="{Binding Confirmation, Mode=OneWayToSource}"></TextBox>
                 <Label>Département</Label>
-                <ComboBox></ComboBox>
+                <ComboBox SelectedItem="{Binding Department, Mode=TwoWay}" ItemsSource="{Binding Departments, Mode=OneWay}"></ComboBox>
                 <Button x:Name="SignUp_Button" Content="Créer"></Button>
                 <Button x:Name="Undo_Button" Content="Annuler"></Button>
             </StackPanel>

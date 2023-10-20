@@ -1,4 +1,5 @@
 ﻿using HourGlassUnlimited.Tools;
+using HourGlassUnlimited.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,12 @@ namespace HourGlassUnlimited.Views
         public SignUp()
         {
             InitializeComponent();
+            this.DataContext = new SignUpVM();
+        }
+
+        private void ComboBox_Selected(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

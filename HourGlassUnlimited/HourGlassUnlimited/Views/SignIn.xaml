@@ -24,15 +24,15 @@
 
                 <StackPanel Grid.Row="1">
                     <Label>Nom d'utilisateur</Label>
-                    <TextBox></TextBox>
+                    <TextBox Text="{Binding Username, Mode=OneWayToSource}"></TextBox>
                 </StackPanel>
 
                 <StackPanel Grid.Row="2">
                     <Label>Mot de passe</Label>
-                    <TextBox></TextBox>
+                    <TextBox Text="{Binding Password, Mode=OneWayToSource}"></TextBox>
                 </StackPanel>
 
-                <Button x:Name="SignIn_Button" Command="{Binding GoToGameList}" Style="{StaticResource StandardButton}"  Grid.Row="3" Content="Connection"></Button>
+                <Button x:Name="SignIn_Button" Command="{Binding SignIn}" Style="{StaticResource StandardButton}"  Grid.Row="3" Content="Connection"></Button>
                 <Button x:Name="SignUp_Button" Command="{Binding GoToSignUp}" Style="{StaticResource LinkButton}" Grid.Row="4" Content="Créer un compte"></Button>
             </Grid>
         </Border>

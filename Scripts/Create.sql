@@ -1,6 +1,6 @@
 create table `Departments` (
 `Id` int not null auto_increment,
-`Name` varchar(255) not null,
+`Department` varchar(255) not null,
 primary key (Id)
 );
     

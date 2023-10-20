@@ -9,8 +9,16 @@ namespace HourGlassUnlimited.Models
 {
     public class User : ModelBase
     {
-        public string UserName { get; set; }
+        public string Username { get; set; }
         public string Password { get; set; }
-        public string Departement { get; set; }
+        public string Department { get; set; }
+
+        public User(int id, string username, string password, string department) : base()
+        {
+            Id = id;
+            Username = username;
+            Password = password;
+            Department = department;
+        }
     }
 }

@@ -1,4 +1,4 @@
-insert into departments (`Name`)
+insert into departments (`Department`)
 values 
 ("Direction"),
 ("Marketing"),

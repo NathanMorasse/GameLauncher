@@ -1,4 +1,7 @@
-﻿using HourGlassUnlimited.Models;
+﻿using HourGlassUnlimited.DataAccessLayer;
+using HourGlassUnlimited.DataAccessLayer.Factories.Helper;
+using HourGlassUnlimited.Models;
+using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,36 +15,35 @@ namespace HourGlassUnlimited.Tools
     {
         public static string SignIn(string username, string password)
         {
-            //Get the user with DAL via Username;
+            User user = DAL.Users.ByUsername(username);
 
-            //Temp user
-            User user = new User();
+            if (user == null) { return "Unavalable"; }
 
-            if (user == null)
-            {
-                return "Unavalable";
-            }
+            if (user.Id == 0) { return "Wrong"; }
 
-            if (!ValidateHashedPassword(password, user.Password))
-            {
-                return "Refused";
-            }
+            if (user.Id < 0) { return "Error"; }
+
+            //if (!ValidateHashedPassword(password, user.Password)) { return "Refused"; }
 
             return "Success";
         }
 
-        public static string SignUp(User user)
+        public static string[] SignUp(User user)
         {
             if (user == null)
             {
-
+                return new string[] { "Problem", "Aucune information n'a été fourni." };
             }
 
             //Verify if the Username is already taken
+            if (user.Username == DAL.Users.ByUsername(user.Username).Username)
+            {
+                return new string[] { "Unauthorize", "Le nom d'utilisateur est déjà utilisé." };
+            }
 
             //Create user with the DAL.
 
-            return "Success";
+            return DAL.Users.Add(user);
         }
 
         private static string HashPassword(string passwordToHash)

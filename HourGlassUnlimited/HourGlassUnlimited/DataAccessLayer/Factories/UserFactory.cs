@@ -1,7 +1,10 @@
 ﻿using HourGlassUnlimited.DataAccessLayer.Factories.Base;
+using HourGlassUnlimited.DataAccessLayer.Factories.Helper;
 using HourGlassUnlimited.Models;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
+using Org.BouncyCastle.Crypto.Tls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +50,73 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
         {
             User? user = null;
             MySqlConnection? connection = null;
-            return null;
+            MySqlDataReader? reader = null;
+
+            try
+            {
+                connection = new MySqlConnection(ConnectionString);
+                connection.Open();
+
+                MySqlCommand command = connection.CreateCommand();
+                command.CommandText = FactoryHelper.UserByUsernameCMD;
+                command.Parameters.AddWithValue("@Username", username);
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    user = FactoryHelper.UserFromReader(reader);
+                }
+
+                if (user.Id <= 0 || string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password) || string.IsNullOrEmpty(user.Department))
+                {
+                    user.Id = 0;
+                }
+            }
+            catch (Exception e)
+            {
+                user = new User(-1, e.Message, null, null);
+            }
+
+            return user;
+        }
+
+        public string[] Add(User user)
+        {
+            MySqlConnection? connection = null;
+            MySqlDataReader? reader = null;
+
+            try
+            {
+                User unknown = ByUsername(user.Username);
+
+                if (unknown.Id > 0)
+                {
+                    return new string[] {"Unauthorize", "Le nom d'utilisateur est déjà utilisé." };
+                }
+
+                if (unknown.Id < 0)
+                {
+                    return new string[] { "Error", unknown.Username };
+                }
+
+                connection = new MySqlConnection(ConnectionString);
+                connection.Open();
+
+
+                MySqlCommand command = connection.CreateCommand();
+                command.CommandText = FactoryHelper.AddUserCMD;
+                command.Parameters.AddWithValue("@Username", user.Username);
+                command.Parameters.AddWithValue("@Password", user.Password);
+                command.Parameters.AddWithValue("@Department", user.Department);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                return new string[] { "Error", e.Message };
+            }
+
+            return new string[] { "Success", "Le compte a été créé avec succès." };
         }
     }
 }
