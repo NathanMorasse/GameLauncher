@@ -11,20 +11,6 @@
       Title="SignUp">
 
     <Grid>
-        <!--<Grid Height="600" Width="500" Background="White">
-            <StackPanel>
-                <TextBlock FontSize="50" TextAlignment="Center" Height="100">Créer un compte</TextBlock>
-                <Label>Nom d'utilisateur</Label>
-                <TextBox Text="{Binding Username, Mode=OneWayToSource}"></TextBox>
-                <Label>Mot de passe</Label>
-                <TextBox Text="{Binding Password, Mode=OneWayToSource}"></TextBox>
-                <Label>Confirmation du mot de passe</Label>
-                <TextBox Text="{Binding Confirmation, Mode=OneWayToSource}"></TextBox>
-
-                <Button x:Name="SignUp_Button" Command="{Binding SignUp}" Content="Créer"></Button>
-                <Button x:Name="GoBack_Button" Command="{Binding GoBack}" Content="Annuler"></Button>
-            </StackPanel>
-        </Grid>-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="500"/>

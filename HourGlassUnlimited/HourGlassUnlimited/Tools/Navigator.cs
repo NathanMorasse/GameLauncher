@@ -49,7 +49,6 @@ namespace HourGlassUnlimited.Tools
 
             SignIn = new SignIn();
             SignUp = new SignUp();
-            EditAccount = new EditAccount();
 
             GameList = new GameList();
             Rankings = new Rankings();
@@ -67,6 +66,7 @@ namespace HourGlassUnlimited.Tools
 
         public static void EditAccountView()
         {
+            EditAccount = new EditAccount();
             Holder.NavigationService.Navigate(EditAccount);
         }
 

@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HourGlassUnlimited.ViewModels;
 
 namespace HourGlassUnlimited.Views
 {
@@ -24,6 +25,7 @@ namespace HourGlassUnlimited.Views
         public EditAccount()
         {
             InitializeComponent();
+            this.DataContext = new EditAccountVM();
         }
     }
 }
