@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -52,13 +53,13 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
             var vm = (GamePageVM)this.DataContext;
             vm.CurrentGame = game;
             vm.CurrentBoard = game.GameBoard.Grid;
+            EnumVisual(BoardGrid);
             sw.Start();
             dt.Start();
         }
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            // Allow only digits (0-9) and prevent other characters
             if (!IsDigit(e.Text))
             {
                 e.Handled = true;
@@ -67,7 +68,28 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
 
         private bool IsDigit(string text)
         {
-            return int.TryParse(text, out _);
+            bool valid = true;
+            int input;
+            valid = int.TryParse(text, out input);
+            if (input <1)
+            {
+                valid = false;
+            }
+            return valid;
+        }
+        private void LockClues()
+        {
+            //foreach (TextBox tb in FindVisualChildren<TextBox>(Board))
+            //{
+            //    if (tb.Text == string.Empty || tb.Text == "" || tb.Text == "0")
+            //    {
+            //        tb.IsEnabled = true;
+            //    }
+            //    else
+            //    {
+            //        tb.IsEnabled = false;
+            //    }
+            //}
         }
 
         private void Validate_Click(object sender, RoutedEventArgs e)
@@ -80,6 +102,34 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
         {
             sw.Restart();
             dt.Start();
+        }
+
+
+        static public void EnumVisual(Visual myVisual)
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(myVisual); i++)
+            {
+                // Retrieve child visual at specified index value.
+                Visual childVisual = (Visual)VisualTreeHelper.GetChild(myVisual, i);
+
+                if (childVisual is TextBox)
+                {
+                    TextBox textBox = (TextBox)childVisual;
+
+                    // Do processing of the child visual object.
+                    if (textBox.Text == string.Empty || textBox.Text == "" || textBox.Text == "0")
+                    {
+                        textBox.IsEnabled = true;
+                    }
+                    else
+                    {
+                        textBox.IsEnabled = false;
+                    }
+                }
+
+                // Enumerate children of the child visual object.
+                EnumVisual(childVisual);
+            }
         }
     }
 }
