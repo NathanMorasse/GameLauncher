@@ -47,7 +47,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
             DAL dal = new DAL();
             game.GameBoard = await dal.SudokuFact.GenerateBoard(parameter.ToString());
             SudokuNavigator.GamePage.SetGame(game);
-            SudokuNavigator.GamePageView(); 
+            SudokuNavigator.GamePageView();
         }
 
         private bool Launch_Daily_CanExecute(object parameter) { return true; }

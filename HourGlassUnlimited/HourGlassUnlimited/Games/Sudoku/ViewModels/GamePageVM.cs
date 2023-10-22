@@ -10,11 +10,17 @@ using System.Collections.ObjectModel;
 using HourGlassUnlimited.Games.Sudoku.Tools;
 using System.Windows.Input;
 using HourGlassUnlimited.Tools;
+using System.Diagnostics;
+using System.Windows.Threading;
 
 namespace HourGlassUnlimited.Games.Sudoku.ViewModels
 {
     public class GamePageVM : VM
     {
+        private string _timePassed;
+        private string _gameEnded = "Hidden";
+        private string _gameResult;
+
         private SudokuGame _currentGame;
 
         public SudokuGame CurrentGame
@@ -46,12 +52,61 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                 ChangeValue("CurrentBoard");
             }
         }
+
+        public string TimePassed
+        {
+            get
+            {
+                return _timePassed;
+            }
+            set
+            {
+                if (_timePassed == value)
+                    return;
+                _timePassed = value;
+                ChangeValue("TimePassed");
+            }
+        }
+
+        public string GameEnded
+        {
+            get
+            {
+                return _gameEnded;
+            }
+            set
+            {
+                _gameEnded = value;
+                ChangeValue("GameEnded");
+            }
+        }
+
+        public string GameResult
+        {
+            get
+            {
+                return _gameResult;
+            }
+            set
+            {
+                _gameResult = value;
+                ChangeValue("GameResult");
+            }
+        }
+        public ICommand StartTimer { get; set; }
+        private bool StartTimer_CanExecute(object parameter) { return true; }
+        private async void StartTimer_Execute(object parameter)
+        {
+
+        }
+
         public ICommand Validate { get; set; }
         private bool Validate_CanExecute(object parameter) { return true; }
         private async void Validate_Execute(object parameter)
         {
+            GameEnded = "Visible";
             DAL dal = new DAL();
-            string valid = await dal.SudokuFact.ValidateBoard(CurrentGame.GameBoard);
+            GameResult = await dal.SudokuFact.ValidateBoard(CurrentGame.GameBoard);
         }
 
         public ICommand Reset { get; set; }
@@ -61,10 +116,12 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
             DAL dal = new DAL();
             Board newBoard = await dal.SudokuFact.GenerateBoard("random");
             CurrentBoard = newBoard.Grid;
+            GameEnded = "Hidden";
         }
 
         public GamePageVM()
         {
+            StartTimer = new CommandLink(StartTimer_Execute, StartTimer_CanExecute);
             Validate = new CommandLink(Validate_Execute, Validate_CanExecute);
             Reset = new CommandLink(Reset_Execute, Reset_CanExecute);
         }

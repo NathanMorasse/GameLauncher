@@ -9,6 +9,8 @@ using HourGlassUnlimited.Games.Sudoku.Models;
 using Newtonsoft.Json;
 using HourGlassUnlimited.Games.Sudoku.Tools;
 using System.Net.Http.Json;
+using Newtonsoft.Json.Linq;
+using MySqlX.XDevAPI;
 
 namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
 {
@@ -18,10 +20,25 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
         {
 			try
 			{
-				HttpResponseMessage response = await APIClient.GetAsync(BaseUri + $"board?difficulty={difficulty}");
-                string content = await response.Content.ReadAsStringAsync();
-                Board board = JsonConvert.DeserializeObject<Board>(content.Replace("board", "Grid"), new IntToCellConverter());
-                return board;
+                var request = new HttpRequestMessage
+                {
+                    Method = HttpMethod.Get,
+                    RequestUri = new Uri(BaseUri+$"generate?difficulty={difficulty}"),
+                    Headers =
+                    {
+                        { "X-RapidAPI-Key", "31010f78ecmshbe4226e41a8235fp15f4b5jsn6f1b2efc6143" },
+                        { "X-RapidAPI-Host", "sudoku-generator1.p.rapidapi.com" },
+                    },
+                };
+                using (var response = await APIClient.SendAsync(request))
+                {
+                    response.EnsureSuccessStatusCode();
+                    string body = await response.Content.ReadAsStringAsync();
+                    dynamic data = JObject.Parse(body);
+                    string boardString = data.puzzle;
+                    Board board = BoardEncoder.DecodeBoard(boardString);
+                    return board;
+                }
             }
 			catch (Exception e)
 			{
@@ -31,12 +48,31 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
 
         public async Task<string> ValidateBoard(Board board)
         {
-            Board boardToValidate = board;
+            string boardString = BoardEncoder.EncodeBoard(board);
             try
             {
-                HttpResponseMessage response = await APIClient.PostAsJsonAsync(BaseUri + $"validate", boardToValidate);
-                string content = await response.Content.ReadAsStringAsync();
-                return content;
+                var request = new HttpRequestMessage
+                {
+                    Method = HttpMethod.Get,
+                    RequestUri = new Uri(BaseUri+$"solve?puzzle={boardString}"),
+                    Headers =
+                    {
+                        { "X-RapidAPI-Key", "31010f78ecmshbe4226e41a8235fp15f4b5jsn6f1b2efc6143" },
+                        { "X-RapidAPI-Host", "sudoku-generator1.p.rapidapi.com" },
+                    },
+                };
+                using (var response = await APIClient.SendAsync(request))
+                {
+                    response.EnsureSuccessStatusCode();
+                    var body = await response.Content.ReadAsStringAsync();
+                    dynamic data = JObject.Parse(body);
+                    string solvedBoardString = data.solution;
+                    if (boardString == solvedBoardString)
+                    {
+                        return "Valide";
+                    }
+                    return "Invalide";
+                }
             }
             catch (Exception e)
             {

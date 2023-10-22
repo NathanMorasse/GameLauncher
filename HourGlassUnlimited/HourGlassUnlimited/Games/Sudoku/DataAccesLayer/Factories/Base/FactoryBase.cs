@@ -32,7 +32,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories.Base
             {
                 if (_baseUri == string.Empty)
                 {
-                    _baseUri = "https://sugoku.onrender.com/";
+                    _baseUri = "https://sudoku-generator1.p.rapidapi.com/sudoku/";
                 }
                 return _baseUri; 
             }

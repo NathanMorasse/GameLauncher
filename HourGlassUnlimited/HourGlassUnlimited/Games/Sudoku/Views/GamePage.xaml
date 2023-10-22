@@ -9,7 +9,8 @@
       d:DataContext="{d:DesignInstance Type=viewModel:GamePageVM}"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
-      Title="GamePage" Background="White">
+      Title="GamePage" Background="#404040"
+      >
     <Page.Resources>
         <converters:CellZeroConverter x:Key="CellZeroConverter"/>
     </Page.Resources>
@@ -28,8 +29,23 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Row="1" Grid.Column="1" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Row="0" Grid.Column="0" Background="#262626"></Border>
+            <Border Grid.Row="0" Grid.Column="2" Background="#262626"></Border>
+            <Border Grid.Row="1" Grid.Column="1" Background="#262626"></Border>
+            <Border Grid.Row="2" Grid.Column="0" Background="#262626"></Border>
+            <Border Grid.Row="2" Grid.Column="2" Background="#262626"></Border>
             <!-- Outer ItemsControl for Rows -->
-            <ItemsControl ItemsSource="{Binding CurrentBoard}" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <ItemsControl ItemsSource="{Binding CurrentBoard}" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <!-- Inner ItemsControl for Cells -->
@@ -41,7 +57,7 @@
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBox Style="{StaticResource SudokuCase}" Text="{Binding Value, Mode=TwoWay, Converter={StaticResource CellZeroConverter}}" PreviewTextInput="TextBox_PreviewTextInput" Width="80" Height="80"/>
+                                    <TextBox Style="{StaticResource SudokuCase}" Text="{Binding Value, Mode=TwoWay, Converter={StaticResource CellZeroConverter}}" PreviewTextInput="TextBox_PreviewTextInput" Margin="7" Width="85" Height="85"/>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
@@ -58,6 +74,7 @@
         <Grid Grid.Row="1" Grid.Column="3" Background="Transparent">
             <Grid.RowDefinitions>
                 <RowDefinition Height="200"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition/>
                 <RowDefinition Height="50"/>
@@ -65,12 +82,15 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="130">00:00:00</TextBlock>
+                <TextBlock x:Name="clock_text" Text="{Binding TimePassed}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="130"></TextBlock>
             </Grid>
-            <Grid Grid.Row="2"></Grid>
-            <Grid Grid.Row="4">
-                <Button Command="{Binding Validate}" Margin="5" Width="480" HorizontalAlignment="Left" FontSize="50" Background="LightGray">Vérifier</Button>
-                <Button Command="{Binding Reset}" Margin="5" Width="100" HorizontalAlignment="Right" FontSize="50" Background="DeepSkyBlue" FontFamily="Segoe mdl2 assets">&#xE72C;</Button>
+            <Grid Grid.Row="1" Visibility="{Binding GameEnded}">
+                <TextBlock Text="{Binding GameResult}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100"></TextBlock>
+            </Grid>
+            <Grid Grid.Row="4"></Grid>
+            <Grid Grid.Row="6">
+                <Button Click="Validate_Click" Command="{Binding Validate}" Margin="5" Width="480" HorizontalAlignment="Left" FontSize="50" Background="LightGray">Vérifier</Button>
+                <Button Click="Reset_Click" Command="{Binding Reset}" Margin="5" Width="100" HorizontalAlignment="Right" FontSize="50" Background="DeepSkyBlue" FontFamily="Segoe mdl2 assets">&#xE72C;</Button>
             </Grid>
         </Grid>
     </Grid>
