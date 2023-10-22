@@ -23,7 +23,7 @@ namespace HourGlassUnlimited.Tools
 
             if (user.Id < 0) { return "Error"; }
 
-            //if (!ValidateHashedPassword(password, user.Password)) { return "Refused"; }
+            if (!ValidateHashedPassword(password, user.Password)) { return "Unauthorized"; }
 
             return "Success";
         }
@@ -41,6 +41,8 @@ namespace HourGlassUnlimited.Tools
                 return new string[] { "Unauthorize", "Le nom d'utilisateur est déjà utilisé." };
             }
 
+
+            user.Password =  HashPassword(user.Password);
             //Create user with the DAL.
 
             return DAL.Users.Add(user);

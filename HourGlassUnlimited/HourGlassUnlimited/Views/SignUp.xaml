@@ -22,8 +22,8 @@
                 <TextBox Text="{Binding Confirmation, Mode=OneWayToSource}"></TextBox>
                 <Label>Département</Label>
                 <ComboBox SelectedItem="{Binding Department, Mode=TwoWay}" ItemsSource="{Binding Departments, Mode=OneWay}"></ComboBox>
-                <Button x:Name="SignUp_Button" Content="Créer"></Button>
-                <Button x:Name="Undo_Button" Content="Annuler"></Button>
+                <Button x:Name="SignUp_Button" Command="{Binding SignUp}" Content="Créer"></Button>
+                <Button x:Name="GoBack_Button" Command="{Binding GoBack}" Content="Annuler"></Button>
             </StackPanel>
         </Grid>
     </Grid>

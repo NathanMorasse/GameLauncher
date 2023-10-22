@@ -67,14 +67,14 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
                     user = FactoryHelper.UserFromReader(reader);
                 }
 
-                if (user.Id <= 0 || string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password) || string.IsNullOrEmpty(user.Department))
+                if (user == null)
                 {
-                    user.Id = 0;
+                    user = new User(0, "NotFound", "", "L'utilisateur n'existe pas.");
                 }
             }
             catch (Exception e)
             {
-                user = new User(-1, e.Message, null, null);
+                user = new User(-1, "Error", "", e.Message);
             }
 
             return user;

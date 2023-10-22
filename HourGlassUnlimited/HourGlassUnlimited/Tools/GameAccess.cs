@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HourGlassUnlimited.Games;
+using HourGlassUnlimited.Models;
 
 namespace HourGlassUnlimited.Tools
 {
@@ -26,11 +27,11 @@ namespace HourGlassUnlimited.Tools
             }
         }
 
-        public static List<string[]> LoadGames()
+        public static List<GameListItem> LoadGames()
         {
             string[] gameList = ListGames();
             string mainPath = ToolKit.GetDefaultPath();
-            List<string[]> games = new List<string[]>();
+            List<GameListItem> games = new List<GameListItem>();
 
             foreach (string gameName in gameList)
             {
@@ -50,7 +51,7 @@ namespace HourGlassUnlimited.Tools
                     }
                 }
 
-                games.Add(game);
+                games.Add(new GameListItem(game[0], game[1]));
             }
 
             return games;

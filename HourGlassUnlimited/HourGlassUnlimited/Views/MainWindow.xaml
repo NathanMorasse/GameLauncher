@@ -11,6 +11,14 @@
         Height="1080" Width="1920"
         WindowState="Maximized">
     <Grid>
+        <Grid.Background>
+            <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.6" RadiusY="0.7">
+                <GradientStop Color="#666666" Offset="0.0" />
+                <GradientStop Color="#4d4d4d" Offset="0.25" />
+                <GradientStop Color="#333333" Offset="0.50" />
+                <GradientStop Color="#1a1a1a" Offset="1.0" />
+            </RadialGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition/>
@@ -22,29 +30,34 @@
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="Header" Grid.Row="0" Grid.ColumnSpan="3" Background="Transparent" Margin="20 0">
-            <TextBlock x:Name="BrandName" FontSize="30" VerticalAlignment="Center" Width="500" HorizontalAlignment="Left">HourGlass Unlimited</TextBlock>
+        <Border x:Name="Header" Grid.Row="0" Grid.ColumnSpan="3" Background="#1a1a1a">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="1" Color="Gray" Opacity="1" BlurRadius="50" Direction="270"/>
+            </Border.Effect>
+            <Grid>
+                <TextBlock x:Name="BrandName" Margin="20 0 0 0" Foreground="White" FontSize="30" VerticalAlignment="Center" Width="500" HorizontalAlignment="Left">HourGlass Unlimited</TextBlock>
 
-            <StackPanel x:Name="NavBar" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <StackPanel x:Name="NavBar" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 20 0">
                 
-                <Button x:Name="GameList_Button" Command="{Binding GoToGameList}" Margin="0 0 10 0">
-                    <TextBlock FontSize="20" Padding="10 0">Jeux</TextBlock>
-                </Button>
+                    <Button x:Name="GameList_Button" Command="{Binding GoToGameList}" Margin="0 0 10 0">
+                        <TextBlock FontSize="20" Padding="10 0">Jeux</TextBlock>
+                    </Button>
 
-                <Button x:Name="Rankings_Button" Command="{Binding GoToRankings}" Margin="10 0">
-                    <TextBlock FontSize="20" Padding="10 0">Classement</TextBlock>
-                </Button>
+                    <Button x:Name="Rankings_Button" Command="{Binding GoToRankings}" Margin="10 0">
+                        <TextBlock FontSize="20" Padding="10 0">Classement</TextBlock>
+                    </Button>
 
-                <Button x:Name="Account_Button" Command="{Binding GoToEditAccount}" Margin="10 0">
-                    <TextBlock FontSize="20" Padding="10 0">Compte</TextBlock>
-                </Button>
+                    <Button x:Name="Account_Button" Command="{Binding GoToEditAccount}" Margin="10 0">
+                        <TextBlock FontSize="20" Padding="10 0">Compte</TextBlock>
+                    </Button>
 
-                <Button x:Name="SignOff_Button" Command="{Binding GoToSignIn}" Margin="10 0 0 0">
-                    <TextBlock FontSize="20" Padding="10 0">Déconnexion</TextBlock>
-                </Button>
+                    <Button x:Name="SignOff_Button" Command="{Binding GoToSignIn}" Margin="10 0 0 0">
+                        <TextBlock FontSize="20" Padding="10 0">Déconnexion</TextBlock>
+                    </Button>
                 
-            </StackPanel>
-        </Grid>
+                </StackPanel>
+            </Grid>
+        </Border>
 
         <Frame x:Name="Holder" Navigated="Holder_Navigated" Grid.Row="1" Grid.Column="1" NavigationUIVisibility="Hidden"></Frame>
 
