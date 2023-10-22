@@ -38,6 +38,49 @@ namespace HourGlassUnlimited.Views
             {
                 if (NavBar.Visibility == Visibility.Hidden)
                     NavBar.Visibility = Visibility.Visible;
+
+                CurrentNav();
+            }
+        }
+
+        private void CurrentNav()
+        {
+            string current = (Holder.Content as Page).Title.ToString();
+
+            switch (current)
+            {
+                case "GameList":
+                    {
+                        GameList_Text.TextDecorations = TextDecorations.Underline;
+                        GameList_Text.Foreground = Brushes.White;
+                        Rankings_Text.TextDecorations = null;
+                        Rankings_Text.Foreground = Brushes.LightGray;
+                        Account_Text.TextDecorations = null;
+                        Account_Text.Foreground = Brushes.LightGray;
+                        break;
+                    }
+                case "Rankings":
+                    {
+                        GameList_Text.TextDecorations = null;
+                        GameList_Text.Foreground = Brushes.LightGray;
+                        Rankings_Text.TextDecorations = TextDecorations.Underline;
+                        Rankings_Text.Foreground = Brushes.White;
+                        Account_Text.TextDecorations = null;
+                        Account_Text.Foreground = Brushes.LightGray;
+                        break;
+                    }
+                case "EditAccount":
+                    {
+                        GameList_Text.TextDecorations = null;
+                        GameList_Text.Foreground = Brushes.LightGray;
+                        Rankings_Text.TextDecorations = null;
+                        Rankings_Text.Foreground = Brushes.LightGray;
+                        Account_Text.TextDecorations = TextDecorations.Underline;
+                        Account_Text.Foreground = Brushes.White;
+                        break;
+                    }
+                default:
+                    break;
             }
         }
     }
