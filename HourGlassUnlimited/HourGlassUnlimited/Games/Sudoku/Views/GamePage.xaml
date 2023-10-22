@@ -9,7 +9,7 @@
       d:DataContext="{d:DesignInstance Type=viewModel:GamePageVM}"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
-      Title="GamePage" Background="#404040"
+      Title="GamePage"
       >
     <Page.Resources>
         <converters:CellZeroConverter x:Key="CellZeroConverter"/>
@@ -28,7 +28,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="1" Grid.Column="1" Background="Transparent">
+        <Grid Grid.Row="1" Grid.Column="1" Background="Transparent" Margin="68">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -40,9 +40,13 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Border Grid.Row="0" Grid.Column="0" Background="#262626"></Border>
+            <Border Grid.Row="0" Grid.Column="1" Background="#404040"></Border>
             <Border Grid.Row="0" Grid.Column="2" Background="#262626"></Border>
+            <Border Grid.Row="1" Grid.Column="0" Background="#404040"></Border>
             <Border Grid.Row="1" Grid.Column="1" Background="#262626"></Border>
+            <Border Grid.Row="1" Grid.Column="2" Background="#404040"></Border>
             <Border Grid.Row="2" Grid.Column="0" Background="#262626"></Border>
+            <Border Grid.Row="2" Grid.Column="1" Background="#404040"></Border>
             <Border Grid.Row="2" Grid.Column="2" Background="#262626"></Border>
             <!-- Outer ItemsControl for Rows -->
             <ItemsControl ItemsSource="{Binding CurrentBoard}" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -57,7 +61,7 @@
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBox Style="{StaticResource SudokuCase}" Text="{Binding Value, Mode=TwoWay, Converter={StaticResource CellZeroConverter}}" PreviewTextInput="TextBox_PreviewTextInput" Margin="7" Width="85" Height="85"/>
+                                    <TextBox Style="{StaticResource SudokuCase}" Text="{Binding Value, Mode=TwoWay, Converter={StaticResource CellZeroConverter}}" Foreground="LightGray" PreviewTextInput="TextBox_PreviewTextInput" Margin="0" Width="85" Height="85"/>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
