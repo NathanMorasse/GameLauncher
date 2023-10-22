@@ -1,6 +1,7 @@
 ﻿using HourGlassUnlimited.DataAccessLayer;
 using HourGlassUnlimited.DataAccessLayer.Factories.Helper;
 using HourGlassUnlimited.Models;
+using HourGlassUnlimited.ViewModels;
 using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ namespace HourGlassUnlimited.Tools
 {
     public static class ConnectionHelper
     {
+        public static User User { get; set; }
+
         public static string SignIn(string username, string password)
         {
             User user = DAL.Users.ByUsername(username);
@@ -24,6 +27,8 @@ namespace HourGlassUnlimited.Tools
             if (user.Id < 0) { return "Error"; }
 
             if (!ValidateHashedPassword(password, user.Password)) { return "Unauthorized"; }
+
+            User = user;
 
             return "Success";
         }
