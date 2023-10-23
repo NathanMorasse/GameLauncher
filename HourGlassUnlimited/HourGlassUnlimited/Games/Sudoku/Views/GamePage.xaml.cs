@@ -42,6 +42,10 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
 
         private void GamePage_Loaded(object sender, RoutedEventArgs e)
         {
+            if (vm.CurrentGame.IsDaily)
+            {
+                ResetButton.Visibility = Visibility.Hidden;
+            }
             LockInitialValues(BoardGrid);
         }
 

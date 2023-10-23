@@ -108,7 +108,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         private async void Reset_Execute(object parameter)
         {
             DAL dal = new DAL();
-            Board newBoard = await dal.SudokuFact.GenerateBoard("random");
+            Board newBoard = await dal.SudokuFact.GenerateBoard("medium", false);
             CurrentBoard = newBoard.Grid;
             GameEnded = "Hidden";
             await Task.Delay(100); // solution temporaire

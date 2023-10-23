@@ -16,14 +16,21 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
 {
     public class SudokuFactory : FactoryBase
     {
-        public async Task<Board> GenerateBoard(string difficulty)
+        public async Task<Board> GenerateBoard(string difficulty, bool isDaily)
         {
+            string paramSeed = string.Empty;
+            if (isDaily)
+            {
+                string seed = DateTime.Now.Date.ToString();
+                paramSeed = "&seed=" + seed;
+            }
+
 			try
 			{
                 var request = new HttpRequestMessage
                 {
                     Method = HttpMethod.Get,
-                    RequestUri = new Uri(BaseUri+$"generate?difficulty={difficulty}"),
+                    RequestUri = new Uri(BaseUri+$"generate?difficulty={difficulty}"+paramSeed),
                     Headers =
                     {
                         { "X-RapidAPI-Key", "31010f78ecmshbe4226e41a8235fp15f4b5jsn6f1b2efc6143" },

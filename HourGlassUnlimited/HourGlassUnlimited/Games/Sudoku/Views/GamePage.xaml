@@ -83,15 +83,15 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
-                <TextBlock x:Name="clock_text" Text="{Binding TimePassed}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="130"></TextBlock>
+                <TextBlock x:Name="clock_text" Text="{Binding TimePassed}" Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="130"></TextBlock>
             </Grid>
             <Grid Grid.Row="1" Visibility="{Binding GameEnded}">
                 <TextBlock Text="{Binding GameResult}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100"></TextBlock>
             </Grid>
             <Grid Grid.Row="4"></Grid>
             <Grid Grid.Row="6">
-                <Button Click="Validate_Click" Command="{Binding Validate}" Margin="5" Width="480" HorizontalAlignment="Left" FontSize="50" Background="LightGray">Vérifier</Button>
-                <Button Click="Reset_Click" Command="{Binding Reset}" Margin="5" Width="100" HorizontalAlignment="Right" FontSize="50" Background="DeepSkyBlue" FontFamily="Segoe mdl2 assets">&#xE72C;</Button>
+                <Button Click="Validate_Click" Command="{Binding Validate}" Style="{StaticResource StandardButton}" Margin="5" Width="480" HorizontalAlignment="Left" >Vérifier</Button>
+                <Button Name="ResetButton" Click="Reset_Click" Command="{Binding Reset}" Style="{StaticResource StandardButton}" Margin="5" Width="100" HorizontalAlignment="Right" FontFamily="Segoe mdl2 assets">&#xE72C;</Button>
             </Grid>
         </Grid>
     </Grid>
