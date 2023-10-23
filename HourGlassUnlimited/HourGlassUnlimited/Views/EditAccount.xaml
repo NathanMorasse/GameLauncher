@@ -8,7 +8,8 @@
       d:DataContext="{d:DesignInstance Type=viewModel:EditAccountVM}"
       mc:Ignorable="d" 
       d:DesignHeight="540" d:DesignWidth="960"
-      Title="EditAccount">
+      Title="EditAccount"
+      FontFamily="Bahnschrift">
 
     <Grid>
         <Grid.ColumnDefinitions>

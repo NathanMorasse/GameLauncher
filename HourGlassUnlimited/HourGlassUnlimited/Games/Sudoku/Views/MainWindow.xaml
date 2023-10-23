@@ -10,7 +10,8 @@
         Title="Sudoku" 
         Height="1080"
         Width="1920"
-        WindowState="Maximized">
+        WindowState="Maximized"
+        FontFamily="Bahnschrift">
     <Grid>
         <Grid.Background>
             <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.6" RadiusY="0.8">
@@ -31,20 +32,20 @@
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="Header" Grid.Row="0" Grid.ColumnSpan="3" Background="Transparent" Margin="20 0">
+        <Grid x:Name="Header" Grid.Row="0" Grid.ColumnSpan="3" Background="Transparent">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock x:Name="BrandName" Grid.Column="1" FontSize="30" VerticalAlignment="Center" Width="500" TextAlignment="Center">HourGlass Unlimited</TextBlock>
+            <TextBlock x:Name="BrandName" Foreground="White" Grid.Column="1" FontSize="30" VerticalAlignment="Center" Width="500" TextAlignment="Center">Sudoku</TextBlock>
 
-            <Button x:Name="Launcher_Button" Grid.Column="0" Width="300" HorizontalAlignment="Left" Command="{Binding Exit_To_Launcher}">
+            <Button x:Name="Launcher_Button" Style="{StaticResource NavButton}" Grid.Column="0" Width="300" HorizontalAlignment="Left" Command="{Binding Exit_To_Launcher}">
                 <TextBlock FontSize="20" Padding="10 0" Text="&lt; Plateforme de jeu"></TextBlock>
             </Button>
 
-            <Button x:Name="Menu_Button" Grid.Column="2" Width="300" HorizontalAlignment="Right" Command="{Binding Back_To_Menu}">
+            <Button x:Name="Menu_Button" Style="{StaticResource NavButton}" Grid.Column="2" Width="300" HorizontalAlignment="Right" Command="{Binding Back_To_Menu}">
                 <TextBlock FontSize="20" Padding="10 0" Text="Menu du jeu &gt;"></TextBlock>
             </Button>
         </Grid>

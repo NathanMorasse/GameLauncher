@@ -31,13 +31,13 @@ namespace HourGlassUnlimited.Views
         {
             if ((Holder.Content as Page).Title.Contains("Sign"))
             {
-                if (NavBar.Visibility == Visibility.Visible)
-                    NavBar.Visibility = Visibility.Hidden;
+                if (Header.Visibility == Visibility.Visible)
+                    Header.Visibility = Visibility.Hidden;
             }
             else
             {
-                if (NavBar.Visibility == Visibility.Hidden)
-                    NavBar.Visibility = Visibility.Visible;
+                if (Header.Visibility == Visibility.Hidden)
+                    Header.Visibility = Visibility.Visible;
 
                 CurrentNav();
             }
