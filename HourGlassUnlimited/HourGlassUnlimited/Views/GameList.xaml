@@ -8,34 +8,39 @@
       d:DataContext="{d:DesignInstance Type=viewModel:GameListVM}"
       mc:Ignorable="d" 
       d:DesignHeight="540" d:DesignWidth="960"
-      Title="GameList">
+      Title="GameList"
+      FontFamily="Bahnschrift">
 
     <!--<Grid Background="Transparent">
         <Button x:Name="Sudoku_Launch" Command="{Binding LaunchGame}" Width="200" Height="100">Sudoku</Button>
     </Grid>-->
 
     <Grid>
-        <ListBox x:Name="List" HorizontalContentAlignment="Stretch" Margin="0 20 0 0" BorderBrush="Transparent" Background="Transparent" ItemsSource="{Binding GameList}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Border Height="150" Margin="50 0 50 10" Background="#262626" CornerRadius="10">
-                        <Border.Effect>
-                            <DropShadowEffect ShadowDepth="25" Color="Gray" Opacity="1" BlurRadius="50" Direction="270"/>
-                        </Border.Effect>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
+        <Border Background="#262626" CornerRadius="25" MaxWidth="1000">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="25" Color="Gray" Opacity="1" BlurRadius="50" Direction="270"/>
+            </Border.Effect>
+            <ListBox x:Name="List" HorizontalContentAlignment="Stretch" Margin="0 20 0 20" BorderBrush="Transparent" Background="Transparent" ItemsSource="{Binding GameList}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Height="150" Margin="10 0 10 10" Background="Transparent" BorderBrush="Gray" BorderThickness="1" CornerRadius="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
 
-                            <Image HorizontalAlignment="Center" Margin="20" Source="{Binding Image}" Grid.Column="0"/>
-                            <TextBlock Foreground="White" TextTrimming="CharacterEllipsis" FontSize="50" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Text="{Binding Name}"/>
-                            <Button Style="{StaticResource StandardButton}" Width="200" Height="55" HorizontalAlignment="Center" Margin="20" VerticalAlignment="Center" Grid.Column="2" Command="{Binding DataContext.LaunchGame, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBox}}}" CommandParameter="{Binding Name}">Launch</Button>
-                        </Grid>
-                    </Border>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+                                <Border Grid.Column="0" Background="Gray" Margin="20" CornerRadius="10">
+                                    <Image HorizontalAlignment="Center" Margin="5" Source="{Binding Image}"/>
+                                </Border>
+                                <TextBlock Foreground="White" TextTrimming="CharacterEllipsis" FontSize="60" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Text="{Binding Name}"/>
+                                <Button Style="{StaticResource StandardButton}" Width="200" HorizontalAlignment="Center" Margin="20" VerticalAlignment="Stretch" Grid.Column="2" Command="{Binding DataContext.LaunchGame, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBox}}}" CommandParameter="{Binding Name}">Jouer &#9654;</Button>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Border>
     </Grid>
 </Page>

@@ -47,20 +47,19 @@ namespace HourGlassUnlimited.Tools
             MainWindow = new MainWindow();
             Holder = MainWindow.Holder;
 
-            SignIn = new SignIn();
-            SignUp = new SignUp();
-
             GameList = new GameList();
             Rankings = new Rankings();
         }
 
         public static void SignInView()
         {
+            SignIn = new SignIn();
             Holder.NavigationService.Navigate(SignIn);
         }
 
         public static void SignUpView()
         {
+            SignUp = new SignUp();
             Holder.NavigationService.Navigate(SignUp);
         }
 

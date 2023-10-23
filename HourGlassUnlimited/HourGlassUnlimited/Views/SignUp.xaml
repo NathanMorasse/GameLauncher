@@ -8,7 +8,8 @@
       d:DataContext="{d:DesignInstance Type=viewModel:SignUpVM}"
       mc:Ignorable="d" 
       d:DesignHeight="540" d:DesignWidth="960"
-      Title="SignUp">
+      Title="SignUp"
+      FontFamily="Bahnschrift">
 
     <Grid>
         <Grid.ColumnDefinitions>

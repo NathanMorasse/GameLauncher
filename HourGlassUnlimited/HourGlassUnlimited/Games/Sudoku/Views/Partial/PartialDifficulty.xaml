@@ -8,7 +8,8 @@
       mc:Ignorable="d" 
       d:DataContext="{d:DesignInstance Type=viewModel:GameMenuVM}"
       d:DesignHeight="250" d:DesignWidth="1600"
-      Title="PartialDifficulty" Background="White">
+      Title="PartialDifficulty"
+      FontFamily="Bahnschrift">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -24,9 +25,9 @@
 
         <TextBlock TextAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="80">Sélectionnez une difficulté</TextBlock>
 
-        <Button x:Name="Easy_Button" Command="{Binding Launch_Classic}" CommandParameter="easy"  Grid.Row="1" Grid.Column="0" Width="300" Height="100"  FontSize="50">Facile</Button>
-        <Button x:Name="Medium_Button" Command="{Binding Launch_Classic}" CommandParameter="medium" Grid.Row="1" Grid.Column="1" Width="300" Height="100"  FontSize="50">Medium</Button>
-        <Button x:Name="Hard_Button" Command="{Binding Launch_Classic}" CommandParameter="hard" Grid.Row="1" Grid.Column="2" Width="300" Height="100"  FontSize="50">Difficile</Button>
+        <Button x:Name="Easy_Button" Command="{Binding Launch_Classic}" Style="{StaticResource StandardButton}" CommandParameter="easy"  Grid.Row="1" Grid.Column="0" Width="300" Height="100"  FontSize="50">Facile</Button>
+        <Button x:Name="Medium_Button" Command="{Binding Launch_Classic}" Style="{StaticResource StandardButton}" CommandParameter="medium" Grid.Row="1" Grid.Column="1" Width="300" Height="100"  FontSize="50">Medium</Button>
+        <Button x:Name="Hard_Button" Command="{Binding Launch_Classic}" Style="{StaticResource StandardButton}" CommandParameter="hard" Grid.Row="1" Grid.Column="2" Width="300" Height="100"  FontSize="50">Difficile</Button>
 
     </Grid>
 </Page>

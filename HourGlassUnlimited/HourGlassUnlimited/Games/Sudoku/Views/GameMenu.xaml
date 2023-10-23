@@ -8,7 +8,8 @@
       d:DataContext="{d:DesignInstance Type=viewModel:GameMenuVM}"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
-      Title="GameMenu">
+      Title="GameMenu"
+      FontFamily="Bahnschrift">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -29,8 +30,8 @@
             <TextBlock TextAlignment="Center" VerticalAlignment="Bottom" FontSize="100">Choisissez un mode de jeu</TextBlock>
         </Border>
 
-        <Button x:Name="Normal_Button" Command="{Binding Select_Classic}" Grid.Row="2" Grid.Column="1" Width="300" Height="100"  FontSize="50">Normal</Button>
-        <Button x:Name="Daily_Button" Command="{Binding Select_Daily}" Grid.Row="2" Grid.Column="2" Width="300" Height="100"  FontSize="50">Quotidien</Button>
+        <Button x:Name="Normal_Button" Command="{Binding Select_Classic}" Style="{StaticResource StandardButton}" Grid.Row="2" Grid.Column="1" Width="300" Height="100"  FontSize="50">Normal</Button>
+        <Button x:Name="Daily_Button" Command="{Binding Select_Daily}" Style="{StaticResource StandardButton}" Grid.Row="2" Grid.Column="2" Width="300" Height="100"  FontSize="50">Quotidien</Button>
 
         <Border Padding="10" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="3">
             <Frame x:Name="Partial_PopUp" NavigationUIVisibility="Hidden"></Frame>

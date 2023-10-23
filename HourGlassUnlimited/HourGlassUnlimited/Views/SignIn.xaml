@@ -8,7 +8,8 @@
       d:DataContext="{d:DesignInstance Type=viewModel:SignInVM}"
       mc:Ignorable="d" 
       d:DesignHeight="540" d:DesignWidth="960"
-      Title="SignIn">
+      Title="SignIn"
+      FontFamily="Bahnschrift">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -53,7 +54,7 @@
                     <TextBlock x:Name="Password_Alert" Visibility="Hidden"></TextBlock>
                 </StackPanel>
 
-                <Button x:Name="SignIn_Button" Height="55" Command="{Binding SignIn}" Style="{StaticResource StandardButton}" Grid.Row="5" Content="Connection"></Button>
+                <Button x:Name="SignIn_Button" Height="55" Command="{Binding SignIn}" Style="{StaticResource StandardButton}" Grid.Row="5" Content="Connexion"></Button>
                 <Button x:Name="SignUp_Button" Command="{Binding GoToSignUp}" Style="{StaticResource LinkButton}" Grid.Row="6" Content="Créer un compte" Margin="10"></Button>
             </Grid>
         </Border>
