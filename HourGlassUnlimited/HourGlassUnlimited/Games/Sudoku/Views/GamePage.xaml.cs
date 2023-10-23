@@ -28,13 +28,21 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
         DispatcherTimer dt = new DispatcherTimer();
         Stopwatch sw = new Stopwatch();
         string currentTime = string.Empty;
+        GamePageVM vm;
 
         public GamePage()
         {
             InitializeComponent();
             this.DataContext = new GamePageVM();
+            vm = (GamePageVM)this.DataContext;
             dt.Tick += new EventHandler(dt_Tick);
             dt.Interval = new TimeSpan(0, 0, 0, 0, 1);
+            this.Loaded += GamePage_Loaded;
+        }
+
+        private void GamePage_Loaded(object sender, RoutedEventArgs e)
+        {
+            LockInitialValues(BoardGrid);
         }
 
         void dt_Tick(object sender, EventArgs e)
@@ -53,7 +61,6 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
             var vm = (GamePageVM)this.DataContext;
             vm.CurrentGame = game;
             vm.CurrentBoard = game.GameBoard.Grid;
-            EnumVisual(BoardGrid);
             sw.Start();
             dt.Start();
         }
@@ -77,19 +84,22 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
             }
             return valid;
         }
-        private void LockClues()
+
+        private void LockInitialValues(DependencyObject parent)
         {
-            //foreach (TextBox tb in FindVisualChildren<TextBox>(Board))
-            //{
-            //    if (tb.Text == string.Empty || tb.Text == "" || tb.Text == "0")
-            //    {
-            //        tb.IsEnabled = true;
-            //    }
-            //    else
-            //    {
-            //        tb.IsEnabled = false;
-            //    }
-            //}
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, i);
+
+                if (child is TextBox textBox && !string.IsNullOrEmpty(textBox.Text))
+                {
+                    textBox.IsEnabled = false;
+                }
+                else
+                {
+                    LockInitialValues(child);
+                }
+            }
         }
 
         private void Validate_Click(object sender, RoutedEventArgs e)
@@ -98,38 +108,35 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
             dt.Stop();
         }
 
-        private void Reset_Click(object sender, RoutedEventArgs e)
+        private async void Reset_Click(object sender, RoutedEventArgs e)
         {
             sw.Restart();
             dt.Start();
         }
 
-
-        static public void EnumVisual(Visual myVisual)
+        public async Task ResetGrid()
         {
-            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(myVisual); i++)
+            EnableAllTextBoxes(BoardGrid);
+
+            LockInitialValues(BoardGrid);
+        }
+
+        private void EnableAllTextBoxes(DependencyObject parent)
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
             {
-                // Retrieve child visual at specified index value.
-                Visual childVisual = (Visual)VisualTreeHelper.GetChild(myVisual, i);
+                var child = VisualTreeHelper.GetChild(parent, i);
 
-                if (childVisual is TextBox)
+                if (child is TextBox textBox)
                 {
-                    TextBox textBox = (TextBox)childVisual;
-
-                    // Do processing of the child visual object.
-                    if (textBox.Text == string.Empty || textBox.Text == "" || textBox.Text == "0")
-                    {
-                        textBox.IsEnabled = true;
-                    }
-                    else
-                    {
-                        textBox.IsEnabled = false;
-                    }
+                    textBox.IsEnabled = true;
                 }
-
-                // Enumerate children of the child visual object.
-                EnumVisual(childVisual);
+                else
+                {
+                    EnableAllTextBoxes(child);
+                }
             }
         }
+
     }
 }

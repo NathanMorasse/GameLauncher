@@ -286,6 +286,7 @@
 
         <Style x:Key="SudokuCase" TargetType="TextBox">
             <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#9999dd"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="BorderBrush" Value="Gray"/>
             <Setter Property="FontSize" Value="40"/>
@@ -293,6 +294,7 @@
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="MaxLength" Value="1"/>
             <Setter Property="Margin" Value="0"/>
+            <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">
@@ -305,12 +307,13 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter TargetName="border" Property="Background" Value="LightGray" />
+                                <Setter TargetName="border" Property="Background" Value="Transparent" />
                                 <Setter TargetName="border" Property="BorderBrush" Value="Gray" />
-                                <Setter Property="Foreground" Value="DarkGray" />
+                                <Setter Property="Foreground" Value="LightGray" />
+                                <Setter Property="FontWeight" Value="Bold"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="BorderBrush" Value="LightSkyBlue" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="#9999dd" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

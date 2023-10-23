@@ -93,12 +93,6 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                 ChangeValue("GameResult");
             }
         }
-        public ICommand StartTimer { get; set; }
-        private bool StartTimer_CanExecute(object parameter) { return true; }
-        private async void StartTimer_Execute(object parameter)
-        {
-
-        }
 
         public ICommand Validate { get; set; }
         private bool Validate_CanExecute(object parameter) { return true; }
@@ -117,11 +111,12 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
             Board newBoard = await dal.SudokuFact.GenerateBoard("random");
             CurrentBoard = newBoard.Grid;
             GameEnded = "Hidden";
+            await Task.Delay(100); // solution temporaire
+            await SudokuNavigator.GamePage.ResetGrid();
         }
 
         public GamePageVM()
         {
-            StartTimer = new CommandLink(StartTimer_Execute, StartTimer_CanExecute);
             Validate = new CommandLink(Validate_Execute, Validate_CanExecute);
             Reset = new CommandLink(Reset_Execute, Reset_CanExecute);
         }

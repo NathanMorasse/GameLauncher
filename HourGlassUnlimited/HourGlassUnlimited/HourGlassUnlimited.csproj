@@ -8,9 +8,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Img\favicon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="DevExpressMvvm" Version="22.1.3" />
     <PackageReference Include="MySql.Data" Version="8.0.32.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Img\favicon.png" />
   </ItemGroup>
 
 </Project>
