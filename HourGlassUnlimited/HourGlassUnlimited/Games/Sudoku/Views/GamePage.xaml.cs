@@ -45,6 +45,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
             if (vm.CurrentGame.IsDaily)
             {
                 ResetButton.Visibility = Visibility.Hidden;
+                ButtonGrid.ColumnDefinitions.RemoveAt(1);
             }
             LockInitialValues(BoardGrid);
         }

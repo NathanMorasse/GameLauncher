@@ -90,8 +90,14 @@
             </Grid>
             <Grid Grid.Row="4"></Grid>
             <Grid Grid.Row="6">
-                <Button Click="Validate_Click" Command="{Binding Validate}" Style="{StaticResource StandardButton}" Margin="5" Width="480" HorizontalAlignment="Left" >Vérifier</Button>
-                <Button Name="ResetButton" Click="Reset_Click" Command="{Binding Reset}" Style="{StaticResource StandardButton}" Margin="5" Width="100" HorizontalAlignment="Right" FontFamily="Segoe mdl2 assets">&#xE72C;</Button>
+                <Grid x:Name="ButtonGrid"> 
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Click="Validate_Click" Grid.Column="0" Command="{Binding Validate}" Style="{StaticResource StandardButton}" Margin="5" HorizontalAlignment="Stretch" >Vérifier</Button>
+                    <Button Name="ResetButton" Grid.Column="1" Click="Reset_Click" Command="{Binding Reset}" Style="{StaticResource StandardButton}" Margin="5" Width="100" HorizontalAlignment="Right" FontFamily="Segoe mdl2 assets">&#xE72C;</Button>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>
