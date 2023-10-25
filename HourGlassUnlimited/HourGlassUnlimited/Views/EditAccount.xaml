@@ -27,48 +27,58 @@
                 <DropShadowEffect ShadowDepth="25" Color="Gray" Opacity="1" BlurRadius="50"/>
             </Border.Effect>
             <Grid Margin="20">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0">
-                    <TextBlock Foreground="White" FontSize="50" VerticalAlignment="Center" TextAlignment="Center">Votre compte</TextBlock>
+                        <Grid Grid.Row="0">
+                            <TextBlock Foreground="White" FontSize="50" VerticalAlignment="Center" TextAlignment="Center">Votre compte</TextBlock>
 
-                </Grid>
-                <Border Grid.Row="1" BorderThickness="0.5" Height="1" BorderBrush="Gray" Margin="0"/>
+                        </Grid>
+                        <Border Grid.Row="1" BorderThickness="0.5" Height="1" BorderBrush="Gray" Margin="0"/>
 
-                <StackPanel Grid.Row="2" Margin="0 0 0 0">
-                    <Label Foreground="White">Nom d'utilisateur</Label>
-                    <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Username, Mode=TwoWay}"></TextBox>
-                    <TextBlock x:Name="Usename_Alert" Visibility="Hidden"></TextBlock>
-                </StackPanel>
+                        <StackPanel Grid.Row="2" Margin="0 0 0 0">
+                            <Label Foreground="White">Nom d'utilisateur</Label>
+                            <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Username, Mode=TwoWay}"></TextBox>
+                            <TextBlock x:Name="Usename_Alert" Visibility="Hidden"></TextBlock>
+                        </StackPanel>
 
-                <StackPanel Grid.Row="3">
-                    <Label Foreground="White">Mot de passe</Label>
-                    <TextBox Style="{StaticResource TextBoxStyle}"  Text="{Binding Password, Mode=TwoWay}"></TextBox>
-                    <TextBlock x:Name="Password_Alert" Visibility="Hidden"></TextBlock>
-                </StackPanel>
+                        <StackPanel Grid.Row="3">
+                            <Label Foreground="White">Mot de passe</Label>
+                            <TextBox Style="{StaticResource TextBoxStyle}"  Text="{Binding Password, Mode=TwoWay}"></TextBox>
+                            <TextBlock x:Name="Password_Alert" Visibility="Hidden"></TextBlock>
+                        </StackPanel>
 
-                <StackPanel Grid.Row="4">
-                    <Label Foreground="White">Confirmation du mot de pass</Label>
-                    <TextBox Style="{StaticResource TextBoxStyle}"  Text="{Binding Confirmation, Mode=TwoWay}"></TextBox>
-                    <TextBlock x:Name="Confirmation_Alert" Visibility="Hidden"></TextBlock>
-                </StackPanel>
+                        <StackPanel Grid.Row="4">
+                            <Label Foreground="White">Confirmation du mot de passe</Label>
+                            <TextBox Style="{StaticResource TextBoxStyle}"  Text="{Binding Confirmation, Mode=TwoWay}"></TextBox>
+                            <TextBlock x:Name="Confirmation_Alert" Visibility="Hidden"></TextBlock>
+                        </StackPanel>
 
-                <StackPanel Grid.Row="5">
-                    <Label Foreground="White">Département</Label>
-                    <ComboBox SelectedItem="{Binding Department, Mode=TwoWay}" ItemsSource="{Binding Departments, Mode=OneWay}"></ComboBox>
-                    <TextBlock x:Name="Department_Alert" Visibility="Hidden"></TextBlock>
-                </StackPanel>
+                        <StackPanel Grid.Row="5">
+                            <Label Foreground="White">Département</Label>
+                            <ComboBox SelectedItem="{Binding Department, Mode=TwoWay}" ItemsSource="{Binding Departments, Mode=OneWay}"></ComboBox>
+                            <TextBlock x:Name="Department_Alert" Visibility="Hidden"></TextBlock>
+                        </StackPanel>
 
-                <Button x:Name="Edit_Button" Height="55" Command="{Binding Edit}" Style="{StaticResource StandardButton}" Grid.Row="7" Content="Créer"></Button>
+                        <StackPanel Grid.Row="6">
+                            <Label Foreground="White">Mot de passe actuel</Label>
+                            <TextBox Style="{StaticResource TextBoxStyle}"  Text="{Binding Current, Mode=TwoWay}"></TextBox>
+                            <TextBlock x:Name="Current_Alert" Visibility="Hidden"></TextBlock>
+                        </StackPanel>
+
+                        <Button x:Name="Edit_Button" Height="55" Command="{Binding Edit}" Style="{StaticResource StandardButton}" Grid.Row="7" Content="Modifier"></Button>
+                    </Grid>
+                </ScrollViewer>
             </Grid>
         </Border>
     </Grid>

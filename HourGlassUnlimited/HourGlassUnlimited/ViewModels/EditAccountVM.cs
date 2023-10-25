@@ -16,6 +16,7 @@ namespace HourGlassUnlimited.ViewModels
         public string Password { get; set; }
         public string Confirmation { get; set; }
         public string Department { get; set; }
+        public string Current { get; set; }
 
         public List<string> Departments { get; set; }
 
@@ -51,7 +52,35 @@ namespace HourGlassUnlimited.ViewModels
         private bool Edit_CanExecute(object parameter) { return true; }
         private void Edit_Execute(object parameter)
         {
+            bool old_pwd;
+            bool new_pwd;
+            bool uname;
 
+            old_pwd = ConnectionHelper.ValidateHashedPassword(Current, ConnectionHelper.User.Password);
+            new_pwd = (Password != null && Confirmation != null);
+            new_pwd = (Password == null && Confirmation == null);
+            new_pwd = (ValidateString(Password) && ValidateString(Confirmation));
+            new_pwd = (Password == Confirmation);
+            uname = (Username != null);
+            uname = (ValidateString(Username));
+
+            if (Username == null || ValidateString(Username))
+            {
+                return;
+            }
+
+            if (Password != null && Confirmation != null)
+            {
+
+            }
+        }
+
+        public bool ValidateString(string str)
+        {
+            if (str == "" || str == " ") { return false; }
+            if (str.Length !> 4) { return false; }
+
+            return true;
         }
     }
 }

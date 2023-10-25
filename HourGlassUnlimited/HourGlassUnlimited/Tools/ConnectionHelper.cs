@@ -77,7 +77,7 @@ namespace HourGlassUnlimited.Tools
             return Convert.ToBase64String(hashBytes);
         }
 
-        private static bool ValidateHashedPassword(string password, string hashedPassword)
+        public static bool ValidateHashedPassword(string password, string hashedPassword)
         {
             byte[] hashBytes = Convert.FromBase64String(hashedPassword);
 
