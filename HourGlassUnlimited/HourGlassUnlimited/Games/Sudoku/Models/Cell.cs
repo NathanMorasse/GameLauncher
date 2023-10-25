@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HourGlassUnlimited.Games.Sudoku.Tools;
+using HourGlassUnlimited.Games.Sudoku.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -19,6 +21,8 @@ namespace HourGlassUnlimited.Games.Sudoku.Models
                 {
                     _value = value;
                     OnPropertyChanged(nameof(Value));
+                    GamePageVM vm = (GamePageVM)SudokuNavigator.GamePage.DataContext;
+                    vm.CanValidate = vm.IsBoardFilled();
                 }
             }
         }
@@ -29,5 +33,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Models
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public Cell() { }
     }
 }

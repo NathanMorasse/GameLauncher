@@ -1,8 +1,11 @@
-Empecher de vérifier si la grille est pas complete
+Rendre l'interface de sudoku adaptive
+Pop-up avant de reset
+clear dans daily
 Enregistrer les scores
+Empecher de jouer 2 fois a une quotidienne
 Sauvegarder les parties
 Loader les parties
-Rendre l'interface de sudoku adaptive
-Empecher de jouer 2 fois a une quotidienne
 Afficher les Classements
 Gerer fermeture d'une game
+Empecher de vérifier si la grille est pas complete
+setter la difficulté dans reset

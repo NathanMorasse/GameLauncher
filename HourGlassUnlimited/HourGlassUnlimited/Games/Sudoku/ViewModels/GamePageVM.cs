@@ -12,6 +12,8 @@ using System.Windows.Input;
 using HourGlassUnlimited.Tools;
 using System.Diagnostics;
 using System.Windows.Threading;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace HourGlassUnlimited.Games.Sudoku.ViewModels
 {
@@ -20,6 +22,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         private string _timePassed;
         private string _gameEnded = "Hidden";
         private string _gameResult;
+        private bool _canValidate = false;
 
         private SudokuGame _currentGame;
 
@@ -49,6 +52,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
             set
             {
                 CurrentGame.GameBoard.Grid = value;
+                CanValidate = IsBoardFilled();
                 ChangeValue("CurrentBoard");
             }
         }
@@ -68,7 +72,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
             }
         }
 
-        public string GameEnded
+        public string GameStatusVisibility
         {
             get
             {
@@ -94,25 +98,86 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
             }
         }
 
+        public bool CanValidate
+        {
+            get
+            {
+                return _canValidate;
+            }
+            set
+            {
+                _canValidate = value;
+                ChangeValue("CanValidate");
+            }
+        }
+
         public ICommand Validate { get; set; }
         private bool Validate_CanExecute(object parameter) { return true; }
         private async void Validate_Execute(object parameter)
         {
-            GameEnded = "Visible";
             DAL dal = new DAL();
-            GameResult = await dal.SudokuFact.ValidateBoard(CurrentGame.GameBoard);
+            string result = await dal.SudokuFact.ValidateBoard(CurrentGame.GameBoard);
+            if (result == "valid")
+            {
+                GameResult = "Grille complétée correctement!";
+                SudokuNavigator.GamePage.StopTimer();
+            }
+            else
+            {
+                if (IsBoardFilled())
+                {
+                    GameResult = "Grille invalide :(";
+                }
+                else
+                {
+                    GameResult = "Grille Incomplete";
+                }
+            }
+            GameStatusVisibility = "Visible";
         }
 
         public ICommand Reset { get; set; }
         private bool Reset_CanExecute(object parameter) { return true; }
         private async void Reset_Execute(object parameter)
         {
-            DAL dal = new DAL();
-            Board newBoard = await dal.SudokuFact.GenerateBoard("medium", false);
-            CurrentBoard = newBoard.Grid;
-            GameEnded = "Hidden";
-            await Task.Delay(100); // solution temporaire
-            await SudokuNavigator.GamePage.ResetGrid();
+            if (MessageBox.Show("Êtes-vous sur de vouloir recommencer avec une nouvelle grille?",
+                    "Nouvelle partie",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                DAL dal = new DAL();
+                Board newBoard = await dal.SudokuFact.GenerateBoard("medium", false);
+                CurrentBoard = newBoard.Grid;
+                GameStatusVisibility = "Hidden";
+                await Task.Delay(10);
+                await SudokuNavigator.GamePage.ResetGrid();
+            }
+        }
+
+        public bool IsBoardFilled()
+        {
+            if (CurrentBoard.Count != 9)
+            {
+                return false; 
+            }
+
+            foreach (var row in CurrentBoard)
+            {
+                if (row.Count != 9)
+                {
+                    return false; 
+                }
+
+                foreach (var cell in row)
+                {
+                    if (cell.Value < 1 || cell.Value > 9)
+                    {
+                        return false; 
+                    }
+                }
+            }
+
+            return true;
         }
 
         public GamePageVM()

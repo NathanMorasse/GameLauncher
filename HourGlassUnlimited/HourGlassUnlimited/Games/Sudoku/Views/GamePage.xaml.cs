@@ -110,23 +110,18 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
             }
         }
 
-        private void Validate_Click(object sender, RoutedEventArgs e)
+        public async Task StopTimer()
         {
             sw.Stop();
             dt.Stop();
         }
 
-        private async void Reset_Click(object sender, RoutedEventArgs e)
-        {
-            sw.Restart();
-            dt.Start();
-        }
-
         public async Task ResetGrid()
         {
             EnableAllTextBoxes(BoardGrid);
-
             LockInitialValues(BoardGrid);
+            sw.Restart();
+            dt.Start();
         }
 
         private void EnableAllTextBoxes(DependencyObject parent)
