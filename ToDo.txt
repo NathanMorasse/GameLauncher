@@ -1,0 +1,8 @@
+Empecher de vérifier si la grille est pas complete
+Enregistrer les scores
+Sauvegarder les parties
+Loader les parties
+Rendre l'interface de sudoku adaptive
+Empecher de jouer 2 fois a une quotidienne
+Afficher les Classements
+Gerer fermeture d'une game

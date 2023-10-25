@@ -30,6 +30,8 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
             }
             else
             {
+                Navigator.Start();
+                Navigator.SignInView();
                 Navigator.MainWindow.Show();
             }
 
@@ -40,6 +42,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         private async void Back_To_Menu_Execute(object parameter)
         {
             SudokuNavigator.GameMenuView();
+            SudokuNavigator.GamePage = new Views.GamePage();
         }
 
 

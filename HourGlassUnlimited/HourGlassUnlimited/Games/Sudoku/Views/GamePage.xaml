@@ -83,10 +83,10 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
-                <TextBlock x:Name="clock_text" Text="{Binding TimePassed}" Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="130"></TextBlock>
+                <TextBlock x:Name="clock_text" Text="{Binding TimePassed}" Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100"></TextBlock>
             </Grid>
             <Grid Grid.Row="1" Visibility="{Binding GameEnded}">
-                <TextBlock Text="{Binding GameResult}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100"></TextBlock>
+                <TextBlock Text="{Binding GameResult}" HorizontalAlignment="Center" Foreground="LightGray" VerticalAlignment="Center" FontSize="80"></TextBlock>
             </Grid>
             <Grid Grid.Row="4"></Grid>
             <Grid Grid.Row="6">

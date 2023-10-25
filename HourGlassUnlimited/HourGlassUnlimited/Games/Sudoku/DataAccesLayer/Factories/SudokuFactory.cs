@@ -76,9 +76,9 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
                     string solvedBoardString = data.solution;
                     if (boardString == solvedBoardString)
                     {
-                        return "Valide";
+                        return "Grille complétée!";
                     }
-                    return "Invalide";
+                    return "Grille invalide :(";
                 }
             }
             catch (Exception e)
