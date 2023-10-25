@@ -45,7 +45,10 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
             if (vm.CurrentGame.IsDaily)
             {
                 ResetButton.Visibility = Visibility.Hidden;
-                ButtonGrid.ColumnDefinitions.RemoveAt(1);
+                if (ButtonGrid.ColumnDefinitions.Count() == 2)
+                {
+                    ButtonGrid.ColumnDefinitions.RemoveAt(1);
+                }
             }
             LockInitialValues(BoardGrid);
         }
@@ -55,8 +58,8 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
             if (sw.IsRunning)
             {
                 TimeSpan ts = sw.Elapsed;
-                currentTime = String.Format("{0:00}:{1:00}:{2:00}",
-                ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+                currentTime = String.Format("{0:00}:{1:00}:{2:00}:{3:00}",
+                ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
                 clock_text.Text = currentTime;
             }
         }
