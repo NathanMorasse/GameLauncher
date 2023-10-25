@@ -42,6 +42,18 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
             }
         }
 
+        public static string UpdateUserCMD
+        {
+            get
+            {
+                return "update users " +
+                    "set `Username`= @Username, " +
+                    "`Password` = @Password, " +
+                    "`Department`= (select Id from departments where Department = @Department) " +
+                    "where Id = @Id;";
+            }
+        }
+
         public static User UserFromReader(MySqlDataReader reader)
         {
             int id = (int)reader["Id"];

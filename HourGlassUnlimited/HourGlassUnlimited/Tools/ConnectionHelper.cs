@@ -37,7 +37,7 @@ namespace HourGlassUnlimited.Tools
         {
             if (user == null)
             {
-                return new string[] { "Problem", "Aucune information n'a été fourni." };
+                return new string[] { "NotFound", "Aucune information n'a été fourni." };
             }
 
             //Verify if the Username is already taken
@@ -51,6 +51,16 @@ namespace HourGlassUnlimited.Tools
             //Create user with the DAL.
 
             return DAL.Users.Add(user);
+        }
+
+        public static string[] UpdateAccount()
+        {
+            if (User == null)
+            {
+                return new string[] { "NotFouund", "Il y a un problème avec l'utilisateur actuel." };
+            }
+
+            return null;
         }
 
         private static string HashPassword(string passwordToHash)

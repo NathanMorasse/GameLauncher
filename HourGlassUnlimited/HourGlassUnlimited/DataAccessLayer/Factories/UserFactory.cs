@@ -96,7 +96,7 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
 
                 if (unknown.Id < 0)
                 {
-                    return new string[] { "Error", unknown.Username };
+                    return new string[] { unknown.Username, unknown.Department };
                 }
 
                 connection = new MySqlConnection(ConnectionString);
@@ -117,6 +117,48 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
             }
 
             return new string[] { "Success", "Le compte a été créé avec succès." };
+        }
+
+        public string[] Update(User user)
+        {
+            MySqlConnection? connection = null;
+            MySqlDataReader? reader = null;
+
+            try
+            {
+                User unknown = ByUsername(user.Username);
+
+                if (unknown.Id > 0 && unknown.Id != user.Id)
+                {
+                    return new string[] { "Unauthorize", "Le nom d'utilisateur est déjà utilisé." };
+                }
+
+                if (unknown.Id < 0)
+                {
+                    return new string[] { unknown.Username, unknown.Department };
+                }
+
+                connection = new MySqlConnection(ConnectionString);
+                connection.Open();
+
+
+                MySqlCommand command = connection.CreateCommand();
+                command.CommandText = FactoryHelper.UpdateUserCMD;
+                command.Parameters.AddWithValue("@Username", user.Username);
+                command.Parameters.AddWithValue("@Password", user.Password);
+                command.Parameters.AddWithValue("@Department", user.Department);
+                command.Parameters.AddWithValue("@Id", user.Id);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                return new string[] { "Error", e.Message };
+            }
+
+            return new string[] { "Success", "Le compte a été modifié avec succès." };
+
+            return null;
         }
     }
 }
