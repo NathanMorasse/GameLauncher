@@ -30,6 +30,8 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
             }
             else
             {
+                Navigator.Start();
+                Navigator.SignInView();
                 Navigator.MainWindow.Show();
             }
 

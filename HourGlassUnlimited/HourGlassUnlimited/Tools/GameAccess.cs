@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HourGlassUnlimited.Games;
+using HourGlassUnlimited.Games.Sudoku.Tools;
 using HourGlassUnlimited.Models;
 
 namespace HourGlassUnlimited.Tools
@@ -21,7 +22,14 @@ namespace HourGlassUnlimited.Tools
             {
                 case "Sudoku":
                     {
-                        Games.Sudoku.Tools.SudokuNavigator.Start();
+                        if (SudokuNavigator.MainWindow != null && SudokuNavigator.MainWindow.IsVisible)
+                        {
+                            SudokuNavigator.MainWindow.WindowState = System.Windows.WindowState.Maximized;
+                        }
+                        else
+                        {
+                            SudokuNavigator.Start();
+                        }
                         break;
                     }
             }

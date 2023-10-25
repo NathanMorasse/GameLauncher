@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Games\Sudoku\Img\Logo.png" />
     <None Remove="Img\favicon.png" />
   </ItemGroup>
 
@@ -22,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Games\Sudoku\Img\Logo.png" />
     <Resource Include="Img\favicon.png" />
   </ItemGroup>
 
