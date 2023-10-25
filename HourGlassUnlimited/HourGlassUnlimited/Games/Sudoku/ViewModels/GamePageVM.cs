@@ -20,7 +20,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
     public class GamePageVM : VM
     {
         private string _timePassed;
-        private string _gameEnded = "Hidden";
+        private string _gameStatusVisibility = "Hidden";
         private string _gameResult;
         private bool _canValidate = false;
 
@@ -76,12 +76,12 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         {
             get
             {
-                return _gameEnded;
+                return _gameStatusVisibility;
             }
             set
             {
-                _gameEnded = value;
-                ChangeValue("GameEnded");
+                _gameStatusVisibility = value;
+                ChangeValue("GameStatusVisibility");
             }
         }
 
