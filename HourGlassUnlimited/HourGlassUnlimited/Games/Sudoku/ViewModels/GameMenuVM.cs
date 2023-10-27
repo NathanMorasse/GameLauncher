@@ -42,9 +42,9 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         private bool Launch_Classic_CanExecute(object parameter) { return true; }
         private async void Launch_Classic_Execute(object parameter) 
         {
-            SudokuGame game = new SudokuGame();
-            game.IsDaily = false;
             DAL dal = new DAL();
+            SudokuGame game = dal.SudokuFact.GetByTitle("Sudoku");
+            game.IsDaily = false;
             game.GameBoard = await dal.SudokuFact.GenerateBoard(parameter.ToString(), false);
             SudokuNavigator.GamePage.SetGame(game);
             SudokuNavigator.GamePageView();
@@ -53,9 +53,9 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         private bool Launch_Daily_CanExecute(object parameter) { return true; }
         private async void Launch_Daily_Execute(object parameter)
         {
-            SudokuGame game = new SudokuGame();
-            game.IsDaily = true;
             DAL dal = new DAL();
+            SudokuGame game = dal.SudokuFact.GetByTitle("Sudoku");
+            game.IsDaily = true;
             game.GameBoard = await dal.SudokuFact.GenerateBoard(parameter.ToString(), true);
             SudokuNavigator.GamePage.SetGame(game);
             SudokuNavigator.GamePageView();

@@ -23,7 +23,6 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         private string _gameStatusVisibility = "Hidden";
         private string _gameResult;
         private bool _canValidate = false;
-
         private SudokuGame _currentGame;
 
         public SudokuGame CurrentGame

@@ -12,7 +12,8 @@
         Width="1920"
         WindowState="Maximized"
         FontFamily="Bahnschrift"
-        Icon="./../img/Logo.png">
+        Icon="./../img/Logo.png"
+        Closing="Window_Closing">
     <Grid>
         <Grid.Background>
             <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.6" RadiusY="0.8">
