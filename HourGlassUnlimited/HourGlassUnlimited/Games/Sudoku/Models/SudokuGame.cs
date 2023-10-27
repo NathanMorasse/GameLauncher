@@ -11,5 +11,6 @@ namespace HourGlassUnlimited.Games.Sudoku.Models
     {
         public Board GameBoard { get; set; } = new Board();
         public bool IsDaily { get; set; }
+        public SudokuGame() : base() { }
     }
 }

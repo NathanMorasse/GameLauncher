@@ -39,5 +39,11 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
                     Menu_Button.Visibility = Visibility.Visible;
             }
         }
+
+        private void Window_Closing(object sender, EventArgs e)
+        {
+            SudokuWindowVM vm = (SudokuWindowVM)DataContext;
+            vm.Save();
+        }
     }
 }

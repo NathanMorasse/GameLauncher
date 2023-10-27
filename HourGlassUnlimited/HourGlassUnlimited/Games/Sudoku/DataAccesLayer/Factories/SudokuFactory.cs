@@ -11,11 +11,24 @@ using HourGlassUnlimited.Games.Sudoku.Tools;
 using System.Net.Http.Json;
 using Newtonsoft.Json.Linq;
 using MySqlX.XDevAPI;
+using HourGlassUnlimited.DataAccessLayer.Factories.Helper;
+using HourGlassUnlimited.Models;
+using MySql.Data.MySqlClient;
+using HourGlassUnlimited.Tools;
 
 namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
 {
     public class SudokuFactory : FactoryBase
     {
+        public static SudokuGame CreateFromReader(MySqlDataReader reader)
+        {
+            int id = (int)reader["Id"];
+            string title = reader["Title"].ToString() ?? string.Empty;
+            string description = reader["Description"].ToString() ?? string.Empty;
+
+            return new SudokuGame() { Id=id, Title=title, Description=description};
+        }
+
         public async Task<Board> GenerateBoard(string difficulty, bool isDaily)
         {
             string paramSeed = string.Empty;
@@ -44,6 +57,8 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
                     dynamic data = JObject.Parse(body);
                     string boardString = data.puzzle;
                     Board board = BoardEncoder.DecodeBoard(boardString);
+                    board.Seed = data.seed;
+                    board.Difficulty = data.difficulty;
                     return board;
                 }
             }
@@ -84,6 +99,68 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             catch (Exception e)
             {
                 throw new Exception("Échec de la validation de grille", e);
+            }
+        }
+
+        public SudokuGame GetByTitle(string title)
+        {
+            SudokuGame? game = null;
+            MySqlConnection? connection = null;
+            MySqlDataReader? reader = null;
+
+            try
+            {
+                connection = new MySqlConnection(CnnStr);
+                connection.Open();
+
+                MySqlCommand command = connection.CreateCommand();
+                command.CommandText = "SELECT * FROM a23_web3_2133752.games WHERE Title=@Title;";
+                command.Parameters.AddWithValue("@Title", title);
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    game = CreateFromReader(reader);
+                }
+
+                if (game == null)
+                {
+                    throw new Exception("Le jeu de sudoku n'existe pas");
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Chargement du jeu de sudoku impossible: "+e.Message);
+            }
+
+            return game;
+        }
+
+        public async void SaveGame(SudokuGame game, string timespan)
+        {
+            MySqlConnection? connection = null;
+            string boardString = BoardEncoder.EncodeBoard(game.GameBoard);
+            try
+            {
+                connection = new MySqlConnection(CnnStr);
+                connection.Open();
+
+
+                MySqlCommand command = connection.CreateCommand();
+                command.CommandText = "INSERT INTO a23_web3_2133752.saves(User, Game, Save, Time, IsDaily, Seed) VALUES(@User, @Game, @Save, @Time, @IsDaily, @Seed);";
+                command.Parameters.AddWithValue("@User", ConnectionHelper.User.Id);
+                command.Parameters.AddWithValue("@Game", game.Id);
+                command.Parameters.AddWithValue("@Save", boardString);
+                command.Parameters.AddWithValue("@Time", timespan);
+                command.Parameters.AddWithValue("@Date", DateTime.Now);
+                command.Parameters.AddWithValue("@IsDaily", game.IsDaily);
+                command.Parameters.AddWithValue("@Seed", game.GameBoard.Seed);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Echec de la sauvegarde: "+e.Message);
             }
         }
     }
