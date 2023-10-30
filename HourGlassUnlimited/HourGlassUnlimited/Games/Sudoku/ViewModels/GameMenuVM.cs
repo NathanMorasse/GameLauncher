@@ -30,7 +30,17 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         private bool Select_Classic_CanExecute(object parameter) { return true; }
         private async void Select_Classic_Execute(object parameter)
         {
-            SudokuNavigator.PartialDifficultyView();
+            DAL dal = new DAL();
+            SudokuGame savedGame = dal.SudokuFact.LoadSave(false);
+            if (savedGame == null)
+            {
+                SudokuNavigator.PartialDifficultyView();
+            }
+            else
+            {
+                savedGame.IsDaily = false;
+                SudokuNavigator.PartialLoadSaveView();
+            }
         }
 
         private bool Select_Daily_CanExecute(object parameter) { return true; }

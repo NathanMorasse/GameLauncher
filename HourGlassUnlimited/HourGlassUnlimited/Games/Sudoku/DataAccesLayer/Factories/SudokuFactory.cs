@@ -15,18 +15,32 @@ using HourGlassUnlimited.DataAccessLayer.Factories.Helper;
 using HourGlassUnlimited.Models;
 using MySql.Data.MySqlClient;
 using HourGlassUnlimited.Tools;
+using System.Reflection.PortableExecutable;
 
 namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
 {
     public class SudokuFactory : FactoryBase
     {
+        public static SudokuGame CreateFromSave(MySqlDataReader reader)
+        {
+            int id = (int)reader["Id"];
+            string title = reader["Title"].ToString() ?? string.Empty;
+            string description = reader["Description"].ToString() ?? string.Empty;
+            string timePassed = reader["Time"].ToString() ?? string.Empty;
+            string boardString = reader["Save"].ToString() ?? string.Empty;
+            Board board = BoardEncoder.DecodeBoard(boardString);
+            board.Seed = reader["Seed"].ToString() ?? string.Empty;
+
+            return new SudokuGame() { Id=id, Title=title, Description=description, TimePassed = timePassed, GameBoard=board};
+        }
+
         public static SudokuGame CreateFromReader(MySqlDataReader reader)
         {
             int id = (int)reader["Id"];
             string title = reader["Title"].ToString() ?? string.Empty;
             string description = reader["Description"].ToString() ?? string.Empty;
 
-            return new SudokuGame() { Id=id, Title=title, Description=description};
+            return new SudokuGame() { Id = id, Title = title, Description = description};
         }
 
         public async Task<Board> GenerateBoard(string difficulty, bool isDaily)
@@ -161,6 +175,35 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             catch (Exception e)
             {
                 throw new Exception("Echec de la sauvegarde: "+e.Message);
+            }
+        }
+
+        public SudokuGame LoadSave(bool isdaily)
+        {
+            MySqlConnection? connection = null;
+            MySqlDataReader? reader = null;
+            SudokuGame game = null;
+            try
+            {
+                connection = new MySqlConnection(CnnStr);
+                connection.Open();
+
+
+                MySqlCommand command = connection.CreateCommand();
+                command.CommandText = "SELECT games.Id, games.Title, games.Description, saves.Save, saves.Seed, saves.Time FROM a23_web3_2133752.saves INNER JOIN games ON saves.Game=games.Id WHERE Game = 1 AND User = @User AND IsDaily = @IsDaily ORDER BY Date DESC LIMIT 1;";
+                command.Parameters.AddWithValue("@User", ConnectionHelper.User.Id);
+                command.Parameters.AddWithValue("@IsDaily", isdaily);
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    game = CreateFromSave(reader);
+                }
+                return game;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Echec du chargement de sauvegarde: " + e.Message);
             }
         }
     }

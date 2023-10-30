@@ -75,6 +75,11 @@ namespace HourGlassUnlimited.Games.Sudoku.Tools
         {
             GameMenu.Partial_PopUp.NavigationService.Navigate(PartialDifficulty);
         }
+
+        public static void PartialLoadSaveView()
+        {
+            GameMenu.Partial_PopUp.NavigationService.Navigate(PartialLoadSave);
+        }
         #endregion
     }
 }
