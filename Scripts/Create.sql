@@ -16,7 +16,6 @@ foreign key (Department) references Departments(Id)
 create table `Games` (
 `Id` int not null auto_increment,
 `Title` varchar(255) not null,
-`Description` varchar(255),
 primary key (Id)
 );
 
@@ -31,15 +30,6 @@ create table `Scores` (
 `Date` datetime,
 primary key (Id),
 foreign key (`User`) references Users(Id),
-foreign key (`Game`) references Games(Id)
-);
-
-create table `Dailies` (
-`Id` int not null auto_increment,
-`Game` int not null,
-`GenerationDate` datetime not null,
-`Puzzle` longtext not null,
-primary key (Id),
 foreign key (`Game`) references Games(Id)
 );
 
