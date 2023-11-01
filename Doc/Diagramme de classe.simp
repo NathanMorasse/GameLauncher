@@ -13,7 +13,7 @@
       </counter>
       <counter>
         <item-type type-id="class" type="Class" />
-        <value>40</value>
+        <value>47</value>
       </counter>
       <counter>
         <item-type stereotype="enumeration" type-id="enumeration" type="Enumeration" />
@@ -23,7 +23,7 @@
     <entity-ids>
       <counter>
         <item-type type-id="group" type="Group" />
-        <value>7400</value>
+        <value>7727</value>
       </counter>
       <counter>
         <item-type type-id="package" type="Package" />
@@ -31,7 +31,7 @@
       </counter>
       <counter>
         <item-type type-id="class" type="Class" />
-        <value>41</value>
+        <value>48</value>
       </counter>
       <counter>
         <item-type type-id="generalization" type="Generalization" />
@@ -39,7 +39,7 @@
       </counter>
       <counter>
         <item-type type-id="property" type="Property" />
-        <value>98</value>
+        <value>127</value>
       </counter>
       <counter>
         <item-type type-id="enumeration" type="Enumeration" />
@@ -59,7 +59,7 @@
       </counter>
       <counter>
         <item-type type-id="relationship" type="Association" />
-        <value>27</value>
+        <value>39</value>
       </counter>
     </entity-ids>
     <diagrams>
@@ -108,6 +108,16 @@
         <description />
         <color>#00000000</color>
         <working-schedule uid="ws-7f785b1f417949779c09ede44fb9e53c" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Raphael</first-name>
+        <last-name>Gagnon</last-name>
+        <role />
+        <e-mail>raphaelgagnon@cegep-chicoutimi.qc.ca</e-mail>
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+        <working-schedule uid="ws-5b30e3a596a7430c85da798daffd8495" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
       </person>
       <person id="">
         <first-name>Raphael</first-name>
@@ -446,6 +456,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="63e8543c74ee46e6949debd8587eae59" />
               <owned-item ref="df2051ac7b724e5f92979bfa0223be2b" />
               <owned-item ref="0c859fe73c8f43fd9de86a407915f68d" />
+              <owned-item ref="0c859fe73c8f43fd9de86a407915f68d" />
             </owned-items>
           </item>
           <item id="4b124bd26ffd43509767429857ab118c" cid="C004" type="class" name="Sudoku" style-class="" owner="204e89c0917b432288aaeb9be3d3c69b" change-tracking-state="added" creator="" creation-date="09/29/2023 09:19:54" visibility="package">
@@ -492,10 +503,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="f8f58180e66946d497e23517260311a3" />
               <owned-item ref="f8f58180e66946d497e23517260311a3" />
               <owned-item ref="b24244f998664c56a89547189e667002" />
+              <owned-item ref="f8f58180e66946d497e23517260311a3" />
+              <owned-item ref="b24244f998664c56a89547189e667002" />
             </owned-items>
             <relation from="4b998150d0034141933de4689f4bef57" to="63e8543c74ee46e6949debd8587eae59" derived="false">
-              <start-role id="umlar-3b87e9e4-a1ec-48e6-ab54-17d6ede4ecb7" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-0d3106f6-3489-4bbc-ac31-0cdc435aac4f" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-9c652d5c-5e7e-4a1a-b82a-4ef4e757b92d" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-5d1d58c8-ae17-4283-a617-50704467d36c" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="d33f406818f048598b49426f91f089d9" cid="REL008" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="10/01/2023 20:27:36" from="a1589d307139461c93ef47b4a5990d4d" to="4c246a89fe0b4544a6b4451d4e307f0f" visibility="package">
@@ -504,10 +517,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="82de49ac7fe34e268208bfd1b7f7b145" />
               <owned-item ref="dda79fa17f2a45d4964201289af7067d" />
               <owned-item ref="82de49ac7fe34e268208bfd1b7f7b145" />
+              <owned-item ref="dda79fa17f2a45d4964201289af7067d" />
+              <owned-item ref="82de49ac7fe34e268208bfd1b7f7b145" />
             </owned-items>
             <relation from="a1589d307139461c93ef47b4a5990d4d" to="4c246a89fe0b4544a6b4451d4e307f0f" derived="false">
-              <start-role id="umlar-af928eaa-9db3-4b89-b44a-86a9d380acbd" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-2034268b-48e6-472d-b9eb-34aa27a9005e" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-87eb499b-4a07-4e81-98b1-08ca9a01ca31" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-51a5ea91-a19a-41c2-8bd7-51c0857ef069" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="754469ba01394ffdb71d05bb4e4cea3d" cid="PROP006" type="property" name="Games" style-class="" owner="ca0278d8be2e47a69cba97f35755d8d3" creator="" creation-date="09/29/2023 09:27:28" visibility="private">
@@ -522,10 +537,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="020f796a242c45d588610b97e7b00509" />
               <owned-item ref="020f796a242c45d588610b97e7b00509" />
               <owned-item ref="fb5c4a26a82541c884748927c482c652" />
+              <owned-item ref="020f796a242c45d588610b97e7b00509" />
+              <owned-item ref="fb5c4a26a82541c884748927c482c652" />
             </owned-items>
             <relation from="0aeec048e6d9462aa20e0a3834acc0cb" to="6eac55bf8a684155ae7a58b44026613a" derived="false">
-              <start-role id="umlar-0ccdcbe0-ad76-4d21-9f10-26f69e3a98cb" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-fc7fb5c6-40f7-4878-b253-9add187345cb" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-4f1d9acd-ff29-4d24-92c3-df57a2b74d80" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-52f7f02b-f883-4e41-a6be-ab08414d6b6b" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="46f34cbb28994ca28ea2700d166520af" cid="C034" type="class" name="SudokuGridVM" style-class="" owner="95b4490f30214e089e74aca086a3eb35" change-tracking-state="added" creator="" creation-date="10/01/2023 19:47:44" visibility="undefined" />
@@ -535,10 +552,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="3d93cb69d6544376aa426ba2e0c76269" />
               <owned-item ref="eb0c844e8a4b411483ae76e6a13819d9" />
               <owned-item ref="3d93cb69d6544376aa426ba2e0c76269" />
+              <owned-item ref="eb0c844e8a4b411483ae76e6a13819d9" />
+              <owned-item ref="3d93cb69d6544376aa426ba2e0c76269" />
             </owned-items>
             <relation from="761693d39bb548c1b6577e731ef58b2f" to="557062b2bbaa44acab0b7eb91ef098c2" derived="false">
-              <start-role id="umlar-a112490b-3d3f-46f0-92c9-73d334f9f714" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-dc657e05-3a66-4dd5-8eff-76bbc74b47f7" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-0086c8bb-1f00-4fc3-9524-b97707d5abf2" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-cb023e59-01ad-4cf7-80a0-9aa953a9b031" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="4c246a89fe0b4544a6b4451d4e307f0f" cid="C031" type="class" name="SudokuMenuVM" style-class="" owner="95b4490f30214e089e74aca086a3eb35" change-tracking-state="added" creator="" creation-date="10/01/2023 19:09:41" visibility="undefined" />
@@ -558,6 +577,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="754469ba01394ffdb71d05bb4e4cea3d" />
               <owned-item ref="59fb8d5e3dfc477abe0c7c98ebe71456" />
               <owned-item ref="a9bc8214959a486987fc2088c3bef29f" />
+              <owned-item ref="754469ba01394ffdb71d05bb4e4cea3d" />
               <owned-item ref="754469ba01394ffdb71d05bb4e4cea3d" />
               <owned-item ref="754469ba01394ffdb71d05bb4e4cea3d" />
             </owned-items>
@@ -604,10 +624,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="5fbe45abc92346e0b71a2baae57063dd" />
               <owned-item ref="5fbe45abc92346e0b71a2baae57063dd" />
               <owned-item ref="e8a9cb0fbcad414daef932853d8fcfd3" />
+              <owned-item ref="5fbe45abc92346e0b71a2baae57063dd" />
+              <owned-item ref="e8a9cb0fbcad414daef932853d8fcfd3" />
             </owned-items>
             <relation from="507f19f68578494d97da42969b995b9d" to="46f34cbb28994ca28ea2700d166520af" derived="false">
-              <start-role id="umlar-6f293c62-2db0-4e92-93f0-48434869ee73" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-4cf46020-33a9-4401-82c5-79654bdb554e" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-af063944-42ba-4097-baa2-4c088fa6aafd" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-c436d2e3-f6ec-4078-a17d-6c55e9919cbb" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="df2051ac7b724e5f92979bfa0223be2b" cid="C037" type="class" name="ViewModel" style-class="" owner="8ed1aff1c8754ad3a39a42b4b16f9217" change-tracking-state="added" creator="" creation-date="10/01/2023 20:02:11" visibility="undefined" is-abstract="true" />
@@ -622,10 +644,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="c442d240d2084c87bd261fdaa98bb370" />
               <owned-item ref="c442d240d2084c87bd261fdaa98bb370" />
               <owned-item ref="fb95b86e559d4fda8da061f2c291c751" />
+              <owned-item ref="c442d240d2084c87bd261fdaa98bb370" />
+              <owned-item ref="fb95b86e559d4fda8da061f2c291c751" />
             </owned-items>
             <relation from="4b998150d0034141933de4689f4bef57" to="0e82012c0aa14d299d351ec1ae4b98e0" derived="false">
-              <start-role id="umlar-9382906a-5ad3-4851-9a0f-f5b783a55f13" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-ec63a906-145b-4c4a-bb1b-0913e0f6e1d3" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-0d60ad39-fe2f-4a23-9893-65fceea963f6" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-8f0f864d-bcac-4afe-9fdc-d349e788ad4e" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="9c8c549c473c4da289dc43cacb2f604f" cid="PROP011" type="property" name="ScoreId" style-class="" owner="551a602013fd476c8011a9da9f167a92" creator="" creation-date="09/29/2023 09:30:37" visibility="private">
@@ -650,10 +674,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="4a22615549114451aa26e596f74e3d1d" />
               <owned-item ref="4a22615549114451aa26e596f74e3d1d" />
               <owned-item ref="75bce67b0e8f478ebb518b85a99d75db" />
+              <owned-item ref="4a22615549114451aa26e596f74e3d1d" />
+              <owned-item ref="75bce67b0e8f478ebb518b85a99d75db" />
             </owned-items>
             <relation from="5b5b3a0983c1426284eac0d185193e4a" to="2ff06634124f410883ffd4da2f3495a2" derived="false">
-              <start-role id="umlar-4cf4fbd1-0cae-455c-b7a0-4b203cb37aa7" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-77b72239-5f15-4803-9702-b10238a0e047" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-dd9bd984-7fae-4f97-a0c1-738e54b3cab2" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-5673a7cb-38b0-430b-be70-7fe2a1c7c653" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="658b22093ee340f38716207e9d7f161e" cid="REL003" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="10/01/2023 20:27:13" from="f045038733d245b7aa83b3493ea86aae" to="0e82012c0aa14d299d351ec1ae4b98e0" visibility="package">
@@ -662,10 +688,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="bedfb0c00a2544629369bdd34f2f6619" />
               <owned-item ref="bedfb0c00a2544629369bdd34f2f6619" />
               <owned-item ref="743e326ca4bd4604a01ba177c42fd75a" />
+              <owned-item ref="bedfb0c00a2544629369bdd34f2f6619" />
+              <owned-item ref="743e326ca4bd4604a01ba177c42fd75a" />
             </owned-items>
             <relation from="f045038733d245b7aa83b3493ea86aae" to="0e82012c0aa14d299d351ec1ae4b98e0" derived="false">
-              <start-role id="umlar-2b8bdb31-e401-4c2b-8af3-bf83f30e95fa" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-63922fcf-e962-41f2-8e95-e4a229d81b25" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-3cbf9443-bc22-4811-87a7-131845cd1410" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-dd03d92f-9ac2-47f0-b702-587cdb9aa3fa" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="dde2a70f0b8e4741aa5131c098184ee7" cid="PROP019" type="property" name="Board" style-class="" owner="375df47180614a59a7dacbef4df7e304" creator="" creation-date="09/29/2023 10:34:42" visibility="private">
@@ -675,6 +703,9 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
           </item>
           <item id="b2d91f9b79d04b4b86e99ccb6d446aea" cid="PKG004" type="package" name="DAL" style-class="" change-tracking-state="added" creator="" creation-date="10/01/2023 19:25:38" visibility="undefined">
             <owned-items>
+              <owned-item ref="18619b42eac64686a20d459cc41a64a0" />
+              <owned-item ref="af3e944ddbc0447dbecd2ec85a4e0855" />
+              <owned-item ref="08454ba2cfeb4047afdbe0bcc2e6b314" />
               <owned-item ref="18619b42eac64686a20d459cc41a64a0" />
               <owned-item ref="af3e944ddbc0447dbecd2ec85a4e0855" />
               <owned-item ref="08454ba2cfeb4047afdbe0bcc2e6b314" />
@@ -712,6 +743,11 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="9c8c549c473c4da289dc43cacb2f604f" />
               <owned-item ref="59539a1df462430c91df6803112ec0ac" />
               <owned-item ref="8ad52bed50814def88e2f08a8f75e40e" />
+              <owned-item ref="7c778e50b2e34bdab9bba8735b6f2b3a" />
+              <owned-item ref="f83361ea61d74a3397279bc93d59b4e9" />
+              <owned-item ref="9c8c549c473c4da289dc43cacb2f604f" />
+              <owned-item ref="59539a1df462430c91df6803112ec0ac" />
+              <owned-item ref="8ad52bed50814def88e2f08a8f75e40e" />
             </owned-items>
             <attributes>
               <attribute id="a80809a4de4444426bd6129a7776679d9858" cid="PROP011" name="ScoreId" creation-date="09/29/2023 09:30:37" property-ref="9c8c549c473c4da289dc43cacb2f604f" />
@@ -731,6 +767,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
           </item>
           <item id="375df47180614a59a7dacbef4df7e304" cid="C008" type="class" name="Board" style-class="" owner="204e89c0917b432288aaeb9be3d3c69b" change-tracking-state="added" creator="" creation-date="09/29/2023 10:34:14" visibility="package">
             <owned-items>
+              <owned-item ref="dde2a70f0b8e4741aa5131c098184ee7" />
               <owned-item ref="dde2a70f0b8e4741aa5131c098184ee7" />
               <owned-item ref="dde2a70f0b8e4741aa5131c098184ee7" />
               <owned-item ref="dde2a70f0b8e4741aa5131c098184ee7" />
@@ -769,10 +806,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="c5f0aa69079b48b0bb88635f79926cc7" />
               <owned-item ref="1a7530281e784c01867bf7966cf1871d" />
               <owned-item ref="c5f0aa69079b48b0bb88635f79926cc7" />
+              <owned-item ref="1a7530281e784c01867bf7966cf1871d" />
+              <owned-item ref="c5f0aa69079b48b0bb88635f79926cc7" />
             </owned-items>
             <relation from="f17769af6ced40afaef1e96aa8656be2" to="94f5df4651cc40a89831171ed661649c" derived="false">
-              <start-role id="umlar-0555ab62-9d8d-4bff-a4e4-7092cd590f0b" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-cc06a8be-f92d-4c36-ad6d-4850566a2430" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-87232d25-ba9e-472f-8a9b-951bf728f00e" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-b393e23b-d9bc-4ebb-9141-ef43a5ff5c3e" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="0aeec048e6d9462aa20e0a3834acc0cb" cid="C022" type="class" name="Rankings" style-class="" owner="eca0af8cc2814e68b600f268db0cb9a4" change-tracking-state="added" creator="" creation-date="09/30/2023 22:26:16" visibility="undefined" />
@@ -794,6 +833,10 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="ca0278d8be2e47a69cba97f35755d8d3" />
               <owned-item ref="551a602013fd476c8011a9da9f167a92" />
               <owned-item ref="2480aafd73ea4b16a03703c453982c94" />
+              <owned-item ref="2480aafd73ea4b16a03703c453982c94" />
+              <owned-item ref="07c801d812644b98b63970d1a7a478e5" />
+              <owned-item ref="ca0278d8be2e47a69cba97f35755d8d3" />
+              <owned-item ref="551a602013fd476c8011a9da9f167a92" />
             </owned-items>
           </item>
           <item id="17844cd11233446e8af5015f3f8430ae" cid="PROP009" type="property" name="Description" style-class="" owner="2480aafd73ea4b16a03703c453982c94" creator="" creation-date="09/29/2023 09:29:51" visibility="private">
@@ -812,10 +855,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="b1b7c50b06184f2b8bf2a90aab9b512e" />
               <owned-item ref="b1b7c50b06184f2b8bf2a90aab9b512e" />
               <owned-item ref="56972227d14340d2b8dc148e7f9ea149" />
+              <owned-item ref="b1b7c50b06184f2b8bf2a90aab9b512e" />
+              <owned-item ref="56972227d14340d2b8dc148e7f9ea149" />
             </owned-items>
             <relation from="94d544b567ad48629c52083d7d91dec7" to="0c859fe73c8f43fd9de86a407915f68d" derived="false">
-              <start-role id="umlar-013be1cc-d611-4ded-a0b6-735e4d87b864" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-b971432e-3a98-4fe4-9665-fd10c647dc80" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-10844110-b508-42f4-aa24-0a99b98d887c" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-395ac0cb-f8a6-4083-80b5-810cad56aeec" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="fb21b6e3382540a0941389567ea3a675" cid="REL020" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="10/01/2023 20:42:44" from="ca0278d8be2e47a69cba97f35755d8d3" to="94f5df4651cc40a89831171ed661649c" visibility="package">
@@ -824,10 +869,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="23ab714935b648198815ddb7b16c5b13" />
               <owned-item ref="7d332c32d7fe4792b26e954237912029" />
               <owned-item ref="23ab714935b648198815ddb7b16c5b13" />
+              <owned-item ref="7d332c32d7fe4792b26e954237912029" />
+              <owned-item ref="23ab714935b648198815ddb7b16c5b13" />
             </owned-items>
             <relation from="ca0278d8be2e47a69cba97f35755d8d3" to="94f5df4651cc40a89831171ed661649c" derived="false">
-              <start-role id="umlar-55e0a59d-d83e-429a-990f-da9fae366506" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-464c3694-c72c-4d54-98fe-b8a64174bfb6" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-af1898b0-cdb2-4a90-bb76-e889b151ac27" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-848df3e0-c253-44d3-97eb-67e36e0c25b4" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="3939dc75c2ef41f3b6c3e29e540a0918" cid="REL004" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="10/01/2023 20:27:17" from="c17b37ed72744beb9280ceef6a3dd0ca" to="63e8543c74ee46e6949debd8587eae59" visibility="package">
@@ -836,10 +883,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="9ef92beaf9f74153928b5b1ee0da84a7" />
               <owned-item ref="2f34de306ac64011b779057a73452d30" />
               <owned-item ref="9ef92beaf9f74153928b5b1ee0da84a7" />
+              <owned-item ref="2f34de306ac64011b779057a73452d30" />
+              <owned-item ref="9ef92beaf9f74153928b5b1ee0da84a7" />
             </owned-items>
             <relation from="c17b37ed72744beb9280ceef6a3dd0ca" to="63e8543c74ee46e6949debd8587eae59" derived="false">
-              <start-role id="umlar-3c75be58-9bf5-47a3-a9e2-85701f57a9f4" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-8e8cafa6-b92b-4a98-969a-d8e0015b5b3b" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-5a097385-5e91-49e1-89d5-3fa0f336958a" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-d5ed4e25-e89a-4f6c-88d0-8cfe8af7b4ef" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="5288475033584d6ea337cf911e025bfa" cid="PROP008" type="property" name="Title" style-class="" owner="2480aafd73ea4b16a03703c453982c94" creator="" creation-date="09/29/2023 09:29:44" visibility="private">
@@ -859,6 +908,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <stereotype id="4b998150d0034141933de4689f4bef57_static_c" type="static" ref="" />
             </stereotype-instances>
             <owned-items>
+              <owned-item ref="bd83a3828f42494e8d5f1181f306ba6a" />
               <owned-item ref="bd83a3828f42494e8d5f1181f306ba6a" />
               <owned-item ref="bd83a3828f42494e8d5f1181f306ba6a" />
               <owned-item ref="bd83a3828f42494e8d5f1181f306ba6a" />
@@ -914,6 +964,13 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="f045038733d245b7aa83b3493ea86aae" />
               <owned-item ref="5b5b3a0983c1426284eac0d185193e4a" />
               <owned-item ref="f17769af6ced40afaef1e96aa8656be2" />
+              <owned-item ref="d86e79b190304faeb00e8782b41b69ca" />
+              <owned-item ref="94d544b567ad48629c52083d7d91dec7" />
+              <owned-item ref="c17b37ed72744beb9280ceef6a3dd0ca" />
+              <owned-item ref="0aeec048e6d9462aa20e0a3834acc0cb" />
+              <owned-item ref="f045038733d245b7aa83b3493ea86aae" />
+              <owned-item ref="5b5b3a0983c1426284eac0d185193e4a" />
+              <owned-item ref="f17769af6ced40afaef1e96aa8656be2" />
             </owned-items>
           </item>
           <item id="591fb7aca63540cbac93477164834e3e" cid="REL017" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="10/01/2023 20:42:21" from="4b998150d0034141933de4689f4bef57" to="2ff06634124f410883ffd4da2f3495a2" visibility="package">
@@ -922,10 +979,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="f3d2d4839f24414fb37b0797fe3428c6" />
               <owned-item ref="f3d2d4839f24414fb37b0797fe3428c6" />
               <owned-item ref="4e1e7d50a8c44ade9c1081c52b939f41" />
+              <owned-item ref="f3d2d4839f24414fb37b0797fe3428c6" />
+              <owned-item ref="4e1e7d50a8c44ade9c1081c52b939f41" />
             </owned-items>
             <relation from="4b998150d0034141933de4689f4bef57" to="2ff06634124f410883ffd4da2f3495a2" derived="false">
-              <start-role id="umlar-74f185ee-48b6-4b6f-bed3-503eaa1558f9" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-21710948-f7b3-45cd-b7b9-0f478062f517" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-302bbc58-1d0c-4fcc-ab1b-0cedd8926a60" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-6ee33aff-8452-45ef-b181-f02a4562620e" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="63e8543c74ee46e6949debd8587eae59" cid="C033" type="class" name="EditAccountVM" style-class="" owner="8ed1aff1c8754ad3a39a42b4b16f9217" change-tracking-state="added" creator="" creation-date="10/01/2023 19:44:37" visibility="undefined" />
@@ -935,58 +994,66 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="7f4c65b54167407181bfe89dd6a7156e" />
               <owned-item ref="7f4c65b54167407181bfe89dd6a7156e" />
               <owned-item ref="3db9fdb628bd4ab48630318ffeee9689" />
+              <owned-item ref="7f4c65b54167407181bfe89dd6a7156e" />
+              <owned-item ref="3db9fdb628bd4ab48630318ffeee9689" />
             </owned-items>
             <relation from="4b998150d0034141933de4689f4bef57" to="0c859fe73c8f43fd9de86a407915f68d" derived="false">
-              <start-role id="umlar-1b25a3f0-efbe-4f89-83d7-b5f84a53ea21" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-dd0fcaf3-34e8-4882-9819-19413cb18ca7" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-b682286b-624a-4943-94bb-e010a246d0da" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-0c8fc5ba-d4de-439b-8b84-d510d53bdaba" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="f4c609240ca548058b6e8786c09e0cea" cid="C024" type="class" name="Class24" style-class="" owner="eca0af8cc2814e68b600f268db0cb9a4" change-tracking-state="added" creator="" creation-date="09/30/2023 22:26:38" visibility="undefined" />
           <item id="761693d39bb548c1b6577e731ef58b2f" cid="C023" type="class" name="Statistics" style-class="" owner="eca0af8cc2814e68b600f268db0cb9a4" change-tracking-state="added" creator="" creation-date="09/30/2023 22:26:25" visibility="undefined" />
           <item id="93e1b012fc32444ab468479120222b3b" cid="REL021" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="10/02/2023 08:52:42" from="6eac55bf8a684155ae7a58b44026613a" to="551a602013fd476c8011a9da9f167a92" visibility="package">
             <relation from="6eac55bf8a684155ae7a58b44026613a" to="551a602013fd476c8011a9da9f167a92" derived="false">
-              <start-role id="umlar-9d64fab8-4ea4-4094-b3f7-dd3c3ff1630f" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-aed6df5f-f533-4f53-ad1d-8bd6f2be2614" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-fb3351cc-d5cd-4539-a8b2-32f077660ba7" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-dfdd225f-411f-446b-a4fb-ca52d4755ef0" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="fe8b21eeb8f345c0aa605cd60f6ca86d" cid="REL022" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="10/02/2023 08:53:24" from="4b124bd26ffd43509767429857ab118c" to="375df47180614a59a7dacbef4df7e304" visibility="package">
             <relation from="4b124bd26ffd43509767429857ab118c" to="375df47180614a59a7dacbef4df7e304" derived="false">
-              <start-role id="umlar-cd1b2ad8-b5ec-423a-9ce2-4d99fa683699" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-249211f6-2dce-4e6c-aed9-f8992ea5f6d9" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-3ce9dd29-51f1-4f0c-b186-cd7c850a9d62" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-e8043472-d909-4200-8c24-596ca4c1ce47" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="8e4bac642a5e4996a9100109cbabc8bb" cid="REL024" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="10/02/2023 08:54:56" from="07c801d812644b98b63970d1a7a478e5" to="4b998150d0034141933de4689f4bef57" visibility="package">
             <relation from="07c801d812644b98b63970d1a7a478e5" to="4b998150d0034141933de4689f4bef57" derived="false">
-              <start-role id="umlar-dd7ff557-7e3c-4d92-b0c4-24bbbd3ab90f" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-4e967f1a-80ab-4655-8727-a42fc54d0306" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-0f0110ee-f653-4b5a-961f-7887ba8793de" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-035bfca3-4fd0-49a6-945b-b23bfa356c7a" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="c3609c368eaf4fda8797be9a460bad01" cid="REL025" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="10/02/2023 09:09:29" from="4c246a89fe0b4544a6b4451d4e307f0f" to="4b124bd26ffd43509767429857ab118c" visibility="package">
             <relation from="4c246a89fe0b4544a6b4451d4e307f0f" to="4b124bd26ffd43509767429857ab118c" derived="false">
-              <start-role id="umlar-d8b11e61-eb27-4995-b168-8d56c515b082" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-b8e3ff80-6ad2-45e5-887c-cd60aece5eb9" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-d6bc9d4e-230a-463a-ab9e-543c91bb43cd" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-d1a52a8d-e77f-4fb0-9f7e-7476fbf24c77" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="e228c7aaa773402cb5dce44fbf8b42cc" cid="REL026" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="10/02/2023 09:09:34" from="46f34cbb28994ca28ea2700d166520af" to="4b124bd26ffd43509767429857ab118c" visibility="package">
             <relation from="46f34cbb28994ca28ea2700d166520af" to="4b124bd26ffd43509767429857ab118c" derived="false">
-              <start-role id="umlar-1994961a-d7ad-4aa7-be63-a47ec5862798" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-dc167a0f-eee4-410a-90f6-5767b5b6d8cc" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-5163645b-0a6e-4fcc-8040-e6828f65e532" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-a7fbedf7-23ea-448d-9d41-bd16eaf87d83" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="204e89c0917b432288aaeb9be3d3c69b" cid="PKG005" type="package" name="ModelSudoku" style-class="" change-tracking-state="added" creator="" creation-date="10/02/2023 09:15:30" visibility="package">
             <owned-items>
               <owned-item ref="375df47180614a59a7dacbef4df7e304" />
               <owned-item ref="4b124bd26ffd43509767429857ab118c" />
+              <owned-item ref="4b124bd26ffd43509767429857ab118c" />
+              <owned-item ref="375df47180614a59a7dacbef4df7e304" />
             </owned-items>
           </item>
           <item id="95b4490f30214e089e74aca086a3eb35" cid="PKG006" type="package" name="ViewModel Sudoku" style-class="" change-tracking-state="added" creator="" creation-date="10/02/2023 09:16:25" visibility="package">
             <owned-items>
               <owned-item ref="46f34cbb28994ca28ea2700d166520af" />
               <owned-item ref="4c246a89fe0b4544a6b4451d4e307f0f" />
+              <owned-item ref="46f34cbb28994ca28ea2700d166520af" />
+              <owned-item ref="4c246a89fe0b4544a6b4451d4e307f0f" />
             </owned-items>
           </item>
           <item id="1c8bc5866f2c43619f466b8f957823ac" cid="PKG007" type="package" name="View Sudoku" style-class="" change-tracking-state="added" creator="" creation-date="10/02/2023 09:17:45" visibility="package">
             <owned-items>
+              <owned-item ref="507f19f68578494d97da42969b995b9d" />
+              <owned-item ref="a1589d307139461c93ef47b4a5990d4d" />
               <owned-item ref="507f19f68578494d97da42969b995b9d" />
               <owned-item ref="a1589d307139461c93ef47b4a5990d4d" />
             </owned-items>
@@ -1090,7 +1157,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <class />
           </item>
           <item id="8bc25db3b183434ea88f3c8631a07579" iid="58f724b8ad854b48b13a0429ce803422" creation-date="10/01/2023 20:27:00" order-index="35" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="930" y1="62" x2="832" y2="63" start-border-pos="0.871555454326126" end-border-pos="0.373187805042498" name-position="0,20">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="930" y1="62" x2="832" y2="63" start-border-pos="0.871555490313836" end-border-pos="0.373187805042498" name-position="0,20">
               <points>
                 <point x="930" y="62" />
                 <point x="832" y="63" />
@@ -1102,7 +1169,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <layout ax="285.7209" ay="880.0779" awidth="308" aheight="162" x="285.7209" y="880.0779" width="140" height="100" />
           </item>
           <item id="5629428cf2d749279bf5aadf8bcdf1a4" iid="828d067540bd49e799068c43c6a68594" creation-date="10/01/2023 20:27:07" order-index="36" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="930" y1="158" x2="832" y2="159" start-border-pos="0.874056906070349" end-border-pos="0.375220604662625" name-position="0,20">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="930" y1="158" x2="832" y2="159" start-border-pos="0.874056978045769" end-border-pos="0.375220676638045" name-position="0,20">
               <points>
                 <point x="930" y="158" />
                 <point x="832" y="159" />
@@ -1111,7 +1178,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <relation from="5b5b3a0983c1426284eac0d185193e4a" from-iid="7945721aca2b42b69565cbab877b4eaf" to="2ff06634124f410883ffd4da2f3495a2" to-iid="b76efbfc09ec4ea5b9eff2282c8ff4ed" />
           </item>
           <item id="658b22093ee340f38716207e9d7f161e" iid="78d5ad47834a4748a2ac89df65969e16" creation-date="10/01/2023 20:27:13" order-index="37" type="relation">
-            <layout start-role-position="24,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="930" y1="260" x2="832" y2="260" start-border-pos="0.873740286197302" end-border-pos="0.372554918540483" name-position="0,20">
+            <layout start-role-position="24,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="930" y1="260" x2="832" y2="260" start-border-pos="0.873740430148143" end-border-pos="0.372554918540483" name-position="0,20">
               <points>
                 <point x="930" y="260" />
                 <point x="832" y="260" />
@@ -1120,7 +1187,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <relation from="f045038733d245b7aa83b3493ea86aae" from-iid="ed838dcad99f4732b462b2ff951e5734" to="0e82012c0aa14d299d351ec1ae4b98e0" to-iid="2d1ccb4b4faf482498d7d7d9756629cc" />
           </item>
           <item id="3939dc75c2ef41f3b6c3e29e540a0918" iid="a94bf33118c4404399aa3e3ff84dc794" creation-date="10/01/2023 20:27:17" order-index="38" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="930" y1="359" x2="831" y2="359" start-border-pos="0.874496172059257" end-border-pos="0.371945180895713" name-position="0,20">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="930" y1="359" x2="831" y2="359" start-border-pos="0.874496316010097" end-border-pos="0.371945180895713" name-position="0,20">
               <points>
                 <point x="930" y="359" />
                 <point x="831" y="359" />
@@ -1129,7 +1196,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <relation from="c17b37ed72744beb9280ceef6a3dd0ca" from-iid="cf1bcf32916543eda97b854ead753951" to="63e8543c74ee46e6949debd8587eae59" to-iid="59cd5f7875264cb8ac2ede271da45d93" />
           </item>
           <item id="b22f056bf56642f5b9fef472eb05ea02" iid="da1e93ecd13340d7a241cd1eece7d1ca" creation-date="10/01/2023 20:27:24" order-index="39" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="930" y1="458" x2="831" y2="459" start-border-pos="0.871895700130823" end-border-pos="0.372297470376566" name-position="0,20">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="930" y1="458" x2="831" y2="459" start-border-pos="0.871895844081663" end-border-pos="0.372297470376566" name-position="0,20">
               <points>
                 <point x="930" y="458" />
                 <point x="831" y="459" />
@@ -1147,7 +1214,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <relation from="0aeec048e6d9462aa20e0a3834acc0cb" from-iid="d3efd324609f4f878c645b0066086f90" to="6eac55bf8a684155ae7a58b44026613a" to-iid="c8b83c899bf2450dbc1f70c310c8d4e8" />
           </item>
           <item id="74d98f4601ce44eba02ab99449091489" iid="bb5b98dee3b0486e9fed610270d7812c" creation-date="10/01/2023 20:42:14" order-index="47" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="609" y1="84" x2="692" y2="73" start-border-pos="0.332680194698579" end-border-pos="0.831288055062106" name-position="0,20">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="609" y1="84" x2="692" y2="73" start-border-pos="0.332680189121536" end-border-pos="0.831288055062106" name-position="0,20">
               <points>
                 <point x="609" y="84" />
                 <point x="692" y="73" />
@@ -1156,7 +1223,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <relation from="4b998150d0034141933de4689f4bef57" from-iid="626babe7f0af43e28018d58c69b0af3f" to="0c859fe73c8f43fd9de86a407915f68d" to-iid="25302bca562e4459b2d9db61c1bd80f6" />
           </item>
           <item id="591fb7aca63540cbac93477164834e3e" iid="be808acb186e4f34ba3d30d1658f825f" creation-date="10/01/2023 20:42:21" order-index="48" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="609" y1="139" x2="692" y2="150" start-border-pos="0.413323787220737" end-border-pos="0.915968912952351" name-position="0,20">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="609" y1="139" x2="692" y2="150" start-border-pos="0.413323781643695" end-border-pos="0.915968840976931" name-position="0,20">
               <points>
                 <point x="609" y="139" />
                 <point x="692" y="150" />
@@ -1165,7 +1232,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <relation from="4b998150d0034141933de4689f4bef57" from-iid="626babe7f0af43e28018d58c69b0af3f" to="2ff06634124f410883ffd4da2f3495a2" to-iid="b76efbfc09ec4ea5b9eff2282c8ff4ed" />
           </item>
           <item id="216732779245456588658c1e61139b67" iid="b8a4f05e2a5f4abbb91caaf7a6445de1" creation-date="10/01/2023 20:42:25" order-index="49" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="608" y1="199" x2="701" y2="236" start-border-pos="0.500588558507308" end-border-pos="0.0166643415178571" name-position="0,20">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="608" y1="199" x2="701" y2="236" start-border-pos="0.500588595011588" end-border-pos="0.0166643415178571" name-position="0,20">
               <points>
                 <point x="608" y="199" />
                 <point x="701" y="236" />
@@ -1174,7 +1241,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <relation from="4b998150d0034141933de4689f4bef57" from-iid="626babe7f0af43e28018d58c69b0af3f" to="0e82012c0aa14d299d351ec1ae4b98e0" to-iid="2d1ccb4b4faf482498d7d7d9756629cc" />
           </item>
           <item id="576ae73c0fb64ee09cef85ebab8aa5ae" iid="abf53e9e6fd24319a4995207b66c5e6c" creation-date="10/01/2023 20:42:29" order-index="50" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="524" y1="199" x2="722" y2="333" start-border-pos="0.550633188640102" end-border-pos="0.0536481584821429" name-position="0,20">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="524" y1="199" x2="722" y2="333" start-border-pos="0.550633225144382" end-border-pos="0.0536481584821429" name-position="0,20">
               <points>
                 <point x="524" y="199" />
                 <point x="722" y="333" />
@@ -1183,7 +1250,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <relation from="4b998150d0034141933de4689f4bef57" from-iid="626babe7f0af43e28018d58c69b0af3f" to="63e8543c74ee46e6949debd8587eae59" to-iid="59cd5f7875264cb8ac2ede271da45d93" />
           </item>
           <item id="fb21b6e3382540a0941389567ea3a675" iid="6919d6730838439d9c623d506e3188b5" creation-date="10/01/2023 20:42:44" order-index="51" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="609" y1="358" x2="723" y2="434" start-border-pos="0.460992527008057" end-border-pos="0.0563447134835379" name-position="0,20">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="609" y1="358" x2="723" y2="434" start-border-pos="0.460992550849915" end-border-pos="0.0563447134835379" name-position="0,20">
               <points>
                 <point x="609" y="358" />
                 <point x="723" y="434" />
@@ -1201,7 +1268,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <relation from="6eac55bf8a684155ae7a58b44026613a" from-iid="c8b83c899bf2450dbc1f70c310c8d4e8" to="551a602013fd476c8011a9da9f167a92" to-iid="5c154ff68a2b40e49880c10986bdf3a4" />
           </item>
           <item id="8e4bac642a5e4996a9100109cbabc8bb" iid="0d35cb720e624cdb87c1ef2f0ccf0791" creation-date="10/02/2023 08:54:56" order-index="54" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="320" y1="223" x2="338" y2="199" start-border-pos="0.22950998033796" end-border-pos="0.661857842258289" name-position="0,20">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="320" y1="223" x2="338" y2="199" start-border-pos="0.229509925842285" end-border-pos="0.661857878762569" name-position="0,20">
               <points>
                 <point x="320" y="223" />
                 <point x="338" y="199" />
@@ -1222,7 +1289,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <class />
           </item>
           <item id="ce286090201d4d5fa0678998e420eee7" iid="72884a68d670455386e1ff3f3bb976db" creation-date="09/29/2023 09:20:15" order-index="7" type="relation">
-            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="374" y1="656" x2="322" y2="589" start-border-pos="0.019267947266382" end-border-pos="0.528228914035134" name-position="0,20">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="374" y1="656" x2="322" y2="589" start-border-pos="0.0192679924557717" end-border-pos="0.528228824696927" name-position="0,20">
               <points>
                 <point x="374" y="656" />
                 <point x="322" y="589" />
@@ -1231,7 +1298,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <relation from="4b124bd26ffd43509767429857ab118c" from-iid="ed580261f82144d2943ee8f1875bc69b" to="2480aafd73ea4b16a03703c453982c94" to-iid="e7d9bc7ccb964ffebb57a6fc8ef0327e" />
           </item>
           <item id="dibb7ae372b11840f1a9956e49e14ccfd81301" iid="6af5b326366f497287701fd20f985e1c" creation-date="09/30/2023 21:24:09" order-index="13" type="comment-connector">
-            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="440" y1="880" x2="440" y2="830" start-border-pos="0.12522655338436" end-border-pos="0.624552257207315" name-position="0,20">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="440" y1="880" x2="440" y2="830" start-border-pos="0.12522655338436" end-border-pos="0.624552232813476" name-position="0,20">
               <points>
                 <point x="440" y="880" />
                 <point x="440" y="830" />
@@ -1240,7 +1307,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <relation from="90d91a3c59b24e35847979cd0b317c4f" from-iid="1484eb7bacad49759e721049b1f1b3a9" to="4b124bd26ffd43509767429857ab118c" to-iid="ed580261f82144d2943ee8f1875bc69b" />
           </item>
           <item id="fe8b21eeb8f345c0aa605cd60f6ca86d" iid="dd81ff4c0c454ef7a6f0b3c67fea1b71" creation-date="10/02/2023 08:53:24" order-index="53" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="362" y1="743" x2="324" y2="742" start-border-pos="0.876027863601158" end-border-pos="0.375615119934082" name-position="0,20">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="362" y1="743" x2="324" y2="742" start-border-pos="0.876027775906968" end-border-pos="0.37561502456665" name-position="0,20">
               <points>
                 <point x="362" y="743" />
                 <point x="324" y="742" />
@@ -1257,7 +1324,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <class />
           </item>
           <item id="e228c7aaa773402cb5dce44fbf8b42cc" iid="2ca3850d31f54115ab237e495dae66f0" creation-date="10/02/2023 09:09:34" order-index="56" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="697" y1="782" x2="518" y2="755" start-border-pos="0.919837982433583" end-border-pos="0.391160285335848" name-position="0,20">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="697" y1="782" x2="518" y2="755" start-border-pos="0.919838238563541" end-border-pos="0.391160373030038" name-position="0,20">
               <points>
                 <point x="697" y="782" />
                 <point x="518" y="755" />
@@ -1270,7 +1337,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <class />
           </item>
           <item id="c3609c368eaf4fda8797be9a460bad01" iid="ca786b469626408cbf67e96d442a7980" creation-date="10/02/2023 09:09:29" order-index="55" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="697" y1="715" x2="518" y2="735" start-border-pos="0.839528785561616" end-border-pos="0.362402729604436" name-position="0,20">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="697" y1="715" x2="518" y2="735" start-border-pos="0.839528785561616" end-border-pos="0.362402817298626" name-position="0,20">
               <points>
                 <point x="697" y="715" />
                 <point x="518" y="735" />
@@ -1287,7 +1354,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <class />
           </item>
           <item id="28817e1b64794afe8d7f48983f240b6b" iid="24ea85d1dd1541b68e1a043efe99d152" creation-date="10/01/2023 20:27:40" order-index="43" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="935" y1="786" x2="837" y2="790" start-border-pos="0.864922789646176" end-border-pos="0.364305677786463" name-position="0,20">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="935" y1="786" x2="837" y2="790" start-border-pos="0.864922781310436" end-border-pos="0.364305421656505" name-position="0,20">
               <points>
                 <point x="935" y="786" />
                 <point x="837" y="790" />
@@ -1300,7 +1367,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <class />
           </item>
           <item id="d33f406818f048598b49426f91f089d9" iid="47c2fc9fe611436a901f25fb31aad33c" creation-date="10/01/2023 20:27:36" order-index="42" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="935" y1="703" x2="837" y2="706" start-border-pos="0.870363665060487" end-border-pos="0.367183469376474" name-position="0,20">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="935" y1="703" x2="837" y2="706" start-border-pos="0.870363656330102" end-border-pos="0.367183469376474" name-position="0,20">
               <points>
                 <point x="935" y="703" />
                 <point x="837" y="706" />
@@ -1310,7 +1377,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
           </item>
         </layer>
       </diagram>
-      <diagram type="uml-class" id="pa3854454d23b4c6a9c5735f0a577cc83_759274294" name="Diagrame de BD" order-index="2" overview-order-index="0" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="532,-81" zoom="1.2">
+      <diagram type="uml-class" id="pa3854454d23b4c6a9c5735f0a577cc83_759274294" name="Diagrame de BD" order-index="2" overview-order-index="0" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="763,-715" zoom="1.2">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -1322,7 +1389,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
           </authors>
           <description />
           <creation-date>09/30/2023 19:49:40</creation-date>
-          <change-date>10/02/2023 09:54:57</change-date>
+          <change-date>11/01/2023 14:50:18</change-date>
           <revision-count>0</revision-count>
           <version />
         </meta>
@@ -1343,10 +1410,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="db182d5ec00e49b3b1077f6939e5fc98" />
               <owned-item ref="6c208aee813e4a60b3f3233cb47bae54" />
               <owned-item ref="db182d5ec00e49b3b1077f6939e5fc98" />
+              <owned-item ref="6c208aee813e4a60b3f3233cb47bae54" />
+              <owned-item ref="db182d5ec00e49b3b1077f6939e5fc98" />
             </owned-items>
             <relation from="a521a391c73a4a6f8dd4be7d16e93f17" to="e5f3f414240d48f587191551f747fd49" derived="false">
-              <start-role id="umlar-9abb56cb-f7bc-4a9a-82d4-31433f9e08e4" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-ffc25f10-43b7-4d15-9af7-29649e8a4aef" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-28ec7aea-8dc6-41e9-a8ca-58f110430267" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-390f1c61-cfb1-483c-a9b0-da3e1586794e" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="e0797c2b805c40258bad6f5671747252" cid="C012" type="class" name="Game" style-class="" change-tracking-state="added" creator="" creation-date="09/30/2023 19:53:21" visibility="undefined">
@@ -1381,10 +1450,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="0ed63dc1cc864d62afa512e662eb9d1f" />
               <owned-item ref="3ca661206d97420ba83e28a6182594fe" />
               <owned-item ref="0ed63dc1cc864d62afa512e662eb9d1f" />
+              <owned-item ref="3ca661206d97420ba83e28a6182594fe" />
+              <owned-item ref="0ed63dc1cc864d62afa512e662eb9d1f" />
             </owned-items>
             <relation from="e6d4526e583e4374a3b25faf7da2d39a" to="e0797c2b805c40258bad6f5671747252" derived="false">
-              <start-role id="umlar-5ab93c3c-3266-4d23-a757-9311c519f86f" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-d2a96251-5952-4905-ba1c-d11951a1db09" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-49c909d2-e41d-43ca-a7d0-557a98026f0d" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-679bd67d-35f8-4da9-8ded-69e23f83800e" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="08d99ae1c5d54291bab45d5cb7931af2" cid="C013" type="class" name="Save" style-class="" change-tracking-state="added" creator="" creation-date="09/30/2023 20:06:20" visibility="undefined">
@@ -1453,10 +1524,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="d736f158fb2c43da927f72b8a272c530" />
               <owned-item ref="6eed3654ee844544a7d996bc0639c8e3" />
               <owned-item ref="d736f158fb2c43da927f72b8a272c530" />
+              <owned-item ref="6eed3654ee844544a7d996bc0639c8e3" />
+              <owned-item ref="d736f158fb2c43da927f72b8a272c530" />
             </owned-items>
             <relation from="e0797c2b805c40258bad6f5671747252" to="08d99ae1c5d54291bab45d5cb7931af2" derived="false">
-              <start-role id="umlar-c553854b-7504-4931-a0b7-d9124d5bcf5c" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-2618cc6a-b741-44f3-a18a-4929930edc8c" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-56a3d2f1-7685-4dc3-9f4b-225405809669" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-430c7643-ff80-4806-b034-be96bf7dfe68" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="bd0b6ff5a4a9416eba453bdd4451441c" cid="PROP042" type="property" name="SaveSlot" style-class="" owner="08d99ae1c5d54291bab45d5cb7931af2" creator="" creation-date="09/30/2023 20:30:31" visibility="private">
@@ -1490,10 +1563,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="85b63683e1c048c9a764ac6d42ab184b" />
               <owned-item ref="85b63683e1c048c9a764ac6d42ab184b" />
               <owned-item ref="15b57bb8854b4833bdd4d2a67b95e42b" />
+              <owned-item ref="85b63683e1c048c9a764ac6d42ab184b" />
+              <owned-item ref="15b57bb8854b4833bdd4d2a67b95e42b" />
             </owned-items>
             <relation from="e0797c2b805c40258bad6f5671747252" to="7459a61c21614d9d8a2c49fdf4a25121" derived="false">
-              <start-role id="umlar-8bc99808-2e54-4d4f-a97f-ecc4df0b8f8b" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-879fa4a2-b85e-4978-8bd9-31790a90c706" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-d3304d08-8526-4d23-b625-b8d2924785b2" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-4bc4d2d4-671e-450c-abda-4f99d71d826e" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="b4047e319f134ae3be11a7d21a434e6c" cid="PROP039" type="property" name="GenerationDate" style-class="" owner="7459a61c21614d9d8a2c49fdf4a25121" creator="" creation-date="09/30/2023 20:12:52" visibility="private">
@@ -1520,6 +1595,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="dc6b6c87445047a7a3c0dc7f603aeeb9" />
               <owned-item ref="0db8c9ba6e88443db1c2b72e0f5e94ef" />
               <owned-item ref="1fe0853530de4e3593f9a3a3a8b69325" />
+              <owned-item ref="06ffcb1ecbf74b1a9083064a03d7679c" />
+              <owned-item ref="10c0333ebfc54820984b0c0c458e597a" />
+              <owned-item ref="0db8c9ba6e88443db1c2b72e0f5e94ef" />
+              <owned-item ref="f941435f37d643f8aa1855f8473e1ae4" />
+              <owned-item ref="1fe0853530de4e3593f9a3a3a8b69325" />
+              <owned-item ref="dc6b6c87445047a7a3c0dc7f603aeeb9" />
               <owned-item ref="06ffcb1ecbf74b1a9083064a03d7679c" />
               <owned-item ref="10c0333ebfc54820984b0c0c458e597a" />
               <owned-item ref="0db8c9ba6e88443db1c2b72e0f5e94ef" />
@@ -1560,6 +1641,9 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="3619ba7a597d45ddadbf76ac946cf56a" />
               <owned-item ref="d4a2e197f4fb446bb9ea61bc80037887" />
               <owned-item ref="b4047e319f134ae3be11a7d21a434e6c" />
+              <owned-item ref="3619ba7a597d45ddadbf76ac946cf56a" />
+              <owned-item ref="d4a2e197f4fb446bb9ea61bc80037887" />
+              <owned-item ref="b4047e319f134ae3be11a7d21a434e6c" />
             </owned-items>
             <attributes>
               <attribute id="acc704fcc08bf4e02812e64b3dacefd96667" cid="PROP037" name="DailyPuzzleId" creation-date="09/30/2023 20:11:38" property-ref="3619ba7a597d45ddadbf76ac946cf56a" />
@@ -1579,6 +1663,8 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="2941d13d42bd485ca10b3f99dfbcda3c" />
               <owned-item ref="8f01502923cb408395427334c1f3c6aa" />
               <owned-item ref="af75cf06c76744848381f235cd2a96be" />
+              <owned-item ref="2941d13d42bd485ca10b3f99dfbcda3c" />
+              <owned-item ref="8f01502923cb408395427334c1f3c6aa" />
             </owned-items>
             <attributes>
               <attribute id="a8dcd0125aac24b2597e3ebf74581d02e31" cid="PROP020" name="PlayerId" creation-date="09/30/2023 19:51:02" property-ref="333bdd2ddf5c4255a5bee8084df61064" />
@@ -1644,10 +1730,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="70eb4f270aea40039752ed70b2997493" />
               <owned-item ref="70eb4f270aea40039752ed70b2997493" />
               <owned-item ref="2cecf867a951409185c757ff15200a50" />
+              <owned-item ref="70eb4f270aea40039752ed70b2997493" />
+              <owned-item ref="2cecf867a951409185c757ff15200a50" />
             </owned-items>
             <relation from="a521a391c73a4a6f8dd4be7d16e93f17" to="e6d4526e583e4374a3b25faf7da2d39a" derived="false">
-              <start-role id="umlar-97ace87e-ff1c-488f-b953-6c80738b444c" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-d3e9ff20-32b3-4c62-ae26-2c777fecd8f9" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-a9345adf-2774-4e4c-86c7-8088ea8c8a6d" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-a6150909-fb78-48f2-948d-97e0bacdc1c8" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="af75cf06c76744848381f235cd2a96be" cid="PROP097" type="property" name="Department" style-class="" owner="a521a391c73a4a6f8dd4be7d16e93f17" creator="" creation-date="10/02/2023 09:55:00" visibility="private">
@@ -1655,75 +1743,371 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <structural-feature type="String" type-id="Uml.String" />
             <property />
           </item>
+          <item id="579c9fd02ffe40dfba5ff8161cd2fab7" cid="C041" type="class" name="" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:33:31" visibility="package" />
+          <item id="bc1652c06895499194ace2c80770a35a" cid="C042" type="class" name="Departments" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:34:10" visibility="package">
+            <owned-items>
+              <owned-item ref="3fa17c25038b49ed8694386b0e47a710" />
+              <owned-item ref="79b4d662e1594f0f96c2cc3786d6299b" />
+            </owned-items>
+            <attributes>
+              <attribute id="adf18e8d1a88441fba2de89d930bceb44893" cid="PROP098" name="Id" creation-date="11/01/2023 14:37:07" property-ref="3fa17c25038b49ed8694386b0e47a710" />
+              <attribute id="a195d292723834631be99e7026fa80d51938" cid="PROP099" name="Department" creation-date="11/01/2023 14:37:19" property-ref="79b4d662e1594f0f96c2cc3786d6299b" />
+            </attributes>
+          </item>
+          <item id="3fa17c25038b49ed8694386b0e47a710" cid="PROP098" type="property" name="Id" style-class="" owner="bc1652c06895499194ace2c80770a35a" creator="" creation-date="11/01/2023 14:37:07" visibility="private">
+            <feature />
+            <structural-feature type="Integer" type-id="Uml.Integer" />
+            <property />
+          </item>
+          <item id="79b4d662e1594f0f96c2cc3786d6299b" cid="PROP099" type="property" name="Department" style-class="" owner="bc1652c06895499194ace2c80770a35a" creator="" creation-date="11/01/2023 14:37:19" visibility="private">
+            <feature />
+            <structural-feature type="String" type-id="Uml.String" />
+            <property />
+          </item>
+          <item id="362dbcfe7b264bf88bc0156fda80f4af" cid="C043" type="class" name="Users" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:37:32" visibility="package">
+            <owned-items>
+              <owned-item ref="8ff7b20e8cfa42fdb7f63d55ecd60245" />
+              <owned-item ref="3649a353009043ad90840e204cbd106a" />
+              <owned-item ref="ae93e40ab9c647ffbd99d8191a7f9664" />
+              <owned-item ref="438294f9635d4bb39c6dab2b361c5597" />
+            </owned-items>
+            <attributes>
+              <attribute id="a23a0d30738ed4f3a972cac0e6621c344818" cid="PROP100" name="Id" creation-date="11/01/2023 14:37:35" property-ref="8ff7b20e8cfa42fdb7f63d55ecd60245" />
+              <attribute id="ad6bfb29484624073b130093efea21a94738" cid="PROP101" name="Username" creation-date="11/01/2023 14:37:40" property-ref="3649a353009043ad90840e204cbd106a" />
+              <attribute id="a46673ce52c9043a0aaa6e4d77b11b7e1835" cid="PROP102" name="Password" creation-date="11/01/2023 14:37:48" property-ref="ae93e40ab9c647ffbd99d8191a7f9664" />
+              <attribute id="a10acd60d9dc84b90880a1e5db3c6a269634" cid="PROP103" name="Department" creation-date="11/01/2023 14:38:00" property-ref="438294f9635d4bb39c6dab2b361c5597" />
+            </attributes>
+          </item>
+          <item id="8ff7b20e8cfa42fdb7f63d55ecd60245" cid="PROP100" type="property" name="Id" style-class="" owner="362dbcfe7b264bf88bc0156fda80f4af" creator="" creation-date="11/01/2023 14:37:35" visibility="private">
+            <feature />
+            <structural-feature type="Integer" type-id="Uml.Integer" />
+            <property />
+          </item>
+          <item id="3649a353009043ad90840e204cbd106a" cid="PROP101" type="property" name="Username" style-class="" owner="362dbcfe7b264bf88bc0156fda80f4af" creator="" creation-date="11/01/2023 14:37:40" visibility="private">
+            <feature />
+            <structural-feature type="String" type-id="Uml.String" />
+            <property />
+          </item>
+          <item id="ae93e40ab9c647ffbd99d8191a7f9664" cid="PROP102" type="property" name="Password" style-class="" owner="362dbcfe7b264bf88bc0156fda80f4af" creator="" creation-date="11/01/2023 14:37:48" visibility="private">
+            <feature />
+            <structural-feature type="String" type-id="Uml.String" />
+            <property />
+          </item>
+          <item id="438294f9635d4bb39c6dab2b361c5597" cid="PROP103" type="property" name="Department" style-class="" owner="362dbcfe7b264bf88bc0156fda80f4af" creator="" creation-date="11/01/2023 14:38:00" visibility="private">
+            <feature />
+            <structural-feature type="Integer" type-id="Uml.Integer" />
+            <property />
+          </item>
+          <item id="f1dc789df1dd43fe87d737a6f6d23395" cid="C044" type="class" name="Games" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:38:31" visibility="package">
+            <owned-items>
+              <owned-item ref="956086e7f938451f97a9c0728d1d72cd" />
+              <owned-item ref="daf359d1cc8448f38b4854ccfbac622f" />
+            </owned-items>
+            <attributes>
+              <attribute id="ae206afe9c14e4cd8ab92d68395d32627941" cid="PROP105" name="Id" creation-date="11/01/2023 14:38:40" property-ref="956086e7f938451f97a9c0728d1d72cd" />
+              <attribute id="a6675e68695fb4c838cd6fa759d57891e351" cid="PROP106" name="Title" creation-date="11/01/2023 14:38:44" property-ref="daf359d1cc8448f38b4854ccfbac622f" />
+            </attributes>
+          </item>
+          <item id="956086e7f938451f97a9c0728d1d72cd" cid="PROP105" type="property" name="Id" style-class="" owner="f1dc789df1dd43fe87d737a6f6d23395" creator="" creation-date="11/01/2023 14:38:40" visibility="private">
+            <feature />
+            <structural-feature type="Integer" type-id="Uml.Integer" />
+            <property />
+          </item>
+          <item id="daf359d1cc8448f38b4854ccfbac622f" cid="PROP106" type="property" name="Title" style-class="" owner="f1dc789df1dd43fe87d737a6f6d23395" creator="" creation-date="11/01/2023 14:38:44" visibility="private">
+            <feature />
+            <structural-feature type="String" type-id="Uml.String" />
+            <property />
+          </item>
+          <item id="54ca91f0c8c14562a74fb6ee355830e9" cid="C045" type="class" name="Scores" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:39:58" visibility="package">
+            <owned-items>
+              <owned-item ref="ed2e810bd7fd4dc69ea9fb9e39b60042" />
+              <owned-item ref="48314e5cc6144a7186723282459d4466" />
+              <owned-item ref="f662c95c0ba248d0864aa9b3af044509" />
+              <owned-item ref="d630e9b7b3e74dd898a1eef644d574ea" />
+              <owned-item ref="9976cad5689544a28f666831a94ab068" />
+              <owned-item ref="13f009a085654922b691a8e5707078f5" />
+              <owned-item ref="4bd1809bf79e439599771ddf1eade647" />
+              <owned-item ref="0bb30139846b4ceca82c1a9503e6a6df" />
+            </owned-items>
+            <attributes>
+              <attribute id="a98bfb57333d544a9aea85e3c961c083655" cid="PROP108" name="Id" creation-date="11/01/2023 14:40:05" property-ref="ed2e810bd7fd4dc69ea9fb9e39b60042" />
+              <attribute id="a5c3f4b3cecd646d79355c3a279dfce60971" cid="PROP109" name="User" creation-date="11/01/2023 14:40:08" property-ref="48314e5cc6144a7186723282459d4466" />
+              <attribute id="a800d4d5340604ebcaed7c1065b2440ec405" cid="PROP110" name="Game" creation-date="11/01/2023 14:40:22" property-ref="f662c95c0ba248d0864aa9b3af044509" />
+              <attribute id="a54409c1ba6d1413fbfa54a2409f954d4734" cid="PROP111" name="Category" creation-date="11/01/2023 14:40:26" property-ref="d630e9b7b3e74dd898a1eef644d574ea" />
+              <attribute id="a12f5240ff50e4cab8d2e2e0ea712f994194" cid="PROP112" name="Result" creation-date="11/01/2023 14:40:41" property-ref="9976cad5689544a28f666831a94ab068" />
+              <attribute id="a92dccab03e724f95ad86f124bcc2743559" cid="PROP113" name="Time" creation-date="11/01/2023 14:41:19" property-ref="13f009a085654922b691a8e5707078f5" />
+              <attribute id="ae190e0be4e0e454d8ba59438b9d9e4e2807" cid="PROP114" name="Points" creation-date="11/01/2023 14:41:26" property-ref="4bd1809bf79e439599771ddf1eade647" />
+              <attribute id="ab83184cdd21648fabaf920fc9a01139822" cid="PROP115" name="Date" creation-date="11/01/2023 14:41:43" property-ref="0bb30139846b4ceca82c1a9503e6a6df" />
+            </attributes>
+          </item>
+          <item id="ed2e810bd7fd4dc69ea9fb9e39b60042" cid="PROP108" type="property" name="Id" style-class="" owner="54ca91f0c8c14562a74fb6ee355830e9" creator="" creation-date="11/01/2023 14:40:05" visibility="private">
+            <feature />
+            <structural-feature type="Integer" type-id="Uml.Integer" />
+            <property />
+          </item>
+          <item id="48314e5cc6144a7186723282459d4466" cid="PROP109" type="property" name="User" style-class="" owner="54ca91f0c8c14562a74fb6ee355830e9" creator="" creation-date="11/01/2023 14:40:08" visibility="private">
+            <feature />
+            <structural-feature type="Integer" type-id="Uml.Integer" />
+            <property />
+          </item>
+          <item id="f662c95c0ba248d0864aa9b3af044509" cid="PROP110" type="property" name="Game" style-class="" owner="54ca91f0c8c14562a74fb6ee355830e9" creator="" creation-date="11/01/2023 14:40:22" visibility="private">
+            <feature />
+            <structural-feature type="Integer" type-id="Uml.Integer" />
+            <property />
+          </item>
+          <item id="d630e9b7b3e74dd898a1eef644d574ea" cid="PROP111" type="property" name="Category" style-class="" owner="54ca91f0c8c14562a74fb6ee355830e9" creator="" creation-date="11/01/2023 14:40:26" visibility="private">
+            <feature />
+            <structural-feature type="String" type-id="Uml.String" />
+            <property />
+          </item>
+          <item id="9976cad5689544a28f666831a94ab068" cid="PROP112" type="property" name="Result" style-class="" owner="54ca91f0c8c14562a74fb6ee355830e9" creator="" creation-date="11/01/2023 14:40:41" visibility="private">
+            <feature />
+            <structural-feature type="String" type-id="Uml.String" />
+            <property />
+          </item>
+          <item id="13f009a085654922b691a8e5707078f5" cid="PROP113" type="property" name="Time" style-class="" owner="54ca91f0c8c14562a74fb6ee355830e9" creator="" creation-date="11/01/2023 14:41:19" visibility="private">
+            <feature />
+            <structural-feature type="TimeSpan" type-id="TimeSpan" />
+            <property />
+          </item>
+          <item id="4bd1809bf79e439599771ddf1eade647" cid="PROP114" type="property" name="Points" style-class="" owner="54ca91f0c8c14562a74fb6ee355830e9" creator="" creation-date="11/01/2023 14:41:26" visibility="private">
+            <feature />
+            <structural-feature type="Integer" type-id="Uml.Integer" />
+            <property />
+          </item>
+          <item id="0bb30139846b4ceca82c1a9503e6a6df" cid="PROP115" type="property" name="Date" style-class="" owner="54ca91f0c8c14562a74fb6ee355830e9" creator="" creation-date="11/01/2023 14:41:43" visibility="private">
+            <feature />
+            <structural-feature type="DateTime" type-id="Uml.DateTime" />
+            <property />
+          </item>
+          <item id="cbca38d48d9e4dfeadb9805ce2ef1954" cid="C046" type="class" name="Dailies" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:41:55" visibility="package">
+            <owned-items>
+              <owned-item ref="3c1296cae1ea4924854bcd1028fad586" />
+              <owned-item ref="545ec9c78a3c4b83a7a9ca35a9e4ce81" />
+              <owned-item ref="7dcca6311948458095f28943a48a306d" />
+              <owned-item ref="0e4667777f5045adbceaae4dd1cfdc8e" />
+            </owned-items>
+            <attributes>
+              <attribute id="a56f77fe6f0444ffd8acf008f851c366a533" cid="PROP116" name="Id" creation-date="11/01/2023 14:42:46" property-ref="3c1296cae1ea4924854bcd1028fad586" />
+              <attribute id="a47414a641fda4595a7dbbdb3977b852a863" cid="PROP117" name="Game" creation-date="11/01/2023 14:42:51" property-ref="545ec9c78a3c4b83a7a9ca35a9e4ce81" />
+              <attribute id="a682ca6a31ee340158b9c413c445a1e86114" cid="PROP118" name="GenerationDate" creation-date="11/01/2023 14:43:23" property-ref="7dcca6311948458095f28943a48a306d" />
+              <attribute id="a8cc392def10e4a1a8fd958cd70ac71e6440" cid="PROP119" name="Puzzle" creation-date="11/01/2023 14:43:47" property-ref="0e4667777f5045adbceaae4dd1cfdc8e" />
+            </attributes>
+          </item>
+          <item id="3c1296cae1ea4924854bcd1028fad586" cid="PROP116" type="property" name="Id" style-class="" owner="cbca38d48d9e4dfeadb9805ce2ef1954" creator="" creation-date="11/01/2023 14:42:46" visibility="private">
+            <feature />
+            <structural-feature type="Integer" type-id="Uml.Integer" />
+            <property />
+          </item>
+          <item id="545ec9c78a3c4b83a7a9ca35a9e4ce81" cid="PROP117" type="property" name="Game" style-class="" owner="cbca38d48d9e4dfeadb9805ce2ef1954" creator="" creation-date="11/01/2023 14:42:51" visibility="private">
+            <feature />
+            <structural-feature type="Integer" type-id="Uml.Integer" />
+            <property />
+          </item>
+          <item id="7dcca6311948458095f28943a48a306d" cid="PROP118" type="property" name="GenerationDate" style-class="" owner="cbca38d48d9e4dfeadb9805ce2ef1954" creator="" creation-date="11/01/2023 14:43:23" visibility="private">
+            <feature />
+            <structural-feature type="DateTime" type-id="Uml.DateTime" />
+            <property />
+          </item>
+          <item id="0e4667777f5045adbceaae4dd1cfdc8e" cid="PROP119" type="property" name="Puzzle" style-class="" owner="cbca38d48d9e4dfeadb9805ce2ef1954" creator="" creation-date="11/01/2023 14:43:47" visibility="private">
+            <feature />
+            <structural-feature type="String" type-id="Uml.String" />
+            <property />
+          </item>
+          <item id="e4c82b6132174bdba5d52e8204ed7634" cid="C047" type="class" name="Saves" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:44:21" visibility="package">
+            <owned-items>
+              <owned-item ref="c0f7defb03ce4f479e048abc7c387dd7" />
+              <owned-item ref="06a3dbabb7c54ec28d245d852d958f8e" />
+              <owned-item ref="c57409dafd1f43b88d6a2ca6df7844bb" />
+              <owned-item ref="b4467409ec6c40b4875e08dd04e7b3cf" />
+              <owned-item ref="17553881e76f4da497d30278e1e98fc9" />
+              <owned-item ref="5711c1831b5543f3bce7e54213cf600e" />
+              <owned-item ref="81c09682ba9640b39d4bef7b3e9ccb03" />
+            </owned-items>
+            <attributes>
+              <attribute id="a7d89003f979e45d4b72a2b8ba4ae6a95993" cid="PROP120" name="Id" creation-date="11/01/2023 14:44:25" property-ref="c0f7defb03ce4f479e048abc7c387dd7" />
+              <attribute id="a78839a7d60534e77b3f7c263e932d80d990" cid="PROP121" name="User" creation-date="11/01/2023 14:44:31" property-ref="06a3dbabb7c54ec28d245d852d958f8e" />
+              <attribute id="a06179faee91c45a29e5eefc5435a54bd935" cid="PROP122" name="Game" creation-date="11/01/2023 14:44:38" property-ref="c57409dafd1f43b88d6a2ca6df7844bb" />
+              <attribute id="a7fe2fb0dd1324590a47e92bdcdc6e288510" cid="PROP123" name="Save" creation-date="11/01/2023 14:44:49" property-ref="b4467409ec6c40b4875e08dd04e7b3cf" />
+              <attribute id="afc0529fb4510493ba1af35e41c0fcb99184" cid="PROP124" name="Slot" creation-date="11/01/2023 14:44:56" property-ref="17553881e76f4da497d30278e1e98fc9" />
+              <attribute id="a1859dd3ce21d43049d971472e57f4d2d18" cid="PROP125" name="Time" creation-date="11/01/2023 14:45:07" property-ref="5711c1831b5543f3bce7e54213cf600e" />
+              <attribute id="aaf277161123d423d9f3b71d53df9951479" cid="PROP126" name="Date" creation-date="11/01/2023 14:45:14" property-ref="81c09682ba9640b39d4bef7b3e9ccb03" />
+            </attributes>
+          </item>
+          <item id="c0f7defb03ce4f479e048abc7c387dd7" cid="PROP120" type="property" name="Id" style-class="" owner="e4c82b6132174bdba5d52e8204ed7634" creator="" creation-date="11/01/2023 14:44:25" visibility="private">
+            <feature />
+            <structural-feature type="Integer" type-id="Uml.Integer" />
+            <property />
+          </item>
+          <item id="06a3dbabb7c54ec28d245d852d958f8e" cid="PROP121" type="property" name="User" style-class="" owner="e4c82b6132174bdba5d52e8204ed7634" creator="" creation-date="11/01/2023 14:44:31" visibility="private">
+            <feature />
+            <structural-feature type="Integer" type-id="Uml.Integer" />
+            <property />
+          </item>
+          <item id="c57409dafd1f43b88d6a2ca6df7844bb" cid="PROP122" type="property" name="Game" style-class="" owner="e4c82b6132174bdba5d52e8204ed7634" creator="" creation-date="11/01/2023 14:44:38" visibility="private">
+            <feature />
+            <structural-feature type="Integer" type-id="Uml.Integer" />
+            <property />
+          </item>
+          <item id="b4467409ec6c40b4875e08dd04e7b3cf" cid="PROP123" type="property" name="Save" style-class="" owner="e4c82b6132174bdba5d52e8204ed7634" creator="" creation-date="11/01/2023 14:44:49" visibility="private">
+            <feature />
+            <structural-feature type="String" type-id="Uml.String" />
+            <property />
+          </item>
+          <item id="17553881e76f4da497d30278e1e98fc9" cid="PROP124" type="property" name="Slot" style-class="" owner="e4c82b6132174bdba5d52e8204ed7634" creator="" creation-date="11/01/2023 14:44:56" visibility="private">
+            <feature />
+            <structural-feature type="String" type-id="Uml.String" />
+            <property />
+          </item>
+          <item id="5711c1831b5543f3bce7e54213cf600e" cid="PROP125" type="property" name="Time" style-class="" owner="e4c82b6132174bdba5d52e8204ed7634" creator="" creation-date="11/01/2023 14:45:07" visibility="private">
+            <feature />
+            <structural-feature type="TimeSpan" type-id="TimeSpan" />
+            <property />
+          </item>
+          <item id="81c09682ba9640b39d4bef7b3e9ccb03" cid="PROP126" type="property" name="Date" style-class="" owner="e4c82b6132174bdba5d52e8204ed7634" creator="" creation-date="11/01/2023 14:45:14" visibility="private">
+            <feature />
+            <structural-feature type="DateTime" type-id="Uml.DateTime" />
+            <property />
+          </item>
+          <item id="b96add4ef6d34b7084a953443b7c9bb2" cid="REL027" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:48:20" from="bc1652c06895499194ace2c80770a35a" to="362dbcfe7b264bf88bc0156fda80f4af" visibility="package">
+            <relation from="bc1652c06895499194ace2c80770a35a" to="362dbcfe7b264bf88bc0156fda80f4af" derived="false">
+              <start-role id="umlar-96e5992c-aea7-44be-b212-4edd19cf2cdb" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-858c5ae1-7951-4af4-b5f0-4ed699e8ae28" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+            </relation>
+          </item>
+          <item id="309cf93cca0c42a682b48c6b6df56109" cid="REL028" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:48:25" from="e4c82b6132174bdba5d52e8204ed7634" to="362dbcfe7b264bf88bc0156fda80f4af" visibility="package">
+            <relation from="e4c82b6132174bdba5d52e8204ed7634" to="362dbcfe7b264bf88bc0156fda80f4af" derived="false">
+              <start-role id="umlar-f5a8b2f6-0e2a-429f-af83-782b2fe6fce4" name="" multiplicity="*" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-a023350a-b5d3-4fe6-942e-c6b7da0039cc" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+            </relation>
+          </item>
+          <item id="3545fa23902d476faf340ff625fd9138" cid="REL029" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:48:30" from="54ca91f0c8c14562a74fb6ee355830e9" to="362dbcfe7b264bf88bc0156fda80f4af" visibility="package">
+            <relation from="54ca91f0c8c14562a74fb6ee355830e9" to="362dbcfe7b264bf88bc0156fda80f4af" derived="false">
+              <start-role id="umlar-bc55f32b-ba6c-4120-b390-e0c1d8ec6c9e" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-8bdcbcda-77d5-4b2c-b12d-235133f2b3b3" name="" navigability="" association-type="association" visibility="private" />
+            </relation>
+          </item>
+          <item id="818dd34e817c43db88c0447cd2d80035" cid="REL031" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:48:47" from="362dbcfe7b264bf88bc0156fda80f4af" to="54ca91f0c8c14562a74fb6ee355830e9" visibility="package">
+            <relation from="362dbcfe7b264bf88bc0156fda80f4af" to="54ca91f0c8c14562a74fb6ee355830e9" derived="false">
+              <start-role id="umlar-e9056325-cc94-4baa-802e-f868f656bbd4" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-3ac51b35-4369-4cc4-85d6-155dbbd61b6e" name="" multiplicity="*" navigability="" association-type="association" visibility="private" />
+            </relation>
+          </item>
+          <item id="2464314cf9b047a5aced9986f914f3b6" cid="REL032" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:48:57" from="e4c82b6132174bdba5d52e8204ed7634" to="cbca38d48d9e4dfeadb9805ce2ef1954" visibility="package">
+            <relation from="e4c82b6132174bdba5d52e8204ed7634" to="cbca38d48d9e4dfeadb9805ce2ef1954" derived="false">
+              <start-role id="umlar-419e9e8d-4db5-4dac-95e0-b116eccdc6e1" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-e930ed9f-004d-47c5-8794-edc6ef98b860" name="" navigability="" association-type="association" visibility="private" />
+            </relation>
+          </item>
+          <item id="6014b984878d402b894ed9de82977b6d" cid="REL033" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:49:02" from="54ca91f0c8c14562a74fb6ee355830e9" to="cbca38d48d9e4dfeadb9805ce2ef1954" visibility="package">
+            <relation from="54ca91f0c8c14562a74fb6ee355830e9" to="cbca38d48d9e4dfeadb9805ce2ef1954" derived="false">
+              <start-role id="umlar-9fcd408c-0f56-4f03-a256-bec6e7d5e5d9" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-16d2dd20-cc01-41cf-8136-1cf4db2f650f" name="" navigability="" association-type="association" visibility="private" attribute-ref="a682ca6a31ee340158b9c413c445a1e86114" />
+            </relation>
+          </item>
+          <item id="00c0df35385949a892ed626a0eb1f539" cid="REL034" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:49:18" from="f1dc789df1dd43fe87d737a6f6d23395" to="cbca38d48d9e4dfeadb9805ce2ef1954" visibility="package">
+            <relation from="f1dc789df1dd43fe87d737a6f6d23395" to="cbca38d48d9e4dfeadb9805ce2ef1954" derived="false">
+              <start-role id="umlar-a85893ca-7271-4345-b507-06437854f026" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-4c034d7c-e1c2-4a6b-a619-a35badd84484" name="" navigability="" association-type="association" visibility="private" />
+            </relation>
+          </item>
+          <item id="b6cd90b9733549d2834df8dbcb8fa718" cid="REL035" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:50:07" from="f1dc789df1dd43fe87d737a6f6d23395" to="e4c82b6132174bdba5d52e8204ed7634" visibility="package">
+            <relation from="f1dc789df1dd43fe87d737a6f6d23395" to="e4c82b6132174bdba5d52e8204ed7634" derived="false">
+              <start-role id="umlar-839da2fe-281d-4422-8ec3-827a804bad04" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-3cec5b58-d364-4e81-879f-f2cff0238cb3" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+            </relation>
+          </item>
+          <item id="08cd4dfb38ea4f21bccc8b5f27810d91" cid="REL036" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:50:13" from="f1dc789df1dd43fe87d737a6f6d23395" to="cbca38d48d9e4dfeadb9805ce2ef1954" visibility="package">
+            <relation from="f1dc789df1dd43fe87d737a6f6d23395" to="cbca38d48d9e4dfeadb9805ce2ef1954" derived="false">
+              <start-role id="umlar-ac4815d3-dba0-41ad-8850-f2e49e43cc76" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-182945fb-1749-4779-a8e8-638ca42d2a94" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+            </relation>
+          </item>
+          <item id="000295778e5f4ebc966544c12adaf4e6" cid="REL037" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:50:18" from="54ca91f0c8c14562a74fb6ee355830e9" to="f1dc789df1dd43fe87d737a6f6d23395" visibility="package">
+            <relation from="54ca91f0c8c14562a74fb6ee355830e9" to="f1dc789df1dd43fe87d737a6f6d23395" derived="false">
+              <start-role id="umlar-3d722d4d-5968-43d3-98a0-9d958899a2d3" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-21e3c2b2-77eb-4632-86b2-efb53d4b8268" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+            </relation>
+          </item>
         </abstract-items>
         <layer id="b143306c795b4a8db8fcccdf77e72ce6" name="Default" visible="true" enabled="true" locked="false">
-          <item id="a521a391c73a4a6f8dd4be7d16e93f17" iid="18b709ef35a24c8183a6b06781e28645" creation-date="09/30/2023 19:49:42" order-index="0" type="entity">
-            <layout ax="525" ay="179" awidth="162" aheight="160" x="525" y="179" width="162" height="160" rotation-center="-11,0" />
+          <item id="bc1652c06895499194ace2c80770a35a" iid="9e1bd99d68f7499694470edee3e6f396" creation-date="11/01/2023 14:34:10" order-index="0" type="entity">
+            <layout ax="867" ay="-249" awidth="140" aheight="160" x="867" y="-249" width="140" height="160" />
             <class />
           </item>
-          <item id="e6d4526e583e4374a3b25faf7da2d39a" iid="33ae7f050f7c4c609358462862190453" creation-date="09/30/2023 19:49:47" order-index="1" type="entity">
-            <layout ax="851" ay="172" awidth="140" aheight="177" x="851" y="172" width="140" height="160" />
+          <item id="362dbcfe7b264bf88bc0156fda80f4af" iid="d353806059c94541b69c7cdfab07edd8" creation-date="11/01/2023 14:37:32" order-index="1" type="entity">
+            <layout ax="867" ay="-508" awidth="140" aheight="160" x="867" y="-508" width="140" height="160" />
             <class />
           </item>
-          <item id="e0797c2b805c40258bad6f5671747252" iid="94a6a696ac4f43b48ff7e6dc0b3aa329" creation-date="09/30/2023 19:53:21" order-index="2" type="entity">
-            <layout ax="1155" ay="179" awidth="173" aheight="160" x="1155" y="188" width="173" height="160" rotation-center="-16.5,0" />
+          <item id="f1dc789df1dd43fe87d737a6f6d23395" iid="1b63e8be33404d59a6e1d7c7d42131ca" creation-date="11/01/2023 14:38:31" order-index="2" type="entity">
+            <layout ax="1345" ay="-508" awidth="140" aheight="160" x="1345" y="-508" width="140" height="160" />
             <class />
           </item>
-          <item id="08d99ae1c5d54291bab45d5cb7931af2" iid="2e4dab600de34870a36cd9f98f7a2b59" creation-date="09/30/2023 20:06:20" order-index="3" type="entity">
-            <layout ax="1422" ay="172" awidth="140" aheight="174" x="1422" y="172" width="140" height="160" />
+          <item id="54ca91f0c8c14562a74fb6ee355830e9" iid="503c128ac27f4481ac7370813629c755" creation-date="11/01/2023 14:39:58" order-index="3" type="entity">
+            <layout ax="1106" ay="-508" awidth="140" aheight="196" x="1106" y="-508" width="140" height="160" />
             <class />
           </item>
-          <item id="7459a61c21614d9d8a2c49fdf4a25121" iid="9345d680e28b4f23aa8ba8ffea763086" creation-date="09/30/2023 20:11:16" order-index="4" type="entity">
-            <layout ax="1146.25" ay="422" awidth="190.5" aheight="160" x="1146.25" y="422" width="190.5" height="160" rotation-center="-25.25,0" />
+          <item id="cbca38d48d9e4dfeadb9805ce2ef1954" iid="e2649fbbd5af4cc4b5ff7d20dfd05f3e" creation-date="11/01/2023 14:41:55" order-index="4" type="entity">
+            <layout ax="1311" ay="-249" awidth="174" aheight="160" x="1311" y="-249" width="174" height="160" rotation-center="17,0" />
             <class />
           </item>
-          <item id="6b8a9fc1ecd84404a08dab5fe0f5057c" iid="82c27ade6c71460cbe059bce3f6520da" creation-date="09/30/2023 21:47:30" order-index="6" type="entity">
-            <layout ax="767" ay="452" awidth="308" aheight="100" x="767" y="452" width="140" height="100" />
+          <item id="e4c82b6132174bdba5d52e8204ed7634" iid="8e41b4479aee4a58ad99f6253b5613b7" creation-date="11/01/2023 14:44:21" order-index="5" type="entity">
+            <layout ax="1106" ay="-266" awidth="140" aheight="177" x="1106" y="-266" width="140" height="160" />
+            <class />
           </item>
-          <item id="diafb826a498054a0d9892ed2362de291b2846" iid="4df704b2fb2d40b88d1f36d215b9bc9c" creation-date="09/30/2023 21:47:30" order-index="7" type="comment-connector">
-            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="921" y1="452" x2="921" y2="349" start-border-pos="0.125" end-border-pos="0.625" name-position="0,20">
+          <item id="b96add4ef6d34b7084a953443b7c9bb2" iid="04e4e7d214f94dd382465feda24b1a9b" creation-date="11/01/2023 14:48:20" order-index="6" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="12,-15" end-multiplicity-position="14,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="937" y1="-249" x2="937" y2="-348" start-border-pos="0.125" end-border-pos="0.625" start-local-pos="70" end-local-pos="70" name-position="0,20">
               <points>
-                <point x="921" y="452" />
-                <point x="921" y="349" />
+                <point x="937" y="-249" />
+                <point x="937" y="-348" />
               </points>
             </layout>
-            <relation from="6b8a9fc1ecd84404a08dab5fe0f5057c" from-iid="82c27ade6c71460cbe059bce3f6520da" to="e6d4526e583e4374a3b25faf7da2d39a" to-iid="33ae7f050f7c4c609358462862190453" />
+            <relation from="bc1652c06895499194ace2c80770a35a" from-iid="9e1bd99d68f7499694470edee3e6f396" to="362dbcfe7b264bf88bc0156fda80f4af" to-iid="d353806059c94541b69c7cdfab07edd8" />
           </item>
-          <item id="46bb868257c34e3db776335b7e214251" iid="28e2f13ed95c471d9ce68c73f7b4c1ae" creation-date="10/01/2023 20:35:18" order-index="8" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="1328" y1="259" x2="1422" y2="259" start-border-pos="0.375" end-border-pos="0.875" name-position="0,20">
+          <item id="309cf93cca0c42a682b48c6b6df56109" iid="83ab3f6e68754afcbc6bd40575ef9bb0" creation-date="11/01/2023 14:48:25" order-index="7" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="11.05198,-17.7305" end-multiplicity-position="9.885252,17.13145" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="1106" y1="-266" x2="1007" y2="-348" start-border-pos="0" end-border-pos="0.5" start-local-pos="0" end-local-pos="160" name-position="0,20">
               <points>
-                <point x="1328" y="259" />
-                <point x="1422" y="259" />
+                <point x="1106" y="-266" />
+                <point x="1007" y="-348" />
               </points>
             </layout>
-            <relation from="e0797c2b805c40258bad6f5671747252" from-iid="94a6a696ac4f43b48ff7e6dc0b3aa329" to="08d99ae1c5d54291bab45d5cb7931af2" to-iid="2e4dab600de34870a36cd9f98f7a2b59" />
+            <relation from="e4c82b6132174bdba5d52e8204ed7634" from-iid="8e41b4479aee4a58ad99f6253b5613b7" to="362dbcfe7b264bf88bc0156fda80f4af" to-iid="d353806059c94541b69c7cdfab07edd8" />
           </item>
-          <item id="777b473b85864b3d8b374d67641cdee1" iid="547751bdbe9a4839bd02d92fd1075986" creation-date="10/01/2023 20:35:48" order-index="9" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="1242" y1="339" x2="1242" y2="422" start-border-pos="0.624277456647399" end-border-pos="0.125656167979003" name-position="0,20">
+          <item id="818dd34e817c43db88c0447cd2d80035" iid="7f60b2a3f0244a63976eb1ac2d5aa598" creation-date="11/01/2023 14:48:47" order-index="8" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="10,-15" end-multiplicity-position="12,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="1007" y1="-428" x2="1106" y2="-428" start-border-pos="0.375" end-border-pos="0.897959183673469" start-local-pos="80" end-local-pos="80" name-position="0,20">
               <points>
-                <point x="1242" y="339" />
-                <point x="1242" y="422" />
+                <point x="1007" y="-428" />
+                <point x="1106" y="-428" />
               </points>
             </layout>
-            <relation from="e0797c2b805c40258bad6f5671747252" from-iid="94a6a696ac4f43b48ff7e6dc0b3aa329" to="7459a61c21614d9d8a2c49fdf4a25121" to-iid="9345d680e28b4f23aa8ba8ffea763086" />
+            <relation from="362dbcfe7b264bf88bc0156fda80f4af" from-iid="d353806059c94541b69c7cdfab07edd8" to="54ca91f0c8c14562a74fb6ee355830e9" to-iid="503c128ac27f4481ac7370813629c755" />
           </item>
-          <item id="cf2188ca27574291896520444f5fc147" iid="4832aca1f8654ec5b2d6aec3c768e9ec" creation-date="10/01/2023 20:36:24" order-index="10" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="991" y1="260" x2="1155" y2="259" start-border-pos="0.373985764670507" end-border-pos="0.8745765209198" name-position="0,20">
+          <item id="b6cd90b9733549d2834df8dbcb8fa718" iid="7467b0d49c48472e8cd23355acf324c8" creation-date="11/01/2023 14:50:07" order-index="9" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="9.885399,-17.13136" end-multiplicity-position="10.01741,14.27655" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="1345" y1="-348" x2="1246" y2="-266" start-border-pos="0.75" end-border-pos="0.25" start-local-pos="0" end-local-pos="160" name-position="0,20">
               <points>
-                <point x="991" y="260" />
-                <point x="1155" y="259" />
+                <point x="1345" y="-348" />
+                <point x="1246" y="-266" />
               </points>
             </layout>
-            <relation from="e6d4526e583e4374a3b25faf7da2d39a" from-iid="33ae7f050f7c4c609358462862190453" to="e0797c2b805c40258bad6f5671747252" to-iid="94a6a696ac4f43b48ff7e6dc0b3aa329" />
+            <relation from="f1dc789df1dd43fe87d737a6f6d23395" from-iid="1b63e8be33404d59a6e1d7c7d42131ca" to="e4c82b6132174bdba5d52e8204ed7634" to-iid="8e41b4479aee4a58ad99f6253b5613b7" />
           </item>
-          <item id="e8bea92a6dbe4d0aa959b97c34637dd5" iid="b8e85a07600a48aebb2265b6bd385fc4" creation-date="10/01/2023 20:36:53" order-index="11" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-to-fields="false" auto-path="" x1="687" y1="259" x2="851" y2="260" start-border-pos="0.375401782989502" end-border-pos="0.876020097463144" name-position="0,20">
+          <item id="08cd4dfb38ea4f21bccc8b5f27810d91" iid="8c83805fc3384d1689c5e954746214db" creation-date="11/01/2023 14:50:13" order-index="10" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="13,-16" end-multiplicity-position="15,17" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="1415" y1="-348" x2="1415" y2="-249" start-border-pos="0.625" end-border-pos="0.149425287356322" start-local-pos="70" end-local-pos="104" name-position="0,20">
               <points>
-                <point x="687" y="259" />
-                <point x="851" y="260" />
+                <point x="1415" y="-348" />
+                <point x="1415" y="-249" />
               </points>
             </layout>
-            <relation from="a521a391c73a4a6f8dd4be7d16e93f17" from-iid="18b709ef35a24c8183a6b06781e28645" to="e6d4526e583e4374a3b25faf7da2d39a" to-iid="33ae7f050f7c4c609358462862190453" />
+            <relation from="f1dc789df1dd43fe87d737a6f6d23395" from-iid="1b63e8be33404d59a6e1d7c7d42131ca" to="cbca38d48d9e4dfeadb9805ce2ef1954" to-iid="e2649fbbd5af4cc4b5ff7d20dfd05f3e" />
+          </item>
+          <item id="000295778e5f4ebc966544c12adaf4e6" iid="c627ad5870924129bff06749388d67f3" creation-date="11/01/2023 14:50:18" order-index="11" type="relation">
+            <layout start-role-position="24.99998,15.00001" end-role-position="25,-15" start-multiplicity-position="10,-15" end-multiplicity-position="14,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="1246" y1="-428" x2="1345" y2="-428" start-border-pos="0.352040819823742" end-border-pos="0.875" start-local-pos="80" end-local-pos="80" name-position="0,20">
+              <points>
+                <point x="1246" y="-428" />
+                <point x="1345" y="-428" />
+              </points>
+            </layout>
+            <relation from="54ca91f0c8c14562a74fb6ee355830e9" from-iid="503c128ac27f4481ac7370813629c755" to="f1dc789df1dd43fe87d737a6f6d23395" to-iid="1b63e8be33404d59a6e1d7c7d42131ca" />
           </item>
         </layer>
       </diagram>
