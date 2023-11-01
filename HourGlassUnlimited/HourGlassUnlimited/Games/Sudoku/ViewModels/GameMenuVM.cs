@@ -15,6 +15,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
 {
     public class GameMenuVM : VM
     {
+        private SudokuGame NewGame = null;
         public ICommand Select_Classic { get; set; }
         public ICommand Select_Daily { get; set; }
         public ICommand Launch_Classic { get; set; }
@@ -39,6 +40,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
             else
             {
                 savedGame.IsDaily = false;
+                NewGame = savedGame;
                 SudokuNavigator.PartialLoadSaveView();
             }
         }
@@ -50,14 +52,35 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         }
 
         private bool Launch_Classic_CanExecute(object parameter) { return true; }
-        private async void Launch_Classic_Execute(object parameter) 
+        private async void Launch_Classic_Execute(object parameter)
         {
             DAL dal = new DAL();
             SudokuGame game = dal.SudokuFact.GetByTitle("Sudoku");
-            game.IsDaily = false;
-            game.GameBoard = await dal.SudokuFact.GenerateBoard(parameter.ToString(), false);
-            SudokuNavigator.GamePage.SetGame(game);
-            SudokuNavigator.GamePageView();
+            if (parameter.ToString() == "continue")
+            {
+                if (NewGame != null)
+                {
+                    game = NewGame;
+                    game.GameBoard = await dal.SudokuFact.GenerateBoard(game.GameBoard.Difficulty, game.IsDaily, game.GameBoard.Seed);
+                    SudokuNavigator.GamePage.SetGame(game);
+                    SudokuNavigator.GamePageView();
+                    GamePageVM vm = (GamePageVM)SudokuNavigator.GamePage.DataContext;
+                    vm.CurrentGame = NewGame;
+                }
+            }
+            else
+            {
+                if (parameter.ToString() == "restart")
+                {
+                    SudokuNavigator.PartialDifficultyView();
+                }
+                else
+                {
+                    game.GameBoard = await dal.SudokuFact.GenerateBoard(parameter.ToString(), false, string.Empty);
+                    SudokuNavigator.GamePage.SetGame(game);
+                    SudokuNavigator.GamePageView();
+                }
+            }
         }
 
         private bool Launch_Daily_CanExecute(object parameter) { return true; }
@@ -66,7 +89,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
             DAL dal = new DAL();
             SudokuGame game = dal.SudokuFact.GetByTitle("Sudoku");
             game.IsDaily = true;
-            game.GameBoard = await dal.SudokuFact.GenerateBoard(parameter.ToString(), true);
+            game.GameBoard = await dal.SudokuFact.GenerateBoard(parameter.ToString(), true, string.Empty);
             SudokuNavigator.GamePage.SetGame(game);
             SudokuNavigator.GamePageView();
         }

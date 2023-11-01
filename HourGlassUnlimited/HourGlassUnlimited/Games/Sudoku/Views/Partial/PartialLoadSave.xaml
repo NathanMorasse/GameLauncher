@@ -17,7 +17,7 @@
 
         <TextBlock VerticalAlignment="Center" TextWrapping="Wrap" Grid.Column="0" FontSize="50" Foreground="LightGray">Une ancienne partie a été détectée. Voulez-vous la continuer ou commencer une nouvelle partie?</TextBlock>
 
-        <Button Style="{StaticResource StandardButton}" Width="350" Height="100" Grid.Column="1" FontSize="50">Continuer</Button>
-        <Button Style="{StaticResource StandardButton}" Width="350" Height="100" Grid.Column="2" FontSize="50">Recommencer</Button>
+        <Button Command="{Binding Launch_Classic}" CommandParameter="continue" Style="{StaticResource StandardButton}" Width="350" Height="100" Grid.Column="1" FontSize="50">Continuer</Button>
+        <Button Command="{Binding Launch_Classic}" CommandParameter="restart" Style="{StaticResource StandardButton}" Width="350" Height="100" Grid.Column="2" FontSize="50">Recommencer</Button>
     </Grid>
 </Page>

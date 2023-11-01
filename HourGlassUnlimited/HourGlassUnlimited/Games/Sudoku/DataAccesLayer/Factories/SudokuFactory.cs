@@ -43,9 +43,8 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             return new SudokuGame() { Id = id, Title = title, Description = description};
         }
 
-        public async Task<Board> GenerateBoard(string difficulty, bool isDaily)
+        public async Task<Board> GenerateBoard(string difficulty, bool isDaily, string paramSeed)
         {
-            string paramSeed = string.Empty;
             if (isDaily)
             {
                 string seed = DateTime.Now.Date.ToString();
