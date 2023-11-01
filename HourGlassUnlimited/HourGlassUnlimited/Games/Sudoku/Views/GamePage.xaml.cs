@@ -28,6 +28,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
         DispatcherTimer dt = new DispatcherTimer();
         Stopwatch sw = new Stopwatch();
         string currentTime = string.Empty;
+        TimeSpan startTime = TimeSpan.Zero;
         GamePageVM vm;
 
         public GamePage()
@@ -57,7 +58,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
         {
             if (sw.IsRunning)
             {
-                TimeSpan ts = sw.Elapsed;
+                TimeSpan ts = sw.Elapsed + startTime;
                 currentTime = String.Format("{0:00}:{1:00}:{2:00}",
                 ts.Hours, ts.Minutes, ts.Seconds );
                 clock_text.Text = currentTime;
@@ -69,6 +70,10 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
             var vm = (GamePageVM)this.DataContext;
             vm.CurrentGame = game;
             vm.CurrentBoard = game.GameBoard.Grid;
+            if (game.TimePassed != null)
+            {
+                startTime = TimeSpan.Parse(game.TimePassed);
+            }
             sw.Start();
             dt.Start();
         }
