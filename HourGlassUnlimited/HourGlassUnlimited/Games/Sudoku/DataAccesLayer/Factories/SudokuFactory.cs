@@ -47,9 +47,9 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
         {
             if (isDaily)
             {
-                string seed = DateTime.Now.Date.ToString();
-                paramSeed = "&seed=" + seed;
+                paramSeed = DateTime.Now.Date.ToString();
             }
+            paramSeed = "&seed=" + paramSeed;
 
 			try
 			{
