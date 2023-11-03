@@ -10,7 +10,6 @@ namespace HourGlassUnlimited.Models
     public abstract class GameBase : ModelBase
     {
         public string Title { get; set; }
-        public string Description { get; set; }
         public string ImagePath { get; set; }
         public string Path { get; set; }
     }

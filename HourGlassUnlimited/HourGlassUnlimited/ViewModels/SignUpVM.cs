@@ -35,7 +35,14 @@ namespace HourGlassUnlimited.ViewModels
                 Departments.Add(item.Name);
             }
 
-            Department = Departments[0];
+            try
+            {
+                Department = Departments[0];
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                throw new Exception("Il n'y a aucun département dans la basse de donnée. Commencez par ajouter les départements pour pouvoir créer un utilisateur.");
+            }
         }
 
         private bool SignUp_CanExecute(object parameter) { return true; }

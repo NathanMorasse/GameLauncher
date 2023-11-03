@@ -25,22 +25,20 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
         {
             int id = (int)reader["Id"];
             string title = reader["Title"].ToString() ?? string.Empty;
-            string description = reader["Description"].ToString() ?? string.Empty;
             string timePassed = reader["Time"].ToString() ?? string.Empty;
             string boardString = reader["Save"].ToString() ?? string.Empty;
             Board board = BoardEncoder.DecodeBoard(boardString);
             board.Seed = reader["Seed"].ToString() ?? string.Empty;
 
-            return new SudokuGame() { Id=id, Title=title, Description=description, TimePassed = timePassed, GameBoard=board};
+            return new SudokuGame() { Id=id, Title=title, TimePassed = timePassed, GameBoard=board};
         }
 
         public static SudokuGame CreateFromReader(MySqlDataReader reader)
         {
             int id = (int)reader["Id"];
             string title = reader["Title"].ToString() ?? string.Empty;
-            string description = reader["Description"].ToString() ?? string.Empty;
 
-            return new SudokuGame() { Id = id, Title = title, Description = description};
+            return new SudokuGame() { Id = id, Title = title};
         }
 
         public async Task<Board> GenerateBoard(string difficulty, bool isDaily, string paramSeed)
@@ -48,6 +46,11 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             if (isDaily)
             {
                 paramSeed = DateTime.Now.Date.ToString();
+            }
+            if (paramSeed == null || paramSeed == String.Empty)
+            {
+                Random rand = new Random(Guid.NewGuid().GetHashCode());
+                paramSeed = rand.Next().ToString();
             }
             paramSeed = "&seed=" + paramSeed;
 
@@ -160,7 +163,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
 
 
                 MySqlCommand command = connection.CreateCommand();
-                command.CommandText = "INSERT INTO a23_web3_2133752.saves(User, Game, Save, Time, IsDaily, Seed) VALUES(@User, @Game, @Save, @Time, @IsDaily, @Seed);";
+                command.CommandText = "INSERT INTO a23_web3_2133752.saves(User, Game, Save, Time, Date, IsDaily, Seed) VALUES(@User, @Game, @Save, @Time, @Date, @IsDaily, @Seed);";
                 command.Parameters.AddWithValue("@User", ConnectionHelper.User.Id);
                 command.Parameters.AddWithValue("@Game", game.Id);
                 command.Parameters.AddWithValue("@Save", boardString);
@@ -189,7 +192,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
 
 
                 MySqlCommand command = connection.CreateCommand();
-                command.CommandText = "SELECT games.Id, games.Title, games.Description, saves.Save, saves.Seed, saves.Time FROM a23_web3_2133752.saves INNER JOIN games ON saves.Game=games.Id WHERE Game = 1 AND User = @User AND IsDaily = @IsDaily ORDER BY Date DESC LIMIT 1;";
+                command.CommandText = "SELECT games.Id, games.Title, saves.Save, saves.Seed, saves.Time FROM a23_web3_2133752.saves INNER JOIN games ON saves.Game=games.Id WHERE Game = 1 AND User = @User AND IsDaily = @IsDaily ORDER BY Date DESC LIMIT 1;";
                 command.Parameters.AddWithValue("@User", ConnectionHelper.User.Id);
                 command.Parameters.AddWithValue("@IsDaily", isdaily);
 

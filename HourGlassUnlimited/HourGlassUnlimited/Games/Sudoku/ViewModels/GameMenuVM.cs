@@ -64,8 +64,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                     game.GameBoard = await dal.SudokuFact.GenerateBoard(game.GameBoard.Difficulty, game.IsDaily, game.GameBoard.Seed);
                     SudokuNavigator.GamePage.SetGame(game);
                     SudokuNavigator.GamePageView();
-                    GamePageVM vm = (GamePageVM)SudokuNavigator.GamePage.DataContext;
-                    vm.CurrentGame = NewGame;
+                    SudokuNavigator.GamePage.LoadSavedCells(SudokuNavigator.GamePage.BoardGrid, NewGame.GameBoard.Grid);
                 }
             }
             else
