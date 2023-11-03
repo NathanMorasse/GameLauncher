@@ -63,7 +63,7 @@ namespace HourGlassUnlimited.Tools
             return null;
         }
 
-        private static string HashPassword(string passwordToHash)
+        public static string HashPassword(string passwordToHash)
         {
             byte[] salt = RandomNumberGenerator.GetBytes(16);
 

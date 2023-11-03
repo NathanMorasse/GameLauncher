@@ -10,7 +10,7 @@ create table `Room` (
 `Id` int not null auto_increment,
 `Department_Id` int not null,
 `Number` int not null,
-`HasAirConditionin` bool not null,
+`HasAirConditioning` bool not null,
 `HasHeaters` bool not null,
 `HasPhone` bool not null,
 `HasMovementSensor` bool not null,
@@ -82,9 +82,9 @@ create table `Furniture` (
 `Brand` varchar(255),
 `Type` varchar(255),
 `Description` varchar(255),
-`Length` bool,
-`Height` bool,
-`Width` bool,
+`Length` double,
+`Height` double,
+`Width` double,
 primary key (Id),
 foreign key (`Room_Id`) references `Room`(Id)
 );
@@ -220,7 +220,7 @@ create table `Processor` (
 `Motherboard_Id` int not null,
 `Brand` varchar(255),
 `Model` varchar(255),
-`Frequency` varchar(255),
+`Frequency` double,
 primary key (Id),
 foreign key (`Motherboard_Id`) references `Motherboard`(Id)
 );

@@ -1,6 +1,7 @@
 ﻿using HourGlassUnlimited.DataAccessLayer;
 using HourGlassUnlimited.Models;
 using HourGlassUnlimited.Tools;
+using Org.BouncyCastle.Math.Field;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,27 +53,36 @@ namespace HourGlassUnlimited.ViewModels
         private bool Edit_CanExecute(object parameter) { return true; }
         private void Edit_Execute(object parameter)
         {
-            bool old_pwd;
-            bool new_pwd;
-            bool uname;
+            if (Username == "") { Username = null; }
+            if (Password == "") { Password = null; }
+            if (Confirmation == "") { Confirmation = null; }
 
-            old_pwd = ConnectionHelper.ValidateHashedPassword(Current, ConnectionHelper.User.Password);
-            new_pwd = (Password != null && Confirmation != null);
-            new_pwd = (Password == null && Confirmation == null);
-            new_pwd = (ValidateString(Password) && ValidateString(Confirmation));
-            new_pwd = (Password == Confirmation);
-            uname = (Username != null);
-            uname = (ValidateString(Username));
+            if (Current == null) { return; }
 
-            if (Username == null || ValidateString(Username))
-            {
-                return;
-            }
+            if (!ConnectionHelper.ValidateHashedPassword(Current, ConnectionHelper.User.Password)) { return; }
+
+            if (Password != Confirmation) { return; }
 
             if (Password != null && Confirmation != null)
             {
-
+                if (!ValidateString(Password) || !ValidateString(Confirmation)) { return; }
             }
+
+            if (Username != null)
+            {
+                if (!ValidateString(Username)) { return; }
+            }
+
+            if (Username == null) { Username = ConnectionHelper.User.Username; }
+            if (Password == null) { Password = ConnectionHelper.User.Password; }
+
+            ConnectionHelper.User.Username = Username;
+            ConnectionHelper.User.Password = ConnectionHelper.HashPassword(Password);
+            ConnectionHelper.User.Department = Department;
+
+            DAL.Users.Update(ConnectionHelper.User);
+
+            Navigator.GameListView();
         }
 
         public bool ValidateString(string str)
