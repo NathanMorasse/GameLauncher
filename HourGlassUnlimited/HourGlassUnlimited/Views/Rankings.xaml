@@ -4,11 +4,24 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HourGlassUnlimited.Views"
+      xmlns:viewModel="clr-namespace:HourGlassUnlimited.ViewModels"
+      d:DataContext="{d:DesignInstance Type=viewModel:RankingsVM}"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="540" d:DesignWidth="960"
       Title="Rankings">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
+            
+        </ScrollViewer>
+
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+
+        </ScrollViewer>
     </Grid>
 </Page>
