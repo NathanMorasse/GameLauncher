@@ -79,23 +79,6 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
             dt.Start();
         }
 
-        public void LoadSavedCells(DependencyObject parent, ObservableCollection<ObservableCollection<Cell>> savedCells)
-        {
-            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
-            {
-                var child = VisualTreeHelper.GetChild(parent, i);
-
-                if (child is TextBox textBox && textBox.IsEnabled)
-                {
-                    
-                }
-                else
-                {
-                    LoadSavedCells(child, savedCells);
-                }
-            }
-        }
-
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             if (!IsDigit(e.Text))

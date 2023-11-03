@@ -148,7 +148,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                 Board newBoard = await dal.SudokuFact.GenerateBoard("medium", false, string.Empty);
                 CurrentBoard = newBoard.Grid;
                 GameStatusVisibility = "Hidden";
-                await Task.Delay(10);
+                await Task.Delay(100);
                 await SudokuNavigator.GamePage.ResetGrid();
             }
         }
@@ -177,6 +177,25 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
             }
 
             return true;
+        }
+
+        public void LoadSavedCells(ObservableCollection<ObservableCollection<Cell>> cells)
+        {
+            int rowIndex = 0;
+            int cellIndex = 0;
+            foreach (var row in CurrentBoard)
+            {
+                foreach (var cell in row)
+                {
+                    if (cell.Value == 0)
+                    {
+                        cell.Value = cells[rowIndex][cellIndex].Value;
+                    }
+                    cellIndex++;
+                }
+                cellIndex = 0;
+                rowIndex++;
+            }
         }
 
         public GamePageVM()
