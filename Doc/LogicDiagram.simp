@@ -9,7 +9,7 @@
     <entity-names>
       <counter>
         <item-type type-id="package" type="Package" />
-        <value>7</value>
+        <value>8</value>
       </counter>
       <counter>
         <item-type type-id="class" type="Class" />
@@ -23,11 +23,11 @@
     <entity-ids>
       <counter>
         <item-type type-id="group" type="Group" />
-        <value>7790</value>
+        <value>7816</value>
       </counter>
       <counter>
         <item-type type-id="package" type="Package" />
-        <value>8</value>
+        <value>9</value>
       </counter>
       <counter>
         <item-type type-id="class" type="Class" />
@@ -39,7 +39,7 @@
       </counter>
       <counter>
         <item-type type-id="property" type="Property" />
-        <value>127</value>
+        <value>129</value>
       </counter>
       <counter>
         <item-type type-id="enumeration" type="Enumeration" />
@@ -137,6 +137,16 @@
         <phone-number />
         <description />
         <color>#00000000</color>
+        <working-schedule uid="ws-3e8b54b9df7441c1b7275af696009027" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Raphael</first-name>
+        <last-name>Gagnon</last-name>
+        <role />
+        <e-mail>raphaelgagnon@cegep-chicoutimi.qc.ca</e-mail>
+        <phone-number />
+        <description />
+        <color>#00000000</color>
       </person>
     </persons>
     <teams />
@@ -187,27 +197,27 @@
     </custom-types>
   </types>
   <items>
-    <item id="1a7530281e784c01867bf7966cf1871d" cid="PROP065" type="property" name="1" style-class="" owner="b22f056bf56642f5b9fef472eb05ea02" creator="" creation-date="10/01/2023 20:27:24" visibility="undefined">
+    <item id="1a7530281e784c01867bf7966cf1871d" cid="PROP065" type="property" name="1" style-class="" creator="" creation-date="10/01/2023 20:27:24" visibility="undefined">
       <feature />
       <structural-feature type="GameList" type-id="GameList" />
       <property />
     </item>
-    <item id="4a22615549114451aa26e596f74e3d1d" cid="PROP060" type="property" name="1" style-class="" owner="5629428cf2d749279bf5aadf8bcdf1a4" creator="" creation-date="10/01/2023 20:27:07" visibility="undefined">
+    <item id="4a22615549114451aa26e596f74e3d1d" cid="PROP060" type="property" name="1" style-class="" creator="" creation-date="10/01/2023 20:27:07" visibility="undefined">
       <feature />
       <structural-feature type="SignInVM" type-id="SignInVM" />
       <property />
     </item>
-    <item id="2f34de306ac64011b779057a73452d30" cid="PROP063" type="property" name="1" style-class="" owner="3939dc75c2ef41f3b6c3e29e540a0918" creator="" creation-date="10/01/2023 20:27:17" visibility="undefined">
+    <item id="2f34de306ac64011b779057a73452d30" cid="PROP063" type="property" name="1" style-class="" creator="" creation-date="10/01/2023 20:27:17" visibility="undefined">
       <feature />
       <structural-feature type="EditAccount" type-id="EditAccount" />
       <property />
     </item>
-    <item id="9ef92beaf9f74153928b5b1ee0da84a7" cid="PROP064" type="property" name="1" style-class="" owner="3939dc75c2ef41f3b6c3e29e540a0918" creator="" creation-date="10/01/2023 20:27:17" visibility="undefined">
+    <item id="9ef92beaf9f74153928b5b1ee0da84a7" cid="PROP064" type="property" name="1" style-class="" creator="" creation-date="10/01/2023 20:27:17" visibility="undefined">
       <feature />
       <structural-feature type="EditAccountVM" type-id="EditAccountVM" />
       <property />
     </item>
-    <item id="bedfb0c00a2544629369bdd34f2f6619" cid="PROP062" type="property" name="1" style-class="" owner="658b22093ee340f38716207e9d7f161e" creator="" creation-date="10/01/2023 20:27:13" visibility="undefined">
+    <item id="bedfb0c00a2544629369bdd34f2f6619" cid="PROP062" type="property" name="1" style-class="" creator="" creation-date="10/01/2023 20:27:13" visibility="undefined">
       <feature />
       <structural-feature type="SignUpVM" type-id="SignUpVM" />
       <property />
@@ -217,7 +227,7 @@
       <structural-feature type="DailyPuzzle" type-id="DailyPuzzle" />
       <property />
     </item>
-    <item id="5fbe45abc92346e0b71a2baae57063dd" cid="PROP074" type="property" name="1" style-class="" owner="28817e1b64794afe8d7f48983f240b6b" creator="" creation-date="10/01/2023 20:27:40" visibility="undefined">
+    <item id="5fbe45abc92346e0b71a2baae57063dd" cid="PROP074" type="property" name="1" style-class="" creator="" creation-date="10/01/2023 20:27:40" visibility="undefined">
       <feature />
       <structural-feature type="SudokuGridVM" type-id="SudokuGridVM" />
       <property />
@@ -227,29 +237,29 @@
       <structural-feature type="Game" type-id="Game" />
       <property />
     </item>
-    <item id="f8f58180e66946d497e23517260311a3" cid="PROP094" type="property" name="" style-class="" owner="576ae73c0fb64ee09cef85ebab8aa5ae" creator="" creation-date="10/01/2023 20:42:29" visibility="private">
+    <item id="f8f58180e66946d497e23517260311a3" cid="PROP094" type="property" name="" style-class="" creator="" creation-date="10/01/2023 20:42:29" visibility="private">
       <feature />
       <structural-feature type="EditAccountVM" type-id="EditAccountVM" />
       <property />
     </item>
-    <item id="dibb7ae372b11840f1a9956e49e14ccfd81301" cid="CN002" type="comment-connector" name="" style-class="" creator="" creation-date="09/30/2023 21:24:09" from="90d91a3c59b24e35847979cd0b317c4f" to="4b124bd26ffd43509767429857ab118c" />
-    <item id="b1b7c50b06184f2b8bf2a90aab9b512e" cid="PROP058" type="property" name="1" style-class="" owner="8bc25db3b183434ea88f3c8631a07579" creator="" creation-date="10/01/2023 20:27:00" visibility="undefined">
+    <item id="dibb7ae372b11840f1a9956e49e14ccfd81301" cid="CN002" type="comment-connector" name="" style-class="" creator="" creation-date="09/30/2023 21:24:09" from="90d91a3c59b24e35847979cd0b317c4f" />
+    <item id="b1b7c50b06184f2b8bf2a90aab9b512e" cid="PROP058" type="property" name="1" style-class="" creator="" creation-date="10/01/2023 20:27:00" visibility="undefined">
       <feature />
       <structural-feature type="MainVM" type-id="MainVM" />
       <property />
     </item>
-    <item id="eb0c844e8a4b411483ae76e6a13819d9" cid="PROP069" type="property" name="1" style-class="" owner="61aeffe742de4aafa82d580b14f23a9d" creator="" creation-date="10/01/2023 20:27:32" visibility="undefined">
+    <item id="eb0c844e8a4b411483ae76e6a13819d9" cid="PROP069" type="property" name="1" style-class="" creator="" creation-date="10/01/2023 20:27:32" visibility="undefined">
       <feature />
       <structural-feature type="Statistics" type-id="Statistics" />
       <property />
     </item>
-    <item id="7f4c65b54167407181bfe89dd6a7156e" cid="PROP088" type="property" name="" style-class="" owner="74d98f4601ce44eba02ab99449091489" creator="" creation-date="10/01/2023 20:42:14" visibility="private">
+    <item id="7f4c65b54167407181bfe89dd6a7156e" cid="PROP088" type="property" name="" style-class="" creator="" creation-date="10/01/2023 20:42:14" visibility="private">
       <feature />
       <structural-feature type="MainVM" type-id="MainVM" />
       <property />
     </item>
     <item id="diafb826a498054a0d9892ed2362de291b2846" cid="CN003" type="comment-connector" name="" style-class="" creator="" creation-date="09/30/2023 21:47:30" from="6b8a9fc1ecd84404a08dab5fe0f5057c" to="e6d4526e583e4374a3b25faf7da2d39a" />
-    <item id="di4d63b8b5b5624b1d98438bfd02e302e98111" cid="CN004" type="comment-connector" name="" style-class="" creator="" creation-date="10/01/2023 20:24:30" from="d86e79b190304faeb00e8782b41b69ca" to="94d544b567ad48629c52083d7d91dec7" />
+    <item id="di4d63b8b5b5624b1d98438bfd02e302e98111" cid="CN004" type="comment-connector" name="" style-class="" creator="" creation-date="10/01/2023 20:24:30" from="d86e79b190304faeb00e8782b41b69ca" />
     <item id="d736f158fb2c43da927f72b8a272c530" cid="PROP076" type="property" name="0-*" style-class="" owner="46bb868257c34e3db776335b7e214251" creator="" creation-date="10/01/2023 20:35:18" visibility="undefined">
       <feature />
       <structural-feature type="Save" type-id="Save" />
@@ -260,27 +270,27 @@
       <structural-feature type="Score" type-id="Score" />
       <property />
     </item>
-    <item id="c442d240d2084c87bd261fdaa98bb370" cid="PROP092" type="property" name="" style-class="" owner="216732779245456588658c1e61139b67" creator="" creation-date="10/01/2023 20:42:25" visibility="private">
+    <item id="c442d240d2084c87bd261fdaa98bb370" cid="PROP092" type="property" name="" style-class="" creator="" creation-date="10/01/2023 20:42:25" visibility="private">
       <feature />
       <structural-feature type="SignUpVM" type-id="SignUpVM" />
       <property />
     </item>
-    <item id="020f796a242c45d588610b97e7b00509" cid="PROP068" type="property" name="1" style-class="" owner="333d4fb86b274461b664b40a0dca4987" creator="" creation-date="10/01/2023 20:27:27" visibility="undefined">
+    <item id="020f796a242c45d588610b97e7b00509" cid="PROP068" type="property" name="1" style-class="" creator="" creation-date="10/01/2023 20:27:27" visibility="undefined">
       <feature />
       <structural-feature type="RankingsVM" type-id="RankingsVM" />
       <property />
     </item>
-    <item id="7d332c32d7fe4792b26e954237912029" cid="PROP095" type="property" name="" style-class="" owner="fb21b6e3382540a0941389567ea3a675" creator="" creation-date="10/01/2023 20:42:44" visibility="private">
+    <item id="7d332c32d7fe4792b26e954237912029" cid="PROP095" type="property" name="" style-class="" creator="" creation-date="10/01/2023 20:42:44" visibility="private">
       <feature />
       <structural-feature type="Launcher" type-id="Launcher" />
       <property />
     </item>
-    <item id="3db9fdb628bd4ab48630318ffeee9689" cid="PROP087" type="property" name="" style-class="" owner="74d98f4601ce44eba02ab99449091489" creator="" creation-date="10/01/2023 20:42:14" visibility="private">
+    <item id="3db9fdb628bd4ab48630318ffeee9689" cid="PROP087" type="property" name="" style-class="" creator="" creation-date="10/01/2023 20:42:14" visibility="private">
       <feature />
       <structural-feature type="ConnectionManager" type-id="ConnectionManager" />
       <property />
     </item>
-    <item id="23ab714935b648198815ddb7b16c5b13" cid="PROP096" type="property" name="" style-class="" owner="fb21b6e3382540a0941389567ea3a675" creator="" creation-date="10/01/2023 20:42:44" visibility="private">
+    <item id="23ab714935b648198815ddb7b16c5b13" cid="PROP096" type="property" name="" style-class="" creator="" creation-date="10/01/2023 20:42:44" visibility="private">
       <feature />
       <structural-feature type="GameListVM" type-id="GameListVM" />
       <property />
@@ -290,22 +300,22 @@
       <structural-feature type="Player" type-id="Player" />
       <property />
     </item>
-    <item id="dda79fa17f2a45d4964201289af7067d" cid="PROP071" type="property" name="1" style-class="" owner="d33f406818f048598b49426f91f089d9" creator="" creation-date="10/01/2023 20:27:36" visibility="undefined">
+    <item id="dda79fa17f2a45d4964201289af7067d" cid="PROP071" type="property" name="1" style-class="" creator="" creation-date="10/01/2023 20:27:36" visibility="undefined">
       <feature />
       <structural-feature type="SudokuMenu" type-id="SudokuMenu" />
       <property />
     </item>
-    <item id="f3d2d4839f24414fb37b0797fe3428c6" cid="PROP090" type="property" name="" style-class="" owner="591fb7aca63540cbac93477164834e3e" creator="" creation-date="10/01/2023 20:42:21" visibility="private">
+    <item id="f3d2d4839f24414fb37b0797fe3428c6" cid="PROP090" type="property" name="" style-class="" creator="" creation-date="10/01/2023 20:42:21" visibility="private">
       <feature />
       <structural-feature type="SignInVM" type-id="SignInVM" />
       <property />
     </item>
-    <item id="fb5c4a26a82541c884748927c482c652" cid="PROP067" type="property" name="1" style-class="" owner="333d4fb86b274461b664b40a0dca4987" creator="" creation-date="10/01/2023 20:27:27" visibility="undefined">
+    <item id="fb5c4a26a82541c884748927c482c652" cid="PROP067" type="property" name="1" style-class="" creator="" creation-date="10/01/2023 20:27:27" visibility="undefined">
       <feature />
       <structural-feature type="Rankings" type-id="Rankings" />
       <property />
     </item>
-    <item id="fb95b86e559d4fda8da061f2c291c751" cid="PROP091" type="property" name="" style-class="" owner="216732779245456588658c1e61139b67" creator="" creation-date="10/01/2023 20:42:25" visibility="private">
+    <item id="fb95b86e559d4fda8da061f2c291c751" cid="PROP091" type="property" name="" style-class="" creator="" creation-date="10/01/2023 20:42:25" visibility="private">
       <feature />
       <structural-feature type="ConnectionManager" type-id="ConnectionManager" />
       <property />
@@ -315,12 +325,12 @@
       <structural-feature type="Score" type-id="Score" />
       <property />
     </item>
-    <item id="743e326ca4bd4604a01ba177c42fd75a" cid="PROP061" type="property" name="1" style-class="" owner="658b22093ee340f38716207e9d7f161e" creator="" creation-date="10/01/2023 20:27:13" visibility="undefined">
+    <item id="743e326ca4bd4604a01ba177c42fd75a" cid="PROP061" type="property" name="1" style-class="" creator="" creation-date="10/01/2023 20:27:13" visibility="undefined">
       <feature />
       <structural-feature type="SignUp" type-id="SignUp" />
       <property />
     </item>
-    <item id="4e1e7d50a8c44ade9c1081c52b939f41" cid="PROP089" type="property" name="" style-class="" owner="591fb7aca63540cbac93477164834e3e" creator="" creation-date="10/01/2023 20:42:21" visibility="private">
+    <item id="4e1e7d50a8c44ade9c1081c52b939f41" cid="PROP089" type="property" name="" style-class="" creator="" creation-date="10/01/2023 20:42:21" visibility="private">
       <feature />
       <structural-feature type="ConnectionManager" type-id="ConnectionManager" />
       <property />
@@ -333,17 +343,17 @@
     <item id="6b8a9fc1ecd84404a08dab5fe0f5057c" cid="CMT003" type="comment" name="Comment" style-class="" creator="" creation-date="09/30/2023 21:47:30">
       <comment>Category permet de classer les scores et dans le sodoku, les catégories sont Daily et Standard. cela permet de vérifier si un joueur a déja entrer un score quotidien.</comment>
     </item>
-    <item id="56972227d14340d2b8dc148e7f9ea149" cid="PROP057" type="property" name="1" style-class="" owner="8bc25db3b183434ea88f3c8631a07579" creator="" creation-date="10/01/2023 20:27:00" visibility="undefined">
+    <item id="56972227d14340d2b8dc148e7f9ea149" cid="PROP057" type="property" name="1" style-class="" creator="" creation-date="10/01/2023 20:27:00" visibility="undefined">
       <feature />
       <structural-feature type="MainWindow" type-id="MainWindow" />
       <property />
     </item>
-    <item id="c5f0aa69079b48b0bb88635f79926cc7" cid="PROP066" type="property" name="1" style-class="" owner="b22f056bf56642f5b9fef472eb05ea02" creator="" creation-date="10/01/2023 20:27:24" visibility="undefined">
+    <item id="c5f0aa69079b48b0bb88635f79926cc7" cid="PROP066" type="property" name="1" style-class="" creator="" creation-date="10/01/2023 20:27:24" visibility="undefined">
       <feature />
       <structural-feature type="GameListVM" type-id="GameListVM" />
       <property />
     </item>
-    <item id="d86e79b190304faeb00e8782b41b69ca" cid="CMT004" type="comment" name="Comment" style-class="" owner="eca0af8cc2814e68b600f268db0cb9a4" creator="" creation-date="10/01/2023 20:24:30">
+    <item id="d86e79b190304faeb00e8782b41b69ca" cid="CMT004" type="comment" name="Comment" style-class="" creator="" creation-date="10/01/2023 20:24:30">
       <comment>Contient des onglets pour naviguer vers toutes les vues
 </comment>
     </item>
@@ -352,7 +362,7 @@
       <structural-feature type="Department" type-id="Department" />
       <property />
     </item>
-    <item id="3d93cb69d6544376aa426ba2e0c76269" cid="PROP070" type="property" name="1" style-class="" owner="61aeffe742de4aafa82d580b14f23a9d" creator="" creation-date="10/01/2023 20:27:32" visibility="undefined">
+    <item id="3d93cb69d6544376aa426ba2e0c76269" cid="PROP070" type="property" name="1" style-class="" creator="" creation-date="10/01/2023 20:27:32" visibility="undefined">
       <feature />
       <structural-feature type="StatisticsVM" type-id="StatisticsVM" />
       <property />
@@ -362,12 +372,12 @@
       <structural-feature type="Game" type-id="Game" />
       <property />
     </item>
-    <item id="b24244f998664c56a89547189e667002" cid="PROP093" type="property" name="" style-class="" owner="576ae73c0fb64ee09cef85ebab8aa5ae" creator="" creation-date="10/01/2023 20:42:29" visibility="private">
+    <item id="b24244f998664c56a89547189e667002" cid="PROP093" type="property" name="" style-class="" creator="" creation-date="10/01/2023 20:42:29" visibility="private">
       <feature />
       <structural-feature type="ConnectionManager" type-id="ConnectionManager" />
       <property />
     </item>
-    <item id="75bce67b0e8f478ebb518b85a99d75db" cid="PROP059" type="property" name="1" style-class="" owner="5629428cf2d749279bf5aadf8bcdf1a4" creator="" creation-date="10/01/2023 20:27:07" visibility="undefined">
+    <item id="75bce67b0e8f478ebb518b85a99d75db" cid="PROP059" type="property" name="1" style-class="" creator="" creation-date="10/01/2023 20:27:07" visibility="undefined">
       <feature />
       <structural-feature type="SignIn" type-id="SignIn" />
       <property />
@@ -377,7 +387,7 @@
       <structural-feature type="Game" type-id="Game" />
       <property />
     </item>
-    <item id="82de49ac7fe34e268208bfd1b7f7b145" cid="PROP072" type="property" name="1" style-class="" owner="d33f406818f048598b49426f91f089d9" creator="" creation-date="10/01/2023 20:27:36" visibility="undefined">
+    <item id="82de49ac7fe34e268208bfd1b7f7b145" cid="PROP072" type="property" name="1" style-class="" creator="" creation-date="10/01/2023 20:27:36" visibility="undefined">
       <feature />
       <structural-feature type="SudokuMenuVM" type-id="SudokuMenuVM" />
       <property />
@@ -388,7 +398,7 @@ Si c'est une daily: il va regarder si le joueur à une save dans le slot 2 avec 
 Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il offre de continuer, sinon il en génere une autre.
 </comment>
     </item>
-    <item id="e8a9cb0fbcad414daef932853d8fcfd3" cid="PROP073" type="property" name="1" style-class="" owner="28817e1b64794afe8d7f48983f240b6b" creator="" creation-date="10/01/2023 20:27:40" visibility="undefined">
+    <item id="e8a9cb0fbcad414daef932853d8fcfd3" cid="PROP073" type="property" name="1" style-class="" creator="" creation-date="10/01/2023 20:27:40" visibility="undefined">
       <feature />
       <structural-feature type="SudokuGrid" type-id="SudokuGrid" />
       <property />
@@ -408,7 +418,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
       </meta>
       <abstract-items />
       <sub-models />
-      <diagram type="uml-class" id="pa3854454d23b4c6a9c5735f0a577cc83_759274294" name="Diagrame de BD" order-index="2" overview-order-index="0" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="405,-715" zoom="1.2">
+      <diagram type="uml-class" id="pa3854454d23b4c6a9c5735f0a577cc83_759274294" name="Diagrame de BD" order-index="2" overview-order-index="0" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="705,-895" zoom="1.2">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -420,7 +430,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
           </authors>
           <description />
           <creation-date>09/30/2023 19:49:40</creation-date>
-          <change-date>11/01/2023 14:55:15</change-date>
+          <change-date>11/03/2023 09:07:53</change-date>
           <revision-count>0</revision-count>
           <version />
         </meta>
@@ -445,10 +455,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="db182d5ec00e49b3b1077f6939e5fc98" />
               <owned-item ref="6c208aee813e4a60b3f3233cb47bae54" />
               <owned-item ref="db182d5ec00e49b3b1077f6939e5fc98" />
+              <owned-item ref="6c208aee813e4a60b3f3233cb47bae54" />
+              <owned-item ref="db182d5ec00e49b3b1077f6939e5fc98" />
             </owned-items>
             <relation from="a521a391c73a4a6f8dd4be7d16e93f17" to="e5f3f414240d48f587191551f747fd49" derived="false">
-              <start-role id="umlar-9ad47e22-e79c-49e0-919c-ab00073f17b1" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-d716a4d4-3e3e-47bd-92b8-cd7dfc97169c" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-85afd206-54fb-408a-8fa5-2eed02726aea" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-63f5c4fa-8fea-4864-8117-3131aa1b97d6" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="e0797c2b805c40258bad6f5671747252" cid="C012" type="class" name="Game" style-class="" change-tracking-state="added" creator="" creation-date="09/30/2023 19:53:21" visibility="undefined">
@@ -487,10 +499,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="0ed63dc1cc864d62afa512e662eb9d1f" />
               <owned-item ref="3ca661206d97420ba83e28a6182594fe" />
               <owned-item ref="0ed63dc1cc864d62afa512e662eb9d1f" />
+              <owned-item ref="3ca661206d97420ba83e28a6182594fe" />
+              <owned-item ref="0ed63dc1cc864d62afa512e662eb9d1f" />
             </owned-items>
             <relation from="e6d4526e583e4374a3b25faf7da2d39a" to="e0797c2b805c40258bad6f5671747252" derived="false">
-              <start-role id="umlar-304f5c6d-e936-401b-80cd-d75839b84cf9" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-e71cb48e-341b-414e-b567-3fa46270db6c" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-f9fcbf38-7007-423b-9836-3c09dfc19340" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-823f503d-33be-4de5-a939-4bc935da0ece" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="08d99ae1c5d54291bab45d5cb7931af2" cid="C013" type="class" name="Save" style-class="" change-tracking-state="added" creator="" creation-date="09/30/2023 20:06:20" visibility="undefined">
@@ -563,10 +577,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="d736f158fb2c43da927f72b8a272c530" />
               <owned-item ref="6eed3654ee844544a7d996bc0639c8e3" />
               <owned-item ref="d736f158fb2c43da927f72b8a272c530" />
+              <owned-item ref="6eed3654ee844544a7d996bc0639c8e3" />
+              <owned-item ref="d736f158fb2c43da927f72b8a272c530" />
             </owned-items>
             <relation from="e0797c2b805c40258bad6f5671747252" to="08d99ae1c5d54291bab45d5cb7931af2" derived="false">
-              <start-role id="umlar-d7d1021e-cd0c-4f82-bba4-d505e0d218da" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-5da79e04-a9e5-45ad-b107-45d2f0a50915" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-9d1f03f2-a6f6-4dbf-a357-09e67569bd3d" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-2e112612-5b90-465f-a48d-6e8732d8232f" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="bd0b6ff5a4a9416eba453bdd4451441c" cid="PROP042" type="property" name="SaveSlot" style-class="" owner="08d99ae1c5d54291bab45d5cb7931af2" creator="" creation-date="09/30/2023 20:30:31" visibility="private">
@@ -604,10 +620,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="15b57bb8854b4833bdd4d2a67b95e42b" />
               <owned-item ref="85b63683e1c048c9a764ac6d42ab184b" />
               <owned-item ref="15b57bb8854b4833bdd4d2a67b95e42b" />
+              <owned-item ref="85b63683e1c048c9a764ac6d42ab184b" />
+              <owned-item ref="15b57bb8854b4833bdd4d2a67b95e42b" />
             </owned-items>
             <relation from="e0797c2b805c40258bad6f5671747252" to="7459a61c21614d9d8a2c49fdf4a25121" derived="false">
-              <start-role id="umlar-859befb4-03e6-47eb-be95-1d41cc9ab72f" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-6f9d04d0-bacf-418b-b33f-5f388abe0fc0" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-dec0b14b-d00a-4ade-b0bb-3c604aa99a11" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-74842ac9-0f2e-4346-81dc-874bcd73308d" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="b4047e319f134ae3be11a7d21a434e6c" cid="PROP039" type="property" name="GenerationDate" style-class="" owner="7459a61c21614d9d8a2c49fdf4a25121" creator="" creation-date="09/30/2023 20:12:52" visibility="private">
@@ -634,6 +652,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="dc6b6c87445047a7a3c0dc7f603aeeb9" />
               <owned-item ref="0db8c9ba6e88443db1c2b72e0f5e94ef" />
               <owned-item ref="1fe0853530de4e3593f9a3a3a8b69325" />
+              <owned-item ref="06ffcb1ecbf74b1a9083064a03d7679c" />
+              <owned-item ref="10c0333ebfc54820984b0c0c458e597a" />
+              <owned-item ref="0db8c9ba6e88443db1c2b72e0f5e94ef" />
+              <owned-item ref="f941435f37d643f8aa1855f8473e1ae4" />
+              <owned-item ref="1fe0853530de4e3593f9a3a3a8b69325" />
+              <owned-item ref="dc6b6c87445047a7a3c0dc7f603aeeb9" />
               <owned-item ref="06ffcb1ecbf74b1a9083064a03d7679c" />
               <owned-item ref="10c0333ebfc54820984b0c0c458e597a" />
               <owned-item ref="0db8c9ba6e88443db1c2b72e0f5e94ef" />
@@ -692,6 +716,9 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="3619ba7a597d45ddadbf76ac946cf56a" />
               <owned-item ref="d4a2e197f4fb446bb9ea61bc80037887" />
               <owned-item ref="b4047e319f134ae3be11a7d21a434e6c" />
+              <owned-item ref="3619ba7a597d45ddadbf76ac946cf56a" />
+              <owned-item ref="d4a2e197f4fb446bb9ea61bc80037887" />
+              <owned-item ref="b4047e319f134ae3be11a7d21a434e6c" />
             </owned-items>
             <attributes>
               <attribute id="acc704fcc08bf4e02812e64b3dacefd96667" cid="PROP037" name="DailyPuzzleId" creation-date="09/30/2023 20:11:38" property-ref="3619ba7a597d45ddadbf76ac946cf56a" />
@@ -711,6 +738,8 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="2941d13d42bd485ca10b3f99dfbcda3c" />
               <owned-item ref="8f01502923cb408395427334c1f3c6aa" />
               <owned-item ref="af75cf06c76744848381f235cd2a96be" />
+              <owned-item ref="2941d13d42bd485ca10b3f99dfbcda3c" />
+              <owned-item ref="8f01502923cb408395427334c1f3c6aa" />
               <owned-item ref="2941d13d42bd485ca10b3f99dfbcda3c" />
               <owned-item ref="8f01502923cb408395427334c1f3c6aa" />
               <owned-item ref="2941d13d42bd485ca10b3f99dfbcda3c" />
@@ -784,10 +813,12 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="2cecf867a951409185c757ff15200a50" />
               <owned-item ref="70eb4f270aea40039752ed70b2997493" />
               <owned-item ref="2cecf867a951409185c757ff15200a50" />
+              <owned-item ref="70eb4f270aea40039752ed70b2997493" />
+              <owned-item ref="2cecf867a951409185c757ff15200a50" />
             </owned-items>
             <relation from="a521a391c73a4a6f8dd4be7d16e93f17" to="e6d4526e583e4374a3b25faf7da2d39a" derived="false">
-              <start-role id="umlar-e7e63fc6-5886-4021-bb46-b9d6fc23b647" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-94ccf9ee-3d1e-4378-8e4f-f923e0687db5" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-50e43c35-d7bf-4d36-a96b-add09471b24b" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-40ed2aea-fbf7-4c11-af0d-4d9082cf7159" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="af75cf06c76744848381f235cd2a96be" cid="PROP097" type="property" name="Department" style-class="" owner="a521a391c73a4a6f8dd4be7d16e93f17" creator="" creation-date="10/02/2023 09:55:00" visibility="private">
@@ -972,18 +1003,20 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
               <owned-item ref="06a3dbabb7c54ec28d245d852d958f8e" />
               <owned-item ref="c57409dafd1f43b88d6a2ca6df7844bb" />
               <owned-item ref="b4467409ec6c40b4875e08dd04e7b3cf" />
-              <owned-item ref="17553881e76f4da497d30278e1e98fc9" />
               <owned-item ref="5711c1831b5543f3bce7e54213cf600e" />
               <owned-item ref="81c09682ba9640b39d4bef7b3e9ccb03" />
+              <owned-item ref="31b2fc06b4fe47e6b587474cc5c9447a" />
+              <owned-item ref="5b63c5aecb934f309ef69abd79ffaeff" />
             </owned-items>
             <attributes>
               <attribute id="a7d89003f979e45d4b72a2b8ba4ae6a95993" cid="PROP120" name="Id" creation-date="11/01/2023 14:44:25" property-ref="c0f7defb03ce4f479e048abc7c387dd7" />
               <attribute id="a78839a7d60534e77b3f7c263e932d80d990" cid="PROP121" name="User" creation-date="11/01/2023 14:44:31" property-ref="06a3dbabb7c54ec28d245d852d958f8e" />
               <attribute id="a06179faee91c45a29e5eefc5435a54bd935" cid="PROP122" name="Game" creation-date="11/01/2023 14:44:38" property-ref="c57409dafd1f43b88d6a2ca6df7844bb" />
               <attribute id="a7fe2fb0dd1324590a47e92bdcdc6e288510" cid="PROP123" name="Save" creation-date="11/01/2023 14:44:49" property-ref="b4467409ec6c40b4875e08dd04e7b3cf" />
-              <attribute id="afc0529fb4510493ba1af35e41c0fcb99184" cid="PROP124" name="Slot" creation-date="11/01/2023 14:44:56" property-ref="17553881e76f4da497d30278e1e98fc9" />
               <attribute id="a1859dd3ce21d43049d971472e57f4d2d18" cid="PROP125" name="Time" creation-date="11/01/2023 14:45:07" property-ref="5711c1831b5543f3bce7e54213cf600e" />
               <attribute id="aaf277161123d423d9f3b71d53df9951479" cid="PROP126" name="Date" creation-date="11/01/2023 14:45:14" property-ref="81c09682ba9640b39d4bef7b3e9ccb03" />
+              <attribute id="adedfdaaeffa3415daeccb56044b4113b561" cid="PROP127" name="Seed" creation-date="11/03/2023 09:07:59" property-ref="31b2fc06b4fe47e6b587474cc5c9447a" />
+              <attribute id="a4f6812add4d84da995ab3c097f044627493" cid="PROP128" name="IsDaily" creation-date="11/03/2023 09:08:09" property-ref="5b63c5aecb934f309ef69abd79ffaeff" />
             </attributes>
           </item>
           <item id="c0f7defb03ce4f479e048abc7c387dd7" cid="PROP120" type="property" name="Id" style-class="" owner="e4c82b6132174bdba5d52e8204ed7634" creator="" creation-date="11/01/2023 14:44:25" visibility="private">
@@ -1006,11 +1039,6 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <structural-feature type="String" type-id="Uml.String" />
             <property />
           </item>
-          <item id="17553881e76f4da497d30278e1e98fc9" cid="PROP124" type="property" name="Slot" style-class="" owner="e4c82b6132174bdba5d52e8204ed7634" creator="" creation-date="11/01/2023 14:44:56" visibility="private">
-            <feature />
-            <structural-feature type="String" type-id="Uml.String" />
-            <property />
-          </item>
           <item id="5711c1831b5543f3bce7e54213cf600e" cid="PROP125" type="property" name="Time" style-class="" owner="e4c82b6132174bdba5d52e8204ed7634" creator="" creation-date="11/01/2023 14:45:07" visibility="private">
             <feature />
             <structural-feature type="TimeSpan" type-id="TimeSpan" />
@@ -1023,63 +1051,74 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
           </item>
           <item id="b96add4ef6d34b7084a953443b7c9bb2" cid="REL027" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:48:20" from="bc1652c06895499194ace2c80770a35a" to="362dbcfe7b264bf88bc0156fda80f4af" visibility="package">
             <relation from="bc1652c06895499194ace2c80770a35a" to="362dbcfe7b264bf88bc0156fda80f4af" derived="false">
-              <start-role id="umlar-548cb138-3f13-4828-8314-354e7dbd09d5" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-b8f885cc-baff-43b1-bdf2-24abe00c0648" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-dc0185ba-6d67-4c76-8c07-abc1b4dbba05" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-e2ee9a43-1401-45ea-aa57-54d90dc5405c" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="309cf93cca0c42a682b48c6b6df56109" cid="REL028" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:48:25" from="e4c82b6132174bdba5d52e8204ed7634" to="362dbcfe7b264bf88bc0156fda80f4af" visibility="package">
             <relation from="e4c82b6132174bdba5d52e8204ed7634" to="362dbcfe7b264bf88bc0156fda80f4af" derived="false">
-              <start-role id="umlar-03e16ab4-d880-4385-8fe4-11f1888faa1e" name="" multiplicity="*" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-cf86cd22-d814-4ce9-9fe0-15eb337257f2" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-ac55d021-c394-41da-b156-8d42b30a7d36" name="" multiplicity="*" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-516b2239-68f0-4ae6-91e2-c31edc463c1e" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="3545fa23902d476faf340ff625fd9138" cid="REL029" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:48:30" from="54ca91f0c8c14562a74fb6ee355830e9" to="362dbcfe7b264bf88bc0156fda80f4af" visibility="package">
             <relation from="54ca91f0c8c14562a74fb6ee355830e9" to="362dbcfe7b264bf88bc0156fda80f4af" derived="false">
-              <start-role id="umlar-4e39f27d-49d2-41c2-88d1-c523f071cecb" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-603a2ea7-a392-4d6d-9cce-2200642eb3a4" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-85386da5-10e0-432f-adc0-31e437e3049f" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-59ae9938-4891-4fbc-99f4-08414edcb419" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="818dd34e817c43db88c0447cd2d80035" cid="REL031" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:48:47" from="362dbcfe7b264bf88bc0156fda80f4af" to="54ca91f0c8c14562a74fb6ee355830e9" visibility="package">
             <relation from="362dbcfe7b264bf88bc0156fda80f4af" to="54ca91f0c8c14562a74fb6ee355830e9" derived="false">
-              <start-role id="umlar-76d9ae15-25dd-4096-9059-db8b3a2c6f74" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-0b0b64ee-e216-4e94-a8c5-43aa5b0b5b0c" name="" multiplicity="*" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-ca54776c-52cd-4f5e-aa43-5abbdd22ce33" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-66ae9789-659f-4f86-8ff1-44c51d4c1870" name="" multiplicity="*" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="2464314cf9b047a5aced9986f914f3b6" cid="REL032" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:48:57" from="e4c82b6132174bdba5d52e8204ed7634" to="cbca38d48d9e4dfeadb9805ce2ef1954" visibility="package">
             <relation from="e4c82b6132174bdba5d52e8204ed7634" to="cbca38d48d9e4dfeadb9805ce2ef1954" derived="false">
-              <start-role id="umlar-dfd64b45-7e70-4097-9cf4-c941dfedafa2" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-e1a0d27b-c153-4ce6-a8ed-c7361402937c" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-0810acb1-aa35-4d33-b24f-678f594c9f24" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-1f03eb09-f596-4a50-853e-2275d57d3672" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="6014b984878d402b894ed9de82977b6d" cid="REL033" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:49:02" from="54ca91f0c8c14562a74fb6ee355830e9" to="cbca38d48d9e4dfeadb9805ce2ef1954" visibility="package">
             <relation from="54ca91f0c8c14562a74fb6ee355830e9" to="cbca38d48d9e4dfeadb9805ce2ef1954" derived="false">
-              <start-role id="umlar-583c2183-b75f-4d0c-b6a0-70f99c1d00b5" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-03c1e60b-97f1-40c8-8ba5-fbe8973f8222" name="" navigability="" association-type="association" visibility="private" attribute-ref="a682ca6a31ee340158b9c413c445a1e86114" />
+              <start-role id="umlar-e9b1fedc-bc4c-4cae-a040-04540d08e92d" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-d21d13a3-1afd-40fd-8d90-4b19a8cec571" name="" navigability="" association-type="association" visibility="private" attribute-ref="a682ca6a31ee340158b9c413c445a1e86114" />
             </relation>
           </item>
           <item id="00c0df35385949a892ed626a0eb1f539" cid="REL034" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:49:18" from="f1dc789df1dd43fe87d737a6f6d23395" to="cbca38d48d9e4dfeadb9805ce2ef1954" visibility="package">
             <relation from="f1dc789df1dd43fe87d737a6f6d23395" to="cbca38d48d9e4dfeadb9805ce2ef1954" derived="false">
-              <start-role id="umlar-ff4e6fa8-5e3c-45d7-aceb-6634bbce220d" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-a1c5ee68-3579-4615-bd96-e3f67522f67e" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-d24fa46e-2283-4484-9d8d-ef4cd2e895b6" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-7a63ef58-0a8a-4501-8f7a-784aee50ffee" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="b6cd90b9733549d2834df8dbcb8fa718" cid="REL035" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:50:07" from="f1dc789df1dd43fe87d737a6f6d23395" to="e4c82b6132174bdba5d52e8204ed7634" visibility="package">
             <relation from="f1dc789df1dd43fe87d737a6f6d23395" to="e4c82b6132174bdba5d52e8204ed7634" derived="false">
-              <start-role id="umlar-c6da7516-fb50-4c23-8949-0dae176b3386" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-853a3956-67c7-4a03-b456-0fd8595be474" name="" multiplicity="*" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-411cefd5-b429-4d3a-8b11-f28bd4d0a89c" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-0a5fa50d-bab6-4c2b-bb36-c5c9e14c2359" name="" multiplicity="*" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="08cd4dfb38ea4f21bccc8b5f27810d91" cid="REL036" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:50:13" from="f1dc789df1dd43fe87d737a6f6d23395" to="cbca38d48d9e4dfeadb9805ce2ef1954" visibility="package">
             <relation from="f1dc789df1dd43fe87d737a6f6d23395" to="cbca38d48d9e4dfeadb9805ce2ef1954" derived="false">
-              <start-role id="umlar-04051ac3-646a-4dae-81a9-da8fb72f3551" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-3d3301ef-f23c-4dd8-bbf7-c5362f2e1e68" name="" multiplicity="*" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-8b2d85ad-3032-46cc-b157-ce00896fc7b1" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-b35dd826-2e79-4eef-b7d4-004211c77f22" name="" multiplicity="*" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="000295778e5f4ebc966544c12adaf4e6" cid="REL037" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="11/01/2023 14:50:18" from="54ca91f0c8c14562a74fb6ee355830e9" to="f1dc789df1dd43fe87d737a6f6d23395" visibility="package">
             <relation from="54ca91f0c8c14562a74fb6ee355830e9" to="f1dc789df1dd43fe87d737a6f6d23395" derived="false">
-              <start-role id="umlar-3e438b6b-d623-4fb2-b472-3d5797050eeb" name="" multiplicity="*" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-0192bc77-d9c9-48c1-bd6c-81801eb69354" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-38d185fe-9551-4597-b6e9-91de94af0ee1" name="" multiplicity="*" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-fd8476c7-9033-4a36-9216-396ed30b5776" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
             </relation>
+          </item>
+          <item id="34c3d6314a274380ab0270b88f44b235" cid="PKG008" type="package" name="Package8" style-class="" change-tracking-state="added" creator="" creation-date="11/03/2023 09:07:51" visibility="package" />
+          <item id="31b2fc06b4fe47e6b587474cc5c9447a" cid="PROP127" type="property" name="Seed" style-class="" owner="e4c82b6132174bdba5d52e8204ed7634" creator="" creation-date="11/03/2023 09:07:59" visibility="private">
+            <feature />
+            <structural-feature type="String" type-id="Uml.String" />
+            <property />
+          </item>
+          <item id="5b63c5aecb934f309ef69abd79ffaeff" cid="PROP128" type="property" name="IsDaily" style-class="" owner="e4c82b6132174bdba5d52e8204ed7634" creator="" creation-date="11/03/2023 09:08:09" visibility="private">
+            <feature />
+            <structural-feature type="Boolean" type-id="Uml.Boolean" />
+            <property />
           </item>
         </abstract-items>
         <layer id="b143306c795b4a8db8fcccdf77e72ce6" name="Default" visible="true" enabled="true" locked="false">
@@ -1100,7 +1139,7 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <class />
           </item>
           <item id="e4c82b6132174bdba5d52e8204ed7634" iid="8e41b4479aee4a58ad99f6253b5613b7" creation-date="11/01/2023 14:44:21" order-index="5" type="entity">
-            <layout ax="950" ay="-269" awidth="140" aheight="177" x="950" y="-269" width="140" height="160" />
+            <layout ax="950" ay="-288" awidth="140" aheight="196" x="950" y="-288" width="140" height="196" rotation-center="0,9.5" />
             <class />
           </item>
           <item id="b96add4ef6d34b7084a953443b7c9bb2" iid="04e4e7d214f94dd382465feda24b1a9b" creation-date="11/01/2023 14:48:20" order-index="6" type="relation">
@@ -1113,9 +1152,9 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <relation from="bc1652c06895499194ace2c80770a35a" from-iid="9e1bd99d68f7499694470edee3e6f396" to="362dbcfe7b264bf88bc0156fda80f4af" to-iid="d353806059c94541b69c7cdfab07edd8" />
           </item>
           <item id="309cf93cca0c42a682b48c6b6df56109" iid="83ab3f6e68754afcbc6bd40575ef9bb0" creation-date="11/01/2023 14:48:25" order-index="7" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="11.05198,-17.7305" end-multiplicity-position="9.885252,17.13145" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="950" y1="-269" x2="851" y2="-351" start-border-pos="0" end-border-pos="0.5" start-local-pos="0" end-local-pos="160" name-position="0,20">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="11.05198,-17.7305" end-multiplicity-position="9.885252,17.13145" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="950" y1="-288" x2="851" y2="-351" start-border-pos="0" end-border-pos="0.5" start-local-pos="0" end-local-pos="160" name-position="0,20">
               <points>
-                <point x="950" y="-269" />
+                <point x="950" y="-288" />
                 <point x="851" y="-351" />
               </points>
             </layout>
@@ -1131,10 +1170,10 @@ Si c'est une standard: Il regarde si il y a une save dans le slot 1. Si oui, il 
             <relation from="362dbcfe7b264bf88bc0156fda80f4af" from-iid="d353806059c94541b69c7cdfab07edd8" to="54ca91f0c8c14562a74fb6ee355830e9" to-iid="503c128ac27f4481ac7370813629c755" />
           </item>
           <item id="b6cd90b9733549d2834df8dbcb8fa718" iid="7467b0d49c48472e8cd23355acf324c8" creation-date="11/01/2023 14:50:07" order-index="9" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="9.885399,-17.13136" end-multiplicity-position="10.01741,14.27655" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="1189" y1="-351" x2="1090" y2="-269" start-border-pos="0.75" end-border-pos="0.25" start-local-pos="0" end-local-pos="160" name-position="0,20">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="9.885399,-17.13136" end-multiplicity-position="10.01741,14.27655" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="1189" y1="-351" x2="1090" y2="-288" start-border-pos="0.75" end-border-pos="0.25" start-local-pos="0" end-local-pos="160" name-position="0,20">
               <points>
                 <point x="1189" y="-351" />
-                <point x="1090" y="-269" />
+                <point x="1090" y="-288" />
               </points>
             </layout>
             <relation from="f1dc789df1dd43fe87d737a6f6d23395" from-iid="1b63e8be33404d59a6e1d7c7d42131ca" to="e4c82b6132174bdba5d52e8204ed7634" to-iid="8e41b4479aee4a58ad99f6253b5613b7" />
