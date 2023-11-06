@@ -12,6 +12,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Models
         public Board GameBoard { get; set; } = new Board();
         public bool IsDaily { get; set; }
         public string TimePassed { get; set; }
+        public DateTime Date { get; set; }
         public SudokuGame() : base() { }
     }
 }
