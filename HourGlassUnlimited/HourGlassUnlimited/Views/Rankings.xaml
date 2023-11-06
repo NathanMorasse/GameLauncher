@@ -17,11 +17,48 @@
         </Grid.ColumnDefinitions>
 
         <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
-            
+            <ListBox>
+                
+            </ListBox>
         </ScrollViewer>
 
         <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+            <ListBox ItemsSource="{Binding Sections}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Height="150" Margin="10 0 10 10" Background="Transparent" BorderBrush="Gray" BorderThickness="1" CornerRadius="10">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
 
+                                <TextBlock Text="{Binding Title}"></TextBlock>
+
+                                <ListBox ItemsSource="{Binding Scores}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Height="150" Margin="10 0 10 10" Background="Transparent" BorderBrush="Gray" BorderThickness="1" CornerRadius="10">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <TextBlock Text="{Binding UserId}"></TextBlock>
+                                                    <TextBlock Text="{Binding Result}"></TextBlock>
+                                                    <TextBlock Text="{Binding Date}"></TextBlock>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </ScrollViewer>
     </Grid>
 </Page>

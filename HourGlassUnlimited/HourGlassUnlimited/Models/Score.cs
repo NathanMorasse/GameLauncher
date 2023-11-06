@@ -9,14 +9,23 @@ namespace HourGlassUnlimited.Models
 {
     public class Score : ModelBase
     {
-        public int PlayerId { get; set; }
+        public int UserId { get; set; }
         public int GameId { get; set; }
-        public int? Points { get; set; }
-        public string? Result { get; set; }
-        public string? Mode { get; set; }
-        public TimeSpan? Time { get; set; }
+        public string Category { get; set; }
+        public string Result { get; set; }
+        public TimeSpan Time { get; set; }
+        public int Points { get; set; }
         public DateTime Date { get; set; }
 
-        public Score() { }
+        public Score(int user, int game, string category, string result, TimeSpan time, int points, DateTime date) 
+        {
+            UserId = user;
+            GameId = game;
+            Category = category;
+            Result = result;
+            Time = time;
+            Points = points;
+            Date = date;
+        }
     }
 }
