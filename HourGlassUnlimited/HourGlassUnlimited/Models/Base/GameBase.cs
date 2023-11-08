@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace HourGlassUnlimited.Models
 {
-    public abstract class GameBase : ModelBase
+    public class GameBase : ModelBase
     {
         public string Title { get; set; }
         public string ImagePath { get; set; }
         public string Path { get; set; }
+
+        public GameBase() { }
     }
 }

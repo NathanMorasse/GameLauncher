@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer
 {
-    public class DAL
+    public class SudokuDAL
     {
         private SudokuFactory _sudokuFact = null;
-        private ScoreFactory _scoreFact = null;
 
         public SudokuFactory? SudokuFact
         {
@@ -24,16 +23,6 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer
             }
         }
 
-        public ScoreFactory? ScoreFact
-        {
-            get
-            {
-                if (_scoreFact == null)
-                {
-                    _scoreFact = new ScoreFactory();
-                }
-                return _scoreFact;
-            }
-        }
+
     }
 }
