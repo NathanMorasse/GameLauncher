@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using HourGlassUnlimited.Games.Sudoku.Views;
-using HourGlassUnlimited.Games.Sudoku.ViewModels;
 using HourGlassUnlimited.Games.Sudoku.Views.Partial;
+using HourGlassUnlimited.Games.Sudoku.ViewModels;
+
 
 namespace HourGlassUnlimited.Games.Sudoku.Tools
 {
@@ -21,6 +17,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Tools
         private static GameMenu _gameMenu;
         private static PartialDifficulty _partialDifficulty;
         private static PartialLoadSave _partialLoadSave;
+        private static PartialDescription _partialDescription;
 
         #endregion
 
@@ -33,7 +30,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Tools
         public static GameMenu GameMenu { get { return _gameMenu; } set { _gameMenu = value; } }
         public static PartialDifficulty PartialDifficulty { get { return _partialDifficulty; } set { _partialDifficulty = value; } }
         public static PartialLoadSave PartialLoadSave { get { return _partialLoadSave; } set { _partialLoadSave = value; } }
-
+        public static PartialDescription PartialDescription { get { return _partialDescription; } set { _partialDescription = value; } }
         #endregion
 
         #region Initialization
@@ -47,6 +44,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Tools
             GameMenu = new GameMenu();
             PartialDifficulty = new PartialDifficulty((GameMenuVM)GameMenu.DataContext);
             PartialLoadSave = new PartialLoadSave((GameMenuVM)GameMenu.DataContext);
+            PartialDescription = new PartialDescription((GameMenuVM)GameMenu.DataContext);
             
             MainWindow.Show();
             Holder.NavigationService.Navigate(GameMenu);
@@ -69,6 +67,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Tools
         public static void GameMenuView()
         {
             Holder.NavigationService.Navigate(GameMenu);
+            GameMenu.Partial_PopUp.NavigationService.Navigate(PartialDescription);
         }
 
         public static void PartialDifficultyView()
@@ -79,6 +78,11 @@ namespace HourGlassUnlimited.Games.Sudoku.Tools
         public static void PartialLoadSaveView()
         {
             GameMenu.Partial_PopUp.NavigationService.Navigate(PartialLoadSave);
+        }
+
+        public static void PartialDescriptionView()
+        {
+            GameMenu.Partial_PopUp.NavigationService.Navigate(PartialDescription);
         }
         #endregion
     }
