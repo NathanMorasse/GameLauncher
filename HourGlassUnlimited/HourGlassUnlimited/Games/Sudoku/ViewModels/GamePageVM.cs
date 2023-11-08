@@ -147,10 +147,13 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                SudokuDAL dal = new SudokuDAL();
-                Board newBoard = await dal.SudokuFact.GenerateBoard(CurrentGame.GameBoard.Difficulty, false, string.Empty);
-                CurrentGame.GameBoard = newBoard;
-                CurrentBoard = newBoard.Grid;
+                SudokuDAL sudokuDal = new SudokuDAL();
+                DAL dal = new DAL();
+                GameBase game = dal.Games.GetByTitle("Sudoku");
+                SudokuGame newGame = new SudokuGame { Id=game.Id, Title=game.Title };
+                Board newBoard = await sudokuDal.SudokuFact.GenerateBoard(CurrentGame.GameBoard.Difficulty, false, string.Empty);
+                newGame.GameBoard = newBoard;
+                SudokuNavigator.GamePage.SetGame(newGame);
                 GameStatusVisibility = "Hidden";
                 await Task.Delay(100);
                 await SudokuNavigator.GamePage.ResetGrid();

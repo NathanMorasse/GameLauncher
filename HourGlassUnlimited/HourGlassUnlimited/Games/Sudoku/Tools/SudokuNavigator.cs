@@ -47,7 +47,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Tools
             PartialDescription = new PartialDescription((GameMenuVM)GameMenu.DataContext);
             
             MainWindow.Show();
-            Holder.NavigationService.Navigate(GameMenu);
+            GameMenuView();
         }
 
         #endregion

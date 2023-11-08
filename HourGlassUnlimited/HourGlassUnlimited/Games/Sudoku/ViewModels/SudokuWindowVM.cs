@@ -51,13 +51,20 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
 
         public void Save()
         {
-            if (MessageBox.Show("Voulez-vous sauvegarder la partie en cours?",
-                "Sauvegarde",
-                MessageBoxButton.YesNo,
-                MessageBoxImage.Question) == MessageBoxResult.Yes)
+            SudokuDAL dal = new SudokuDAL();
+            GamePageVM vm = (GamePageVM)SudokuNavigator.GamePage.DataContext;
+            if (!vm.CurrentGame.IsDaily)
             {
-                GamePageVM vm = (GamePageVM)SudokuNavigator.GamePage.DataContext;
-                SudokuDAL dal = new SudokuDAL();
+                if (MessageBox.Show("Voulez-vous sauvegarder la partie en cours?",
+                    "Sauvegarde",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    dal.SudokuFact.SaveGame(vm.CurrentGame, vm.TimePassed);
+                }
+            }
+            else
+            {
                 dal.SudokuFact.SaveGame(vm.CurrentGame, vm.TimePassed);
             }
         }
