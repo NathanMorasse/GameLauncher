@@ -34,7 +34,8 @@ namespace HourGlassUnlimited.ViewModels
         private void LoadDepartments()
         {
             Departments = new List<string>();
-            var temp = DAL.Departments.All();
+            DAL dal = new DAL();
+            var temp = dal.Departments.All();
 
             foreach (Department item in temp)
             {
@@ -79,8 +80,8 @@ namespace HourGlassUnlimited.ViewModels
             ConnectionHelper.User.Username = Username;
             ConnectionHelper.User.Password = ConnectionHelper.HashPassword(Password);
             ConnectionHelper.User.Department = Department;
-
-            DAL.Users.Update(ConnectionHelper.User);
+            DAL dal = new DAL();
+            dal.Users.Update(ConnectionHelper.User);
 
             Navigator.GameListView();
         }

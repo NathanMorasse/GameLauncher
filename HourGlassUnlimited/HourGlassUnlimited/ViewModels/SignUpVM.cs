@@ -28,7 +28,8 @@ namespace HourGlassUnlimited.ViewModels
             GoBack = new CommandLink(GoBack_Execute, GoBack_CanExecute);
 
             Departments = new List<string>();
-            var temp = DAL.Departments.All();
+            DAL dal = new DAL();
+            var temp = dal.Departments.All();
 
             foreach (Department item in temp)
             {

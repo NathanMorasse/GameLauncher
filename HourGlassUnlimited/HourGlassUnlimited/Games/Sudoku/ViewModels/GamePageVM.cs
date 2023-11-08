@@ -205,7 +205,16 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         {
             DAL dal = new DAL();
             GameBase game = dal.Games.GetByTitle("Sudoku");
-            Score newScore = new Score(ConnectionHelper.User.Id, game.Id, "Daily", null, TimeSpan.Parse(TimePassed), 0, DateTime.Now);
+            string category;
+            if (CurrentGame.IsDaily)
+            {
+                category = "Daily";
+            }
+            else
+            {
+                category = "Normal";
+            }
+            Score newScore = new Score(ConnectionHelper.User.Id, game.Id, category, null, TimeSpan.Parse(TimePassed), 0, DateTime.Now);
             dal.Scores.SaveScore(newScore);
 
         }
