@@ -14,6 +14,8 @@ using System.Diagnostics;
 using System.Windows.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using HourGlassUnlimited.Models;
+using HourGlassUnlimited.DataAccessLayer;
 
 namespace HourGlassUnlimited.Games.Sudoku.ViewModels
 {
@@ -114,12 +116,13 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         private bool Validate_CanExecute(object parameter) { return true; }
         private async void Validate_Execute(object parameter)
         {
-            DAL dal = new DAL();
+            SudokuDAL dal = new SudokuDAL();
             string result = await dal.SudokuFact.ValidateBoard(CurrentGame.GameBoard);
             if (result == "valid")
             {
                 GameResult = "Grille complétée correctement!";
                 SudokuNavigator.GamePage.StopTimer();
+                SaveScore();
             }
             else
             {
@@ -144,7 +147,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                DAL dal = new DAL();
+                SudokuDAL dal = new SudokuDAL();
                 Board newBoard = await dal.SudokuFact.GenerateBoard("medium", false, string.Empty);
                 CurrentBoard = newBoard.Grid;
                 GameStatusVisibility = "Hidden";
@@ -196,6 +199,24 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                 cellIndex = 0;
                 rowIndex++;
             }
+        }
+
+        public void SaveScore()
+        {
+            DAL dal = new DAL();
+            GameBase game = dal.Games.GetByTitle("Sudoku");
+            string category;
+            if (CurrentGame.IsDaily)
+            {
+                category = "Daily";
+            }
+            else
+            {
+                category = "Normal";
+            }
+            Score newScore = new Score(ConnectionHelper.User.Id, game.Id, category, null, TimeSpan.Parse(TimePassed), 0, DateTime.Now);
+            dal.Scores.SaveScore(newScore);
+
         }
 
         public GamePageVM()

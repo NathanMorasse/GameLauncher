@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HourGlassUnlimited.DataAccessLayer
 {
-    public static class DAL
+    public class DAL
     {
         private static UserFactory? _UserFact;
         private static DepartmentFactory? _DepartmentFact;
@@ -16,7 +16,7 @@ namespace HourGlassUnlimited.DataAccessLayer
         private static SaveFactory? _SaveFact;
         private static DailyFactory? _DailyFact;
 
-        public static UserFactory? Users
+        public UserFactory? Users
         {
             get
             {
@@ -28,7 +28,7 @@ namespace HourGlassUnlimited.DataAccessLayer
             }
         }
 
-        public static DepartmentFactory? Departments
+        public DepartmentFactory? Departments
         {
             get
             {
@@ -40,7 +40,7 @@ namespace HourGlassUnlimited.DataAccessLayer
             }
         }
 
-        public static GameFactory? Games
+        public GameFactory? Games
         {
             get
             {
@@ -52,7 +52,7 @@ namespace HourGlassUnlimited.DataAccessLayer
             }
         }
 
-        public static ScoreFactory? Scores
+        public ScoreFactory? Scores
         {
             get
             {
@@ -64,7 +64,7 @@ namespace HourGlassUnlimited.DataAccessLayer
             }
         }
 
-        public static SaveFactory? Saves
+        public SaveFactory? Saves
         {
             get
             {
@@ -76,7 +76,7 @@ namespace HourGlassUnlimited.DataAccessLayer
             }
         }
 
-        public static DailyFactory? Dailies
+        public DailyFactory? Dailies
         {
             get
             {

@@ -57,7 +57,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                 MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 GamePageVM vm = (GamePageVM)SudokuNavigator.GamePage.DataContext;
-                DAL dal = new DAL();
+                SudokuDAL dal = new SudokuDAL();
                 dal.SudokuFact.SaveGame(vm.CurrentGame, vm.TimePassed);
             }
         }

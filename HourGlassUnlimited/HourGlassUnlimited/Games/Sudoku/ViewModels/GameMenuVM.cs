@@ -26,7 +26,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         private bool Select_Classic_CanExecute(object parameter) { return true; }
         private async void Select_Classic_Execute(object parameter)
         {
-            DAL dal = new DAL();
+            SudokuDAL dal = new SudokuDAL();
             SudokuGame savedGame = dal.SudokuFact.LoadSave(false);
             if (savedGame == null)
             {
@@ -42,7 +42,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         private bool Select_Daily_CanExecute(object parameter) { return true; }
         private async void Select_Daily_Execute(object parameter)
         {
-            DAL dal = new DAL();
+            SudokuDAL dal = new SudokuDAL();
             SudokuGame savedGame = dal.SudokuFact.LoadSave(true);
             if (savedGame == null || savedGame.Date.Date != DateTime.Now.Date)
             {
@@ -67,7 +67,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         private bool Launch_Classic_CanExecute(object parameter) { return true; }
         private async void Launch_Classic_Execute(object parameter)
         {
-            DAL dal = new DAL();
+            SudokuDAL dal = new SudokuDAL();
             SudokuGame game = dal.SudokuFact.GetByTitle("Sudoku");
             if (parameter.ToString() == "continue")
             {

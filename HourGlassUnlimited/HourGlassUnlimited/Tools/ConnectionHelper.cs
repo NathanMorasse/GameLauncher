@@ -18,7 +18,8 @@ namespace HourGlassUnlimited.Tools
 
         public static string SignIn(string username, string password)
         {
-            User user = DAL.Users.ByUsername(username);
+            DAL dal = new DAL();
+            User user = dal.Users.ByUsername(username);
 
             if (user == null) { return "Unavalable"; }
 
@@ -35,13 +36,14 @@ namespace HourGlassUnlimited.Tools
 
         public static string[] SignUp(User user)
         {
+            DAL dal = new DAL();
             if (user == null)
             {
                 return new string[] { "NotFound", "Aucune information n'a été fourni." };
             }
 
             //Verify if the Username is already taken
-            if (user.Username == DAL.Users.ByUsername(user.Username).Username)
+            if (user.Username == dal.Users.ByUsername(user.Username).Username)
             {
                 return new string[] { "Unauthorize", "Le nom d'utilisateur est déjà utilisé." };
             }
@@ -50,7 +52,7 @@ namespace HourGlassUnlimited.Tools
             user.Password =  HashPassword(user.Password);
             //Create user with the DAL.
 
-            return DAL.Users.Add(user);
+            return dal.Users.Add(user);
         }
 
         public static string[] UpdateAccount()
