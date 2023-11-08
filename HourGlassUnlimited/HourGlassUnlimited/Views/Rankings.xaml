@@ -46,9 +46,9 @@
                                                         <ColumnDefinition Width="Auto"/>
                                                     </Grid.ColumnDefinitions>
 
-                                                    <TextBlock Text="{Binding UserId}"></TextBlock>
-                                                    <TextBlock Text="{Binding Result}"></TextBlock>
-                                                    <TextBlock Text="{Binding Date}"></TextBlock>
+                                                    <TextBlock Grid.Column="0" Text="{Binding PrimarySlot1}"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Text="{Binding PrimarySlot2}"></TextBlock>
+                                                    <TextBlock Grid.Column="2" Text="{Binding PrimarySlot3}"></TextBlock>
                                                 </Grid>
                                             </Border>
                                         </DataTemplate>
