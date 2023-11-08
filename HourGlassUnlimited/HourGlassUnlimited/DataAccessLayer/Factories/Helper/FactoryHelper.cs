@@ -54,6 +54,17 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
             }
         }
 
+        public static string GetScoreByUserAndGameCMD
+        {
+            get
+            {
+                return "select `Id`, `User`, `Game`, `Category`, `Result`, `Time`, `Points`, `Date` " +
+                    "from `scores` " +
+                    "where `User` = @User " +
+                    "and `Game` = (select `Id` from `games` where `Title` = @Game);";
+            }
+        }
+
         public static User UserFromReader(MySqlDataReader reader)
         {
             int id = (int)reader["Id"];
@@ -70,6 +81,20 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
             string name = reader["Department"].ToString() ?? string.Empty;
 
             return new Department(id, name);
+        }
+
+        public static Score ScoreFromReader(MySqlDataReader reader)
+        {
+            int id = (int)reader["Id"];
+            int user = (int)reader["User"];
+            int game = (int)reader["Game"];
+            string category = reader["Category"].ToString() ?? string.Empty;
+            string Result = reader["Result"].ToString() ?? string.Empty;
+            TimeSpan time = (TimeSpan)reader["Time"];
+            int points = (int)reader["Points"];
+            DateTime date = (DateTime)reader["Date"];
+
+            return new Score(id, user, game, category, Result, time, points, date);
         }
     }
 }
