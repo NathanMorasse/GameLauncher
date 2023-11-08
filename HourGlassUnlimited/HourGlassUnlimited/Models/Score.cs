@@ -17,8 +17,9 @@ namespace HourGlassUnlimited.Models
         public int Points { get; set; }
         public DateTime Date { get; set; }
 
-        public Score(int user, int game, string category, string result, TimeSpan time, int points, DateTime date) 
+        public Score(int id,int user, int game, string category, string result, TimeSpan time, int points, DateTime date)
         {
+            Id = id;
             UserId = user;
             GameId = game;
             Category = category;

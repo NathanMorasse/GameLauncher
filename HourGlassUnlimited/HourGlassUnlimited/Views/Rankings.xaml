@@ -8,57 +8,88 @@
       d:DataContext="{d:DesignInstance Type=viewModel:RankingsVM}"
       mc:Ignorable="d" 
       d:DesignHeight="540" d:DesignWidth="960"
-      Title="Rankings">
+      Title="Rankings"
+      FontFamily="Bahnschrift">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="3*"/>
-        </Grid.ColumnDefinitions>
+        <Border Background="#262626" CornerRadius="25" MaxWidth="1000">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="25" Color="Gray" Opacity="1" BlurRadius="50" Direction="270"/>
+            </Border.Effect>
+            <Grid Margin="0 20 0 20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
 
-        <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
-            <ListBox>
-                
-            </ListBox>
-        </ScrollViewer>
+                <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
+                    <ListBox ItemsSource="{Binding Categories}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Stretch">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Button Style="{StaticResource StandardButton}" Content="{Binding}"></Button>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </ScrollViewer>
 
-        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
-            <ListBox ItemsSource="{Binding Sections}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Stretch">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Border Height="150" Margin="10 0 10 10" Background="Transparent" BorderBrush="Gray" BorderThickness="1" CornerRadius="10">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
+                <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+                    <ListBox ItemsSource="{Binding Sections}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Stretch">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="10 0 10 10" Background="Transparent" BorderBrush="Gray" BorderThickness="1" CornerRadius="10">
+                                    <Grid Margin="10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
 
-                                <TextBlock Text="{Binding Title}"></TextBlock>
+                                        <TextBlock Margin="0 0 0 0" FontSize="30" Foreground="White" Text="{Binding Title}"></TextBlock>
 
-                                <ListBox ItemsSource="{Binding Scores}">
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <Border Height="150" Margin="10 0 10 10" Background="Transparent" BorderBrush="Gray" BorderThickness="1" CornerRadius="10">
-                                                <Grid>
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="Auto"/>
-                                                        <ColumnDefinition/>
-                                                        <ColumnDefinition Width="Auto"/>
-                                                    </Grid.ColumnDefinitions>
+                                        <ListBox Grid.Row="1" ItemsSource="{Binding Scores}" HorizontalContentAlignment="Stretch" Background="Transparent" BorderBrush="Transparent">
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Margin="10 0 10 10" Background="Transparent" BorderBrush="Gray" BorderThickness="1" CornerRadius="5">
+                                                        <Grid Margin="10">
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                                <ColumnDefinition/>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                            </Grid.ColumnDefinitions>
 
-                                                    <TextBlock Grid.Column="0" Text="{Binding PrimarySlot1}"></TextBlock>
-                                                    <TextBlock Grid.Column="1" Text="{Binding PrimarySlot2}"></TextBlock>
-                                                    <TextBlock Grid.Column="2" Text="{Binding PrimarySlot3}"></TextBlock>
-                                                </Grid>
-                                            </Border>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                            </Grid>
-                        </Border>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </ScrollViewer>
+                                                            <Grid Grid.Column="0">
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition/>
+                                                                    <RowDefinition Height="Auto"/>
+                                                                </Grid.RowDefinitions>
+
+                                                                <TextBlock Grid.Row="0" Text="{Binding PrimarySlot1}" Foreground="White" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                                                <TextBlock Grid.Row="1" Text="{Binding SecondarySlot1}" Foreground="White"></TextBlock>
+                                                            </Grid>
+
+
+                                                            <TextBlock Grid.Column="1" Text="{Binding PrimarySlot2}" Foreground="White" TextAlignment="Center"></TextBlock>
+
+                                                            <Grid Grid.Column="2">
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition/>
+                                                                    <RowDefinition Height="Auto"/>
+                                                                </Grid.RowDefinitions>
+
+                                                                <TextBlock Grid.Row="0" Text="{Binding PrimarySlot3}" Foreground="White" TextAlignment="Center"></TextBlock>
+                                                                <TextBlock Grid.Row="1" Text="{Binding SecondarySlot2}" Foreground="White"></TextBlock>
+                                                            </Grid>
+                                                        </Grid>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </ScrollViewer>
+            </Grid>
+        </Border>
     </Grid>
 </Page>
