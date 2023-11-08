@@ -148,7 +148,8 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                     MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 SudokuDAL dal = new SudokuDAL();
-                Board newBoard = await dal.SudokuFact.GenerateBoard("medium", false, string.Empty);
+                Board newBoard = await dal.SudokuFact.GenerateBoard(CurrentGame.GameBoard.Difficulty, false, string.Empty);
+                CurrentGame.GameBoard = newBoard;
                 CurrentBoard = newBoard.Grid;
                 GameStatusVisibility = "Hidden";
                 await Task.Delay(100);

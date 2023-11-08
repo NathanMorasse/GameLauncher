@@ -120,40 +120,6 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             }
         }
 
-        public SudokuGame GetByTitle(string title)
-        {
-            SudokuGame? game = null;
-            MySqlConnection? connection = null;
-            MySqlDataReader? reader = null;
-
-            try
-            {
-                connection = new MySqlConnection(CnnStr);
-                connection.Open();
-
-                MySqlCommand command = connection.CreateCommand();
-                command.CommandText = "SELECT * FROM games WHERE Title=@Title;";
-                command.Parameters.AddWithValue("@Title", title);
-
-                reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    game = CreateFromReader(reader);
-                }
-
-                if (game == null)
-                {
-                    throw new Exception("Le jeu de sudoku n'existe pas");
-                }
-            }
-            catch (Exception e)
-            {
-                throw new Exception("Chargement du jeu de sudoku impossible: "+e.Message);
-            }
-
-            return game;
-        }
-
         public async void SaveGame(SudokuGame game, string timespan)
         {
             MySqlConnection? connection = null;

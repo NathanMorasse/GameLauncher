@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using HourGlassUnlimited.Games.Sudoku.Models;
 using HourGlassUnlimited.Games.Sudoku.DataAccesLayer;
+using HourGlassUnlimited.DataAccessLayer;
+using HourGlassUnlimited.Models;
 
 namespace HourGlassUnlimited.Games.Sudoku.ViewModels
 {
@@ -42,20 +44,22 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         private bool Select_Daily_CanExecute(object parameter) { return true; }
         private async void Select_Daily_Execute(object parameter)
         {
-            SudokuDAL dal = new SudokuDAL();
-            SudokuGame savedGame = dal.SudokuFact.LoadSave(true);
+            DAL dal = new DAL();
+            SudokuDAL sudokuDal = new SudokuDAL();
+            SudokuGame savedGame = sudokuDal.SudokuFact.LoadSave(true);
             if (savedGame == null || savedGame.Date.Date != DateTime.Now.Date)
             {
-                SudokuGame game = dal.SudokuFact.GetByTitle("Sudoku");
+                GameBase gameBase = dal.Games.GetByTitle("Sudoku");
+                SudokuGame game = new SudokuGame { Id = gameBase.Id, Title = gameBase.Title };
                 game.IsDaily = true;
-                game.GameBoard = await dal.SudokuFact.GenerateBoard("hard", true, string.Empty);
+                game.GameBoard = await sudokuDal.SudokuFact.GenerateBoard("hard", true, string.Empty);
                 SudokuNavigator.GamePage.SetGame(game);
                 SudokuNavigator.GamePageView();
             }
             else
             {
                 Board temp = savedGame.GameBoard;
-                savedGame.GameBoard = await dal.SudokuFact.GenerateBoard("hard", savedGame.IsDaily, savedGame.GameBoard.Seed);
+                savedGame.GameBoard = await sudokuDal.SudokuFact.GenerateBoard("hard", savedGame.IsDaily, savedGame.GameBoard.Seed);
                 SudokuNavigator.GamePage.SetGame(savedGame);
                 SudokuNavigator.GamePageView();
                 await Task.Delay(100);
@@ -67,15 +71,17 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         private bool Launch_Classic_CanExecute(object parameter) { return true; }
         private async void Launch_Classic_Execute(object parameter)
         {
-            SudokuDAL dal = new SudokuDAL();
-            SudokuGame game = dal.SudokuFact.GetByTitle("Sudoku");
+            DAL dal = new DAL();
+            SudokuDAL sudokuDAL = new SudokuDAL();
+            GameBase gameBase = dal.Games.GetByTitle("Sudoku");
+            SudokuGame game = new SudokuGame { Id=gameBase.Id, Title=gameBase.Title };
             if (parameter.ToString() == "continue")
             {
                 if (NewGame != null)
                 {
                     game = NewGame;
                     Board temp = NewGame.GameBoard;
-                    game.GameBoard = await dal.SudokuFact.GenerateBoard(game.GameBoard.Difficulty, game.IsDaily, game.GameBoard.Seed);
+                    game.GameBoard = await sudokuDAL.SudokuFact.GenerateBoard(game.GameBoard.Difficulty, game.IsDaily, game.GameBoard.Seed);
                     SudokuNavigator.GamePage.SetGame(game);
                     SudokuNavigator.GamePageView();
                     await Task.Delay(100);
@@ -91,7 +97,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                 }
                 else
                 {
-                    game.GameBoard = await dal.SudokuFact.GenerateBoard(parameter.ToString(), false, string.Empty);
+                    game.GameBoard = await sudokuDAL.SudokuFact.GenerateBoard(parameter.ToString(), false, string.Empty);
                     SudokuNavigator.GamePage.SetGame(game);
                     SudokuNavigator.GamePageView();
                 }
