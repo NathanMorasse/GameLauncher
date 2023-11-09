@@ -29,8 +29,10 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             string boardString = reader["Save"].ToString() ?? string.Empty;
             Board board = BoardEncoder.DecodeBoard(boardString);
             board.Seed = reader["Seed"].ToString() ?? string.Empty;
+            bool isDaily = reader["IsDaily"].Equals(true);
+            DateTime date = DateTime.Parse(reader["Date"].ToString());
 
-            return new SudokuGame() { Id=id, Title=title, TimePassed = timePassed, GameBoard=board};
+            return new SudokuGame() { Id=id, Title=title, TimePassed = timePassed, GameBoard=board, IsDaily = isDaily, Date = date};
         }
 
         public static SudokuGame CreateFromReader(MySqlDataReader reader)
@@ -130,7 +132,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
                 connection.Open();
 
                 MySqlCommand command = connection.CreateCommand();
-                command.CommandText = "SELECT * FROM a23_web3_2133752.games WHERE Title=@Title;";
+                command.CommandText = "SELECT * FROM games WHERE Title=@Title;";
                 command.Parameters.AddWithValue("@Title", title);
 
                 reader = command.ExecuteReader();
@@ -163,7 +165,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
 
 
                 MySqlCommand command = connection.CreateCommand();
-                command.CommandText = "INSERT INTO a23_web3_2133752.saves(User, Game, Save, Time, Date, IsDaily, Seed) VALUES(@User, @Game, @Save, @Time, @Date, @IsDaily, @Seed);";
+                command.CommandText = "INSERT INTO saves(User, Game, Save, Time, Date, IsDaily, Seed) VALUES(@User, @Game, @Save, @Time, @Date, @IsDaily, @Seed);";
                 command.Parameters.AddWithValue("@User", ConnectionHelper.User.Id);
                 command.Parameters.AddWithValue("@Game", game.Id);
                 command.Parameters.AddWithValue("@Save", boardString);
@@ -192,7 +194,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
 
 
                 MySqlCommand command = connection.CreateCommand();
-                command.CommandText = "SELECT games.Id, games.Title, saves.Save, saves.Seed, saves.Time FROM a23_web3_2133752.saves INNER JOIN games ON saves.Game=games.Id WHERE Game = 1 AND User = @User AND IsDaily = @IsDaily ORDER BY Date DESC LIMIT 1;";
+                command.CommandText = "SELECT games.Id, games.Title, saves.Save, saves.Seed, saves.Time, saves.IsDaily, saves.Date FROM saves INNER JOIN games ON saves.Game=games.Id WHERE Game = 1 AND User = @User AND IsDaily = @IsDaily ORDER BY Date DESC LIMIT 1;";
                 command.Parameters.AddWithValue("@User", ConnectionHelper.User.Id);
                 command.Parameters.AddWithValue("@IsDaily", isdaily);
 
