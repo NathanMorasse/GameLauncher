@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace HourGlassUnlimited.ViewModels
 {
@@ -15,13 +16,22 @@ namespace HourGlassUnlimited.ViewModels
         public ObservableCollection<RankingSection> Sections { get; set; }
         public List<string> Categories { get; set; }
 
+        public ICommand GetScores { get; set; }
+
         public RankingsVM() 
         {
             Sections = new ObservableCollection<RankingSection>();
+            this.GetScores = new CommandLink(GetScores_Execute, GetScores_CanExecute);
 
             GetCategories();
 
             GetExamples();
+        }
+
+        private bool GetScores_CanExecute(object parameter) { return true; }
+        private void GetScores_Execute(object parameter)
+        {
+            string bob = (string)parameter;
         }
 
         private void GetCategories()
@@ -76,11 +86,11 @@ namespace HourGlassUnlimited.ViewModels
             b.SecondarySlot1 = s[0].Points.ToString();
             b.PrimarySlot2 = s[0].Result;
             b.PrimarySlot3 = s[0].UserId.ToString();
-            b.SecondarySlot2= s[0].Date.ToString();
+            b.SecondarySlot2= s[0].Date.ToShortDateString();
 
             c.SecondarySlot1 = s[0].UserId.ToString();
             c.PrimarySlot2 = s[0].Time.ToString();
-            c.SecondarySlot2 = s[0].Date.ToString();
+            c.SecondarySlot2 = s[0].Date.ToShortDateString();
 
 
             var test = new List<RankingItem>();

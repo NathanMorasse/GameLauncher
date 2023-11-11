@@ -11,10 +11,6 @@
       Title="GameList"
       FontFamily="Bahnschrift">
 
-    <!--<Grid Background="Transparent">
-        <Button x:Name="Sudoku_Launch" Command="{Binding LaunchGame}" Width="200" Height="100">Sudoku</Button>
-    </Grid>-->
-
     <Grid>
         <Border Background="#262626" CornerRadius="25" MaxWidth="1000">
             <Border.Effect>
