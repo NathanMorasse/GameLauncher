@@ -9,6 +9,9 @@
       Title="PartialDescription">
 
     <Grid Margin="5">
-        <TextBlock TextWrapping="Wrap" FontSize="30" Foreground="LightGray">Long text</TextBlock>
+        <TextBlock TextWrapping="Wrap" FontSize="30" Foreground="LightGray">
+            Le mode Normal comprend trois niveaux de difficulté : Facile, Moyen et Difficile. Il permet de générer plusieurs grilles de manière aléatoire, ce qui est parfait pour la pratique.<LineBreak/><LineBreak/>
+            Le mode Quotidien, quant à lui, génère la même grille pour tous les utilisateurs a chaque jours. Essayez de compléter la grille le plus rapidement possible afin de vous classer parmi les meilleurs.
+        </TextBlock>
     </Grid>
 </Page>

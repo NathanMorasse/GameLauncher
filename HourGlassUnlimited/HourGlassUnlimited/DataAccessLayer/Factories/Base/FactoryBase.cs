@@ -17,7 +17,7 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Base
             {
                 if (_ConnectionString == string.Empty)
                 {
-                    _ConnectionString = "Server=localhost;Port=3306;Database=bd_dev_home;Uid=root;Pwd=Mateo235";
+                    _ConnectionString = "Server=localhost;Port=3306;Database=dbdev;Uid=root;Pwd=root";
                 }
 
                 return _ConnectionString;

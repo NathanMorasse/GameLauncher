@@ -123,6 +123,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                 GameResult = "Grille complétée correctement!";
                 SudokuNavigator.GamePage.StopTimer();
                 SaveScore();
+                SudokuNavigator.GamePage.ValidateButton.IsEnabled = false;
             }
             else
             {
@@ -221,6 +222,11 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
             Score newScore = new Score(0, ConnectionHelper.User.Id, game.Id, category, null, TimeSpan.Parse(TimePassed), 0, DateTime.Now);
             dal.Scores.SaveScore(newScore);
 
+        }
+
+        public bool CompletedDaily()
+        {
+            return false;
         }
 
         public GamePageVM()

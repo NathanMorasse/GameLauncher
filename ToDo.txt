@@ -4,6 +4,5 @@ Afficher les Classements
 setter la difficulté dans reset
 
 Erreurs:
-	reset commense pas a zero quand une save est loadé
 	
 

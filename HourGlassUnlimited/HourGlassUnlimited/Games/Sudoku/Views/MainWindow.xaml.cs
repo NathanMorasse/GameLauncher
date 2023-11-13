@@ -11,6 +11,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace HourGlassUnlimited.Games.Sudoku.Views
@@ -43,7 +44,10 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
         private void Window_Closing(object sender, EventArgs e)
         {
             SudokuWindowVM vm = (SudokuWindowVM)DataContext;
-            vm.Save();
+            if (Holder.Content is GamePage)
+            {
+                vm.Save();
+            }
         }
     }
 }
