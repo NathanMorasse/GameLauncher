@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
+using HourGlassUnlimited.DataAccessLayer.Factories.Helper;
 
 namespace HourGlassUnlimited.DataAccessLayer.Factories
 {
@@ -35,6 +37,44 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
             {
                 throw new Exception("Echec de l'enregistrement: " + e.Message);
             }
+        }
+
+        public List<Score> ByUserAndGame(int user, string game)
+        {
+            List<Score>? scores = new List<Score>();
+            MySqlConnection? connection = null;
+            MySqlDataReader? reader = null;
+
+            try
+            {
+                connection = new MySqlConnection(ConnectionString);
+                connection.Open();
+
+                MySqlCommand command = connection.CreateCommand();
+                command.CommandText = FactoryHelper.GetScoreByUserAndGameCMD;
+                command.Parameters.AddWithValue("@User", user);
+                command.Parameters.AddWithValue("@Game", game);
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    var score = FactoryHelper.ScoreFromReader(reader);
+                    scores.Add(score);
+                }
+
+                if (scores.Count == 0)
+                {
+                    var score = new Score(0, 0, 0, "NotFound", "Aucun score n'a été trouvé.", TimeSpan.Zero, 0, DateTime.Now);
+                    scores.Add(score);
+                }
+            }
+            catch (Exception e)
+            {
+                var score = new Score(-1, -1, -1, "Error", e.Message, TimeSpan.Zero, -1, DateTime.Now);
+                scores.Add(score);
+            }
+
+            return scores;
         }
     }
 }

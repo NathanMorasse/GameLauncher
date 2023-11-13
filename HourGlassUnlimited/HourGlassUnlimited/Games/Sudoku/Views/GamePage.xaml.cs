@@ -126,6 +126,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
         {
             EnableAllTextBoxes(BoardGrid);
             LockInitialValues(BoardGrid);
+            startTime = TimeSpan.Zero;
             sw.Restart();
             dt.Start();
         }
@@ -147,5 +148,26 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
             }
         }
 
+        private void ClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            ClearBoard(BoardGrid);
+        }
+
+        private void ClearBoard(DependencyObject parent)
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, i);
+
+                if (child is TextBox textBox && textBox.IsEnabled)
+                {
+                    textBox.Text = String.Empty;
+                }
+                else
+                {
+                    ClearBoard(child);
+                }
+            }
+        }
     }
 }

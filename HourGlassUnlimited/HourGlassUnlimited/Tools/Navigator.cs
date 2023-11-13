@@ -46,9 +46,6 @@ namespace HourGlassUnlimited.Tools
         {
             MainWindow = new MainWindow();
             Holder = MainWindow.Holder;
-
-            GameList = new GameList();
-            Rankings = new Rankings();
         }
 
         public static void SignInView()
@@ -71,11 +68,13 @@ namespace HourGlassUnlimited.Tools
 
         public static void GameListView()
         {
+            GameList = new GameList();
             Holder.NavigationService.Navigate(GameList);
         }
 
         public static void RankingsView()
         {
+            Rankings = new Rankings();
             Holder.NavigationService.Navigate(Rankings);
         }
 
