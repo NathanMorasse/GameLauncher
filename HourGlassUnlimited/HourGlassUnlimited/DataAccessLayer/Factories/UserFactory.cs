@@ -45,7 +45,10 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
             {
                 user = new User(-1, "Error", "", e.Message);
             }
-
+            finally
+            {
+                connection?.Close();
+            }
             return user;
         }
 
@@ -84,7 +87,10 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
             {
                 return new string[] { "Error", e.Message };
             }
-
+            finally
+            {
+                connection?.Close();
+            }
             return new string[] { "Success", "Le compte a été créé avec succès." };
         }
 

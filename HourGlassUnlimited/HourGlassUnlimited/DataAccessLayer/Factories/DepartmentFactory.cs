@@ -34,7 +34,10 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
                 }
             }
             catch (Exception) { }
-
+            finally
+            {
+                connection?.Close();
+            }
             return departments;
         }
     }

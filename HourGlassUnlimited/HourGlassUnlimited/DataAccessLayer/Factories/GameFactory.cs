@@ -51,7 +51,10 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
             {
                 throw new Exception("Chargement du jeu impossible: " + e.Message);
             }
-
+            finally
+            {
+                connection?.Close();
+            }
             return game;
         }
     }

@@ -91,7 +91,7 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
                 connection.Open();
 
                 MySqlCommand command = connection.CreateCommand();
-                command.CommandText = "SELECT * FROM dbdev.scores Where User=@User AND Game=@Game AND DATE(Date)=@Date AND Category='Daily';";
+                command.CommandText = "SELECT * FROM scores Where User=@User AND Game=@Game AND DATE(Date)=@Date AND Category='Daily';";
                 command.Parameters.AddWithValue("@User", ConnectionHelper.User.Id);
                 command.Parameters.AddWithValue("@Game", gameId);
                 command.Parameters.AddWithValue("@Date", DateTime.Now.Date);
@@ -106,7 +106,11 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
             {
                 throw new Exception("Erreur de validation du score du joueur " + ConnectionHelper.User.Username+" :"+e.Message);
             }
-            
+            finally
+            {
+                connection?.Close();
+            }
+
             return isCompleted;
         }
     }
