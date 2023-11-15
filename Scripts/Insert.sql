@@ -6,3 +6,5 @@ values
 ("Conciergerie"),
 ("Ressources humaines"),
 ("Soutien informatique");
+
+insert into games (`Title`) values ("Sudoku");
