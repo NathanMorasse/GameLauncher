@@ -79,42 +79,35 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
             return scores;
         }
 
-        //public bool UserCompletedDaily()
-        //{
-        //    MySqlConnection? connection = null;
-        //    MySqlDataReader? reader = null;
+        public bool UserCompletedDaily(int gameId)
+        {
+            MySqlConnection? connection = null;
+            MySqlDataReader? reader = null;
+            bool isCompleted = false;
 
-        //    try
-        //    {
-        //        connection = new MySqlConnection(ConnectionString);
-        //        connection.Open();
+            try
+            {
+                connection = new MySqlConnection(ConnectionString);
+                connection.Open();
 
-        //        MySqlCommand command = connection.CreateCommand();
-        //        command.CommandText = "SELECT * FROM dbdev.scores Where User=@User AND Game=@Game AND DATE(Date)=@Date AND Category='Daily';";
-        //        command.Parameters.AddWithValue("@User", ConnectionHelper.User.Id);
-        //        command.Parameters.AddWithValue("@Game", );
-        //        command.Parameters.AddWithValue("@Date", DateTime.Now.Date);
+                MySqlCommand command = connection.CreateCommand();
+                command.CommandText = "SELECT * FROM dbdev.scores Where User=@User AND Game=@Game AND DATE(Date)=@Date AND Category='Daily';";
+                command.Parameters.AddWithValue("@User", ConnectionHelper.User.Id);
+                command.Parameters.AddWithValue("@Game", gameId);
+                command.Parameters.AddWithValue("@Date", DateTime.Now.Date);
 
-        //        reader = command.ExecuteReader();
-        //        while (reader.Read())
-        //        {
-        //            var score = FactoryHelper.ScoreFromReader(reader);
-        //            scores.Add(score);
-        //        }
-
-        //        if (scores.Count == 0)
-        //        {
-        //            var score = new Score(0, 0, 0, "NotFound", "Aucun score n'a été trouvé.", TimeSpan.Zero, 0, DateTime.Now);
-        //            scores.Add(score);
-        //        }
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        var score = new Score(-1, -1, -1, "Error", e.Message, TimeSpan.Zero, -1, DateTime.Now);
-        //        scores.Add(score);
-        //    }
-
-        //    return scores;
-        //}
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    isCompleted = !reader.IsDBNull(1);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Erreur de validation du score du joueur " + ConnectionHelper.User.Username+" :"+e.Message);
+            }
+            
+            return isCompleted;
+        }
     }
 }

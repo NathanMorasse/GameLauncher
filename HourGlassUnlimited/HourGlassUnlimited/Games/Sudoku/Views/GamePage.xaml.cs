@@ -16,8 +16,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using HourGlassUnlimited.DataAccessLayer;
 using HourGlassUnlimited.Games.Sudoku.Models;
 using HourGlassUnlimited.Games.Sudoku.ViewModels;
+using HourGlassUnlimited.Models;
 
 namespace HourGlassUnlimited.Games.Sudoku.Views
 {
@@ -42,15 +44,17 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
             this.Loaded += GamePage_Loaded;
         }
 
-        private void GamePage_Loaded(object sender, RoutedEventArgs e)
+        private async void GamePage_Loaded(object sender, RoutedEventArgs e)
         {
             if (vm.CurrentGame.IsDaily)
             {
                 ResetButton.Visibility = Visibility.Hidden;
                 ClearButton.Visibility = Visibility.Visible;
-                if (true)
+                DAL dal = new DAL();
+                GameBase game = dal.Games.GetByTitle("Sudoku");
+                if (dal.Scores.UserCompletedDaily(game.Id))
                 {
-
+                    ValidateButton.IsEnabled = false;
                 }
             }
             LockInitialValues(BoardGrid);
