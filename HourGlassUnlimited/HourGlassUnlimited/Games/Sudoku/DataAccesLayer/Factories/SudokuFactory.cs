@@ -29,7 +29,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             string boardString = reader["Save"].ToString() ?? string.Empty;
             Board board = BoardEncoder.DecodeBoard(boardString);
             board.Seed = reader["Seed"].ToString() ?? string.Empty;
-            bool isDaily = reader["IsDaily"].Equals(true);
+            bool isDaily = reader["IsDaily"].ToString() == "1";
             DateTime date = DateTime.Parse(reader["Date"].ToString());
 
             return new SudokuGame() { Id=id, Title=title, TimePassed = timePassed, GameBoard=board, IsDaily = isDaily, Date = date};
@@ -146,6 +146,10 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             {
                 throw new Exception("Echec de la sauvegarde: "+e.Message);
             }
+            finally
+            {
+                connection?.Close();
+            }
         }
 
         public SudokuGame LoadSave(bool isdaily)
@@ -157,7 +161,6 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             {
                 connection = new MySqlConnection(CnnStr);
                 connection.Open();
-
 
                 MySqlCommand command = connection.CreateCommand();
                 command.CommandText = "SELECT games.Id, games.Title, saves.Save, saves.Seed, saves.Time, saves.IsDaily, saves.Date FROM saves INNER JOIN games ON saves.Game=games.Id WHERE Game = 1 AND User = @User AND IsDaily = @IsDaily ORDER BY Date DESC LIMIT 1;";
@@ -174,6 +177,10 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             catch (Exception e)
             {
                 throw new Exception("Echec du chargement de sauvegarde: " + e.Message);
+            }
+            finally
+            {
+                connection?.Close();
             }
         }
     }
