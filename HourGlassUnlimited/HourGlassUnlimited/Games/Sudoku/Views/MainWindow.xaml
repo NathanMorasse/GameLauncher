@@ -10,6 +10,8 @@
         Title="Sudoku" 
         Height="1080"
         Width="1920"
+        MinHeight="540"
+        MinWidth="940"
         WindowState="Maximized"
         FontFamily="Bahnschrift"
         Icon="./../img/Logo.png"
@@ -29,9 +31,9 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="0.001*"/>
             <ColumnDefinition/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="0.001*"/>
         </Grid.ColumnDefinitions>
 
         <Grid x:Name="Header" Grid.Row="0" Grid.ColumnSpan="3" Background="Transparent">
@@ -41,7 +43,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock x:Name="BrandName" Foreground="White" Grid.Column="1" FontSize="30" VerticalAlignment="Center" Width="500" TextAlignment="Center">Sudoku</TextBlock>
+            <TextBlock x:Name="BrandName" Foreground="White" Grid.Column="1" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center">Sudoku</TextBlock>
 
             <Button x:Name="Launcher_Button" Style="{StaticResource NavButton}" Grid.Column="0" Width="300" HorizontalAlignment="Left" Command="{Binding Exit_To_Launcher}">
                 <TextBlock FontSize="20" Padding="10 0" Text="&lt; Plateforme de jeu"></TextBlock>

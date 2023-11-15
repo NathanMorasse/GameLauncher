@@ -4,20 +4,19 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HourGlassUnlimited.Games.Sudoku.Views.Partial"
-      mc:Ignorable="d" 
-      d:DesignHeight="250" d:DesignWidth="1600"
+      mc:Ignorable="d"
       Title="PartialLoadSave">
 
-    <Grid Margin="5">
+    <Grid Margin="10">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="800"/>
+            <ColumnDefinition Width="2*"/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock VerticalAlignment="Center" TextWrapping="Wrap" Grid.Column="0" FontSize="50" Foreground="LightGray">Une ancienne partie a été détectée. Voulez-vous la continuer ou commencer une nouvelle partie?</TextBlock>
+        <TextBlock VerticalAlignment="Center" TextWrapping="Wrap" Grid.Column="0" FontSize="30" Foreground="LightGray">Une ancienne partie a été détectée. Voulez-vous la continuer ou commencer une nouvelle partie?</TextBlock>
 
-        <Button Command="{Binding Launch_Classic}" CommandParameter="continue" Style="{StaticResource StandardButton}" Width="350" Height="100" Grid.Column="1" FontSize="50">Continuer</Button>
-        <Button Command="{Binding Launch_Classic}" CommandParameter="restart" Style="{StaticResource StandardButton}" Width="350" Height="100" Grid.Column="2" FontSize="50">Recommencer</Button>
+        <Button Command="{Binding Launch_Classic}" CommandParameter="continue" Style="{StaticResource StandardButton}" Margin="10" Grid.Column="1" FontSize="30" MaxHeight="80">Continuer</Button>
+        <Button Command="{Binding Launch_Classic}" CommandParameter="restart" Style="{StaticResource StandardButton}" Margin="10" Grid.Column="2" FontSize="30" MaxHeight="80">Recommencer</Button>
     </Grid>
 </Page>

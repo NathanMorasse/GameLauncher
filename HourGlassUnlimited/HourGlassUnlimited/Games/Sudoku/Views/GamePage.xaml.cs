@@ -33,6 +33,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
         string currentTime = string.Empty;
         TimeSpan startTime = TimeSpan.Zero;
         GamePageVM vm;
+        bool isDailyCompletedChecked = false;
 
         public GamePage()
         {
@@ -55,6 +56,8 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
                 if (dal.Scores.UserCompletedDaily(game.Id))
                 {
                     ValidateButton.IsEnabled = false;
+                    vm.GameResult = "Grille complétée correctement!";
+                    vm.GameStatusVisibility = "Visible";
                 }
             }
             LockInitialValues(BoardGrid);
@@ -68,6 +71,16 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
                 currentTime = String.Format("{0:00}:{1:00}:{2:00}",
                 ts.Hours, ts.Minutes, ts.Seconds );
                 clock_text.Text = currentTime;
+                if (!isDailyCompletedChecked && vm.CurrentGame.IsDaily)
+                {
+                    DAL dal = new DAL();
+                    GameBase game = dal.Games.GetByTitle("Sudoku");
+                    if (dal.Scores.UserCompletedDaily(game.Id))
+                    {
+                        StopTimer();
+                        isDailyCompletedChecked = true;
+                    }
+                }
             }
         }
 

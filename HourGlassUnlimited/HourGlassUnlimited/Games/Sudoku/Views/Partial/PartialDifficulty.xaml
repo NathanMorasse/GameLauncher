@@ -11,7 +11,7 @@
       Title="PartialDifficulty"
       FontFamily="Bahnschrift">
 
-    <Grid>
+    <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -23,11 +23,11 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock TextAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="80" Foreground="LightGray">Sélectionnez une difficulté</TextBlock>
+        <TextBlock TextAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="60" Foreground="LightGray">Sélectionnez une difficulté</TextBlock>
 
-        <Button x:Name="Easy_Button" Command="{Binding Launch_Classic}" Style="{StaticResource StandardButton}" CommandParameter="easy"  Grid.Row="1" Grid.Column="0" Width="300" Height="100"  FontSize="50">Facile</Button>
-        <Button x:Name="Medium_Button" Command="{Binding Launch_Classic}" Style="{StaticResource StandardButton}" CommandParameter="medium" Grid.Row="1" Grid.Column="1" Width="300" Height="100"  FontSize="50">Medium</Button>
-        <Button x:Name="Hard_Button" Command="{Binding Launch_Classic}" Style="{StaticResource StandardButton}" CommandParameter="hard" Grid.Row="1" Grid.Column="2" Width="300" Height="100"  FontSize="50">Difficile</Button>
+        <Button x:Name="Easy_Button" Command="{Binding Launch_Classic}" Style="{StaticResource StandardButton}" CommandParameter="easy"  Grid.Row="1" Grid.Column="0" Margin="0,0,10,0" FontSize="50">Facile</Button>
+        <Button x:Name="Medium_Button" Command="{Binding Launch_Classic}" Style="{StaticResource StandardButton}" CommandParameter="medium" Grid.Row="1" Grid.Column="1" Margin="10,0,10,0" FontSize="50">Medium</Button>
+        <Button x:Name="Hard_Button" Command="{Binding Launch_Classic}" Style="{StaticResource StandardButton}" CommandParameter="hard" Grid.Row="1" Grid.Column="2" Margin="10,0,0,0" FontSize="50">Difficile</Button>
 
     </Grid>
 </Page>
