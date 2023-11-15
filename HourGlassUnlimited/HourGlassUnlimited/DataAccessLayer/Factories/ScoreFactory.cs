@@ -24,8 +24,8 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
                 connection.Open();
 
                 MySqlCommand command = connection.CreateCommand();
-                command.CommandText = "INSERT INTO scores(User, Game, Category, Time, Date) VALUES(@User, @Game, @Category, @Time, @Date);";
-                command.Parameters.AddWithValue("@User", newScore.UserId);
+                command.CommandText = "insert into scores(`User`, `Game`, `Category`, `Time`, `Date`) values((select `Id` from `users` where `Username` = @User), 1, @Category, @Time, @Date);";
+                command.Parameters.AddWithValue("@User", newScore.User);
                 command.Parameters.AddWithValue("@Game", newScore.GameId);
                 command.Parameters.AddWithValue("@Category", newScore.Category);
                 command.Parameters.AddWithValue("@Time", newScore.Time);
@@ -39,7 +39,7 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
             }
         }
 
-        public List<Score> ByUserAndGame(int user, string game)
+        public List<Score> CustomList(int? user, string? game, string cmd)
         {
             List<Score>? scores = new List<Score>();
             MySqlConnection? connection = null;
@@ -51,9 +51,11 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
                 connection.Open();
 
                 MySqlCommand command = connection.CreateCommand();
-                command.CommandText = FactoryHelper.GetScoreByUserAndGameCMD;
-                command.Parameters.AddWithValue("@User", user);
-                command.Parameters.AddWithValue("@Game", game);
+                command.CommandText = cmd;
+                if (user != null)
+                    command.Parameters.AddWithValue("@User", user);
+                if (game != null)
+                    command.Parameters.AddWithValue("@Game", game);
 
                 reader = command.ExecuteReader();
                 while (reader.Read())
@@ -64,13 +66,13 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
 
                 if (scores.Count == 0)
                 {
-                    var score = new Score(0, 0, 0, "NotFound", "Aucun score n'a été trouvé.", TimeSpan.Zero, 0, DateTime.Now);
+                    var score = new Score(0, string.Empty, 0, "NotFound", "Aucun score n'a été trouvé.", TimeSpan.Zero, 0, DateTime.Now);
                     scores.Add(score);
                 }
             }
             catch (Exception e)
             {
-                var score = new Score(-1, -1, -1, "Error", e.Message, TimeSpan.Zero, -1, DateTime.Now);
+                var score = new Score(-1, string.Empty, -1, "Error", e.Message, TimeSpan.Zero, -1, DateTime.Now);
                 scores.Add(score);
             }
 

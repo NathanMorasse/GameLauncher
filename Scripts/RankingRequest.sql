@@ -10,14 +10,14 @@ from `scores`
 where `User` = 1;
 
 -- Get le top trois des joueurs avec le plus de point
-select  `Id`, `User`, `Game`, `Category`, `Result`, `Time`, `Points`, `Date` 
+select  `Id`, `User`, `Game`, `Category`, `Result`, `Time`, Sum(`Points`) as `Points`, `Date` 
 from `scores` 
 group by `User` 
 order by Sum(`Points`) desc 
 limit 3;
 
 -- Get le joueur avec le plus de point
-select  `Id`, `User`, `Game`, `Category`, `Result`, `Time`, `Points`, `Date` 
+select  `Id`, `User`, `Game`, `Category`, `Result`, `Time`, Sum(`Points`) as `Points`, `Date` 
 from `scores` 
 group by `User` 
 order by Sum(`Points`) desc 

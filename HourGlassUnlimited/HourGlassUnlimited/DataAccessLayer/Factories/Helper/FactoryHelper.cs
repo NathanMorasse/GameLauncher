@@ -64,6 +64,53 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
                     "and `Game` = (select `Id` from `games` where `Title` = @Game);";
             }
         }
+        public static string ScoreByUserAndGameCMD
+        {
+            get
+            {
+                return "select `Id`, `User`, `Game`, `Category`, `Result`, `Time`, `Points`, `Date` " +
+                    "from `scores` " +
+                    "where `User` = @User " +
+                    "and `Game` = (select `Id` from `games` where `Title` = @Game);";
+            }
+        }
+
+        public static string ScoreByUserCMD
+        {
+            get
+            {
+                return "select `Id`, `User`, `Game`, `Category`, `Result`, `Time`, `Points`, `Date` " +
+                    "from `scores` " +
+                    "where `User` = @User;";
+            }
+        }
+
+        public static string Top3PointsUserCMD
+        {
+            get
+            {
+                return "select  `scores`.`Id`, `users`.`Username` as `User`, `Game`, `Category`, `Result`, `Time`, Sum(`Points`) as `Points`, `Date` " +
+                    "from `scores` " +
+                    "join `users` " +
+                    "on `scores`.`User` = `users`.`Id` " +
+                    "group by `User` " +
+                    "order by Sum(`Points`) desc " +
+                    "limit 3;";
+            }
+        }
+
+        public static string Top1PointsUserCMD
+        {
+            get
+            {
+                return "select  `Id`, `User`, `Game`, `Category`, `Result`, `Time`, Sum(`Points`) as `Points`, `Date` " +
+                    "from `scores` " +
+                    "group by `User` " +
+                    "order by Sum(`Points`) desc " +
+                    "limit 1;";
+            }
+        }
+
 
         public static User UserFromReader(MySqlDataReader reader)
         {
@@ -86,12 +133,12 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
         public static Score ScoreFromReader(MySqlDataReader reader)
         {
             int id = (int)reader["Id"];
-            int user = (int)reader["User"];
+            string user = reader["User"].ToString() ?? string.Empty;
             int game = (int)reader["Game"];
             string category = reader["Category"].ToString() ?? string.Empty;
             string Result = reader["Result"].ToString() ?? string.Empty;
             TimeSpan time = (TimeSpan)reader["Time"];
-            int points = (int)reader["Points"];
+            int points = Convert.ToInt32(reader["Points"]);
             DateTime date = (DateTime)reader["Date"];
 
             return new Score(id, user, game, category, Result, time, points, date);

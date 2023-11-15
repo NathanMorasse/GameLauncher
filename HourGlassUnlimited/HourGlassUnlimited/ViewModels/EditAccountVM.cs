@@ -89,7 +89,7 @@ namespace HourGlassUnlimited.ViewModels
         public bool ValidateString(string str)
         {
             if (str == "" || str == " ") { return false; }
-            if (str.Length !> 4) { return false; }
+            if (str.Length < 4) { return false; }
 
             return true;
         }
