@@ -1,4 +1,5 @@
 ﻿using HourGlassUnlimited.DataAccessLayer;
+using HourGlassUnlimited.DataAccessLayer.Factories.Helper;
 using HourGlassUnlimited.Models;
 using HourGlassUnlimited.Tools;
 using System;
@@ -25,12 +26,21 @@ namespace HourGlassUnlimited.ViewModels
 
             GetCategories();
 
-            GetExamples();
+            GetGlobaleScores();
         }
 
         private bool GetScores_CanExecute(object parameter) { return true; }
         private void GetScores_Execute(object parameter)
         {
+            if (parameter.ToString() == "Globale")
+            {
+                GetGlobaleScores();
+            }
+            else
+            {
+                GetGameScores(parameter.ToString());
+            }
+
             string bob = (string)parameter;
         }
 
@@ -48,57 +58,44 @@ namespace HourGlassUnlimited.ViewModels
             }
         }
 
-        private void GetExamples()
+        private void GetGlobaleScores()
         {
-            List<Score> test;
             DAL dal = new DAL();
+            //Top3
+            List<Score> scores = dal.Scores.CustomList(null, null, FactoryHelper.Top3PointsUserCMD);
 
-            test = dal.Scores.ByUserAndGame(1, "Sudoku");
+            if (scores[0].Id > 0)
+            {
+                RankingSection Top3 = new RankingSection();
+                Top3.Title = "Top 3 des joueurs avec le plus de points";
+                Top3.Scores = new List<RankingItem>();
 
-            RankingSection test1 = new RankingSection();
-            test1.Title = "Section #1";
-            test1.Scores = GetSome(test);
-            
-            RankingSection test2 = new RankingSection();
-            test2.Title = "Section #2";
-            test2.Scores = GetSome(test);
-            
-            RankingSection test3 = new RankingSection();
-            test3.Title = "Long texte";
-            test3.Scores = GetSome(test);
+                int cpt = 0;
 
-            Sections.Add(test1);
-            Sections.Add(test2);
-            Sections.Add(test3);
+                foreach (Score item in scores)
+                {
+                    cpt++;
+
+                    RankingItem ri = new RankingItem();
+
+                    ri.PrimarySlot1 = cpt.ToString();
+                    ri.PrimarySlot2 = item.User;
+                    ri.PrimarySlot3 = item.Points.ToString() + "pts";
+
+                    Top3.Scores.Add(ri);
+                }
+
+                Sections.Add(Top3);
+            }
+
+            ChangeValue("Sections");
         }
 
-        private List<RankingItem> GetSome(List<Score> s)
+        private void GetGameScores(string game)
         {
-            RankingItem a = new RankingItem();
-            RankingItem b = new RankingItem();
-            RankingItem c = new RankingItem();
+            Sections = new ObservableCollection<RankingSection>();
 
-            a.PrimarySlot1 = s[0].UserId.ToString();
-            a.PrimarySlot2 = s[0].Result;
-            a.PrimarySlot3 = s[0].Time.ToString();
-
-            b.PrimarySlot1 = s[0].Time.ToString();
-            b.SecondarySlot1 = s[0].Points.ToString();
-            b.PrimarySlot2 = s[0].Result;
-            b.PrimarySlot3 = s[0].UserId.ToString();
-            b.SecondarySlot2= s[0].Date.ToShortDateString();
-
-            c.SecondarySlot1 = s[0].UserId.ToString();
-            c.PrimarySlot2 = s[0].Time.ToString();
-            c.SecondarySlot2 = s[0].Date.ToShortDateString();
-
-
-            var test = new List<RankingItem>();
-
-            test.Add(a);
-            test.Add(b);
-            test.Add(c);
-            return test;
+            ChangeValue("Sections");
         }
     }
 }

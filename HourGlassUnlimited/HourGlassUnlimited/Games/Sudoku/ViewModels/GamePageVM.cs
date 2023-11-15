@@ -219,7 +219,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
             {
                 category = "Normal";
             }
-            Score newScore = new Score(0, ConnectionHelper.User.Id, game.Id, category, null, TimeSpan.Parse(TimePassed), 0, DateTime.Now);
+            Score newScore = new Score(0, ConnectionHelper.User.Username, game.Id, category, null, TimeSpan.Parse(TimePassed), 0, DateTime.Now);
             dal.Scores.SaveScore(newScore);
 
         }

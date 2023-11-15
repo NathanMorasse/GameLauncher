@@ -56,28 +56,11 @@
                                                                 <ColumnDefinition Width="100"/>
                                                             </Grid.ColumnDefinitions>
 
-                                                            <Grid Grid.Column="0">
-                                                                <Grid.RowDefinitions>
-                                                                    <RowDefinition/>
-                                                                    <RowDefinition Height="Auto"/>
-                                                                </Grid.RowDefinitions>
+                                                            <TextBlock Grid.Column="0" Text="{Binding PrimarySlot1}" Foreground="White" FontSize="25" TextAlignment="Left" Margin="10 0 0 0"></TextBlock>
 
-                                                                <TextBlock Grid.Row="0" Text="{Binding PrimarySlot1}" Foreground="White" FontSize="25" TextAlignment="Left" VerticalAlignment="Center"></TextBlock>
-                                                                <TextBlock Grid.Row="1" Text="{Binding SecondarySlot1}" Foreground="White" FontSize="15" TextAlignment="Left"></TextBlock>
-                                                            </Grid>
+                                                            <TextBlock Grid.Column="1" Text="{Binding PrimarySlot2}" Foreground="White" FontSize="25" TextAlignment="Center"></TextBlock>
 
-
-                                                            <TextBlock Grid.Column="1" Text="{Binding PrimarySlot2}" Foreground="White" FontSize="25" VerticalAlignment="Center" TextAlignment="Center"></TextBlock>
-
-                                                            <Grid Grid.Column="2">
-                                                                <Grid.RowDefinitions>
-                                                                    <RowDefinition/>
-                                                                    <RowDefinition Height="Auto"/>
-                                                                </Grid.RowDefinitions>
-
-                                                                <TextBlock Grid.Row="0" Text="{Binding PrimarySlot3}" Foreground="White" FontSize="25" TextAlignment="Right"></TextBlock>
-                                                                <TextBlock Grid.Row="1" Text="{Binding SecondarySlot2}" Foreground="White" FontSize="15" TextAlignment="Right"></TextBlock>
-                                                            </Grid>
+                                                            <TextBlock Grid.Column="2" Text="{Binding PrimarySlot3}" Foreground="White" FontSize="25" TextAlignment="Right" Margin="0 0 10 0"></TextBlock>
                                                         </Grid>
                                                     </Border>
                                                 </DataTemplate>

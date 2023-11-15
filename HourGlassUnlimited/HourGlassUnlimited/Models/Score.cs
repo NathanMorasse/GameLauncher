@@ -9,7 +9,7 @@ namespace HourGlassUnlimited.Models
 {
     public class Score : ModelBase
     {
-        public int UserId { get; set; }
+        public string User { get; set; }
         public int GameId { get; set; }
         public string Category { get; set; }
         public string Result { get; set; }
@@ -17,10 +17,10 @@ namespace HourGlassUnlimited.Models
         public int Points { get; set; }
         public DateTime Date { get; set; }
 
-        public Score(int id,int user, int game, string category, string result, TimeSpan time, int points, DateTime date)
+        public Score(int id,string user, int game, string category, string result, TimeSpan time, int points, DateTime date)
         {
             Id = id;
-            UserId = user;
+            User = user;
             GameId = game;
             Category = category;
             Result = result;
