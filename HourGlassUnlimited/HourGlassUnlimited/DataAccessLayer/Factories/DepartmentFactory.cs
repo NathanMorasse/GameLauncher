@@ -40,5 +40,42 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
             }
             return departments;
         }
+
+        public Department GetByUserId(int userId)
+        {
+            Department? department = null;
+            MySqlConnection? connection = null;
+            MySqlDataReader? reader = null;
+
+            try
+            {
+                connection = new MySqlConnection(ConnectionString);
+                connection.Open();
+
+                MySqlCommand command = connection.CreateCommand();
+                command.CommandText = FactoryHelper.GetDepartmentByUserId;
+                command.Parameters.AddWithValue("@User", userId);
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    department = FactoryHelper.DepartmentFromReader(reader);
+                }
+
+                if (department == null)
+                {
+                    throw new Exception("Le département n'existe pas");
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Chargement du département impossible: " + e.Message);
+            }
+            finally
+            {
+                connection?.Close();
+            }
+            return department;
+        }
     }
 }

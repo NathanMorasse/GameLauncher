@@ -39,6 +39,38 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
             }
         }
 
+        public async void UpdatePoints(int gameId)
+        {
+            MySqlConnection? connection = null;
+            try
+            {
+                connection = new MySqlConnection(ConnectionString);
+                connection.Open();
+
+                MySqlCommand command = connection.CreateCommand();
+                command.CommandText = "UPDATE Scores "+
+                    "JOIN (" +
+                    "    SELECT Id, RANK() OVER (ORDER BY Time) as rnk " +
+                    "    FROM Scores " +
+                    ") AS ranked " +
+                    "ON Scores.Id = ranked.Id " +
+                    "SET Points = CASE " +
+                    "    WHEN ranked.rnk = 1 THEN 10 " +
+                    "    WHEN ranked.rnk = 2 THEN 6 " +
+                    "    WHEN ranked.rnk = 3 THEN 3 " +
+                    "    WHEN ranked.rnk = 4 THEN 1 " +
+                    "    ELSE 0 " +
+                    "END " +
+                    "WHERE Scores.Game = 1;";
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Echec de l'enregistrement: " + e.Message);
+            }
+        }
+
         public List<Score> CustomList(int? user, string? game, string cmd)
         {
             List<Score>? scores = new List<Score>();

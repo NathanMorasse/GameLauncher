@@ -64,14 +64,16 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
                     "and `Game` = (select `Id` from `games` where `Title` = @Game);";
             }
         }
-        public static string ScoreByUserAndGameCMD
+
+        public static string ScoresByUserCMD
         {
             get
             {
-                return "select `Id`, `User`, `Game`, `Category`, `Result`, `Time`, `Points`, `Date` " +
-                    "from `scores` " +
-                    "where `User` = @User " +
-                    "and `Game` = (select `Id` from `games` where `Title` = @Game);";
+                return "select `scores`.`Id`, `users`.`Username` as `User`, `scores`.`Game`, `scores`.`Category`, `scores`.`Result`, `scores`.`Time`, `scores`.`Points`, `scores`.`Date`"+
+                    "from `scores` "+
+                    "join `users`"+
+                    "on `scores`.`User` = `users`.`Id` "+
+                    "where `scores`.`User` = 2;";
             }
         }
 
@@ -118,7 +120,7 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
                     "from `scores` " +
                     "join `users` " +
                     "on `scores`.`User` = `users`.`Id` " +
-                    "where `users`.`Department` = @Department" +
+                    "where `users`.`Department` = @User " +
                     "group by `User` " +
                     "order by Sum(`Points`) desc;";
             }
@@ -128,13 +130,13 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
         {
             get
             {
-                return "select 1 as `Id`, `departments`.`Department`, null as `User`, 1 as `Game`, null as `Category`, null as `Result`, null as `Time`, Sum(`Points`) as `Points`, null as `Date`" +
+                return "select 1 as `Id`, `departments`.`Department` as `User`, 1 as `Game`, null as `Category`, null as `Result`, null as `Time`, Sum(`Points`) as `Points`, null as `Date`" +
                     "from `scores`" +
                     "join `users`" +
                     "on `scores`.`User` = `users`.`Id`" +
                     "join `departments`" +
                     "on `users`.`Department` = `departments`.`Id`" +
-                    "group by `User`" +
+                    "group by `departments`.`Department`" +
                     "order by Sum(`Points`) desc;";
             }
         }
@@ -155,6 +157,31 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
             }
         }
 
+        public static string GetDepartmentByUserId
+        {
+            get
+            {
+                return "select departments.Id, departments.Department " +
+                    "from departments " +
+                    "join users " +
+                    "on users.Department = departments.Id " +
+                    "where users.Id = @User;";
+            }
+        }
+
+        public static string BestUsersByGame
+        {
+            get
+            {
+                return "select  `scores`.`Id`, `users`.`Username` as `User`, `Game`, `Category`, `Result`, `Time`, Sum(`Points`) as `Points`, `Date` " +
+                    "from `scores` " +
+                    "join `users` " +
+                    "on `scores`.`User` = `users`.`Id` " +
+                    "group by `User` " +
+                    "where `Game` = (select `Id` from `games` where `Title` = @Game) " +
+                    "order by `Points`;";
+            }
+        }
 
         public static User UserFromReader(MySqlDataReader reader)
         {
@@ -192,7 +219,6 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
             {
                 date = DateTime.Now;
             }
-            user = reader["Department"].ToString() ?? user;
 
             return new Score(id, user, game, category, Result, time, points, date);
         }

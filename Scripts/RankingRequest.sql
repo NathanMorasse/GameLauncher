@@ -5,9 +5,11 @@ where `User` = 1
 and `Game` = (select `Id` from `games` where `Title` = "Sudoku");
 
 -- Get tous les scores d'un joueur
-select `Id`, `User`, `Game`, `Category`, `Result`, `Time`, `Points`, `Date` 
+select `scores`.`Id`, `users`.`Username` as `User`, `scores`.`Game`, `scores`.`Category`, `scores`.`Result`, `scores`.`Time`, `scores`.`Points`, `scores`.`Date` 
 from `scores` 
-where `User` = 1;
+join `users`
+on `scores`.`User` = `users`.`Id` 
+where `scores`.`User` = 2;
 
 -- Classement des joueurs selon le nombre de points global
 select  `scores`.`Id`, `users`.`Username` as `User`, `Game`, `Category`, `Result`, `Time`, Sum(`Points`) as `Points`, `Date`
@@ -70,13 +72,13 @@ group by `User`
 order by Sum(`Points`) desc;
 
 -- Get le classement des meilleurs départements par points Global
-select `departments`.`Department`, Sum(`Points`) as `Points`
+select 1 as `Id`, `departments`.`Department` as `User`, 1 as `Game`, null as `Category`, null as `Result`, null as `Time`, Sum(`Points`) as `Points`, null as `Date`
 from `scores`
 join `users`
 on `scores`.`User` = `users`.`Id`
 join `departments`
 on `users`.`Department` = `departments`.`Id`
-group by `User`
+group by `departments`.`Department`
 order by Sum(`Points`) desc;
 
 -- Get le classement des meilleurs départements par points pour un jeu
