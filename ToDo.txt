@@ -1,8 +1,9 @@
-Rendre l'interface de sudoku adaptive
-clear dans daily
+Password inputs
+Disable Global pour pas afficher pleins de fois le classement
 Afficher les Classements
-setter la difficulté dans reset
-
-Erreurs:
 	
+Tests unitaires
+Gestion d'exception
+Doc
+
 

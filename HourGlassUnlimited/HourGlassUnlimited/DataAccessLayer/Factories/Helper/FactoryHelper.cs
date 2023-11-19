@@ -85,7 +85,7 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
             }
         }
 
-        public static string Top3PointsUserCMD
+        public static string UsersRankedByPointsCMD
         {
             get
             {
@@ -94,8 +94,7 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
                     "join `users` " +
                     "on `scores`.`User` = `users`.`Id` " +
                     "group by `User` " +
-                    "order by Sum(`Points`) desc " +
-                    "limit 3;";
+                    "order by Sum(`Points`) desc;";
             }
         }
 
@@ -108,6 +107,51 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
                     "group by `User` " +
                     "order by Sum(`Points`) desc " +
                     "limit 1;";
+            }
+        }
+
+        public static string BestUsersFromDepartmentCMD
+        {
+            get
+            {
+                return "select  `scores`.`Id`, `users`.`Username` as `User`, `Game`, `Category`, `Result`, `Time`, Sum(`Points`) as `Points`, `Date` " +
+                    "from `scores` " +
+                    "join `users` " +
+                    "on `scores`.`User` = `users`.`Id` " +
+                    "where `users`.`Department` = @Department" +
+                    "group by `User` " +
+                    "order by Sum(`Points`) desc;";
+            }
+        }
+
+        public static string BestDepartmentsCMD
+        {
+            get
+            {
+                return "select 1 as `Id`, `departments`.`Department`, null as `User`, 1 as `Game`, null as `Category`, null as `Result`, null as `Time`, Sum(`Points`) as `Points`, null as `Date`" +
+                    "from `scores`" +
+                    "join `users`" +
+                    "on `scores`.`User` = `users`.`Id`" +
+                    "join `departments`" +
+                    "on `users`.`Department` = `departments`.`Id`" +
+                    "group by `User`" +
+                    "order by Sum(`Points`) desc;";
+            }
+        }
+
+        public static string BestDepartmentsByGameCMD
+        {
+            get
+            {
+                return "select `scores`.`Id`, `departments`.`Department`, Sum(`Points`) as `Points`" +
+                    "from `scores`"+
+                    "join `users`"+
+                    "on `scores`.`User` = `users`.`Id`"+
+                    "join `departments`"+
+                    "on `users`.`Department` = `departments`.`Id`"+
+                    "where `Game` = (select `Id` from `games` where `Title` = @Game)"+
+                    "group by `User`"+
+                    "order by Sum(`Points`) desc;";
             }
         }
 
@@ -132,14 +176,23 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
 
         public static Score ScoreFromReader(MySqlDataReader reader)
         {
-            int id = (int)reader["Id"];
+            int id = Convert.ToInt32(reader["Id"]);
             string user = reader["User"].ToString() ?? string.Empty;
-            int game = (int)reader["Game"];
+            int game = Convert.ToInt32(reader["Game"]);
             string category = reader["Category"].ToString() ?? string.Empty;
             string Result = reader["Result"].ToString() ?? string.Empty;
-            TimeSpan time = (TimeSpan)reader["Time"];
+            TimeSpan time;
+            if (!TimeSpan.TryParse(reader["Time"].ToString(), out time))
+            {
+                time = TimeSpan.Zero;
+            }
             int points = Convert.ToInt32(reader["Points"]);
-            DateTime date = (DateTime)reader["Date"];
+            DateTime date;
+            if (!DateTime.TryParse(reader["Date"].ToString(), out date))
+            {
+                date = DateTime.Now;
+            }
+            user = reader["Department"].ToString() ?? user;
 
             return new Score(id, user, game, category, Result, time, points, date);
         }

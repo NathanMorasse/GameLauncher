@@ -36,6 +36,10 @@ namespace HourGlassUnlimited.ViewModels
             {
                 GetGlobaleScores();
             }
+            else if (parameter.ToString() == "Personnelle")
+            {
+
+            }
             else
             {
                 GetGameScores(parameter.ToString());
@@ -51,6 +55,7 @@ namespace HourGlassUnlimited.ViewModels
             Categories = new List<string>();
 
             Categories.Add("Globale");
+            Categories.Add("Personnelle");
 
             foreach (string category in list)
             {
@@ -61,33 +66,18 @@ namespace HourGlassUnlimited.ViewModels
         private void GetGlobaleScores()
         {
             DAL dal = new DAL();
-            //Top3
-            List<Score> scores = dal.Scores.CustomList(null, null, FactoryHelper.Top3PointsUserCMD);
-
-            if (scores[0].Id > 0)
+            List<Score> topPointsScores = dal.Scores.CustomList(null, null, FactoryHelper.UsersRankedByPointsCMD);
+            if (topPointsScores[0].Id > 0)
             {
-                RankingSection Top3 = new RankingSection();
-                Top3.Title = "Top 3 des joueurs avec le plus de points";
-                Top3.Scores = new List<RankingItem>();
-
-                int cpt = 0;
-
-                foreach (Score item in scores)
-                {
-                    cpt++;
-
-                    RankingItem ri = new RankingItem();
-
-                    ri.PrimarySlot1 = cpt.ToString();
-                    ri.PrimarySlot2 = item.User;
-                    ri.PrimarySlot3 = item.Points.ToString() + "pts";
-
-                    Top3.Scores.Add(ri);
-                }
-
-                Sections.Add(Top3);
+                RankingSection topPointsSection = CreateSection(topPointsScores, "Classement des joueurs avec le plus de points");
+                Sections.Add(topPointsSection);
             }
 
+            List<Score> bestDepartmentsScore = dal.Scores.CustomList(null, null, FactoryHelper.BestDepartmentsCMD);
+            if (bestDepartmentsScore[0].Id > 0)
+            {
+                RankingSection bestDepartmentSection = CreateSection(bestDepartmentsScore, "Classement des départements avec le plus de points");
+            }
             ChangeValue("Sections");
         }
 
@@ -96,6 +86,30 @@ namespace HourGlassUnlimited.ViewModels
             Sections = new ObservableCollection<RankingSection>();
 
             ChangeValue("Sections");
+        }
+
+        private RankingSection CreateSection(List<Score> scores, string title)
+        {
+            RankingSection ranking = new RankingSection();
+            ranking.Title = title;
+            ranking.Scores = new List<RankingItem>();
+
+            int cpt = 0;
+
+            foreach (Score item in scores)
+            {
+                cpt++;
+
+                RankingItem ri = new RankingItem();
+
+                ri.PrimarySlot1 = cpt.ToString();
+                ri.PrimarySlot2 = item.User;
+                ri.PrimarySlot3 = item.Points.ToString() + "pts";
+
+                ranking.Scores.Add(ri);
+            }
+
+            return ranking;
         }
     }
 }
