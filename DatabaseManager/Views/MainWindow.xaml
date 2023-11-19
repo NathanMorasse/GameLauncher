@@ -12,27 +12,24 @@
         MinHeight="540">
     <Grid>
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="60"/>
-                <RowDefinition/>
-                <RowDefinition Height="60"/>
-            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"  MaxWidth="400"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Border Grid.Column="0" Grid.RowSpan="3">
-                <Expander ExpandDirection="Right" Background="#EBF3FF">
+            <Border Grid.Column="0" Background="#EBF3FF" CornerRadius="0 20 20 0" Padding="10">
+                <Expander ExpandDirection="Right">
                     <Grid Margin="0 0 10 0">
                         <StackPanel>
                             <TextBlock Text="Menu" FontSize="30" VerticalAlignment="Center" TextAlignment="Center" Margin="30 10" FontWeight="DemiBold"/>
                             <Border BorderThickness="0.5" BorderBrush="Black" Margin="20 0 20 10"/>
 
-                            <Button Grid.Column="0" Content="Locals" Height="50" Margin="0 10 0 0"/>
-                            <Button Grid.Column="1" Content="Ordinateurs" Height="50" Margin="0 10 0 0"/>
-                            <Button Grid.Column="3" Content="Périphériques" Height="50" Margin="0 10 0 0"/>
-                            <Button Grid.Column="4" Content="Départements" Height="50" Margin="0 10 0 0"/>
+                            <Button Content="Départements" Height="50" Margin="0 10 0 0"/>
+                            <Button Content="Locals" Height="50" Margin="0 10 0 0"/>
+                            <Button Content="Périodes" IsEnabled="False" Height="50" Margin="0 10 0 0"/>
+                            <Button Content="Ordinateurs" Height="50" Margin="0 10 0 0"/>
+                            <Button Content="Équipement réseaux" IsEnabled="False" Height="50" Margin="0 10 0 0"/>
+                            <Button Content="Mobilier" IsEnabled="False"  Height="50" Margin="0 10 0 0"/>
                         </StackPanel>
                     </Grid>
                 </Expander>
@@ -41,8 +38,21 @@
             <Border x:Name="Header" Grid.ColumnSpan="2" Grid.Row="0">
             </Border>
 
-            <Border x:Name="Body" Grid.Row="1">
-                <Frame x:Name="Display" Grid.Row="1" Grid.Column="1" NavigationUIVisibility="Hidden" Margin="10 50"></Frame>
+            <Border x:Name="Body" Grid.Column="1" Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Border Margin="50 0" CornerRadius="20" Background="#3F52E3">
+                        <TextBlock x:Name="PageTitle" Text="Départements" FontSize="30" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" Padding="15"/>
+                    </Border>
+
+                    <Border Grid.Row="1" Grid.Column="1" CornerRadius="20" Background="#EBF3FF" Margin="50 10 50 0">
+                        <Frame x:Name="Display" NavigationUIVisibility="Hidden" Margin="10 50"></Frame>
+                    </Border>
+                </Grid>
             </Border>
 
             <Border x:Name="Footer" Grid.ColumnSpan="2" Grid.Row="3">
