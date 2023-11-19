@@ -15,7 +15,7 @@ namespace DatabaseManager.Tools
         {
             MainWindow = new MainWindow();
             MainWindow.Show();
-            MainWindow.Display.NavigationService.Navigate(new Departments());
+            MainWindow.Display.NavigationService.Navigate(new DepartmentList());
         }
     }
 }
