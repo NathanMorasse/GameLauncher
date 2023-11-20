@@ -57,5 +57,42 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
             }
             return game;
         }
+
+        public GameBase GetById(int id)
+        {
+            GameBase? game = null;
+            MySqlConnection? connection = null;
+            MySqlDataReader? reader = null;
+
+            try
+            {
+                connection = new MySqlConnection(ConnectionString);
+                connection.Open();
+
+                MySqlCommand command = connection.CreateCommand();
+                command.CommandText = "SELECT * FROM games WHERE Id=@Id;";
+                command.Parameters.AddWithValue("@Id", id);
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    game = CreateFromReader(reader);
+                }
+
+                if (game == null)
+                {
+                    throw new Exception("Le jeu n'existe pas");
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Chargement du jeu impossible: " + e.Message);
+            }
+            finally
+            {
+                connection?.Close();
+            }
+            return game;
+        }
     }
 }
