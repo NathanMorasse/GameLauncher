@@ -1,7 +1,5 @@
-Password inputs
+erreurs de connexion
 Disable Global pour pas afficher pleins de fois le classement
-Afficher les Classements
-	
 Tests unitaires
 Gestion d'exception
 Doc

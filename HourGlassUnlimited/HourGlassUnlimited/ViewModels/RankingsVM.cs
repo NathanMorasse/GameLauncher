@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace HourGlassUnlimited.ViewModels
@@ -36,11 +37,11 @@ namespace HourGlassUnlimited.ViewModels
         private void GetScores_Execute(object parameter)
         {
             Sections.Clear();
-            if (parameter.ToString() == "Globale")
+            if (parameter.ToString() == "Global")
             {
                 GetGlobaleScores();
             }
-            else if (parameter.ToString() == "Personnelle")
+            else if (parameter.ToString() == "Personnel")
             {
                 GetPersonalScores();
             }
@@ -58,8 +59,8 @@ namespace HourGlassUnlimited.ViewModels
 
             Categories = new List<string>();
 
-            Categories.Add("Globale");
-            Categories.Add("Personnelle");
+            Categories.Add("Global");
+            Categories.Add("Personnel");
 
             foreach (string category in list)
             {
@@ -80,8 +81,15 @@ namespace HourGlassUnlimited.ViewModels
             List<Score> bestDepartmentsScore = dal.Scores.CustomList(null, null, FactoryHelper.BestDepartmentsCMD);
             if (bestDepartmentsScore[0].Id > 0)
             {
-                RankingSection bestDepartmentSection = CreateGlobalSection(bestDepartmentsScore, "Classement des départements avec le plus de points");
+                RankingSection bestDepartmentSection = CreateGlobalSection(bestDepartmentsScore, "Classement des départements");
                 Sections.Add(bestDepartmentSection);
+            }
+
+            List<Score> topScores = dal.Scores.CustomList(null, null, FactoryHelper.BestScores);
+            if (topScores[0].Id > 0)
+            {
+                RankingSection topScoresSection = CreateGlobalSection(topScores, "Top 5 des meilleurs scores");
+                Sections.Add(topScoresSection);
             }
 
             ChangeValue("Sections");
@@ -111,11 +119,32 @@ namespace HourGlassUnlimited.ViewModels
         private void GetGameScores(string game)
         {
             DAL dal = new DAL();
-            List<Score> topPointsScores = dal.Scores.CustomList(null, game, FactoryHelper.BestUsersByGame);
+            List<Score> topPointsScores = dal.Scores.CustomList(null, game, FactoryHelper.BestUsersByPointsAndGame);
             if (topPointsScores[0].Id > 0)
             {
-                RankingSection topPointsSection = CreateGlobalSection(topPointsScores, "Meilleurs scores");
+                RankingSection topPointsSection = CreateGlobalSection(topPointsScores, "Classement des joueurs avec le plus de points");
                 Sections.Add(topPointsSection);
+            }
+
+            List<Score> topScores = dal.Scores.CustomList(null, game, FactoryHelper.BestScoresByGame);
+            if (topScores[0].Id > 0)
+            {
+                RankingSection topScoresSection = CreateGameSection(topScores, "Meilleurs scores", false);
+                Sections.Add(topScoresSection);
+            }
+
+            List<Score> myScores = dal.Scores.CustomList(ConnectionHelper.User.Id, game, FactoryHelper.ScoresByUserAndGameCMD);
+            if (myScores[0].Id > 0)
+            {
+                RankingSection myScoresSection = CreateGameSection(myScores, "Mes scores de Sudoku", true);
+                Sections.Add(myScoresSection);
+            }
+
+            List<Score> bestDepartmentsScore = dal.Scores.CustomList(null, game, FactoryHelper.BestDepartmentsByGameCMD);
+            if (bestDepartmentsScore[0].Id > 0)
+            {
+                RankingSection bestDepartmentSection = CreateGlobalSection(bestDepartmentsScore, "Classement des départements");
+                Sections.Add(bestDepartmentSection);
             }
 
             ChangeValue("Sections");
@@ -164,6 +193,36 @@ namespace HourGlassUnlimited.ViewModels
                 GameBase game = dal.Games.GetById(item.GameId);
                 ri.PrimarySlot2 = game.Title;
                 ri.PrimarySlot3 = item.Points.ToString() + "pts";
+
+                ranking.Scores.Add(ri);
+            }
+
+            return ranking;
+        }
+
+        private RankingSection CreateGameSection(List<Score> scores, string title, bool isPersonalGame)
+        {
+            RankingSection ranking = new RankingSection();
+            ranking.Title = title;
+            ranking.Scores = new List<RankingItem>();
+
+            int cpt = 0;
+
+            foreach (Score item in scores)
+            {
+                cpt++;
+
+                RankingItem ri = new RankingItem();
+                ri.PrimarySlot1 = cpt.ToString();
+                if (isPersonalGame)
+                {
+                    ri.PrimarySlot2 = string.Empty;
+                }
+                else
+                {
+                    ri.PrimarySlot2 = item.User;
+                }
+                ri.PrimarySlot3 = item.Time.ToString();
 
                 ranking.Scores.Add(ri);
             }

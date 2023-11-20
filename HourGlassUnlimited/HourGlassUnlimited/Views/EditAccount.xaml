@@ -54,13 +54,13 @@
 
                         <StackPanel Grid.Row="3">
                             <Label Foreground="White">Mot de passe</Label>
-                            <TextBox Style="{StaticResource TextBoxStyle}"  Text="{Binding Password, Mode=TwoWay}"></TextBox>
+                            <PasswordBox PasswordChanged="PasswordBox_PasswordChanged" Style="{StaticResource PasswordBoxStyle}"></PasswordBox>
                             <TextBlock x:Name="Password_Alert" Visibility="Hidden"></TextBlock>
                         </StackPanel>
 
                         <StackPanel Grid.Row="4">
                             <Label Foreground="White">Confirmation du mot de passe</Label>
-                            <TextBox Style="{StaticResource TextBoxStyle}"  Text="{Binding Confirmation, Mode=TwoWay}"></TextBox>
+                            <PasswordBox PasswordChanged="PasswordBox_ConfirmationChanged" Style="{StaticResource PasswordBoxStyle}"></PasswordBox>
                             <TextBlock x:Name="Confirmation_Alert" Visibility="Hidden"></TextBlock>
                         </StackPanel>
 
@@ -72,7 +72,7 @@
 
                         <StackPanel Grid.Row="6">
                             <Label Foreground="White">Mot de passe actuel</Label>
-                            <TextBox Style="{StaticResource TextBoxStyle}"  Text="{Binding Current, Mode=TwoWay}"></TextBox>
+                            <PasswordBox PasswordChanged="PasswordBox_CurrentChanged" Style="{StaticResource PasswordBoxStyle}"></PasswordBox>
                             <TextBlock x:Name="Current_Alert" Visibility="Hidden"></TextBlock>
                         </StackPanel>
 

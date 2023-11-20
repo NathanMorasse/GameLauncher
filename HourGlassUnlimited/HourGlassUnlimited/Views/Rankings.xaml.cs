@@ -26,5 +26,29 @@ namespace HourGlassUnlimited.Views
             InitializeComponent();
             this.DataContext = new RankingsVM();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            EnableCategories(Categories);
+            Button button = (Button)sender;
+            button.IsEnabled = false;
+        }
+
+        private void EnableCategories(DependencyObject parent)
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, i);
+
+                if (child is Button button)
+                {
+                    button.IsEnabled = true;
+                }
+                else
+                {
+                    EnableCategories(child);
+                }
+            }
+        }
     }
 }

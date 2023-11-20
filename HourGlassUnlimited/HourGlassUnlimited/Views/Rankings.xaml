@@ -23,10 +23,10 @@
                 </Grid.ColumnDefinitions>
 
                 <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
-                    <ListBox ItemsSource="{Binding Categories}" Margin="10 0" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Stretch">
+                    <ListBox x:Name="Categories"  ItemsSource="{Binding Categories}" Margin="10 0" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Stretch">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <Button Style="{StaticResource StandardButton}" Content="{Binding}" Command="{Binding DataContext.GetScores, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" Height="50" Margin="0 0 0 10"></Button>
+                                <Button Click="Button_Click" Style="{StaticResource StandardButton}" Content="{Binding}" Command="{Binding DataContext.GetScores, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" Height="50" Margin="0 0 0 10"></Button>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>

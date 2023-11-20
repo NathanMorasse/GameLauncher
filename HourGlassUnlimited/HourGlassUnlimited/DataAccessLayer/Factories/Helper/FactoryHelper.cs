@@ -69,21 +69,26 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
         {
             get
             {
-                return "select `scores`.`Id`, `users`.`Username` as `User`, `scores`.`Game`, `scores`.`Category`, `scores`.`Result`, `scores`.`Time`, `scores`.`Points`, `scores`.`Date`"+
-                    "from `scores` "+
-                    "join `users`"+
-                    "on `scores`.`User` = `users`.`Id` "+
-                    "where `scores`.`User` = 2;";
+                return "select `scores`.`Id`, `users`.`Username` as `User`, `scores`.`Game`, `scores`.`Category`, `scores`.`Result`, `Time`, `scores`.`Points`, `scores`.`Date`" +
+                    "from `scores` " +
+                    "join `users` " +
+                    "on `scores`.`User` = `users`.`Id` " +
+                    "where `scores`.`User` = @User " +
+                    "order by Points desc;";
             }
         }
 
-        public static string ScoreByUserCMD
+        public static string ScoresByUserAndGameCMD
         {
             get
             {
-                return "select `Id`, `User`, `Game`, `Category`, `Result`, `Time`, `Points`, `Date` " +
+                return "select `scores`.`Id`, `users`.`Username` as `User`, `scores`.`Game`, `scores`.`Category`, `scores`.`Result`, `Time`, `scores`.`Points`, `scores`.`Date`" +
                     "from `scores` " +
-                    "where `User` = @User;";
+                    "join `users` " +
+                    "on `scores`.`User` = `users`.`Id` " +
+                    "where `scores`.`User` = @User " +
+                    "and `Game` = (select `Id` from `games` where `Title` = @Game) " +
+                    "order by `Time`;";
             }
         }
 
@@ -96,7 +101,7 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
                     "join `users` " +
                     "on `scores`.`User` = `users`.`Id` " +
                     "group by `User` " +
-                    "order by Sum(`Points`) desc;";
+                    "order by Sum(`Points`) desc, `Time`;";
             }
         }
 
@@ -107,7 +112,7 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
                 return "select  `Id`, `User`, `Game`, `Category`, `Result`, `Time`, Sum(`Points`) as `Points`, `Date` " +
                     "from `scores` " +
                     "group by `User` " +
-                    "order by Sum(`Points`) desc " +
+                    "order by Sum(`Points`) desc , `Time`" +
                     "limit 1;";
             }
         }
@@ -122,7 +127,7 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
                     "on `scores`.`User` = `users`.`Id` " +
                     "where `users`.`Department` = @User " +
                     "group by `User` " +
-                    "order by Sum(`Points`) desc;";
+                    "order by Sum(`Points`) desc, `Time`;";
             }
         }
 
@@ -137,7 +142,7 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
                     "join `departments`" +
                     "on `users`.`Department` = `departments`.`Id`" +
                     "group by `departments`.`Department`" +
-                    "order by Sum(`Points`) desc;";
+                    "order by Sum(`Points`) desc, `Time`;";
             }
         }
 
@@ -145,15 +150,15 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
         {
             get
             {
-                return "select `scores`.`Id`, `departments`.`Department`, Sum(`Points`) as `Points`" +
-                    "from `scores`"+
-                    "join `users`"+
-                    "on `scores`.`User` = `users`.`Id`"+
-                    "join `departments`"+
-                    "on `users`.`Department` = `departments`.`Id`"+
-                    "where `Game` = (select `Id` from `games` where `Title` = @Game)"+
-                    "group by `User`"+
-                    "order by Sum(`Points`) desc;";
+                return "select 1 as `Id`, `departments`.`Department` as `User`, 1 as `Game`, null as `Category`, null as `Result`, null as `Time`, Sum(`Points`) as `Points`, null as `Date`" +
+                    "from `scores`" +
+                    "join `users`" +
+                    "on `scores`.`User` = `users`.`Id`" +
+                    "join `departments`" +
+                    "on `users`.`Department` = `departments`.`Id`" +
+                    "where `Game` = (select `Id` from `games` where `Title` = @Game)" +
+                    "group by `departments`.`Department`" +
+                    "order by Sum(`Points`) desc, `Time`;";
             }
         }
 
@@ -169,7 +174,7 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
             }
         }
 
-        public static string BestUsersByGame
+        public static string BestUsersByPointsAndGame
         {
             get
             {
@@ -177,9 +182,36 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
                     "from `scores` " +
                     "join `users` " +
                     "on `scores`.`User` = `users`.`Id` " +
-                    "group by `User` " +
                     "where `Game` = (select `Id` from `games` where `Title` = @Game) " +
-                    "order by `Points`;";
+                    "group by `User` " +
+                    "order by `Points` desc, `Time`;";
+            }
+        }
+
+        public static string BestScoresByGame
+        {
+            get
+            {
+                return "select  `scores`.`Id`, `users`.`Username` as `User`, `Game`, `Category`, `Result`, Min(`Time`) as `Time`, Sum(`Points`) as `Points`, `Date` " +
+                    "from `scores` " +
+                    "join `users` " +
+                    "on `scores`.`User` = `users`.`Id` " +
+                    "where `Game` = (select `Id` from `games` where `Title` = @Game) " +
+                    "group by `User` " +
+                    "order by `Time`;";
+            }
+        }
+
+        public static string BestScores
+        {
+            get
+            {
+                return "select  `scores`.`Id`, `users`.`Username` as `User`, `Game`, `Category`, `Result`, `Time` , Points, `Date` " +
+                    "from `scores` " +
+                    "join `users` " +
+                    "on `scores`.`User` = `users`.`Id` " +
+                    "order by Points desc " +
+                    "limit 5;";
             }
         }
 

@@ -50,7 +50,7 @@
 
                 <StackPanel Grid.Row="3">
                     <Label Foreground="White">Mot de passe</Label>
-                    <TextBox Style="{StaticResource TextBoxStyle}"  Text="{Binding Password, Mode=OneWayToSource}"></TextBox>
+                    <PasswordBox PasswordChanged="PasswordBox_PasswordChanged" Style="{StaticResource PasswordBoxStyle}"></PasswordBox>
                     <TextBlock x:Name="Password_Alert" Visibility="Hidden"></TextBlock>
                 </StackPanel>
 
