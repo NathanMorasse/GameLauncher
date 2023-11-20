@@ -80,27 +80,66 @@
             </Border.Effect>
             <Grid Background="Transparent">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="1*"/>
+                    <RowDefinition MaxHeight="200"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition MaxHeight="375"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <Viewbox VerticalAlignment="Top" Grid.Row="0">
-                    <TextBlock x:Name="clock_text" Text="{Binding TimePassed, Mode=TwoWay}" Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="150"></TextBlock>
-                </Viewbox>
-                <Grid Grid.Row="1" Visibility="{Binding GameStatusVisibility}">
-                    <TextBlock Text="{Binding GameResult}" HorizontalAlignment="Center" Foreground="LightGray" VerticalAlignment="Center" FontSize="60" TextWrapping="Wrap" TextAlignment="Center"></TextBlock>
-                </Grid>
-                <Grid Grid.Row="2"></Grid>
-                <Grid Grid.Row="3" VerticalAlignment="Stretch">
+                <Border Grid.Row="0" Background="Transparent" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Margin="10" Padding="5">
+                    <Viewbox VerticalAlignment="Center" Grid.Row="0">
+                        <TextBlock x:Name="clock_text" Text="{Binding TimePassed, Mode=TwoWay}" Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="150"></TextBlock>
+                    </Viewbox>
+                </Border>
+
+                <Border Grid.Row="1" Visibility="{Binding GameStatusVisibility}" Background="Transparent" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Margin="10" Padding="5">
+                    <TextBlock Text="{Binding GameResult}" HorizontalAlignment="Center" Foreground="LightGray" VerticalAlignment="Center" FontSize="30" TextWrapping="Wrap" TextAlignment="Center"></TextBlock>
+                </Border>
+
+                <Border Grid.Row="2" Background="Transparent" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Margin="10">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="100"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Row="0" Grid.ColumnSpan="2" Background="Transparent" BorderBrush="Gray" BorderThickness="0 0 0 1">
+                                <TextBlock Text="Meilleurs scores" FontSize="30" TextAlignment="Center" Foreground="White"/>
+                            </Border>
+
+                            <TextBlock Grid.Row="1" Text="Globale" VerticalAlignment="Center" FontSize="30" TextAlignment="Center" Foreground="White"/>
+                            <Border Grid.Row="1" Grid.ColumnSpan="2" Background="Transparent" BorderBrush="Gray" BorderThickness="0 0 0 1"/>
+                            <Border Grid.Row="1" Background="Transparent" BorderBrush="Gray" Margin="0 20" BorderThickness="0 0 1 0"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Global}" VerticalAlignment="Center" FontSize="30" TextAlignment="Center" Foreground="White"/>
+
+                            <TextBlock Grid.Row="2" Text="Personnelle" VerticalAlignment="Center" FontSize="30" TextAlignment="Center" Foreground="White"/>
+                            <Border Grid.Row="2" Grid.ColumnSpan="2" Background="Transparent" BorderBrush="Gray" BorderThickness="0 0 0 1"/>
+                            <Border Grid.Row="2" Background="Transparent" BorderBrush="Gray" Margin="0 20" BorderThickness="0 0 1 0"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Personnal}" VerticalAlignment="Center" FontSize="30" TextAlignment="Center" Foreground="White"/>
+
+                            <TextBlock Grid.Row="3" Text="Quotidien" VerticalAlignment="Center" FontSize="30" TextAlignment="Center" Foreground="White"/>
+                            <Border Grid.Row="3" Background="Transparent" BorderBrush="Gray" Margin="0 20" BorderThickness="0 0 1 0"/>
+                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Daily}" VerticalAlignment="Center" FontSize="30" TextAlignment="Center" Foreground="White"/>
+                        </Grid>
+                    </ScrollViewer>
+                </Border>
+                
+                <Grid Grid.Row="3" VerticalAlignment="Bottom" Margin="10" Height="80">
                     <Grid x:Name="ButtonGrid">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
-                        <Button Name="ValidateButton" IsEnabled="{Binding CanValidate}" ToolTip="Valider votre grille" Grid.Column="0" Command="{Binding Validate}" Style="{StaticResource StandardButton}" Margin="5" HorizontalAlignment="Stretch" >Vérifier</Button>
-                        <Button Name="ResetButton" ToolTip="Redémarer une partie" Grid.Column="1" Command="{Binding Reset}" Style="{StaticResource StandardButton}" Margin="5" Width="100" HorizontalAlignment="Right" FontFamily="Segoe mdl2 assets">&#xE72C;</Button>
-                        <Button Name="ClearButton" Visibility="Hidden" Click="ClearButton_Click" ToolTip="Vider la grille une partie" Grid.Column="1" Style="{StaticResource StandardButton}" Margin="5" HorizontalAlignment="Right" FontFamily="Segoe mdl2 assets" Width="100">&#xE74D;</Button>
+                        <Button Name="ValidateButton" IsEnabled="{Binding CanValidate}" ToolTip="Valider votre grille" Grid.Column="0" Command="{Binding Validate}" Style="{StaticResource StandardButton}" Margin="0 0 5 0" HorizontalAlignment="Stretch" >Vérifier</Button>
+                        <Button Name="ResetButton" ToolTip="Redémarer une partie" Grid.Column="1" Command="{Binding Reset}" Style="{StaticResource StandardButton}" Margin="5 0 0 0" Width="80" HorizontalAlignment="Right" FontFamily="Segoe mdl2 assets">&#xE72C;</Button>
+                        <Button Name="ClearButton" Visibility="Hidden" Click="ClearButton_Click" ToolTip="Vider la grille une partie" Grid.Column="1" Style="{StaticResource StandardButton}" HorizontalAlignment="Right" FontFamily="Segoe mdl2 assets" Width="80">&#xE74D;</Button>
                     </Grid>
                 </Grid>
             </Grid>

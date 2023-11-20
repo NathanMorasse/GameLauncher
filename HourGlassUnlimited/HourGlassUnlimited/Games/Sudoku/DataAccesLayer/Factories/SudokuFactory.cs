@@ -21,6 +21,18 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
 {
     public class SudokuFactory : FactoryBase
     {
+        private string General = "select Min(`Time`) as `Time` " +
+            "from `scores` " +
+            "where `Game` = (select `Id` from `games` where `Title` = \"Sudoku\");";
+        private string Personnal = "select Min(`Time`) as `Time` " +
+            "from `scores` " +
+            "where `Game` = (select `Id` from `games` where `Title` = \"Sudoku\") " +
+            "and `User` = (select `Id` from `users` where `Username` = @User);";
+        private string Daily = "select Min(`Time`) as `Time` " +
+            "from `scores` " +
+            "where `Game` = (select `Id` from `games` where `Title` = \"Sudoku\") " +
+            "and date(`Date`) = CURDATE();";
+
         public static SudokuGame CreateFromSave(MySqlDataReader reader)
         {
             int id = (int)reader["Id"];
@@ -182,6 +194,63 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             {
                 connection?.Close();
             }
+        }
+
+        public List<string> GetBestTimes()
+        {
+            MySqlConnection? connection = null;
+            MySqlDataReader? reader = null;
+            List<string>? ranking = null;
+
+            try
+            {
+                ranking = new List<string>();
+                connection = new MySqlConnection(CnnStr);
+                connection.Open();
+
+                MySqlCommand command = connection.CreateCommand();
+                command.CommandText = General;
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string temp = reader["Time"].ToString() ?? string.Empty;
+                    ranking.Add(temp);
+                }
+                reader.Close();
+
+                command.CommandText = Personnal;
+                command.Parameters.AddWithValue("@User", ConnectionHelper.User.Username);
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string temp = reader["Time"].ToString() ?? string.Empty;
+                    ranking.Add(temp);
+                }
+                reader.Close();
+
+                command = connection.CreateCommand();
+                command.CommandText = Daily;
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string temp = reader["Time"].ToString() ?? string.Empty;
+                    ranking.Add(temp);
+                }
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Imposible d'avoir les temps : " + e.Message);
+            }
+            finally
+            {
+                connection?.Close();
+            }
+
+            return ranking;
         }
     }
 }
