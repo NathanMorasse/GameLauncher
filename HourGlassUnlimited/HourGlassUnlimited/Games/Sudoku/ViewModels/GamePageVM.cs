@@ -22,10 +22,32 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
     public class GamePageVM : VM
     {
         private string _timePassed;
-        private string _gameStatusVisibility = "Hidden";
+        private string _gameStatusVisibility = "Collapsed";
         private string _gameResult;
         private bool _canValidate = false;
         private SudokuGame _currentGame;
+
+        public string Global { get; set; }
+        public string Personnal { get; set; }
+        public string Daily { get; set; }
+
+        public GamePageVM()
+        {
+            GetRanking();
+
+            Validate = new CommandLink(Validate_Execute, Validate_CanExecute);
+            Reset = new CommandLink(Reset_Execute, Reset_CanExecute);
+        }
+
+        private void GetRanking()
+        {
+            SudokuDAL dal = new SudokuDAL();
+            List<string> temp = dal.SudokuFact.GetBestTimes();
+
+            Global = temp[0];
+            Personnal = temp[1];
+            Daily = temp[2];
+        }
 
         public SudokuGame CurrentGame
         {
@@ -155,7 +177,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                 Board newBoard = await sudokuDal.SudokuFact.GenerateBoard(CurrentGame.GameBoard.Difficulty, false, string.Empty);
                 newGame.GameBoard = newBoard;
                 SudokuNavigator.GamePage.SetGame(newGame);
-                GameStatusVisibility = "Hidden";
+                GameStatusVisibility = "Collapsed";
                 await Task.Delay(100);
                 await SudokuNavigator.GamePage.ResetGrid();
             }
@@ -227,12 +249,6 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         public bool CompletedDaily()
         {
             return false;
-        }
-
-        public GamePageVM()
-        {
-            Validate = new CommandLink(Validate_Execute, Validate_CanExecute);
-            Reset = new CommandLink(Reset_Execute, Reset_CanExecute);
         }
     }
 }
