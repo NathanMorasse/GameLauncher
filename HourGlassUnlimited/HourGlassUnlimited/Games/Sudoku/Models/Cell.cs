@@ -12,6 +12,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Models
     public class Cell: INotifyPropertyChanged
     {
         private Int64 _value;
+        private Int64[] _notes;
         public Int64 Value
         {
             get { return _value; }
@@ -23,6 +24,19 @@ namespace HourGlassUnlimited.Games.Sudoku.Models
                     OnPropertyChanged(nameof(Value));
                     GamePageVM vm = (GamePageVM)SudokuNavigator.GamePage.DataContext;
                     vm.CanValidate = vm.IsBoardFilled();
+                }
+            }
+        }
+
+        public Int64[] Notes
+        {
+            get { return _notes; }
+            set
+            {
+                if (_notes != value)
+                {
+                    _notes = value;
+                    OnPropertyChanged(nameof(Notes));
                 }
             }
         }

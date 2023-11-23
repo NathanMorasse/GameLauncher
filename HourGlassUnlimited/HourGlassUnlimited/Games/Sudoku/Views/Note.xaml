@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="HourGlassUnlimited.Games.Sudoku.Views.Note"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HourGlassUnlimited.Games.Sudoku.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="85" d:DesignWidth="85">
+    <Button x:Name="NoteContainer" Style="{StaticResource NoteButton}" BorderThickness="0" KeyDown="NoteContainer_KeyDown" Focusable="True" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"  Click="Note_Clicked">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="One" Visibility="Hidden" Click="Number_Click" Background="Transparent" BorderThickness="0" HorizontalContentAlignment="Center" Foreground="LightGray" Grid.Row="0" Grid.Column="0">1</Button>
+            <Button x:Name="Two" Visibility="Hidden" Click="Number_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Foreground="LightGray" Grid.Row="0" Grid.Column="1">2</Button>
+            <Button x:Name="Three" Visibility="Hidden" Click="Number_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Foreground="LightGray" Grid.Row="0" Grid.Column="2">3</Button>
+            <Button x:Name="Four" Visibility="Hidden" Click="Number_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Foreground="LightGray" Grid.Row="1" Grid.Column="0">4</Button>
+            <Button x:Name="Five" Visibility="Hidden" Click="Number_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Foreground="LightGray" Grid.Row="1" Grid.Column="1">5</Button>
+            <Button x:Name="Six" Visibility="Hidden" Click="Number_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Foreground="LightGray" Grid.Row="1" Grid.Column="2">6</Button>
+            <Button x:Name="Seven" Visibility="Hidden" Click="Number_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Foreground="LightGray" Grid.Row="2" Grid.Column="0">7</Button>
+            <Button x:Name="Eight" Visibility="Hidden" Click="Number_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Foreground="LightGray" Grid.Row="2" Grid.Column="1">8</Button>
+            <Button x:Name="Nine" Visibility="Hidden" Click="Number_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Foreground="LightGray" Grid.Row="2" Grid.Column="2">9</Button>
+        </Grid>
+    </Button>
+</UserControl>
