@@ -59,7 +59,7 @@
                                 </ItemsControl.ItemsPanel>
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate x:Name="DataTemplateCell">
-                                        <TextBox Visibility="Hidden" x:Name="CellInput" Style="{StaticResource SudokuCase}" Text="{Binding Value, Mode=TwoWay, Converter={StaticResource CellZeroConverter}}" PreviewTextInput="TextBox_PreviewTextInput" Margin="0" Width="85" Height="85"/>
+                                        <TextBox x:Name="CellInput" Style="{StaticResource SudokuCase}" Text="{Binding Value, Mode=TwoWay, Converter={StaticResource CellZeroConverter}}" PreviewTextInput="TextBox_PreviewTextInput" Margin="0" Width="85" Height="85"/>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
@@ -73,8 +73,8 @@
                 </ItemsControl>
             </Grid>
         </Viewbox>
-        
-        <Viewbox Grid.Column="1" Grid.Row="1">
+
+        <Viewbox x:Name="NotesViewBox" Grid.Column="1" Grid.Row="1" Visibility="Hidden">
             <Grid x:Name="NotesGrid" Grid.Row="1" Grid.Column="1" Background="Transparent">
                 <ItemsControl x:Name="NotesRow" ItemsSource="{Binding CurrentBoard}" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <ItemsControl.ItemTemplate>
@@ -164,10 +164,12 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
                         <Button Name="ValidateButton" IsEnabled="{Binding CanValidate}" ToolTip="Valider votre grille" Grid.Column="0" Command="{Binding Validate}" Style="{StaticResource StandardButton}" Margin="0 0 5 0" HorizontalAlignment="Stretch" >Vérifier</Button>
-                        <Button Name="ResetButton" ToolTip="Redémarer une partie" Grid.Column="1" Command="{Binding Reset}" Style="{StaticResource StandardButton}" Margin="5 0 0 0" Width="80" HorizontalAlignment="Right" FontFamily="Segoe mdl2 assets">&#xE72C;</Button>
-                        <Button Name="ClearButton" Visibility="Hidden" Click="ClearButton_Click" ToolTip="Vider la grille une partie" Grid.Column="1" Style="{StaticResource StandardButton}" HorizontalAlignment="Right" FontFamily="Segoe mdl2 assets" Width="80">&#xE74D;</Button>
+                        <ToggleButton Name="NotesButton" Checked="NotesButton_Checked" Unchecked="NotesButton_Unchecked" ToolTip="Activer les notes" Grid.Column="1" Style="{StaticResource StandardToggleButton}" HorizontalAlignment="Right" FontFamily="Segoe mdl2 assets" Width="80">&#xE70F;</ToggleButton>
+                        <Button Name="ResetButton" ToolTip="Redémarer une partie" Grid.Column="2" Command="{Binding Reset}" Style="{StaticResource StandardButton}" Margin="5 0 0 0" Width="80" HorizontalAlignment="Right" FontFamily="Segoe mdl2 assets">&#xE72C;</Button>
+                        <Button Name="ClearButton" Visibility="Hidden" Click="ClearButton_Click" ToolTip="Vider la grille une partie" Grid.Column="2" Style="{StaticResource StandardButton}" HorizontalAlignment="Right" FontFamily="Segoe mdl2 assets" Width="80">&#xE74D;</Button>
                     </Grid>
                 </Grid>
             </Grid>

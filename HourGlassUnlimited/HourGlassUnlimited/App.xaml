@@ -38,18 +38,51 @@
             </Setter>
         </Style>
 
+        <Style x:Key="StandardToggleButton" TargetType="ToggleButton">
+            <Setter Property="Background" Value="#0039e6" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border Name="border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="10">
+                            <Border Name="border_over" Background="Transparent" BorderBrush="Transparent" CornerRadius="10">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Background" Value="LightGray" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="Gray" />
+                                <Setter Property="Foreground" Value="DarkGray" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border_over" Property="Background" Value="#002db3" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style x:Key="NoteButton" TargetType="{x:Type Button}">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="0">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="BorderBrush" TargetName="border" Value="Blue"/>
-                                <Setter Property="BorderThickness" Value="3"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#0039e6"/>
+                                <Setter Property="BorderThickness" TargetName="border" Value="1"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

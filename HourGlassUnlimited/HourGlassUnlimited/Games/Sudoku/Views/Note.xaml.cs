@@ -79,20 +79,12 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
 
         private void Number_Click(object sender, RoutedEventArgs e)
         {
-            Visibility visible = (sender as Button).Visibility;
-            if (visible == Visibility.Visible)
-            {
-                visible = Visibility.Hidden;
-            }
-            else
-            {
-                visible = Visibility.Visible;
-            }
+            (sender as Button).Visibility = ToggleVisibility((sender as Button).Visibility);
         }
 
         private Visibility ToggleVisibility(Visibility visibility)
         {
-            return visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+            return visibility == Visibility.Visible ? Visibility.Hidden : Visibility.Visible;
         }
     }
 }

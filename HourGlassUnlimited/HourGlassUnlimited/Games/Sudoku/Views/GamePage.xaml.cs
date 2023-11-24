@@ -12,6 +12,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -169,6 +170,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
             ClearBoard(BoardGrid);
+            ClearNotes(NotesGrid);
         }
 
         private void ClearBoard(DependencyObject parent)
@@ -186,6 +188,45 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
                     ClearBoard(child);
                 }
             }
+        }
+
+        private void ClearNotes(DependencyObject parent)
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, i);
+
+                if (child is Note note)
+                {
+                    note.One.Visibility = Visibility.Hidden;
+                    note.Two.Visibility = Visibility.Hidden;
+                    note.Three.Visibility = Visibility.Hidden;
+                    note.Four.Visibility = Visibility.Hidden;
+                    note.Five.Visibility = Visibility.Hidden;
+                    note.Six.Visibility = Visibility.Hidden;
+                    note.Seven.Visibility = Visibility.Hidden;
+                    note.Eight.Visibility = Visibility.Hidden;
+                    note.Nine.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    ClearNotes(child);
+                }
+            }
+        }
+
+        private void NotesButton_Checked(object sender, RoutedEventArgs e)
+        {
+            NotesViewBox.Visibility = NotesViewBox.Visibility == Visibility.Visible ? Visibility.Hidden : Visibility.Visible;
+            NotesButton.Background = new SolidColorBrush(Color.FromRgb(0,45,179));
+            NotesButton.Foreground = Brushes.Black;
+        }
+
+        private void NotesButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            NotesViewBox.Visibility = NotesViewBox.Visibility == Visibility.Visible ? Visibility.Hidden : Visibility.Visible;
+            NotesButton.Background = new SolidColorBrush(Color.FromRgb(0, 57, 230));
+            NotesButton.Foreground = Brushes.LightGray;
         }
     }
 }
