@@ -148,7 +148,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
                 command.Parameters.AddWithValue("@Game", game.Id);
                 command.Parameters.AddWithValue("@Save", boardString);
                 command.Parameters.AddWithValue("@Time", timespan);
-                command.Parameters.AddWithValue("@Date", DateTime.Now);
+                command.Parameters.AddWithValue("@Date", game.Date);
                 command.Parameters.AddWithValue("@IsDaily", game.IsDaily);
                 command.Parameters.AddWithValue("@Seed", game.GameBoard.Seed);
 

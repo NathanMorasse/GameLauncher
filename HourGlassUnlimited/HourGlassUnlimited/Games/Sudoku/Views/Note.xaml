@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:HourGlassUnlimited.Games.Sudoku.Views"
              mc:Ignorable="d" 
              d:DesignHeight="85" d:DesignWidth="85">
-    <Button x:Name="NoteContainer" Style="{StaticResource NoteButton}" BorderThickness="0" KeyDown="NoteContainer_KeyDown" Focusable="True" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"  Click="Note_Clicked">
+    <RadioButton x:Name="NoteContainer" GroupName="Notes" Style="{StaticResource NoteButton}" KeyDown="NoteContainer_KeyDown" Focusable="True" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"  Checked="Note_Checked" Unchecked="Note_Unchecked">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -29,5 +29,5 @@
             <Button x:Name="Eight" Visibility="Hidden" Background="Transparent" BorderThickness="0" HorizontalContentAlignment="Center" Foreground="LightGray" Grid.Row="2" Grid.Column="1">8</Button>
             <Button x:Name="Nine" Visibility="Hidden" Background="Transparent" BorderThickness="0" HorizontalContentAlignment="Center" Foreground="LightGray" Grid.Row="2" Grid.Column="2">9</Button>
         </Grid>
-    </Button>
+    </RadioButton>
 </UserControl>

@@ -1,7 +1,9 @@
-erreurs de connexion
-Disable Global pour pas afficher pleins de fois le classement
-Tests unitaires
+Enregistrer les notes
+Cacher les notes quand il y a un chiffre
 Gestion d'exception
+erreurs de connexion
+Tests unitaires
 Doc
+
 
 

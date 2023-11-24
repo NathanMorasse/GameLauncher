@@ -50,7 +50,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
             if (savedGame == null || savedGame.Date.Date != DateTime.Now.Date)
             {
                 GameBase gameBase = dal.Games.GetByTitle("Sudoku");
-                SudokuGame game = new SudokuGame { Id = gameBase.Id, Title = gameBase.Title };
+                SudokuGame game = new SudokuGame { Id = gameBase.Id, Title = gameBase.Title, Date= DateTime.Now};
                 game.IsDaily = true;
                 game.GameBoard = await sudokuDal.SudokuFact.GenerateBoard("hard", true, string.Empty);
                 SudokuNavigator.GamePage.SetGame(game);
@@ -74,7 +74,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
             DAL dal = new DAL();
             SudokuDAL sudokuDAL = new SudokuDAL();
             GameBase gameBase = dal.Games.GetByTitle("Sudoku");
-            SudokuGame game = new SudokuGame { Id=gameBase.Id, Title=gameBase.Title };
+            SudokuGame game = new SudokuGame { Id=gameBase.Id, Title=gameBase.Title, Date= DateTime.Now};
             if (parameter.ToString() == "continue")
             {
                 if (NewGame != null)

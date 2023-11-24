@@ -44,6 +44,8 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
             dt.Tick += new EventHandler(dt_Tick);
             dt.Interval = new TimeSpan(0, 0, 0, 0, 1);
             this.Loaded += GamePage_Loaded;
+            NavigationCommands.BrowseBack.InputGestures.Clear();
+            NavigationCommands.BrowseForward.InputGestures.Clear();
         }
 
         private async void GamePage_Loaded(object sender, RoutedEventArgs e)
@@ -92,7 +94,14 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
             vm.CurrentBoard = game.GameBoard.Grid;
             if (game.TimePassed != null)
             {
-                startTime = TimeSpan.Parse(game.TimePassed);
+                if (game.IsDaily)
+                {
+                    startTime = DateTime.Now - game.Date;
+                }
+                else
+                {
+                    startTime = TimeSpan.Parse(game.TimePassed);
+                }
             }
             sw.Start();
             dt.Start();
