@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DatabaseManager.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,20 +11,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DatabaseManager.ViewModels;
 
 namespace DatabaseManager.Views
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour RoomList.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RoomList : Page
     {
-        public MainWindow()
+        public RoomList()
         {
             InitializeComponent();
-            this.DataContext = new MainWindowVM();
+            this.DataContext = new RoomVM();
         }
     }
 }

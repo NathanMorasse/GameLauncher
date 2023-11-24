@@ -14,5 +14,7 @@ namespace DatabaseManager.Models.Base
         {
             Id = id;
         }
+
+        public ModelTemplate() { }
     }
 }

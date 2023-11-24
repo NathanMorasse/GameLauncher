@@ -19,5 +19,7 @@ namespace DatabaseManager.Models
             Building = building;
             Floor = floor;
         }
+
+        public Department() { }
     }
 }

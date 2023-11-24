@@ -1,5 +1,6 @@
 ﻿using DatabaseManager.DataAccessLayer.Factories.Helpers;
 using DatabaseManager.Models;
+using DatabaseManager.ViewModels;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -42,6 +43,86 @@ namespace DatabaseManager.DataAccessLayer.Factories
             }
 
             return departments;
+        }
+
+        public void Create(Department item)
+        {
+            MySqlConnection? connection = null;
+
+            try
+            {
+                connection = new MySqlConnection(DAL.ConnectionString);
+                connection.Open();
+
+                MySqlCommand command = connection.CreateCommand();
+                command.CommandText = Commands.CreateDepartment;
+                command.Parameters.AddWithValue("@Name", item.Name);
+                command.Parameters.AddWithValue("@Building", item.Building.ToUpper());
+                command.Parameters.AddWithValue("@Floor", item.Floor);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection?.Close();
+            }
+        }
+
+        public void Update(Department item)
+        {
+            MySqlConnection? connection = null;
+
+            try
+            {
+                connection = new MySqlConnection(DAL.ConnectionString);
+                connection.Open();
+
+                MySqlCommand command = connection.CreateCommand();
+                command.CommandText = Commands.UpdateDepartment;
+                command.Parameters.AddWithValue("@Name", item.Name);
+                command.Parameters.AddWithValue("@Building", item.Building.ToUpper());
+                command.Parameters.AddWithValue("@Floor", item.Floor);
+                command.Parameters.AddWithValue("@Id", item.Id);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection?.Close();
+            }
+        }
+
+        public void Delete(int id) 
+        {
+            MySqlConnection? connection = null;
+
+            try
+            {
+                connection = new MySqlConnection(DAL.ConnectionString);
+                connection.Open();
+
+                MySqlCommand command = connection.CreateCommand();
+                command.CommandText = Commands.DeleteDepartment;
+                command.Parameters.AddWithValue("@Id", id);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection?.Close();
+            }
         }
     }
 }

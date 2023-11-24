@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DatabaseManager.ViewModels;
 
 namespace DatabaseManager.Views
 {
@@ -23,6 +24,81 @@ namespace DatabaseManager.Views
         public DepartmentList()
         {
             InitializeComponent();
+            this.DataContext = new DepartmentVM();
+        }
+        private void Department_ListBox_Selected(object sender, RoutedEventArgs e)
+        {
+            if (Edit_PopUp.Visibility != Visibility.Collapsed)
+            {
+                Edit_PopUp.Visibility = Visibility.Collapsed;
+            }
+
+            if (Confirm_Delete.Visibility != Visibility.Collapsed)
+            {
+                Confirm_Delete.Visibility = Visibility.Collapsed;
+            }
+
+            See_Button.IsEnabled = true;
+            Edit_Button.IsEnabled = true;
+            Delete_Button.IsEnabled = true;
+        }
+
+        private void Delete_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (Edit_PopUp.Visibility != Visibility.Collapsed)
+            {
+                Edit_PopUp.Visibility = Visibility.Collapsed;
+            }
+
+            if (Confirm_Delete.Visibility != Visibility.Visible)
+            {
+                Confirm_Delete.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void Edit_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (Confirm_Delete.Visibility != Visibility.Collapsed)
+            {
+                Confirm_Delete.Visibility = Visibility.Collapsed;
+            }
+
+            if (Edit_PopUp.Visibility != Visibility.Visible)
+            {
+                Edit_PopUp.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void Confirm_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (Confirm_Delete.Visibility != Visibility.Collapsed)
+            {
+                Confirm_Delete.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void Save_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (Edit_PopUp.Visibility != Visibility.Collapsed)
+            {
+                Edit_PopUp.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void Building_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[a-zA-Z]"))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Floor_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[0-9.\\-]+"))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

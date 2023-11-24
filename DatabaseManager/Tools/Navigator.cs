@@ -10,12 +10,19 @@ namespace DatabaseManager.Tools
     public static class Navigator
     {
         public static MainWindow MainWindow { get; set; }
+        public static DepartmentList DepartmentListView { get; set; }
 
         public static void Start()
         {
             MainWindow = new MainWindow();
             MainWindow.Show();
-            MainWindow.Display.NavigationService.Navigate(new DepartmentList());
+            DepartmentList();
+        }
+
+        public static void DepartmentList()
+        {
+            DepartmentListView = new DepartmentList();
+            MainWindow.Display.NavigationService.Navigate(DepartmentListView);
         }
     }
 }
