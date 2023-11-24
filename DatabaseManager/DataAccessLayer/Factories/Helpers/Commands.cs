@@ -8,7 +8,7 @@ namespace DatabaseManager.DataAccessLayer.Factories.Helpers
 {
     public static class Commands
     {
-        public static string GetAllDepartments
+        public static string AllDepartments
         {
             get
             {
@@ -36,6 +36,49 @@ namespace DatabaseManager.DataAccessLayer.Factories.Helpers
             get
             {
                 return "delete from `department` where `Id` = @Id;";
+            }
+        }
+
+        public static string AllRooms
+        {
+            get
+            {
+                return "select * from `room`;";
+            }
+        }
+
+        public static string AllRoomsByDepartment
+        {
+            get
+            {
+                return "select * from `room` where `Department_Id` = @Department;";
+            }
+        }
+
+        public static string CreateRoom
+        {
+            get
+            {
+                return "insert into `room` (`Department_Id`, `Number`, `HasAirConditioning`, `HasHeaters`, `HasPhone`, `HasMovementSensor`) " +
+                    "values (@Department, @Number, @AC, @Heaters, @Phone, @Sensor);";
+            }
+        }
+
+        public static string UpdateRoom
+        {
+            get
+            {
+                return "update `room` " +
+                    "set `Department_Id` = @Department, `Number` = @Number, `HasAirConditioning` = @AC, `HasHeaters` = @Heaters, `HasPhone` = @Phone, `HasMovementSensor` = @Sensor " +
+                    "where `Id` = @Id;";
+            }
+        }
+
+        public static string DeleteRoom
+        {
+            get
+            {
+                return "delete from `room` where `Id` = @Id;";
             }
         }
 

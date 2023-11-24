@@ -13,6 +13,7 @@ namespace DatabaseManager.DataAccessLayer
 
 
         private static DepartmentFactory? _DepartmentFactory;
+        private static RoomFactory? _RoomFactory;
 
 
         public static DepartmentFactory? Departments
@@ -25,6 +26,19 @@ namespace DatabaseManager.DataAccessLayer
                 }
 
                 return _DepartmentFactory;
+            }
+        }
+
+        public static RoomFactory? Rooms
+        {
+            get
+            {
+                if (_RoomFactory == null)
+                {
+                    _RoomFactory = new RoomFactory();
+                }
+
+                return _RoomFactory;
             }
         }
     }

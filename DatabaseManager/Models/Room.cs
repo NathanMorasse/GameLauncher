@@ -25,5 +25,10 @@ namespace DatabaseManager.Models
             HasPhone = phone;
             HasMovementSensor = sensor;
         }
+
+        public Room()
+        {
+
+        }
     }
 }

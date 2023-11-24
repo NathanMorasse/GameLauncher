@@ -11,6 +11,7 @@ namespace DatabaseManager.Tools
     {
         public static MainWindow MainWindow { get; set; }
         public static DepartmentList DepartmentListView { get; set; }
+        public static RoomList RoomListView { get; set; }
 
         public static void Start()
         {
@@ -23,6 +24,12 @@ namespace DatabaseManager.Tools
         {
             DepartmentListView = new DepartmentList();
             MainWindow.Display.NavigationService.Navigate(DepartmentListView);
+        }
+
+        public static void RoomList()
+        {
+            RoomListView = new RoomList();
+            MainWindow.Display.NavigationService.Navigate(RoomListView);
         }
     }
 }

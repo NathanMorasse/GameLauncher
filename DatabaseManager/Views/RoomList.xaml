@@ -42,20 +42,20 @@
                             </Grid.ColumnDefinitions>
 
                             <TextBlock Grid.Column="0" Text="Nom :" VerticalAlignment="Center"/>
-                            <TextBox Text="{Binding Create.Name, Mode=OneWayToSource}" Grid.Column="1" Margin="10 0" MaxLength="50"/>
+                            <TextBox Grid.Column="1" Margin="10 0" MaxLength="50"/>
 
                             <TextBlock Grid.Column="2" Text="Bâtiment :" VerticalAlignment="Center"/>
-                            <TextBox Text="{Binding Create.Building, Mode=OneWayToSource}" PreviewTextInput="Building_PreviewTextInput" MaxLength="1" Grid.Column="3" Margin="10 0"/>
+                            <TextBox MaxLength="1" Grid.Column="3" Margin="10 0"/>
 
                             <TextBlock Grid.Column="4" Text="Étage :" VerticalAlignment="Center"/>
-                            <TextBox Text="{Binding Create.Floor, Mode=OneWayToSource}" PreviewTextInput="Floor_PreviewTextInput" MaxLength="1" Grid.Column="5" Margin="10 0"/>
+                            <TextBox MaxLength="1" Grid.Column="5" Margin="10 0"/>
 
-                            <Button Grid.Column="6" Command="{Binding NewDepartment}" Content="Ajouter" HorizontalAlignment="Right" Width="120" Height="35"/>
+                            <Button Grid.Column="6" Content="Ajouter" HorizontalAlignment="Right" Width="120" Height="35"/>
                         </Grid>
                     </Expander>
                 </Border>
 
-                <ListBox x:Name="Department_ListBox" SelectionChanged="Department_ListBox_Selected" Grid.Row="1" HorizontalContentAlignment="Stretch" BorderBrush="Transparent" Background="Transparent" ItemsSource="{Binding Departments}" SelectedItem="{Binding Selected}">
+                <ListBox x:Name="Department_ListBox" Grid.Row="1" HorizontalContentAlignment="Stretch" BorderBrush="Transparent" Background="Transparent" ItemsSource="{Binding Rooms}" SelectedItem="{Binding Selected}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Border BorderBrush="Gray" BorderThickness="0 0 0 1" Padding="10">
@@ -65,7 +65,7 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
 
-                                    <TextBlock Grid.Column="0" Text="{Binding Name}" Foreground="Black" TextTrimming="CharacterEllipsis" FontSize="30" TextAlignment="Left" VerticalAlignment="Center"/>
+                                    <TextBlock Grid.Column="0" Foreground="Black" TextTrimming="CharacterEllipsis" FontSize="30" TextAlignment="Left" VerticalAlignment="Center"/>
 
                                     <TextBlock Grid.Column="1" Foreground="Black" TextTrimming="CharacterEllipsis" FontSize="30" TextAlignment="Right" VerticalAlignment="Center">
                                         <TextBlock.Text>
@@ -94,15 +94,15 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock FontSize="20" Grid.Column="0" Text="Nom :" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Selected.Name, Mode=TwoWay}" MaxLength="50" FontSize="20" Grid.Column="1" Margin="10 0"/>
+                        <TextBox MaxLength="50" FontSize="20" Grid.Column="1" Margin="10 0"/>
 
                         <TextBlock FontSize="20" Grid.Column="2" Text="Bâtiment :" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Selected.Building, Mode=TwoWay}" PreviewTextInput="Building_PreviewTextInput" FontSize="20" Grid.Column="3" Margin="10 0"/>
+                        <TextBox FontSize="20" Grid.Column="3" Margin="10 0"/>
 
                         <TextBlock FontSize="20" Grid.Column="4" Text="Étage :" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Selected.Floor, Mode=TwoWay}" PreviewTextInput="Floor_PreviewTextInput" FontSize="20" Grid.Column="5" Margin="10 0"/>
+                        <TextBox FontSize="20" Grid.Column="5" Margin="10 0"/>
 
-                        <Button Grid.Column="6" Click="Save_Button_Click" Command="{Binding EditDepartment}" Content="Modifier" HorizontalAlignment="Right" Width="120" Height="35"/>
+                        <Button Grid.Column="6" Content="Modifier" HorizontalAlignment="Right" Width="120" Height="35"/>
                     </Grid>
                 </Border>
 
@@ -116,9 +116,9 @@
 
                         <TextBlock VerticalAlignment="Center" Grid.Column="0" Text="Confirmez-vous la suppresion?" FontSize="20"/>
 
-                        <Button Click="Confirm_Button_Click" Command="{Binding DeleteDepartment}" Grid.Column="1" Content="Oui" HorizontalAlignment="Right" Width="80" Height="35" Margin="0 0 10 0"/>
+                        <Button Grid.Column="1" Content="Oui" HorizontalAlignment="Right" Width="80" Height="35" Margin="0 0 10 0"/>
 
-                        <Button Click="Confirm_Button_Click" Grid.Column="2" Content="Non" HorizontalAlignment="Right" Width="80" Height="35"/>
+                        <Button Grid.Column="2" Content="Non" HorizontalAlignment="Right" Width="80" Height="35"/>
                     </Grid>
                 </Border>
 
@@ -130,8 +130,8 @@
                     </Grid.ColumnDefinitions>
 
                     <Button x:Name="See_Button" IsEnabled="False" Grid.Column="0" Content="Locals associés" Height="35" Margin="0 0 10 0"/>
-                    <Button x:Name="Edit_Button" Command="{Binding EditPopUp}" Click="Edit_Button_Click" IsEnabled="False" Grid.Column="1" Content="Modifier" Height="35" Margin="0 0 10 0"/>
-                    <Button x:Name="Delete_Button" Click="Delete_Button_Click" IsEnabled="False" Grid.Column="2" Content="Supprimer" Height="35"/>
+                    <Button x:Name="Edit_Button" IsEnabled="False" Grid.Column="1" Content="Modifier" Height="35" Margin="0 0 10 0"/>
+                    <Button x:Name="Delete_Button" IsEnabled="False" Grid.Column="2" Content="Supprimer" Height="35"/>
                 </Grid>
             </Grid>
         </Border>
