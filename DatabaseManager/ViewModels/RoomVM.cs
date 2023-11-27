@@ -29,14 +29,22 @@ namespace DatabaseManager.ViewModels
 
             set
             {
-                _RawNumber = value.Substring(2);
+                if(value.Length > 4)
+                    _RawNumber = value.Substring(2);
+                else
+                    _RawNumber = value;
             } 
         }
 
         public ICommand EditPopUp { get; set; }
+        public ICommand NewRoom { get; set; }
+        public ICommand DeleteRoom { get; set; }
+        public ICommand EditRoom { get; set; }
+        public ICommand SeeRoom { get; set; }
 
         public RoomVM()
         {
+            Create = new Room();
             Rooms = DAL.Rooms.All();
 
             List<Department> temp = DAL.Departments.All();
@@ -48,6 +56,10 @@ namespace DatabaseManager.ViewModels
             }
 
             this.EditPopUp = new CommandLink(EditPopUp_Execute, Dummy_CanExecute);
+            this.NewRoom = new CommandLink(NewRoom_Execute, Dummy_CanExecute);
+            this.DeleteRoom = new CommandLink(DeleteRoom_Execute, Dummy_CanExecute);
+            this.EditRoom = new CommandLink(EditRoom_Execute, Dummy_CanExecute);
+            this.SeeRoom = new CommandLink(SeeRoom_Execute, Dummy_CanExecute);
         }
 
         private void EditPopUp_Execute(object parameter)
@@ -56,6 +68,37 @@ namespace DatabaseManager.ViewModels
 
             ChangeValue("Selected");
             ChangeValue("RawNumber");
+        }
+
+        private void NewRoom_Execute(object parameter)
+        {
+            DAL.Rooms.Create(Create);
+
+            Rooms = DAL.Rooms.All();
+            ChangeValue("Rooms");
+        }
+
+        private void DeleteRoom_Execute(object parameter)
+        {
+            DAL.Rooms.Delete(Selected.Id);
+
+            Rooms = DAL.Rooms.All();
+            ChangeValue("Rooms");
+        }
+
+        private void EditRoom_Execute(object parameter)
+        {
+            int convert = int.Parse(RawNumber);
+
+            DAL.Rooms.Update(Selected, convert);
+
+            Rooms = DAL.Rooms.All();
+            ChangeValue("Rooms");
+        }
+
+        private void SeeRoom_Execute(object parameter)
+        {
+            Navigator.RoomDetail();
         }
     }
 }

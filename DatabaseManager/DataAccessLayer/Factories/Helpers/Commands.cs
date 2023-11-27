@@ -67,7 +67,7 @@ namespace DatabaseManager.DataAccessLayer.Factories.Helpers
             get
             {
                 return "insert into `room` (`Department_Id`, `Number`, `HasAirConditioning`, `HasHeaters`, `HasPhone`, `HasMovementSensor`) " +
-                    "values (@Department, @Number, @AC, @Heaters, @Phone, @Sensor);";
+                    "values ((select `Id` from `department` where `Name` = @Department), @Number, @AC, @Heaters, @Phone, @Sensor);";
             }
         }
 
@@ -76,7 +76,7 @@ namespace DatabaseManager.DataAccessLayer.Factories.Helpers
             get
             {
                 return "update `room` " +
-                    "set `Department_Id` = @Department, `Number` = @Number, `HasAirConditioning` = @AC, `HasHeaters` = @Heaters, `HasPhone` = @Phone, `HasMovementSensor` = @Sensor " +
+                    "set `Department_Id` = (select `Id` from `department` where `Name` = @Department), `Number` = @Number, `HasAirConditioning` = @AC, `HasHeaters` = @Heaters, `HasPhone` = @Phone, `HasMovementSensor` = @Sensor " +
                     "where `Id` = @Id;";
             }
         }
