@@ -54,6 +54,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         {
             SudokuDAL dal = new SudokuDAL();
             GamePageVM vm = (GamePageVM)SudokuNavigator.GamePage.DataContext;
+            vm.CurrentGame.GameBoard.Notes = SudokuNavigator.GamePage.GetNotesString();
             if (!vm.CurrentGame.IsDaily)
             {
                 if (MessageBox.Show("Voulez-vous sauvegarder la partie en cours?",
@@ -69,7 +70,5 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                 dal.SudokuFact.SaveGame(vm.CurrentGame, vm.TimePassed);
             }
         }
-
-
     }
 }

@@ -35,6 +35,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
         TimeSpan startTime = TimeSpan.Zero;
         GamePageVM vm;
         bool isDailyCompletedChecked = false;
+        List<Note> notesObjects = new List<Note>();
 
         public GamePage()
         {
@@ -105,6 +106,102 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
             }
             sw.Start();
             dt.Start();
+        }
+
+        public void LoadNotes(string notes)
+        {
+            if (notes != null && notes != String.Empty)
+            {
+                GetAllNotes(NotesGrid);
+                string[] notesBoard = notes.Split('\u003B');
+                for (int i = 0; i < notesBoard.Length; i++)
+                {
+                    if (notesBoard[i].Contains("1"))
+                    {
+                        notesObjects[i].One.Visibility = Visibility.Visible;
+                    }
+                    if (notesBoard[i].Contains("2"))
+                    {
+                        notesObjects[i].Two.Visibility = Visibility.Visible;
+                    }
+                    if (notesBoard[i].Contains("3"))
+                    {
+                        notesObjects[i].Three.Visibility = Visibility.Visible;
+                    }
+                    if (notesBoard[i].Contains("4"))
+                    {
+                        notesObjects[i].Four.Visibility = Visibility.Visible;
+                    }
+                    if (notesBoard[i].Contains("5"))
+                    {
+                        notesObjects[i].Five.Visibility = Visibility.Visible;
+                    }
+                    if (notesBoard[i].Contains("6"))
+                    {
+                        notesObjects[i].Six.Visibility = Visibility.Visible;
+                    }
+                    if (notesBoard[i].Contains("7"))
+                    {
+                        notesObjects[i].Seven.Visibility = Visibility.Visible;
+                    }
+                    if (notesBoard[i].Contains("8"))
+                    {
+                        notesObjects[i].Eight.Visibility = Visibility.Visible;
+                    }
+                    if (notesBoard[i].Contains("9"))
+                    {
+                        notesObjects[i].Nine.Visibility = Visibility.Visible;
+                    }
+                }
+            }
+        }
+
+        public string GetNotesString()
+        {
+            string notesString = "";
+            GetAllNotes(NotesGrid);
+            for (int i = 0; i < notesObjects.Count(); i++)
+            {
+                if (notesObjects[i].One.Visibility == Visibility.Visible)
+                {
+                    notesString = notesString + "1";
+                }
+                if (notesObjects[i].Two.Visibility == Visibility.Visible)
+                {
+                    notesString = notesString + "2";
+                }
+                if (notesObjects[i].Three.Visibility == Visibility.Visible)
+                {
+                    notesString = notesString + "3";
+                }
+                if (notesObjects[i].Four.Visibility == Visibility.Visible)
+                {
+                    notesString = notesString + "4";
+                }
+                if (notesObjects[i].Five.Visibility == Visibility.Visible)
+                {
+                    notesString = notesString + "5";
+                }
+                if (notesObjects[i].Six.Visibility == Visibility.Visible)
+                {
+                    notesString = notesString + "6";
+                }
+                if (notesObjects[i].Seven.Visibility == Visibility.Visible)
+                {
+                    notesString = notesString + "7";
+                }
+                if (notesObjects[i].Eight.Visibility == Visibility.Visible)
+                {
+                    notesString = notesString + "8";
+                }
+                if (notesObjects[i].Nine.Visibility == Visibility.Visible)
+                {
+                    notesString = notesString + "9";
+                }
+
+                notesString = notesString + ";";
+            }
+            return notesString;
         }
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -220,6 +317,23 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
                 else
                 {
                     ClearNotes(child);
+                }
+            }
+        }
+
+        private void GetAllNotes(DependencyObject parent)
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, i);
+
+                if (child is Note note)
+                {
+                    notesObjects.Add(note);
+                }
+                else
+                {
+                    GetAllNotes(child);
                 }
             }
         }

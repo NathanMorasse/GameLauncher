@@ -143,7 +143,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
 
 
                 MySqlCommand command = connection.CreateCommand();
-                command.CommandText = "INSERT INTO saves(User, Game, Save, Time, Date, IsDaily, Seed) VALUES(@User, @Game, @Save, @Time, @Date, @IsDaily, @Seed);";
+                command.CommandText = "INSERT INTO saves(User, Game, Save, Time, Date, IsDaily, Seed, Notes) VALUES(@User, @Game, @Save, @Time, @Date, @IsDaily, @Seed, @Notes);";
                 command.Parameters.AddWithValue("@User", ConnectionHelper.User.Id);
                 command.Parameters.AddWithValue("@Game", game.Id);
                 command.Parameters.AddWithValue("@Save", boardString);
@@ -151,6 +151,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
                 command.Parameters.AddWithValue("@Date", game.Date);
                 command.Parameters.AddWithValue("@IsDaily", game.IsDaily);
                 command.Parameters.AddWithValue("@Seed", game.GameBoard.Seed);
+                command.Parameters.AddWithValue("@Notes", game.GameBoard.Notes);
 
                 command.ExecuteNonQuery();
             }

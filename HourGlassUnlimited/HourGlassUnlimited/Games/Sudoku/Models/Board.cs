@@ -12,6 +12,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Models
     {
         public string Seed { get; set; }
         public string Difficulty  { get; set; }
+        public string Notes { get; set; }
         public ObservableCollection<ObservableCollection<Cell>> Grid { get; set; } = new ObservableCollection<ObservableCollection<Cell>>();
         public Board() { }
     }

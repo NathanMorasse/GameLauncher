@@ -65,6 +65,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                 await Task.Delay(100);
                 GamePageVM vm = (GamePageVM)SudokuNavigator.GamePage.DataContext;
                 vm.LoadSavedCells(temp.Grid);
+                SudokuNavigator.GamePage.LoadNotes(savedGame.GameBoard.Notes);
             }
         }
 
@@ -87,6 +88,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                     await Task.Delay(100);
                     GamePageVM vm = (GamePageVM)SudokuNavigator.GamePage.DataContext;
                     vm.LoadSavedCells(temp.Grid);
+                    SudokuNavigator.GamePage.LoadNotes(game.GameBoard.Notes);
                 }
             }
             else

@@ -42,6 +42,7 @@ create table `Saves` (
 `Date` datetime not null,
 `Seed` varchar(255),
 `IsDaily` bool not null,
+`Notes` varchar(1000),
 primary key (Id),
 foreign key (`User`) references Users(Id),
 foreign key (`Game`) references Games(Id)
