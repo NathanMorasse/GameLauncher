@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DatabaseManager.ViewModels;
 
 namespace DatabaseManager.Views
 {
@@ -23,6 +24,7 @@ namespace DatabaseManager.Views
         public RoomDetail()
         {
             InitializeComponent();
+            this.DataContext = new RoomDetailVM();
         }
     }
 }

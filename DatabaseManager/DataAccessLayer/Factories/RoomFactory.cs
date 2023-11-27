@@ -108,7 +108,7 @@ namespace DatabaseManager.DataAccessLayer.Factories
             }
         }
 
-        public void Update(Room item)
+        public void Update(Room item, int rawNumber)
         {
             MySqlConnection? connection = null;
 
@@ -120,7 +120,7 @@ namespace DatabaseManager.DataAccessLayer.Factories
                 MySqlCommand command = connection.CreateCommand();
                 command.CommandText = Commands.UpdateRoom;
                 command.Parameters.AddWithValue("@Department", item.Department);
-                command.Parameters.AddWithValue("@Number", item.Number);
+                command.Parameters.AddWithValue("@Number", rawNumber);
                 command.Parameters.AddWithValue("@AC", item.HasAirConditioning);
                 command.Parameters.AddWithValue("@Heaters", item.HasHeaters);
                 command.Parameters.AddWithValue("@Phone", item.HasPhone);
