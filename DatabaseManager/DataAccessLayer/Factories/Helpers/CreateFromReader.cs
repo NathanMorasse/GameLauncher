@@ -23,9 +23,9 @@ namespace DatabaseManager.DataAccessLayer.Factories.Helpers
         public static Room Room(MySqlDataReader reader)
         {
             int id = (int)reader["Id"];
-            int department = (int)reader["Department_Id"];
+            string department = reader["Department_Id"].ToString() ?? string.Empty;
 
-            int number = (int)reader["Number"];
+            string number = reader["Number"].ToString() ?? string.Empty;
             bool ac = (bool)reader["HasAirConditioning"];
             bool heater = (bool)reader["HasHeaters"];
             bool phone = (bool)reader["HasPhone"];

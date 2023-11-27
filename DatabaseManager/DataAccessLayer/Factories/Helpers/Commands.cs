@@ -43,7 +43,10 @@ namespace DatabaseManager.DataAccessLayer.Factories.Helpers
         {
             get
             {
-                return "select * from `room`;";
+                return "select `room`.`Id`, `department`.`Name` as `Department_Id`, concat(`department`.`Building`,\"-\",`room`.`Number`) as `Number`, `room`.`HasAirConditioning`, `room`.`HasHeaters`, `room`.`HasPhone`, `room`.`HasMovementSensor` " +
+                    "from `room` " +
+                    "join `department` " +
+                    "on `room`.`Department_Id` = `department`.`Id`;";
             }
         }
 
@@ -51,7 +54,11 @@ namespace DatabaseManager.DataAccessLayer.Factories.Helpers
         {
             get
             {
-                return "select * from `room` where `Department_Id` = @Department;";
+                return "select `room`.`Id`, `department`.`Name` as `Department_Id`, concat(`department`.`Building`,\"-\",`room`.`Number`) as `Number`, `room`.`HasAirConditioning`, `room`.`HasHeaters`, `room`.`HasPhone`, `room`.`HasMovementSensor` " +
+                    "from `room` " +
+                    "join `department` " +
+                    "on `room`.`Department_Id` = `department`.`Id` " +
+                    "where `Department_Id` = @Department;";
             }
         }
 

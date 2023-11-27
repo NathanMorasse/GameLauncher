@@ -89,7 +89,7 @@ namespace DatabaseManager.DataAccessLayer.Factories
 
                 MySqlCommand command = connection.CreateCommand();
                 command.CommandText = Commands.CreateRoom;
-                command.Parameters.AddWithValue("@Department", item.Department_Id);
+                command.Parameters.AddWithValue("@Department", item.Department);
                 command.Parameters.AddWithValue("@Number", item.Number);
                 command.Parameters.AddWithValue("@AC", item.HasAirConditioning);
                 command.Parameters.AddWithValue("@Heaters", item.HasHeaters);
@@ -119,7 +119,7 @@ namespace DatabaseManager.DataAccessLayer.Factories
 
                 MySqlCommand command = connection.CreateCommand();
                 command.CommandText = Commands.UpdateRoom;
-                command.Parameters.AddWithValue("@Department", item.Department_Id);
+                command.Parameters.AddWithValue("@Department", item.Department);
                 command.Parameters.AddWithValue("@Number", item.Number);
                 command.Parameters.AddWithValue("@AC", item.HasAirConditioning);
                 command.Parameters.AddWithValue("@Heaters", item.HasHeaters);

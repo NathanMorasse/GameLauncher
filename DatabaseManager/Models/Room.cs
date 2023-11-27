@@ -9,16 +9,16 @@ namespace DatabaseManager.Models
 {
     public class Room : ModelTemplate
     {
-        public int Department_Id { get; set; }
-        public int Number { get; set; }
+        public string Department { get; set; }
+        public string Number { get; set; }
         public bool HasAirConditioning { get; set; }
         public bool HasHeaters { get; set; }
         public bool HasPhone { get; set; }
         public bool HasMovementSensor { get; set; }
 
-        public Room(int id, int department, int number, bool ac, bool heaters, bool phone, bool sensor) : base(id)
+        public Room(int id, string department, string number, bool ac, bool heaters, bool phone, bool sensor) : base(id)
         {
-            Department_Id = department;
+            Department = department;
             Number = number;
             HasAirConditioning = ac;
             HasHeaters = heaters;
