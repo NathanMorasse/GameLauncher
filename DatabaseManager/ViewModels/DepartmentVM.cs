@@ -2,6 +2,7 @@
 using DatabaseManager.Models;
 using DatabaseManager.Tools;
 using DatabaseManager.ViewModels.Base;
+using DatabaseManager.ViewModels.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace DatabaseManager.ViewModels
         public ICommand EditDepartment { get; set; }
         public ICommand EditPopUp { get; set; }
         public ICommand DeleteDepartment { get; set; }
-        public ICommand SeeDepartment { get; set; }
+        public ICommand SeeDepartmentRooms { get; set; }
 
         public DepartmentVM() 
         {
@@ -34,7 +35,7 @@ namespace DatabaseManager.ViewModels
             this.EditDepartment = new CommandLink(EditDepartment_Execute, Dummy_CanExecute);
             this.EditPopUp = new CommandLink(EditPopUp_Execute, Dummy_CanExecute);
             this.DeleteDepartment = new CommandLink(DeleteDepartment_Execute, Dummy_CanExecute);
-            this.SeeDepartment = new CommandLink(SeeDepartment_Execute, Dummy_CanExecute);
+            this.SeeDepartmentRooms = new CommandLink(SeeDepartmentRooms_Execute, Dummy_CanExecute);
         }
 
         private void AllDepartment_Execute(object parameter)
@@ -74,9 +75,10 @@ namespace DatabaseManager.ViewModels
             ChangeValue("Departments");
         }
 
-        private void SeeDepartment_Execute(object parameter)
+        private void SeeDepartmentRooms_Execute(object parameter)
         {
-            
+            Statics.TargetedDepartment = Selected;
+            Navigator.DepartmentRoomList();
         }
     }
 }

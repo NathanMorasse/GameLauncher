@@ -2,6 +2,7 @@
 using DatabaseManager.Models;
 using DatabaseManager.Tools;
 using DatabaseManager.ViewModels.Base;
+using DatabaseManager.ViewModels.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -98,6 +99,7 @@ namespace DatabaseManager.ViewModels
 
         private void SeeRoom_Execute(object parameter)
         {
+            Statics.TargetedRoom = Selected;
             Navigator.RoomDetail();
         }
     }
