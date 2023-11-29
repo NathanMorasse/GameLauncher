@@ -78,15 +78,15 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
                     Nine.Visibility = ToggleVisibility(Nine.Visibility);
                     break;
                 case Key.Back:
-                    One.Visibility = ToggleVisibility(One.Visibility);
-                    Two.Visibility = ToggleVisibility(Two.Visibility);
-                    Three.Visibility = ToggleVisibility(Three.Visibility);
-                    Four.Visibility = ToggleVisibility(Four.Visibility);
-                    Five.Visibility = ToggleVisibility(Five.Visibility);
-                    Six.Visibility = ToggleVisibility(Six.Visibility);
-                    Seven.Visibility = ToggleVisibility(Seven.Visibility);
-                    Eight.Visibility = ToggleVisibility(Eight.Visibility);
-                    Nine.Visibility = ToggleVisibility(Nine.Visibility);
+                    One.Visibility = Visibility.Hidden;
+                    Two.Visibility = Visibility.Hidden;
+                    Three.Visibility = Visibility.Hidden;
+                    Four.Visibility = Visibility.Hidden;
+                    Five.Visibility = Visibility.Hidden;
+                    Six.Visibility = Visibility.Hidden;
+                    Seven.Visibility = Visibility.Hidden;
+                    Eight.Visibility = Visibility.Hidden;
+                    Nine.Visibility = Visibility.Hidden;
                     break;
                 default:
                     break;

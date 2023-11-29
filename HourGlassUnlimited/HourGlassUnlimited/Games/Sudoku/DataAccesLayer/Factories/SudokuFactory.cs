@@ -41,6 +41,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             string boardString = reader["Save"].ToString() ?? string.Empty;
             Board board = BoardEncoder.DecodeBoard(boardString);
             board.Seed = reader["Seed"].ToString() ?? string.Empty;
+            board.Notes = reader["Notes"].ToString() ?? string.Empty;
             bool isDaily = reader["IsDaily"].ToString() == "1";
             DateTime date = DateTime.Parse(reader["Date"].ToString());
 
@@ -55,7 +56,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             return new SudokuGame() { Id = id, Title = title};
         }
 
-        public async Task<Board> GenerateBoard(string difficulty, bool isDaily, string paramSeed)
+        public async Task<Board> GenerateBoard(string difficulty, bool isDaily, string paramSeed, string notes)
         {
             if (isDaily)
             {
@@ -89,6 +90,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
                     Board board = BoardEncoder.DecodeBoard(boardString);
                     board.Seed = data.seed;
                     board.Difficulty = data.difficulty;
+                    board.Notes = notes;
                     return board;
                 }
             }
@@ -176,7 +178,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
                 connection.Open();
 
                 MySqlCommand command = connection.CreateCommand();
-                command.CommandText = "SELECT games.Id, games.Title, saves.Save, saves.Seed, saves.Time, saves.IsDaily, saves.Date FROM saves INNER JOIN games ON saves.Game=games.Id WHERE Game = 1 AND User = @User AND IsDaily = @IsDaily ORDER BY Date DESC LIMIT 1;";
+                command.CommandText = "SELECT games.Id, games.Title, saves.Save, saves.Seed, saves.Time, saves.IsDaily, saves.Date, saves.Notes FROM saves INNER JOIN games ON saves.Game=games.Id WHERE Game = 1 AND User = @User AND IsDaily = @IsDaily ORDER BY Date DESC LIMIT 1;";
                 command.Parameters.AddWithValue("@User", ConnectionHelper.User.Id);
                 command.Parameters.AddWithValue("@IsDaily", isdaily);
 
