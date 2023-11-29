@@ -1,4 +1,3 @@
-Enregistrer les notes
 Cacher les notes quand il y a un chiffre
 Gestion d'exception
 erreurs de connexion
@@ -7,3 +6,11 @@ Doc
 
 
 
+
+
+ON Notes button checked: 
+	find pos of cell
+	 if not 0:
+		DisableNote(pos of cell)
+
+DisableNote

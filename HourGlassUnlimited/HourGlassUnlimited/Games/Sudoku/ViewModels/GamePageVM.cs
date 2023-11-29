@@ -3,17 +3,12 @@ using HourGlassUnlimited.Games.Sudoku.Models;
 using HourGlassUnlimited.Games.Sudoku.DataAccesLayer;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using HourGlassUnlimited.Games.Sudoku.Tools;
 using System.Windows.Input;
 using HourGlassUnlimited.Tools;
-using System.Diagnostics;
-using System.Windows.Threading;
 using System.Windows;
-using System.Windows.Controls;
 using HourGlassUnlimited.Models;
 using HourGlassUnlimited.DataAccessLayer;
 
@@ -178,7 +173,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                 DAL dal = new DAL();
                 GameBase game = dal.Games.GetByTitle("Sudoku");
                 SudokuGame newGame = new SudokuGame { Id=game.Id, Title=game.Title };
-                Board newBoard = await sudokuDal.SudokuFact.GenerateBoard(CurrentGame.GameBoard.Difficulty, false, string.Empty);
+                Board newBoard = await sudokuDal.SudokuFact.GenerateBoard(CurrentGame.GameBoard.Difficulty, false, string.Empty, "");
                 newGame.GameBoard = newBoard;
                 SudokuNavigator.GamePage.SetGame(newGame);
                 GameStatusVisibility = "Collapsed";
@@ -186,6 +181,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                 await SudokuNavigator.GamePage.ResetGrid();
             }
         }
+
 
         public bool IsBoardFilled()
         {

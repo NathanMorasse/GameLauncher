@@ -36,6 +36,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
         GamePageVM vm;
         bool isDailyCompletedChecked = false;
         List<Note> notesObjects = new List<Note>();
+        int notesCursor = 0;
 
         public GamePage()
         {
@@ -287,7 +288,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
 
                 if (child is TextBox textBox && textBox.IsEnabled)
                 {
-                    textBox.Text = String.Empty;
+                    textBox.Text = string.Empty;
                 }
                 else
                 {
@@ -338,11 +339,45 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
             }
         }
 
+        public void DisableNote(int position)
+        {
+            notesCursor = 0;
+            FindNoteToDisable(NotesGrid, position);
+        }
+
+        public void FindNoteToDisable(DependencyObject parent, int positionToDisable)
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, i);
+
+                if (child is Note note )
+                {
+                    if (notesCursor == positionToDisable)
+                    {
+                        note.Visibility = Visibility.Hidden;
+                    }
+                    notesCursor++;
+                }
+                else
+                {
+                    FindNoteToDisable(child, positionToDisable);
+                }
+            }
+        }
+
         private void NotesButton_Checked(object sender, RoutedEventArgs e)
         {
             NotesViewBox.Visibility = NotesViewBox.Visibility == Visibility.Visible ? Visibility.Hidden : Visibility.Visible;
             NotesButton.Background = new SolidColorBrush(Color.FromRgb(0,45,179));
             NotesButton.Foreground = Brushes.Black;
+
+            ItemCollection row = ItemControlRow.Items;
+            ItemCollection notesRow = NotesRow.Items;
+            if (true)
+            {
+
+            }
         }
 
         private void NotesButton_Unchecked(object sender, RoutedEventArgs e)

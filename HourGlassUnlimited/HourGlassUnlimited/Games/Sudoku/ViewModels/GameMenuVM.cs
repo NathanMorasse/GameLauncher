@@ -52,14 +52,14 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                 GameBase gameBase = dal.Games.GetByTitle("Sudoku");
                 SudokuGame game = new SudokuGame { Id = gameBase.Id, Title = gameBase.Title, Date= DateTime.Now};
                 game.IsDaily = true;
-                game.GameBoard = await sudokuDal.SudokuFact.GenerateBoard("hard", true, string.Empty);
+                game.GameBoard = await sudokuDal.SudokuFact.GenerateBoard("hard", true, string.Empty, string.Empty);
                 SudokuNavigator.GamePage.SetGame(game);
                 SudokuNavigator.GamePageView();
             }
             else
             {
                 Board temp = savedGame.GameBoard;
-                savedGame.GameBoard = await sudokuDal.SudokuFact.GenerateBoard("hard", savedGame.IsDaily, savedGame.GameBoard.Seed);
+                savedGame.GameBoard = await sudokuDal.SudokuFact.GenerateBoard("hard", savedGame.IsDaily, savedGame.GameBoard.Seed, savedGame.GameBoard.Notes);
                 SudokuNavigator.GamePage.SetGame(savedGame);
                 SudokuNavigator.GamePageView();
                 await Task.Delay(100);
@@ -82,7 +82,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                 {
                     game = NewGame;
                     Board temp = NewGame.GameBoard;
-                    game.GameBoard = await sudokuDAL.SudokuFact.GenerateBoard(game.GameBoard.Difficulty, game.IsDaily, game.GameBoard.Seed);
+                    game.GameBoard = await sudokuDAL.SudokuFact.GenerateBoard(game.GameBoard.Difficulty, game.IsDaily, game.GameBoard.Seed, game.GameBoard.Notes);
                     SudokuNavigator.GamePage.SetGame(game);
                     SudokuNavigator.GamePageView();
                     await Task.Delay(100);
@@ -99,7 +99,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                 }
                 else
                 {
-                    game.GameBoard = await sudokuDAL.SudokuFact.GenerateBoard(parameter.ToString(), false, string.Empty);
+                    game.GameBoard = await sudokuDAL.SudokuFact.GenerateBoard(parameter.ToString(), false, string.Empty, string.Empty);
                     SudokuNavigator.GamePage.SetGame(game);
                     SudokuNavigator.GamePageView();
                 }
