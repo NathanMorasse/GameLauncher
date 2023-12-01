@@ -52,7 +52,7 @@
                             <TextBlock Grid.Column="4" Text="Étage :" VerticalAlignment="Center"/>
                             <TextBox Text="{Binding Create.Floor, Mode=OneWayToSource}" PreviewTextInput="Floor_PreviewTextInput" MaxLength="1" Grid.Column="5" Margin="10 0"/>
 
-                            <Button Grid.Column="6" Command="{Binding NewDepartment}" Content="Ajouter" HorizontalAlignment="Right" Width="120" Height="35"/>
+                            <Button Click="Remove_Error" Grid.Column="6" Command="{Binding NewDepartment}" Content="Ajouter" HorizontalAlignment="Right" Width="120" Height="35"/>
                         </Grid>
                     </Expander>
                 </Border>
@@ -121,6 +121,20 @@
                         <Button Click="Confirm_Button_Click" Command="{Binding DeleteDepartment}" Grid.Column="1" Content="Oui" HorizontalAlignment="Right" Width="80" Height="35" Margin="0 0 10 0"/>
 
                         <Button Click="Confirm_Button_Click" Grid.Column="2" Content="Non" HorizontalAlignment="Right" Width="80" Height="35"/>
+                    </Grid>
+                </Border>
+
+                <Border x:Name="ErrorPopUp" Grid.Row="3" Background="#ff6666" Padding="10" CornerRadius="10" Margin="0 0 0 10" Visibility="Collapsed">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock x:Name="ErrorPopUpText" VerticalAlignment="Center" Grid.Column="0" Text="erreur" FontSize="20"/>
+ 
+                        <Button Click="Remove_Error" Grid.Column="2" Content="Ok" HorizontalAlignment="Right" Width="80" Height="35"/>
                     </Grid>
                 </Border>
 

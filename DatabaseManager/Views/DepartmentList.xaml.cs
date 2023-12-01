@@ -56,6 +56,20 @@ namespace DatabaseManager.Views
             }
         }
 
+        public void ShowError(string message)
+        {
+            if (Confirm_Delete.Visibility == Visibility.Visible)
+            {
+                Confirm_Delete.Visibility = Visibility.Collapsed;
+            }
+
+            ErrorPopUpText.Text = message;
+            if (ErrorPopUp.Visibility != Visibility.Visible)
+            {
+                ErrorPopUp.Visibility = Visibility.Visible;
+            }
+        }
+
         private void Edit_Button_Click(object sender, RoutedEventArgs e)
         {
             if (Confirm_Delete.Visibility != Visibility.Collapsed)
@@ -71,9 +85,19 @@ namespace DatabaseManager.Views
 
         private void Confirm_Button_Click(object sender, RoutedEventArgs e)
         {
+            Remove_Error(null, null);
+
             if (Confirm_Delete.Visibility != Visibility.Collapsed)
             {
                 Confirm_Delete.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void Remove_Error(object sender, RoutedEventArgs e)
+        {
+            if (ErrorPopUp.Visibility != Visibility.Collapsed)
+            {
+                ErrorPopUp.Visibility = Visibility.Collapsed;
             }
         }
 
