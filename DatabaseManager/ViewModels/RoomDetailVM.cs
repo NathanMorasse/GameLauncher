@@ -38,6 +38,7 @@ namespace DatabaseManager.ViewModels
         public ICommand AllRooms { get; set; }
         public ICommand EditView { get; set; }
         public ICommand Edit { get; set; }
+        public ICommand Delete { get; set; }
 
         public RoomDetailVM()
         {
@@ -54,6 +55,7 @@ namespace DatabaseManager.ViewModels
             this.AllRooms = new CommandLink(AllRooms_Execute, Dummy_CanExecute);
             this.EditView = new CommandLink(EditView_Execute, Dummy_CanExecute);
             this.Edit = new CommandLink(Edit_Execute, Dummy_CanExecute);
+            this.Delete = new CommandLink(Delete_Execute, Dummy_CanExecute);
         }
 
         private void AllRooms_Execute(object parameter)
@@ -73,9 +75,18 @@ namespace DatabaseManager.ViewModels
             int convert = int.Parse(RawNumber);
 
             DAL.Rooms.Update(Target, convert);
+            Target = DAL.Rooms.ById(Target.Id);
+            RawNumber = Target.Number;
 
             ChangeValue("Target");
             ChangeValue("RawNumber");
+        }
+
+        private void Delete_Execute(object parameter)
+        {
+            DAL.Rooms.Delete(Target.Id);
+
+            Navigator.RoomList();
         }
     }
 }

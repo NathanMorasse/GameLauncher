@@ -78,6 +78,40 @@ namespace DatabaseManager.DataAccessLayer.Factories
             return rooms;
         }
 
+        public Room ById(int id)
+        {
+            Room room = new Room();
+            MySqlConnection? connection = null;
+            MySqlDataReader? reader = null;
+
+            try
+            {
+                connection = new MySqlConnection(DAL.ConnectionString);
+                connection.Open();
+
+                MySqlCommand command = connection.CreateCommand();
+                command.CommandText = Commands.RoomById;
+                command.Parameters.AddWithValue("@Id", id);
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    room = CreateFromReader.Room(reader);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                connection?.Close();
+            }
+
+            return room;
+        }
+
         public void Create(Room item)
         {
             MySqlConnection? connection = null;
