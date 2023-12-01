@@ -11,5 +11,6 @@ namespace DatabaseManager.ViewModels.Helpers
     {
         public static Room TargetedRoom { get; set; }
         public static Department TargetedDepartment { get; set; }
+        public static Furniture TargetedFurniture { get; set; }
     }
 }

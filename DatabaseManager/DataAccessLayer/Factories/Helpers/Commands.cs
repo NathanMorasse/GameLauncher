@@ -8,6 +8,8 @@ namespace DatabaseManager.DataAccessLayer.Factories.Helpers
 {
     public static class Commands
     {
+        //Requêtes pour les départements
+
         public static string AllDepartments
         {
             get
@@ -15,6 +17,15 @@ namespace DatabaseManager.DataAccessLayer.Factories.Helpers
                 return "select * from `department`;";
             }
         }
+
+        public static string DepartmentByName
+        {
+            get
+            {
+                return "select * from `department` where `Name` = @Name;";
+            }
+        }
+
         public static string CreateDepartment
         {
             get
@@ -38,6 +49,8 @@ namespace DatabaseManager.DataAccessLayer.Factories.Helpers
                 return "delete from `department` where `Id` = @Id;";
             }
         }
+
+        //Requêtes pour les locaux
 
         public static string AllRooms
         {
@@ -97,9 +110,70 @@ namespace DatabaseManager.DataAccessLayer.Factories.Helpers
         {
             get
             {
-                return "delete from `room` where `Id` = @Id;";
+                return "delete from `room` where `Id` = @Id; " +
+                    "delete from `room` where `Id` = @Id;";
             }
         }
 
+        //Requêtes pour le mobilier
+
+        public static string AllFurnitures
+        {
+            get
+            {
+                return "select `Id`, `Room_Id`, `Brand`, `Type`, `Description`, `Length`, `Height`, `Width`, " +
+                    "( select concat((select `Building` from `department` where `Id` = `Department_Id`),\"-\",`Number`)  from `room`  where `Id` = `Room_Id` ) as `Number` " +
+                    "from `furniture`;";
+            }
+        }
+
+        public static string AllFurnituresByRoom
+        {
+            get
+            {
+                return "select `Id`, `Room_Id`, `Brand`, `Type`, `Description`, `Length`, `Height`, `Width`, " +
+                    "(select concat((select `Building` from `department` where `Id` = `Department_Id`),\"-\",`Number`)  from `room`  where `Id` = `Room_Id` ) as `Number` " +
+                    "from `furniture` " +
+                    "where `Room_Id` = @Room;";
+            }
+        }
+
+        public static string FurnitureById
+        {
+            get
+            {
+                return "select `Id`, `Room_Id`, `Brand`, `Type`, `Description`, `Length`, `Height`, `Width`, " +
+                    "( select concat((select `Building` from `department` where `Id` = `Department_Id`),\"-\",`Number`)  from `room`  where `Id` = `Room_Id` ) as `Number` " +
+                    "from `furniture` " +
+                    "where `Id` = @Id;";
+            }
+        }
+
+        public static string UpdateFurniture
+        {
+            get
+            {
+                return "update `furniture` " +
+                    "set `Room_Id` =  @Room, `Brand` =  @Brand, `Type` =  @Type, `Description` =  @Description, `Length` =  @Length, `Height` =  @Height, `Width` =  @Width " +
+                    "where `Id` = 3;";
+            }
+        }
+
+        public static string CreateFurniture
+        {
+            get
+            {
+                return "insert into `furniture` (`Room_Id`, `Brand`, `Type`, `Description`, `Length`, `Height`, `Width`) " +
+                    "values (@Room, @Brand, @Type, @Description, @Length, @Height, @Width);";
+            }
+        }
+
+        public static string DeleteFurniture
+        {
+            get
+            {
+                return "delete from `furniture` where `Id` = @Id;";
+            }
+        }
     }
 }

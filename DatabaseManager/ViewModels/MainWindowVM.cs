@@ -13,11 +13,13 @@ namespace DatabaseManager.ViewModels
     {
         public ICommand DepartmentList {  get; set; }
         public ICommand RoomList {  get; set; }
+        public ICommand FurnitureList { get; set; }
 
         public MainWindowVM() 
         {
             this.DepartmentList = new CommandLink(DepartmentList_Execute, Dummy_CanExecute);
             this.RoomList = new CommandLink(RoomList_Execute, Dummy_CanExecute);
+            this.FurnitureList = new CommandLink(FurnitureList_Execute, Dummy_CanExecute);
         }
 
         private void DepartmentList_Execute(object parameter)
@@ -28,6 +30,11 @@ namespace DatabaseManager.ViewModels
         private void RoomList_Execute(object parameter)
         {
             Navigator.RoomList();
+        }
+
+        private void FurnitureList_Execute(object parameter)
+        {
+            Navigator.FurnitureList();
         }
     }
 }
