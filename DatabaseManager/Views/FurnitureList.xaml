@@ -29,83 +29,24 @@
                     <TextBlock x:Name="PageTitle" Text="Mobilier" FontSize="30" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" Padding="10"/>
                 </Border>
 
-                <Border Grid.Row="1" CornerRadius="10" Background="#FFBED8FF" Padding="10" Margin="0 10">
-                    <Expander Header="Nouveau département" Foreground="Black" FontSize="20">
-                        <Grid Margin="0 10 0 0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*" MaxWidth="500"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*" MaxWidth="80"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*" MaxWidth="80"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
+                <Button Grid.Row="1" Command="{Binding Create}" Margin="10" Content="+ Ajouter" HorizontalAlignment="Right" Width="120" Height="35"/>
 
-                            <TextBlock Grid.Column="0" Text="Nom :" VerticalAlignment="Center"/>
-                            <TextBox Grid.Column="1" Margin="10 0" MaxLength="50"/>
-
-                            <TextBlock Grid.Column="2" Text="Bâtiment :" VerticalAlignment="Center"/>
-                            <TextBox MaxLength="1" Grid.Column="3" Margin="10 0"/>
-
-                            <TextBlock Grid.Column="4" Text="Étage :" VerticalAlignment="Center"/>
-                            <TextBox MaxLength="1" Grid.Column="5" Margin="10 0"/>
-
-                            <Button Grid.Column="6" Content="Ajouter" HorizontalAlignment="Right" Width="120" Height="35"/>
-                        </Grid>
-                    </Expander>
-                </Border>
-
-                <ListBox x:Name="Department_ListBox" Grid.Row="2" HorizontalContentAlignment="Stretch" BorderBrush="Transparent" Background="Transparent">
+                <ListBox x:Name="Furniture_ListBox" SelectionChanged="Furniture_ListBox_SelectionChanged"  ItemsSource="{Binding Furnitures}" SelectedItem="{Binding Selected}" Grid.Row="2" HorizontalContentAlignment="Stretch" BorderBrush="Transparent" Background="Transparent" Margin="0 0 0 10">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Border BorderBrush="Gray" BorderThickness="0 0 0 1" Padding="10">
+                            <Border BorderBrush="Black" BorderThickness="0 0 0 0.5" Padding="10">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
 
-                                    <TextBlock Grid.Column="0" Foreground="Black" TextTrimming="CharacterEllipsis" FontSize="30" TextAlignment="Left" VerticalAlignment="Center"/>
-
-                                    <TextBlock Grid.Column="1" Foreground="Black" TextTrimming="CharacterEllipsis" FontSize="30" TextAlignment="Right" VerticalAlignment="Center">
-                                        <TextBlock.Text>
-                                            <MultiBinding StringFormat=" {0}-{1}000">
-                                                <Binding Path="Building"/>
-                                                <Binding Path="Floor"/>
-                                            </MultiBinding>
-                                        </TextBlock.Text>
-                                    </TextBlock>
+                                    <TextBlock Text="{Binding Type}" Grid.Column="0" Foreground="Black" TextTrimming="CharacterEllipsis" FontSize="30" TextAlignment="Left" VerticalAlignment="Center"/>
                                 </Grid>
                             </Border>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-
-                <Border x:Name="Edit_PopUp" Grid.Row="3" Background="#FFBED8FF" Padding="10" CornerRadius="10" Margin="0 0 0 10" Visibility="Collapsed">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*" MaxWidth="500"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*" MaxWidth="80"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*" MaxWidth="80"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <TextBlock FontSize="20" Grid.Column="0" Text="Nom :" VerticalAlignment="Center"/>
-                        <TextBox MaxLength="50" FontSize="20" Grid.Column="1" Margin="10 0"/>
-
-                        <TextBlock FontSize="20" Grid.Column="2" Text="Bâtiment :" VerticalAlignment="Center"/>
-                        <TextBox FontSize="20" Grid.Column="3" Margin="10 0"/>
-
-                        <TextBlock FontSize="20" Grid.Column="4" Text="Étage :" VerticalAlignment="Center"/>
-                        <TextBox FontSize="20" Grid.Column="5" Margin="10 0"/>
-
-                        <Button Grid.Column="6" Content="Modifier" HorizontalAlignment="Right" Width="120" Height="35"/>
-                    </Grid>
-                </Border>
 
                 <Border x:Name="Confirm_Delete" Grid.Row="3" Background="#ff6666" Padding="10" CornerRadius="10" Margin="0 0 0 10" Visibility="Collapsed">
                     <Grid>
@@ -130,9 +71,9 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Button x:Name="See_Button" IsEnabled="False" Grid.Column="0" Content="Locaux associés" Height="35" Margin="0 0 10 0"/>
-                    <Button x:Name="Edit_Button" IsEnabled="False" Grid.Column="1" Content="Modifier" Height="35" Margin="0 0 10 0"/>
-                    <Button x:Name="Delete_Button" IsEnabled="False" Grid.Column="2" Content="Supprimer" Height="35"/>
+                    <Button x:Name="See_Button" Command="{Binding See}" IsEnabled="False" Grid.Column="0" Content="Consulter" Height="35" Margin="0 0 10 0"/>
+                    <Button x:Name="Edit_Button" Command="{Binding Edit}" IsEnabled="False" Grid.Column="1" Content="Modifier" Height="35" Margin="0 0 10 0"/>
+                    <Button x:Name="Delete_Button" Command="{Binding Delete}" IsEnabled="False" Grid.Column="2" Content="Supprimer" Height="35"/>
                 </Grid>
             </Grid>
         </Border>

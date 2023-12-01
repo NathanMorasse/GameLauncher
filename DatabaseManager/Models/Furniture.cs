@@ -10,23 +10,27 @@ namespace DatabaseManager.Models
 {
     public class Furniture : ModelTemplate
     {
-        int Room_Id { get; set; }
-        string Brand { get; set; }
-        string Type { get; set; }
-        string Descritpion { get; set; }
-        double Length { get; set; }
-        double Height { get; set; }
-        double Width { get; set; }
+        public int Room_Id { get; set; }
+        public string Brand { get; set; }
+        public string Type { get; set; }
+        public string Description { get; set; }
+        public double Length { get; set; }
+        public double Height { get; set; }
+        public double Width { get; set; }
+        public string Number { get; set; }
 
-        public Furniture(int id, int room, string brand, string type, string description, double l, double h, double w) : base(id)
+        public Furniture(int id, int room, string brand, string type, string description, double l, double h, double w, string number) : base(id)
         {
             Room_Id = room;
             Brand = brand;
             Type = type;
-            Descritpion = description;
+            Description = description;
             Length = l;
             Height = h;
             Width = w;
+            Number = number;
         }
+
+        public Furniture() { }
     }
 }

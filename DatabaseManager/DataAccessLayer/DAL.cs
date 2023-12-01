@@ -14,6 +14,7 @@ namespace DatabaseManager.DataAccessLayer
 
         private static DepartmentFactory? _DepartmentFactory;
         private static RoomFactory? _RoomFactory;
+        private static FurnitureFactory? _FurnitureFactory;
 
 
         public static DepartmentFactory? Departments
@@ -39,6 +40,19 @@ namespace DatabaseManager.DataAccessLayer
                 }
 
                 return _RoomFactory;
+            }
+        }
+
+        public static FurnitureFactory? Furnitures
+        {
+            get
+            {
+                if (_FurnitureFactory == null)
+                {
+                    _FurnitureFactory = new FurnitureFactory();
+                }
+
+                return _FurnitureFactory;
             }
         }
     }

@@ -60,8 +60,9 @@ namespace DatabaseManager.DataAccessLayer.Factories.Helpers
             double l = (double)reader["Length"];
             double h = (double)reader["Height"];
             double w = (double)reader["Width"];
+            string number = reader["Number"].ToString() ?? string.Empty;
 
-            return new Furniture(id, room, brand, type, description, l, h, w);
+            return new Furniture(id, room, brand, type, description, l, h, w, number);
         }
 
         public static ElectricOutlet ElectricOutlet(MySqlDataReader reader)

@@ -46,7 +46,9 @@ namespace DatabaseManager.DataAccessLayer.Factories.Helpers
         {
             get
             {
-                return "delete from `department` where `Id` = @Id;";
+                return "delete from `furniture` where `Room_Id` in (select `Id` from `room` where `Department_Id` = @Id); " +
+                    "delete from `room` where `Department_Id` = @Id; " +
+                    "delete from `department` where `Id` = @Id;";
             }
         }
 
@@ -110,8 +112,8 @@ namespace DatabaseManager.DataAccessLayer.Factories.Helpers
         {
             get
             {
-                return "delete from `room` where `Id` = @Id; " +
-                    "delete from `room` where `Id` = @Id;";
+                return "delete from `furniture` where `Room_Id` = @Id; " +
+                    "delete from `room` where `Id` = @Id; ";
             }
         }
 

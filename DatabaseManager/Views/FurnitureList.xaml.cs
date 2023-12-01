@@ -26,5 +26,12 @@ namespace DatabaseManager.Views
             InitializeComponent();
             this.DataContext = new FurnitureVM();
         }
+
+        private void Furniture_ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            See_Button.IsEnabled = true;
+            Edit_Button.IsEnabled = true;
+            Delete_Button.IsEnabled = true;
+        }
     }
 }
