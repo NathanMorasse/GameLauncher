@@ -113,9 +113,10 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
         {
             if (notes != null && notes != String.Empty)
             {
+                notesObjects = new List<Note>();
                 GetAllNotes(NotesGrid);
                 string[] notesBoard = notes.Split('\u003B');
-                for (int i = 0; i < notesBoard.Length; i++)
+                for (int i = 0; i < notesBoard.Count(); i++)
                 {
                     if (notesBoard[i].Contains("1"))
                     {
@@ -160,6 +161,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
         public string GetNotesString()
         {
             string notesString = "";
+            notesObjects = new List<Note>();
             GetAllNotes(NotesGrid);
             for (int i = 0; i < notesObjects.Count(); i++)
             {
@@ -371,13 +373,6 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
             NotesViewBox.Visibility = NotesViewBox.Visibility == Visibility.Visible ? Visibility.Hidden : Visibility.Visible;
             NotesButton.Background = new SolidColorBrush(Color.FromRgb(0,45,179));
             NotesButton.Foreground = Brushes.Black;
-
-            ItemCollection row = ItemControlRow.Items;
-            ItemCollection notesRow = NotesRow.Items;
-            if (true)
-            {
-
-            }
         }
 
         private void NotesButton_Unchecked(object sender, RoutedEventArgs e)

@@ -42,7 +42,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             Board board = BoardEncoder.DecodeBoard(boardString);
             board.Seed = reader["Seed"].ToString() ?? string.Empty;
             board.Notes = reader["Notes"].ToString() ?? string.Empty;
-            bool isDaily = reader["IsDaily"].ToString() == "1";
+            bool isDaily = reader["IsDaily"].ToString() == "True";
             DateTime date = DateTime.Parse(reader["Date"].ToString());
 
             return new SudokuGame() { Id=id, Title=title, TimePassed = timePassed, GameBoard=board, IsDaily = isDaily, Date = date};
@@ -138,6 +138,11 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
         {
             MySqlConnection? connection = null;
             string boardString = BoardEncoder.EncodeBoard(game.GameBoard);
+            int binaryBool = 0;
+            if (game.IsDaily)
+            {
+                binaryBool = 1;
+            }
             try
             {
                 connection = new MySqlConnection(CnnStr);
@@ -151,7 +156,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
                 command.Parameters.AddWithValue("@Save", boardString);
                 command.Parameters.AddWithValue("@Time", timespan);
                 command.Parameters.AddWithValue("@Date", game.Date);
-                command.Parameters.AddWithValue("@IsDaily", game.IsDaily);
+                command.Parameters.AddWithValue("@IsDaily", binaryBool);
                 command.Parameters.AddWithValue("@Seed", game.GameBoard.Seed);
                 command.Parameters.AddWithValue("@Notes", game.GameBoard.Notes);
 
@@ -172,15 +177,21 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             MySqlConnection? connection = null;
             MySqlDataReader? reader = null;
             SudokuGame game = null;
+            int binaryBool = 0;
+            if (isdaily)
+            {
+                binaryBool = 1;
+            }
+
             try
             {
                 connection = new MySqlConnection(CnnStr);
                 connection.Open();
 
                 MySqlCommand command = connection.CreateCommand();
-                command.CommandText = "SELECT games.Id, games.Title, saves.Save, saves.Seed, saves.Time, saves.IsDaily, saves.Date, saves.Notes FROM saves INNER JOIN games ON saves.Game=games.Id WHERE Game = 1 AND User = @User AND IsDaily = @IsDaily ORDER BY Date DESC LIMIT 1;";
+                command.CommandText = "SELECT games.Id, games.Title, saves.Save, saves.Seed, saves.Time, saves.IsDaily, saves.Date, saves.Notes FROM saves INNER JOIN games ON saves.Game=games.Id WHERE Game = 1 AND User = @User AND IsDaily = @IsDaily ORDER BY Time DESC LIMIT 1;";
                 command.Parameters.AddWithValue("@User", ConnectionHelper.User.Id);
-                command.Parameters.AddWithValue("@IsDaily", isdaily);
+                command.Parameters.AddWithValue("@IsDaily", binaryBool);
 
                 reader = command.ExecuteReader();
                 while (reader.Read())

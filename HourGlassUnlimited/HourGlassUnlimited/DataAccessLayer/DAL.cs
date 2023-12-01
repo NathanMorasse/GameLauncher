@@ -14,7 +14,6 @@ namespace HourGlassUnlimited.DataAccessLayer
         private static GameFactory? _GameFact;
         private static ScoreFactory? _ScoreFact;
         private static SaveFactory? _SaveFact;
-        private static DailyFactory? _DailyFact;
 
         public UserFactory? Users
         {
@@ -73,18 +72,6 @@ namespace HourGlassUnlimited.DataAccessLayer
                     _SaveFact = new SaveFactory();
                 }
                 return _SaveFact;
-            }
-        }
-
-        public DailyFactory? Dailies
-        {
-            get
-            {
-                if (_DailyFact == null)
-                {
-                    _DailyFact = new DailyFactory();
-                }
-                return _DailyFact;
             }
         }
     }

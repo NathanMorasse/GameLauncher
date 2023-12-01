@@ -1,4 +1,5 @@
-﻿using HourGlassUnlimited.Models;
+﻿using HourGlassUnlimited.Exceptions;
+using HourGlassUnlimited.Models;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -217,42 +218,61 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories.Helper
 
         public static User UserFromReader(MySqlDataReader reader)
         {
-            int id = (int)reader["Id"];
-            string username = reader["Username"].ToString() ?? string.Empty;
-            string password = reader["Password"].ToString() ?? string.Empty;
-            string department = reader["Department"].ToString() ?? string.Empty;
-
-            return new User(id, username, password, department);
+            try
+            {
+                int id = (int)reader["Id"];
+                string username = reader["Username"].ToString() ?? string.Empty;
+                string password = reader["Password"].ToString() ?? string.Empty;
+                string department = reader["Department"].ToString() ?? string.Empty;
+                return new User(id, username, password, department);
+            }
+            catch (Exception e)
+            {
+                throw new ModelCreationFromReaderException("Échec de création d'utilisateur", e);
+            }
         }
 
         public static Department DepartmentFromReader(MySqlDataReader reader)
         {
-            int id = (int)reader["Id"];
-            string name = reader["Department"].ToString() ?? string.Empty;
-
-            return new Department(id, name);
+            try
+            {
+                int id = (int)reader["Id"];
+                string name = reader["Department"].ToString() ?? string.Empty;
+                return new Department(id, name);
+            }
+            catch (Exception e)
+            {
+                throw new ModelCreationFromReaderException("Échec de création de département", e);
+            }
         }
 
         public static Score ScoreFromReader(MySqlDataReader reader)
         {
-            int id = Convert.ToInt32(reader["Id"]);
-            string user = reader["User"].ToString() ?? string.Empty;
-            int game = Convert.ToInt32(reader["Game"]);
-            string category = reader["Category"].ToString() ?? string.Empty;
-            string Result = reader["Result"].ToString() ?? string.Empty;
-            TimeSpan time;
-            if (!TimeSpan.TryParse(reader["Time"].ToString(), out time))
+            try
             {
-                time = TimeSpan.Zero;
-            }
-            int points = Convert.ToInt32(reader["Points"]);
-            DateTime date;
-            if (!DateTime.TryParse(reader["Date"].ToString(), out date))
-            {
-                date = DateTime.Now;
-            }
+                int id = Convert.ToInt32(reader["Id"]);
+                string user = reader["User"].ToString() ?? string.Empty;
+                int game = Convert.ToInt32(reader["Game"]);
+                string category = reader["Category"].ToString() ?? string.Empty;
+                string Result = reader["Result"].ToString() ?? string.Empty;
+                TimeSpan time;
+                if (!TimeSpan.TryParse(reader["Time"].ToString(), out time))
+                {
+                    time = TimeSpan.Zero;
+                }
+                int points = Convert.ToInt32(reader["Points"]);
+                DateTime date;
+                if (!DateTime.TryParse(reader["Date"].ToString(), out date))
+                {
+                    date = DateTime.Now;
+                }
 
-            return new Score(id, user, game, category, Result, time, points, date);
+                return new Score(id, user, game, category, Result, time, points, date);
+            }
+            catch (Exception e)
+            {
+                throw new ModelCreationFromReaderException("Échec de création d'un score", e);
+            }
         }
     }
 }

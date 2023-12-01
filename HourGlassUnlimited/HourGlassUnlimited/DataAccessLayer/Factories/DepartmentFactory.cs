@@ -1,5 +1,6 @@
 ﻿using HourGlassUnlimited.DataAccessLayer.Factories.Base;
 using HourGlassUnlimited.DataAccessLayer.Factories.Helper;
+using HourGlassUnlimited.Exceptions;
 using HourGlassUnlimited.Models;
 using MySql.Data.MySqlClient;
 using System;
@@ -33,7 +34,10 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
                     departments.Add(FactoryHelper.DepartmentFromReader(reader));
                 }
             }
-            catch (Exception) { }
+            catch (Exception e) 
+            {
+                throw new Exception("Échec du chargement d'un ou plusieurs département lors du chargement de la liste des départements", e.InnerException);
+            }
             finally
             {
                 connection?.Close();
@@ -69,7 +73,7 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
             }
             catch (Exception e)
             {
-                throw new Exception("Chargement du département impossible: " + e.Message);
+                throw new Exception("Échec du chargement d'un département pour le joueur avec l'ID " + userId, e.InnerException);
             }
             finally
             {

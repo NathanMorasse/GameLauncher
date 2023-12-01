@@ -45,11 +45,32 @@ namespace DatabaseManager.ViewModels
 
         private void NewDepartment_Execute(object parameter)
         {
-            DAL.Departments.Create(Create);
+            string error = null;
+            if (Create.Name == null || Create.Name == string.Empty)
+            {
+                error = "Nom du département requis";
+            }
+            else if (Create.Building == null || Create.Building == string.Empty)
+            {
+                error = "Batiment du département requis";
+            }
+            else if (Create.Floor < 1 || Create.Floor > 6)
+            {
+                error = "L'étage du département doit être entre 1 et 6 inclusivement";
+            }
 
-            Departments = DAL.Departments.All();
+            if (error != null)
+            {
+                Navigator.DepartmentListView.ShowError(error);
+            }
+            else
+            {
+                DAL.Departments.Create(Create);
 
-            ChangeValue("Departments");
+                Departments = DAL.Departments.All();
+
+                ChangeValue("Departments");
+            }
         }
 
         private void EditDepartment_Execute(object parameter)
