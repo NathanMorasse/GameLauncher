@@ -50,6 +50,18 @@ namespace DatabaseManager.DataAccessLayer.Factories.Helpers
             }
         }
 
+        public static string RoomById
+        {
+            get
+            {
+                return "select `room`.`Id`, `department`.`Name` as `Department_Id`, concat(`department`.`Building`,\"-\",`room`.`Number`) as `Number`, `room`.`HasAirConditioning`, `room`.`HasHeaters`, `room`.`HasPhone`, `room`.`HasMovementSensor` " +
+                    "from `room` " +
+                    "join `department` " +
+                    "on `room`.`Department_Id` = `department`.`Id` " +
+                    "where `room`.`Id` = @Id;";
+            }
+        }
+
         public static string AllRoomsByDepartment
         {
             get

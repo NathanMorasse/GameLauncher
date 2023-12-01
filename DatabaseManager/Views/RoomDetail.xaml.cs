@@ -44,7 +44,7 @@ namespace DatabaseManager.Views
             Sensor_CheckBox.Visibility = Visibility.Visible;
 
             Edit_Button.Visibility = Visibility.Hidden;
-            Save_Button.Visibility = Visibility.Visible;
+            Edit_Stuff.Visibility = Visibility.Visible;
         }
 
         private void Save_Button_Click(object sender, RoutedEventArgs e)
@@ -63,8 +63,28 @@ namespace DatabaseManager.Views
             Phone_TextBlock.Visibility = Visibility.Visible;
             Sensor_TextBlock.Visibility = Visibility.Visible;
 
-            Save_Button.Visibility = Visibility.Hidden;
+            Edit_Stuff.Visibility = Visibility.Hidden;
             Edit_Button.Visibility = Visibility.Visible;
+        }
+
+        private void Delete_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (Confirm_Delete.Visibility != Visibility.Visible)
+            {
+                Confirm_Delete.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                Confirm_Delete.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void Confirm_Delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (Confirm_Delete.Visibility != Visibility.Collapsed)
+            {
+                Confirm_Delete.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }
