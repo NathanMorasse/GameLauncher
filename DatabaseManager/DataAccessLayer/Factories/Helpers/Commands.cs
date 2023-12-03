@@ -157,7 +157,7 @@ namespace DatabaseManager.DataAccessLayer.Factories.Helpers
             {
                 return "update `furniture` " +
                     "set `Room_Id` =  @Room, `Brand` =  @Brand, `Type` =  @Type, `Description` =  @Description, `Length` =  @Length, `Height` =  @Height, `Width` =  @Width " +
-                    "where `Id` = 3;";
+                    "where `Id` = @Id;";
             }
         }
 

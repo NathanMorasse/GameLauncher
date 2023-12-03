@@ -50,8 +50,8 @@
                                 </Grid.ColumnDefinitions>
 
                                 <TextBlock Grid.Column="0" Text="Marque :" FontSize="30" VerticalAlignment="Center"/>
-                                <TextBlock x:Name="Number_TextBlock" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Brand}" />
-                                <TextBox x:Name="Number_TextBox" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" Text="{Binding RawNumber}" Visibility="Hidden"/>
+                                <TextBlock x:Name="Brand_TextBlock" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Brand}" />
+                                <TextBox x:Name="Brand_TextBox" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Brand}" Visibility="Hidden"/>
                             </Grid>
                         </Border>
 
@@ -64,22 +64,22 @@
                                 </Grid.ColumnDefinitions>
 
                                 <TextBlock Grid.Column="0" Text="Type :" FontSize="30" VerticalAlignment="Center"/>
-                                <TextBlock x:Name="Department_TextBlock" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Type}"/>
-                                <ComboBox x:Name="Department_ComboBox" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" ItemsSource="{Binding Departments}" SelectedItem="{Binding Target.Type}" Visibility="Hidden"/>
+                                <TextBlock x:Name="Type_TextBlock" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Type}"/>
+                                <TextBox x:Name="Type_TextBox" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Type}" Visibility="Hidden"/>
                             </Grid>
                         </Border>
 
 
                         <Border Grid.Row="2" Grid.ColumnSpan="2" BorderThickness="0 0 0 0.5" BorderBrush="Black" Padding="5 10">
                             <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition MaxWidth="500"/>
-                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
 
-                                <TextBlock Grid.Column="0" Text="Description :" FontSize="30" VerticalAlignment="Center"/>
-                                <TextBlock x:Name="AC_TextBlock" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Description}"/>
-                                <CheckBox x:Name="AC_CheckBox" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" IsChecked="{Binding Target.Description}" Visibility="Hidden"/>
+                                <TextBlock Grid.Row="0" Text="Description :" FontSize="30" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="Description_TextBlock" Grid.Row="1" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Description}" TextWrapping="Wrap"/>
+                                <TextBox x:Name="Description_TextBox" Text="{Binding Target.Description}" Grid.Row="1" MaxLength="4000" FontSize="20" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalAlignment="Center" Margin="10 0" Visibility="Hidden" TextWrapping="Wrap"/>
                             </Grid>
                         </Border>
 
@@ -92,8 +92,8 @@
                                 </Grid.ColumnDefinitions>
 
                                 <TextBlock Grid.Column="0" Text="Longueur :" FontSize="30" VerticalAlignment="Center"/>
-                                <TextBlock x:Name="Heater_TextBlock" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Length}"/>
-                                <CheckBox x:Name="Heater_CheckBox" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" IsChecked="{Binding Target.Length}" Visibility="Hidden"/>
+                                <TextBlock x:Name="Length_TextBlock" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Length}"/>
+                                <TextBox x:Name="Length_TextBox" Text="{Binding Target.Length}" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" Visibility="Hidden"/>
                             </Grid>
                         </Border>
 
@@ -106,8 +106,8 @@
                                 </Grid.ColumnDefinitions>
 
                                 <TextBlock Grid.Column="0" Text="Hauteur :" FontSize="30" VerticalAlignment="Center"/>
-                                <TextBlock x:Name="Phone_TextBlock" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Height}"/>
-                                <CheckBox x:Name="Phone_CheckBox" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" IsChecked="{Binding Target.Height}" Visibility="Hidden"/>
+                                <TextBlock x:Name="Height_TextBlock" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Height}"/>
+                                <TextBox x:Name="Height_TextBox" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Height}" Visibility="Hidden"/>
                             </Grid>
                         </Border>
 
@@ -120,8 +120,8 @@
                                 </Grid.ColumnDefinitions>
 
                                 <TextBlock Grid.Column="0" Text="Largeur :" FontSize="30" VerticalAlignment="Center"/>
-                                <TextBlock x:Name="Sensor_TextBlock" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Width}"/>
-                                <CheckBox x:Name="Sensor_CheckBox" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" IsChecked="{Binding Target.Width}" Visibility="Hidden"/>
+                                <TextBlock x:Name="Width_TextBlock" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Width}"/>
+                                <TextBox x:Name="Width_TextBox" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Width}" Visibility="Hidden"/>
                             </Grid>
                         </Border>
 
@@ -135,7 +135,7 @@
 
                                 <TextBlock Grid.Column="0" Text="Emplacement :" FontSize="30" VerticalAlignment="Center"/>
                                 <TextBlock x:Name="Room_TextBlock" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Number}"/>
-                                <CheckBox x:Name="Room_CheckBox" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" IsChecked="{Binding Target.Number}" Visibility="Hidden"/>
+                                <ComboBox x:Name="Room_ComboBox" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" Visibility="Hidden" DisplayMemberPath="Number" ItemsSource="{Binding RoomList}" SelectedValuePath="Id" SelectedValue="{Binding Target.Room_Id}"/>
                             </Grid>
                         </Border>
                     </Grid>
@@ -167,17 +167,17 @@
                     </Grid.ColumnDefinitions>
 
                     <Button x:Name="See_Button" Command="{Binding Rooms}" Grid.Column="0" Content="Tous les locaux" Height="35" Margin="0 0 10 0"/>
-                    <Button x:Name="Edit_Button" Grid.Column="1" Content="Modifier" Height="35" Margin="0 0 10 0" Visibility="Visible"/>
+                    <Button x:Name="Edit_Button" Click="Edit_Button_Click" Grid.Column="1" Content="Modifier" Height="35" Margin="0 0 10 0" Visibility="Visible"/>
                     <Grid x:Name="Edit_Stuff" Grid.Column="1" Visibility="Hidden">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <Button x:Name="Save_Button" Command="{Binding Edit}" Grid.Column="0" Content="Sauvegarder" Height="35" Margin="0 0 10 0"/>
-                        <Button x:Name="Cancel_Button" Grid.Column="1" Content="X" Height="35" Margin="0 0 10 0" Visibility="Visible"/>
+                        <Button x:Name="Save_Button" Click="Edit_Stuff_Button_Click" Command="{Binding Edit}" Grid.Column="0" Content="Sauvegarder" Height="35" Margin="0 0 10 0"/>
+                        <Button x:Name="Cancel_Button" Click="Edit_Stuff_Button_Click" Grid.Column="1" Content="X" Height="35" Margin="0 0 10 0" Visibility="Visible"/>
                     </Grid>
-                    <Button x:Name="Delete_Button" Grid.Column="2" Content="Supprimer" Height="35"/>
+                    <Button x:Name="Delete_Button" Click="Delete_Button_Click" Grid.Column="2" Content="Supprimer" Height="35"/>
                 </Grid>
             </Grid>
         </Border>

@@ -9,8 +9,159 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="FurnitureAddition">
-
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="1" Grid.Column="1" CornerRadius="20" Background="#EBF3FF" Padding="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0" CornerRadius="10" Background="#3F52E3">
+                    <TextBlock x:Name="PageTitle" Text="{Binding Target.Type}" FontSize="30" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" Padding="10"/>
+                </Border>
+
+                <!-- -->
+
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0 10">
+                    <Grid Margin="0 10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Border Grid.Row="0" Grid.ColumnSpan="2" BorderThickness="0 0 0 0.5" BorderBrush="Black" Padding="5 0 5 10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition MaxWidth="500"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0" Text="Marque :" FontSize="30" VerticalAlignment="Center"/>
+                                <TextBox x:Name="Brand_TextBox" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Brand}"/>
+                            </Grid>
+                        </Border>
+
+
+                        <Border Grid.Row="1" Grid.ColumnSpan="2" BorderThickness="0 0 0 0.5" BorderBrush="Black" Padding="5 10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition MaxWidth="500"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0" Text="Type :" FontSize="30" VerticalAlignment="Center"/>
+                                <TextBox x:Name="Type_TextBox" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Type}"/>
+                            </Grid>
+                        </Border>
+
+
+                        <Border Grid.Row="2" Grid.ColumnSpan="2" BorderThickness="0 0 0 0.5" BorderBrush="Black" Padding="5 10">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Row="0" Text="Description :" FontSize="30" VerticalAlignment="Center"/>
+                                <TextBox x:Name="Description_TextBox" Text="{Binding Target.Description}" Grid.Row="1" MaxLength="4000" FontSize="20" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalAlignment="Center" Margin="10 0" TextWrapping="Wrap"/>
+                            </Grid>
+                        </Border>
+
+
+                        <Border Grid.Row="3" Grid.ColumnSpan="2" BorderThickness="0 0 0 0.5" BorderBrush="Black" Padding="5 10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition MaxWidth="500"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0" Text="Longueur :" FontSize="30" VerticalAlignment="Center"/>
+                                <TextBox x:Name="Length_TextBox" Text="{Binding Target.Length}" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0"/>
+                            </Grid>
+                        </Border>
+
+
+                        <Border Grid.Row="4" Grid.ColumnSpan="2" BorderThickness="0 0 0 0.5" BorderBrush="Black" Padding="5 10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition MaxWidth="500"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0" Text="Hauteur :" FontSize="30" VerticalAlignment="Center"/>
+                                <TextBox x:Name="Height_TextBox" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Height}"/>
+                            </Grid>
+                        </Border>
+
+
+                        <Border Grid.Row="5" Grid.ColumnSpan="2" BorderThickness="0 0 0 0.5" BorderBrush="Black" Padding="5 10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition MaxWidth="500"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0" Text="Largeur :" FontSize="30" VerticalAlignment="Center"/>
+                                <TextBox x:Name="Width_TextBox" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Width}"/>
+                            </Grid>
+                        </Border>
+
+
+                        <Border Grid.Row="6" Grid.ColumnSpan="2" BorderThickness="0 0 0 0.5" BorderBrush="Black" Padding="5 10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition MaxWidth="500"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0" Text="Emplacement :" FontSize="30" VerticalAlignment="Center"/>
+                                <ComboBox x:Name="Room_ComboBox" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" DisplayMemberPath="Number" ItemsSource="{Binding RoomList}" SelectedValuePath="Id" SelectedValue="{Binding Target.Room_Id}"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </ScrollViewer>
+
+                <!-- -->
+
+                <Border x:Name="Confirm_Delete" Grid.Row="2" Background="#ff6666" Padding="10" CornerRadius="10" Margin="0 0 0 10" Visibility="Collapsed">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock VerticalAlignment="Center" Grid.Column="0" Text="Confirmez-vous la suppresion?" FontSize="20"/>
+
+                        <Button Grid.Column="1" Content="Oui" HorizontalAlignment="Right" Width="80" Height="35" Margin="0 0 10 0"/>
+
+                        <Button Grid.Column="2" Content="Non" HorizontalAlignment="Right" Width="80" Height="35"/>
+                    </Grid>
+                </Border>
+
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="Back_Button" Command="{Binding Back}" Grid.Column="0" Content="Retour à l'inventaire" Height="35" Margin="0 0 10 0"/>
+                    <Button x:Name="Create_Button" Command="{Binding Create}" Grid.Column="1" Content="Ajouter" Height="35" Margin="0 0 10 0" Visibility="Visible"/>
+                </Grid>
+            </Grid>
+        </Border>
     </Grid>
 </Page>

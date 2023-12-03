@@ -9,7 +9,7 @@ namespace DatabaseManager.DataAccessLayer
 {
     public static class DAL
     {
-        public static readonly string ConnectionString = "Server=sql.decinfo-cchic.ca;Port=33306;Database=a23_e80_demandeclient_2133752;Uid=dev-2133752;Pwd=Mateo235";
+        public static readonly string ConnectionString = "Server=localhost;Port=3306;Database=a23_e80_demandeclient_2133752;Uid=root;Pwd=Mateo235";
 
 
         private static DepartmentFactory? _DepartmentFactory;
