@@ -50,7 +50,7 @@
 
                                 <TextBlock Grid.Column="0" Text="Numéro :" FontSize="30" VerticalAlignment="Center"/>
                                 <TextBlock x:Name="Number_TextBlock" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Number}" />
-                                <TextBox x:Name="Number_TextBox" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" Text="{Binding RawNumber}" Visibility="Hidden"/>
+                                <TextBox x:Name="Number_TextBox" Grid.Column="1" MaxLength="4" PreviewTextInput="Number_PreviewTextInput" FontSize="20" VerticalAlignment="Center" Margin="10 0" Text="{Binding RawNumber}" Visibility="Hidden"/>
                             </Grid>
                         </Border>
 
@@ -64,7 +64,7 @@
 
                                 <TextBlock Grid.Column="0" Text="Département :" FontSize="30" VerticalAlignment="Center"/>
                                 <TextBlock x:Name="Department_TextBlock" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Department}"/>
-                                <ComboBox x:Name="Department_ComboBox" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" ItemsSource="{Binding Departments}" SelectedItem="{Binding Target.Department}" Visibility="Hidden"/>
+                                <ComboBox x:Name="Department_ComboBox" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" ItemsSource="{Binding Departments}" SelectedItem="{Binding Editable.Department}" Visibility="Hidden"/>
                             </Grid>
                         </Border>
 
@@ -78,7 +78,7 @@
 
                                 <TextBlock Grid.Column="0" Text="Air climatisé :" FontSize="30" VerticalAlignment="Center"/>
                                 <TextBlock x:Name="AC_TextBlock" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.HasAirConditioning}"/>
-                                <CheckBox x:Name="AC_CheckBox" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" IsChecked="{Binding Target.HasAirConditioning}" Visibility="Hidden"/>
+                                <CheckBox x:Name="AC_CheckBox" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" IsChecked="{Binding Editable.HasAirConditioning}" Visibility="Hidden"/>
                             </Grid>
                         </Border>
 
@@ -92,7 +92,7 @@
 
                                 <TextBlock Grid.Column="0" Text="Chauffage :" FontSize="30" VerticalAlignment="Center"/>
                                 <TextBlock x:Name="Heater_TextBlock" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.HasHeaters}"/>
-                                <CheckBox x:Name="Heater_CheckBox" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" IsChecked="{Binding Target.HasHeaters}" Visibility="Hidden"/>
+                                <CheckBox x:Name="Heater_CheckBox" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" IsChecked="{Binding Editable.HasHeaters}" Visibility="Hidden"/>
                             </Grid>
                         </Border>
 
@@ -106,7 +106,7 @@
 
                                 <TextBlock Grid.Column="0" Text="Téléphone :" FontSize="30" VerticalAlignment="Center"/>
                                 <TextBlock x:Name="Phone_TextBlock" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.HasPhone}"/>
-                                <CheckBox x:Name="Phone_CheckBox" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" IsChecked="{Binding Target.HasPhone}" Visibility="Hidden"/>
+                                <CheckBox x:Name="Phone_CheckBox" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" IsChecked="{Binding Editable.HasPhone}" Visibility="Hidden"/>
                             </Grid>
                         </Border>
 
@@ -120,7 +120,7 @@
 
                                 <TextBlock Grid.Column="0" Text="Détecteur de mouvement :" FontSize="30" VerticalAlignment="Center"/>
                                 <TextBlock x:Name="Sensor_TextBlock" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.HasMovementSensor}"/>
-                                <CheckBox x:Name="Sensor_CheckBox" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" IsChecked="{Binding Target.HasMovementSensor}" Visibility="Hidden"/>
+                                <CheckBox x:Name="Sensor_CheckBox" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0" IsChecked="{Binding Editable.HasMovementSensor}" Visibility="Hidden"/>
                             </Grid>
                         </Border>
                     </Grid>
@@ -144,6 +144,20 @@
                     </Grid>
                 </Border>
 
+                <Border x:Name="ErrorPopUp" Grid.Row="2" Background="#ffb066" Padding="10" CornerRadius="10" Margin="0 0 0 10" Visibility="Collapsed">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock x:Name="ErrorPopUpText" VerticalAlignment="Center" Grid.Column="0" Text="erreur" FontSize="20"/>
+
+                        <Button Click="Remove_Error" Grid.Column="2" Content="Ok" HorizontalAlignment="Right" Width="80" Height="35"/>
+                    </Grid>
+                </Border>
+
                 <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -159,7 +173,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <Button x:Name="Save_Button" Command="{Binding Edit}" Click="Save_Button_Click" Grid.Column="0" Content="Sauvegarder" Height="35" Margin="0 0 10 0"/>
+                        <Button x:Name="Save_Button" Command="{Binding Edit}" Grid.Column="0" Content="Sauvegarder" Height="35" Margin="0 0 10 0"/>
                         <Button x:Name="Cancel_Button" Click="Save_Button_Click" Grid.Column="1" Content="X" Height="35" Margin="0 0 10 0" Visibility="Visible"/>
                     </Grid>
                     <Button x:Name="Delete_Button" Click="Delete_Button_Click" Grid.Column="2" Content="Supprimer" Height="35"/>

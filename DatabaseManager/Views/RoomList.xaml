@@ -47,7 +47,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <TextBlock Grid.Column="0" Text="Numéro :" VerticalAlignment="Center"/>
-                                <TextBox FontSize="20" Text="{Binding Create.Number}" Grid.Column="1" Margin="10 0" MaxLength="4"/>
+                                <TextBox FontSize="20" Text="{Binding Create.Number}" PreviewTextInput="Number_PreviewTextInput" Grid.Column="1" Margin="10 0" MaxLength="4"/>
 
                                 <TextBlock Grid.Column="2" Text="Département :" VerticalAlignment="Center"/>
                                 <ComboBox FontSize="20" ItemsSource="{Binding Departments, Mode=TwoWay}" SelectedItem="{Binding Create.Department}" Grid.Column="3"/>
@@ -115,7 +115,7 @@
                             <TextBox FontSize="20" PreviewTextInput="Number_PreviewTextInput" Text="{Binding RawNumber, Mode=TwoWay}"  Grid.Column="1" Margin="10 0" MaxLength="4"/>
 
                             <TextBlock FontSize="20" Grid.Column="2" Text="Département :" VerticalAlignment="Center"/>
-                            <ComboBox FontSize="20" ItemsSource="{Binding Departments, Mode=TwoWay}" SelectedItem="{Binding Selected.Department}" Grid.Column="3" Margin="10 0"/>
+                            <ComboBox FontSize="20" ItemsSource="{Binding Departments, Mode=TwoWay}" SelectedItem="{Binding Edit.Department}" Grid.Column="3" Margin="10 0"/>
 
                             <Button Grid.Column="8" Command="{Binding EditRoom}" Click="Save_Button_Click" Content="Modifier" HorizontalAlignment="Right" Width="120" Height="35"/>
                         </Grid>
@@ -133,16 +133,16 @@
                             </Grid.ColumnDefinitions>
 
                             <TextBlock FontSize="20" Grid.Column="0" Text="Air climatisé :" VerticalAlignment="Center"/>
-                            <CheckBox IsChecked="{Binding Selected.HasAirConditioning, Mode=TwoWay}" Grid.Column="1" Margin="10 0" VerticalAlignment="Center"/>
+                            <CheckBox IsChecked="{Binding Edit.HasAirConditioning, Mode=TwoWay}" Grid.Column="1" Margin="10 0" VerticalAlignment="Center"/>
 
                             <TextBlock FontSize="20" Grid.Column="2" Text="Chauffage :" VerticalAlignment="Center" Margin="10 0 0 0"/>
-                            <CheckBox IsChecked="{Binding Selected.HasHeaters, Mode=TwoWay}" Grid.Column="3" Margin="10 0" VerticalAlignment="Center"/>
+                            <CheckBox IsChecked="{Binding Edit.HasHeaters, Mode=TwoWay}" Grid.Column="3" Margin="10 0" VerticalAlignment="Center"/>
 
                             <TextBlock FontSize="20" Grid.Column="4" Text="Téléphone :" VerticalAlignment="Center" Margin="10 0 0 0"/>
-                            <CheckBox IsChecked="{Binding Selected.HasPhone, Mode=TwoWay}" Grid.Column="5" Margin="10 0" VerticalAlignment="Center"/>
+                            <CheckBox IsChecked="{Binding Edit.HasPhone, Mode=TwoWay}" Grid.Column="5" Margin="10 0" VerticalAlignment="Center"/>
 
                             <TextBlock FontSize="20" Grid.Column="6" Text="Détecteur :" VerticalAlignment="Center" Margin="10 0 0 0"/>
-                            <CheckBox IsChecked="{Binding Selected.HasMovementSensor, Mode=TwoWay}" Grid.Column="7" Margin="10 0" VerticalAlignment="Center"/>
+                            <CheckBox IsChecked="{Binding Edit.HasMovementSensor, Mode=TwoWay}" Grid.Column="7" Margin="10 0" VerticalAlignment="Center"/>
                         </Grid>
                     </Grid>
                 </Border>
@@ -160,6 +160,20 @@
                         <Button Click="Confirm_Button_Click" Command="{Binding DeleteRoom}" Grid.Column="1" Content="Oui" HorizontalAlignment="Right" Width="80" Height="35" Margin="0 0 10 0"/>
 
                         <Button Click="Confirm_Button_Click" Grid.Column="2" Content="Non" HorizontalAlignment="Right" Width="80" Height="35"/>
+                    </Grid>
+                </Border>
+
+                <Border x:Name="ErrorPopUp" Grid.Row="3" Background="#ffb066" Padding="10" CornerRadius="10" Margin="0 0 0 10" Visibility="Collapsed">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock x:Name="ErrorPopUpText" VerticalAlignment="Center" Grid.Column="0" Text="erreur" FontSize="20"/>
+
+                        <Button Click="Remove_Error" Grid.Column="2" Content="Ok" HorizontalAlignment="Right" Width="80" Height="35"/>
                     </Grid>
                 </Border>
 

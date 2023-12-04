@@ -38,9 +38,18 @@ namespace DatabaseManager.Views
                 Confirm_Delete.Visibility = Visibility.Collapsed;
             }
 
-            See_Button.IsEnabled = true;
-            Edit_Button.IsEnabled = true;
-            Delete_Button.IsEnabled = true;
+            if ((this.DataContext as DepartmentVM).Selected == null)
+            {
+                See_Button.IsEnabled = false;
+                Edit_Button.IsEnabled = false;
+                Delete_Button.IsEnabled = false;
+            }
+            else
+            {
+                See_Button.IsEnabled = true;
+                Edit_Button.IsEnabled = true;
+                Delete_Button.IsEnabled = true;
+            }
         }
 
         private void Delete_Button_Click(object sender, RoutedEventArgs e)

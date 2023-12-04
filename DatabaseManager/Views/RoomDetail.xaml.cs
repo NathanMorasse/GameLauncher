@@ -47,7 +47,27 @@ namespace DatabaseManager.Views
             Edit_Stuff.Visibility = Visibility.Visible;
         }
 
-        private void Save_Button_Click(object sender, RoutedEventArgs e)
+        public void Save_Button_Click()
+        {
+            Number_TextBox.Visibility = Visibility.Hidden;
+            Department_ComboBox.Visibility = Visibility.Hidden;
+            AC_CheckBox.Visibility = Visibility.Hidden;
+            Heater_CheckBox.Visibility = Visibility.Hidden;
+            Phone_CheckBox.Visibility = Visibility.Hidden;
+            Sensor_CheckBox.Visibility = Visibility.Hidden;
+
+            Number_TextBlock.Visibility = Visibility.Visible;
+            Department_TextBlock.Visibility = Visibility.Visible;
+            AC_TextBlock.Visibility = Visibility.Visible;
+            Heater_TextBlock.Visibility = Visibility.Visible;
+            Phone_TextBlock.Visibility = Visibility.Visible;
+            Sensor_TextBlock.Visibility = Visibility.Visible;
+
+            Edit_Stuff.Visibility = Visibility.Hidden;
+            Edit_Button.Visibility = Visibility.Visible;
+        }
+
+        public void Save_Button_Click(object sender, RoutedEventArgs e)
         {
             Number_TextBox.Visibility = Visibility.Hidden;
             Department_ComboBox.Visibility = Visibility.Hidden;
@@ -84,6 +104,36 @@ namespace DatabaseManager.Views
             if (Confirm_Delete.Visibility != Visibility.Collapsed)
             {
                 Confirm_Delete.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void Number_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[0-9.\\-]+"))
+            {
+                e.Handled = true;
+            }
+        }
+
+        public void ShowError(string message)
+        {
+            if (Confirm_Delete.Visibility == Visibility.Visible)
+            {
+                Confirm_Delete.Visibility = Visibility.Collapsed;
+            }
+
+            ErrorPopUpText.Text = message;
+            if (ErrorPopUp.Visibility != Visibility.Visible)
+            {
+                ErrorPopUp.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void Remove_Error(object sender, RoutedEventArgs e)
+        {
+            if (ErrorPopUp.Visibility != Visibility.Collapsed)
+            {
+                ErrorPopUp.Visibility = Visibility.Collapsed;
             }
         }
     }

@@ -3,8 +3,10 @@ using DatabaseManager.Models;
 using DatabaseManager.Tools;
 using DatabaseManager.ViewModels.Base;
 using DatabaseManager.ViewModels.Helpers;
+using Org.BouncyCastle.Bcpg;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +19,7 @@ namespace DatabaseManager.ViewModels
         public List<Department> Departments { get; set; }
         public Department Selected { get; set; }
         public Department Create { get; set; }
+        public Department Edit { get; set; }
 
         public ICommand AllDepartment {  get; set; }
         public ICommand NewDepartment { get; set; }
@@ -46,17 +49,23 @@ namespace DatabaseManager.ViewModels
         private void NewDepartment_Execute(object parameter)
         {
             string error = null;
-            if (Create.Name == null || Create.Name == string.Empty)
+            Department exist = DAL.Departments.ByName(Create.Name);
+
+            if (exist.Id > 0)
             {
-                error = "Nom du département requis";
+                error = "Le nom de département est déjà utilisé.";
+            }
+            else if (Create.Name == null || Create.Name == string.Empty)
+            {
+                error = "Un nom de département est requis.";
             }
             else if (Create.Building == null || Create.Building == string.Empty)
             {
-                error = "Batiment du département requis";
+                error = "La lettre d'un bâtiment est requise.";
             }
             else if (Create.Floor < 1 || Create.Floor > 6)
             {
-                error = "L'étage du département doit être entre 1 et 6 inclusivement";
+                error = "Un numéro d'étage est requis. (Entre 1 et 6)";
             }
 
             if (error != null)
@@ -75,15 +84,44 @@ namespace DatabaseManager.ViewModels
 
         private void EditDepartment_Execute(object parameter)
         {
-            DAL.Departments.Update(Selected);
+            string error = null;
+            Department exist = DAL.Departments.ByName(Edit.Name);
 
-            Departments = DAL.Departments.All();
+            if (exist.Id > 0 && exist.Id != Edit.Id)
+            {
+                error = "Le nom de département est déjà utilisé.";
+            }
+            else if (Edit.Name == null || Edit.Name == string.Empty)
+            {
+                error = "Un nom de département est requis.";
+            }
+            else if (Edit.Building == null || Edit.Building == string.Empty)
+            {
+                error = "La lettre d'un bâtiment est requise.";
+            }
+            else if (Edit.Floor < 1 || Edit.Floor > 6)
+            {
+                error = "Un numéro d'étage est requis. (Entre 1 et 6)";
+            }
 
-            ChangeValue("Departments");
+            if (error != null)
+            {
+                Navigator.DepartmentListView.ShowError(error);
+            }
+            else
+            {
+                DAL.Departments.Update(Edit);
+
+                Departments = DAL.Departments.All();
+
+                ChangeValue("Departments");
+            }
         }
 
         private void EditPopUp_Execute(object parameter)
         {
+            Edit = DAL.Departments.ById(Selected.Id);
+            ChangeValue("Edit");
             ChangeValue("Selected");
         }
 

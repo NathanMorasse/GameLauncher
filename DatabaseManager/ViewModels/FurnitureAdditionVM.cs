@@ -33,9 +33,35 @@ namespace DatabaseManager.ViewModels
 
         private void Create_Execute(object parameter)
         {
-            DAL.Furnitures.Create(Target);
+            string error = null;
 
-            Navigator.FurnitureList();
+            if (string.IsNullOrWhiteSpace(Target.Brand) || Target.Brand == "")
+            {
+                error = "Une marque est requise.";
+            }
+            else if(string.IsNullOrWhiteSpace(Target.Type) || Target.Type == "")
+            {
+                error = "Un type est requise.";
+            }
+            else if (Target.Length == 0 || Target.Height == 0 || Target.Width == 0)
+            {
+                error = "Les dimensions sont requises.";
+            }
+            else if (Target.Room_Id == 0)
+            {
+                error = "Un local de référence est requis.";
+            }
+
+            if (error != null)
+            {
+                Navigator.FurnitureAdditionView.ShowError(error);
+            }
+            else
+            {
+                DAL.Furnitures.Create(Target);
+
+                Navigator.FurnitureList();
+            }
         }
 
         private void Back_Execute(object parameter)

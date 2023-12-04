@@ -58,9 +58,9 @@
 
                         <TextBlock VerticalAlignment="Center" Grid.Column="0" Text="Confirmez-vous la suppresion?" FontSize="20"/>
 
-                        <Button Grid.Column="1" Content="Oui" HorizontalAlignment="Right" Width="80" Height="35" Margin="0 0 10 0"/>
+                        <Button Command="{Binding Delete}" Click="Confirm_Button_Click" Grid.Column="1" Content="Oui" HorizontalAlignment="Right" Width="80" Height="35" Margin="0 0 10 0"/>
 
-                        <Button Grid.Column="2" Content="Non" HorizontalAlignment="Right" Width="80" Height="35"/>
+                        <Button Click="Confirm_Button_Click" Grid.Column="2" Content="Non" HorizontalAlignment="Right" Width="80" Height="35"/>
                     </Grid>
                 </Border>
 
@@ -68,12 +68,10 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
-                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
                     <Button x:Name="See_Button" Command="{Binding See}" IsEnabled="False" Grid.Column="0" Content="Consulter" Height="35" Margin="0 0 10 0"/>
-                    <Button x:Name="Edit_Button" Command="{Binding Edit}" IsEnabled="False" Grid.Column="1" Content="Modifier" Height="35" Margin="0 0 10 0"/>
-                    <Button x:Name="Delete_Button" Command="{Binding Delete}" IsEnabled="False" Grid.Column="2" Content="Supprimer" Height="35"/>
+                    <Button x:Name="Delete_Button" Click="Delete_Button_Click" IsEnabled="False" Grid.Column="2" Content="Supprimer" Height="35"/>
                 </Grid>
             </Grid>
         </Border>

@@ -29,9 +29,32 @@ namespace DatabaseManager.Views
 
         private void Furniture_ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            See_Button.IsEnabled = true;
-            Edit_Button.IsEnabled = true;
-            Delete_Button.IsEnabled = true;
+            if ((this.DataContext as FurnitureVM).Selected == null)
+            {
+                See_Button.IsEnabled = false;
+                Delete_Button.IsEnabled = false;
+            }
+            else
+            {
+                See_Button.IsEnabled = true;
+                Delete_Button.IsEnabled = true;
+            }
+        }
+
+        private void Delete_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (Confirm_Delete.Visibility != Visibility.Visible)
+            {
+                Confirm_Delete.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void Confirm_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (Confirm_Delete.Visibility != Visibility.Collapsed)
+            {
+                Confirm_Delete.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

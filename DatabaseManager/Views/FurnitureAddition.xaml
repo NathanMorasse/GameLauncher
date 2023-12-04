@@ -7,7 +7,7 @@
       xmlns:viewModel="clr-namespace:DatabaseManager.ViewModels"
       d:DataContext="{d:DesignInstance Type=viewModel:FurnitureAdditionVM}"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="900" d:DesignWidth="800"
       Title="FurnitureAddition">
     <Grid>
         <Grid.RowDefinitions>
@@ -25,7 +25,7 @@
                 </Grid.RowDefinitions>
 
                 <Border Grid.Row="0" CornerRadius="10" Background="#3F52E3">
-                    <TextBlock x:Name="PageTitle" Text="{Binding Target.Type}" FontSize="30" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" Padding="10"/>
+                    <TextBlock x:Name="PageTitle" Text="Ajout de mobilier" FontSize="30" Foreground="White" FontWeight="SemiBold" TextAlignment="Center" Padding="10"/>
                 </Border>
 
                 <!-- -->
@@ -50,7 +50,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <TextBlock Grid.Column="0" Text="Marque :" FontSize="30" VerticalAlignment="Center"/>
-                                <TextBox x:Name="Brand_TextBox" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Brand}"/>
+                                <TextBox x:Name="Brand_TextBox" MaxLength="30" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Brand, Mode=OneWayToSource}"/>
                             </Grid>
                         </Border>
 
@@ -63,7 +63,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <TextBlock Grid.Column="0" Text="Type :" FontSize="30" VerticalAlignment="Center"/>
-                                <TextBox x:Name="Type_TextBox" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Type}"/>
+                                <TextBox x:Name="Type_TextBox" MaxLength="50" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Type, Mode=OneWayToSource}"/>
                             </Grid>
                         </Border>
 
@@ -76,7 +76,7 @@
                                 </Grid.RowDefinitions>
 
                                 <TextBlock Grid.Row="0" Text="Description :" FontSize="30" VerticalAlignment="Center"/>
-                                <TextBox x:Name="Description_TextBox" Text="{Binding Target.Description}" Grid.Row="1" MaxLength="4000" FontSize="20" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalAlignment="Center" Margin="10 0" TextWrapping="Wrap"/>
+                                <TextBox x:Name="Description_TextBox" Text="{Binding Target.Description, Mode=OneWayToSource}" Grid.Row="1" MaxLength="4000" FontSize="20" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalAlignment="Center" Margin="10 0" TextWrapping="Wrap"/>
                             </Grid>
                         </Border>
 
@@ -89,7 +89,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <TextBlock Grid.Column="0" Text="Longueur :" FontSize="30" VerticalAlignment="Center"/>
-                                <TextBox x:Name="Length_TextBox" Text="{Binding Target.Length}" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0"/>
+                                <TextBox x:Name="Length_TextBox" PreviewTextInput="Number_PreviewTextInput" MaxLength="4" Text="{Binding Target.Length, Mode=OneWayToSource}" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0"/>
                             </Grid>
                         </Border>
 
@@ -102,7 +102,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <TextBlock Grid.Column="0" Text="Hauteur :" FontSize="30" VerticalAlignment="Center"/>
-                                <TextBox x:Name="Height_TextBox" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Height}"/>
+                                <TextBox x:Name="Height_TextBox" PreviewTextInput="Number_PreviewTextInput" MaxLength="4" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Height, Mode=OneWayToSource}"/>
                             </Grid>
                         </Border>
 
@@ -115,7 +115,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <TextBlock Grid.Column="0" Text="Largeur :" FontSize="30" VerticalAlignment="Center"/>
-                                <TextBox x:Name="Width_TextBox" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Width}"/>
+                                <TextBox x:Name="Width_TextBox" PreviewTextInput="Number_PreviewTextInput" MaxLength="4" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="10 0" Text="{Binding Target.Width, Mode=OneWayToSource}" />
                             </Grid>
                         </Border>
 
@@ -135,8 +135,7 @@
                 </ScrollViewer>
 
                 <!-- -->
-
-                <Border x:Name="Confirm_Delete" Grid.Row="2" Background="#ff6666" Padding="10" CornerRadius="10" Margin="0 0 0 10" Visibility="Collapsed">
+                <Border x:Name="ErrorPopUp" Grid.Row="2" Background="#ffb066" Padding="10" CornerRadius="10" Margin="0 0 0 10" Visibility="Collapsed">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
@@ -144,11 +143,9 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock VerticalAlignment="Center" Grid.Column="0" Text="Confirmez-vous la suppresion?" FontSize="20"/>
+                        <TextBlock x:Name="ErrorPopUpText" VerticalAlignment="Center" Grid.Column="0" Text="erreur" FontSize="20"/>
 
-                        <Button Grid.Column="1" Content="Oui" HorizontalAlignment="Right" Width="80" Height="35" Margin="0 0 10 0"/>
-
-                        <Button Grid.Column="2" Content="Non" HorizontalAlignment="Right" Width="80" Height="35"/>
+                        <Button Click="Remove_Error" Grid.Column="2" Content="Ok" HorizontalAlignment="Right" Width="80" Height="35"/>
                     </Grid>
                 </Border>
 

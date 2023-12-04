@@ -5,8 +5,10 @@ using DatabaseManager.ViewModels.Base;
 using DatabaseManager.ViewModels.Helpers;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
@@ -17,6 +19,7 @@ namespace DatabaseManager.ViewModels
     {
         public Room Target { get; set; }
         public List<string> Departments { get; set; }
+        public Room Editable { get; set; }
 
         private string _RawNumber;
         public string RawNumber
@@ -66,20 +69,46 @@ namespace DatabaseManager.ViewModels
         private void EditView_Execute(object parameter)
         {
             RawNumber = Target.Number;
+            Editable = DAL.Rooms.ById(Target.Id);
 
+            ChangeValue("Editable");
             ChangeValue("RawNumber");
         }
 
         private void Edit_Execute(object parameter)
         {
-            int convert = int.Parse(RawNumber);
+            string error = null;
 
-            DAL.Rooms.Update(Target, convert);
-            Target = DAL.Rooms.ById(Target.Id);
-            RawNumber = Target.Number;
+            if (RawNumber == null)
+            {
+                error = "Un numéro à 4 chiffes est requis.";
+            }
+            else if (RawNumber.Length != 4)
+            {
+                error = "Un numéro à 4 chiffes est requis.";
+            }
+            else if (Editable.Department == null)
+            {
+                error = "Un département est requis.";
+            }
 
-            ChangeValue("Target");
-            ChangeValue("RawNumber");
+            if (error != null)
+            {
+                Navigator.RoomDetailView.ShowError(error);
+            }
+            else
+            {
+                int convert = int.Parse(RawNumber);
+
+                DAL.Rooms.Update(Editable, convert);
+                Target = DAL.Rooms.ById(Target.Id);
+                RawNumber = Target.Number;
+
+                Navigator.RoomDetailView.Save_Button_Click();
+
+                ChangeValue("Target");
+                ChangeValue("RawNumber");
+            }
         }
 
         private void Delete_Execute(object parameter)

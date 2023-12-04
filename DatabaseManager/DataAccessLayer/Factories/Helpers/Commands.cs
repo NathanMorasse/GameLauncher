@@ -26,6 +26,14 @@ namespace DatabaseManager.DataAccessLayer.Factories.Helpers
             }
         }
 
+        public static string DepartmentById
+        {
+            get
+            {
+                return "select * from `department` where `Id` = @Id;";
+            }
+        }
+
         public static string CreateDepartment
         {
             get

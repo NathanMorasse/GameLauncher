@@ -17,6 +17,7 @@ namespace DatabaseManager.ViewModels
         public List<Room> Rooms { get; set; }
         public Room Selected { get; set; }
         public Room Create { get; set; }
+        public Room Edit { get; set; }
 
         public List<string> Departments { get; set; }
 
@@ -66,17 +67,41 @@ namespace DatabaseManager.ViewModels
         private void EditPopUp_Execute(object parameter)
         {
             RawNumber = Selected.Number;
+            Edit = DAL.Rooms.ById(Selected.Id);
 
+            ChangeValue("Edit");
             ChangeValue("Selected");
             ChangeValue("RawNumber");
         }
 
         private void NewRoom_Execute(object parameter)
         {
-            DAL.Rooms.Create(Create);
+            string error = null;
 
-            Rooms = DAL.Rooms.All();
-            ChangeValue("Rooms");
+            if (Create.Number == null)
+            {
+                error = "Un numéro à 4 chiffres est requis.";
+            }
+            else if (Create.Number.Length != 4)
+            {
+                error = "Un numéro à 4 chiffres est requis.";
+            }
+            else if (Create.Department == null)
+            {
+                error = "Un département est requis";
+            }
+
+            if (error != null)
+            {
+                Navigator.RoomListView.ShowError(error);
+            }
+            else
+            {
+                DAL.Rooms.Create(Create);
+
+                Rooms = DAL.Rooms.All();
+                ChangeValue("Rooms");
+            }
         }
 
         private void DeleteRoom_Execute(object parameter)
@@ -89,12 +114,35 @@ namespace DatabaseManager.ViewModels
 
         private void EditRoom_Execute(object parameter)
         {
-            int convert = int.Parse(RawNumber);
+            string error = null;
 
-            DAL.Rooms.Update(Selected, convert);
+            if (RawNumber == null)
+            {
+                error = "Un numéro à 4 chiffres est requis.";
+            }
+            else if (RawNumber.Length != 4)
+            {
+                error = "Un numéro à 4 chiffres est requis.";
+            }
+            else if (Edit.Department == null)
+            {
+                error = "Un département est requis";
+            }
 
-            Rooms = DAL.Rooms.All();
-            ChangeValue("Rooms");
+            if (error != null)
+            {
+                Navigator.RoomListView.ShowError(error);
+            }
+            else
+            {
+
+                int convert = int.Parse(RawNumber);
+
+                DAL.Rooms.Update(Selected, convert);
+
+                Rooms = DAL.Rooms.All();
+                ChangeValue("Rooms");
+            }
         }
 
         private void SeeRoom_Execute(object parameter)

@@ -50,6 +50,10 @@ namespace DatabaseManager.ViewModels
         public void Delete_Execute(object parameter)
         {
             DAL.Furnitures.Delete(Selected.Id);
+
+            Furnitures = DAL.Furnitures.All();
+
+            ChangeValue("Furnitures");
         }
     }
 }

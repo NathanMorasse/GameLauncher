@@ -39,9 +39,18 @@ namespace DatabaseManager.Views
                 Confirm_Delete.Visibility = Visibility.Collapsed;
             }
 
-            See_Button.IsEnabled = true;
-            Edit_Button.IsEnabled = true;
-            Delete_Button.IsEnabled = true;
+            if ((this.DataContext as DepartmentRoomListVM).Selected == null)
+            {
+                See_Button.IsEnabled = false;
+                Edit_Button.IsEnabled = false;
+                Delete_Button.IsEnabled = false;
+            }
+            else
+            {
+                See_Button.IsEnabled = true;
+                Edit_Button.IsEnabled = true;
+                Delete_Button.IsEnabled = true;
+            }
         }
 
         private void Edit_Button_Click(object sender, RoutedEventArgs e)
@@ -95,6 +104,28 @@ namespace DatabaseManager.Views
             if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[0-9.\\-]+"))
             {
                 e.Handled = true;
+            }
+        }
+
+        public void ShowError(string message)
+        {
+            if (Confirm_Delete.Visibility == Visibility.Visible)
+            {
+                Confirm_Delete.Visibility = Visibility.Collapsed;
+            }
+
+            ErrorPopUpText.Text = message;
+            if (ErrorPopUp.Visibility != Visibility.Visible)
+            {
+                ErrorPopUp.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void Remove_Error(object sender, RoutedEventArgs e)
+        {
+            if (ErrorPopUp.Visibility != Visibility.Collapsed)
+            {
+                ErrorPopUp.Visibility = Visibility.Collapsed;
             }
         }
     }

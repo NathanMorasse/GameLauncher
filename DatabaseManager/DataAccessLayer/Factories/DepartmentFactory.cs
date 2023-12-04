@@ -45,6 +45,74 @@ namespace DatabaseManager.DataAccessLayer.Factories
             return departments;
         }
 
+        public Department ByName(string name)
+        {
+            Department department = new Department();
+            MySqlConnection? connection = null;
+            MySqlDataReader? reader = null;
+
+            try
+            {
+                connection = new MySqlConnection(DAL.ConnectionString);
+                connection.Open();
+
+                MySqlCommand command = connection.CreateCommand();
+                command.CommandText = Commands.DepartmentByName;
+                command.Parameters.AddWithValue("@Name", name);
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    department = CreateFromReader.Department(reader);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                connection?.Close();
+            }
+
+            return department;
+        }
+
+        public Department ById(int id)
+        {
+            Department department = new Department();
+            MySqlConnection? connection = null;
+            MySqlDataReader? reader = null;
+
+            try
+            {
+                connection = new MySqlConnection(DAL.ConnectionString);
+                connection.Open();
+
+                MySqlCommand command = connection.CreateCommand();
+                command.CommandText = Commands.DepartmentById;
+                command.Parameters.AddWithValue("@Id", id);
+
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    department = CreateFromReader.Department(reader);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                connection?.Close();
+            }
+
+            return department;
+        }
+
         public void Create(Department item)
         {
             MySqlConnection? connection = null;

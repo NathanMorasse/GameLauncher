@@ -44,13 +44,13 @@
                             </Grid.ColumnDefinitions>
 
                             <TextBlock Grid.Column="0" Text="Nom :" VerticalAlignment="Center"/>
-                            <TextBox Text="{Binding Create.Name, Mode=OneWayToSource}" Grid.Column="1" Margin="10 0" MaxLength="50"/>
+                            <TextBox Text="{Binding Create.Name, Mode=OneWayToSource}" FontSize="20" Grid.Column="1" Margin="10 0" MaxLength="50"/>
 
                             <TextBlock Grid.Column="2" Text="Bâtiment :" VerticalAlignment="Center"/>
-                            <TextBox Text="{Binding Create.Building, Mode=OneWayToSource}" PreviewTextInput="Building_PreviewTextInput" MaxLength="1" Grid.Column="3" Margin="10 0"/>
+                            <TextBox Text="{Binding Create.Building, Mode=OneWayToSource}" FontSize="20" PreviewTextInput="Building_PreviewTextInput" MaxLength="1" Grid.Column="3" Margin="10 0"/>
 
                             <TextBlock Grid.Column="4" Text="Étage :" VerticalAlignment="Center"/>
-                            <TextBox Text="{Binding Create.Floor, Mode=OneWayToSource}" PreviewTextInput="Floor_PreviewTextInput" MaxLength="1" Grid.Column="5" Margin="10 0"/>
+                            <TextBox Text="{Binding Create.Floor, Mode=OneWayToSource}" FontSize="20" PreviewTextInput="Floor_PreviewTextInput" MaxLength="1" Grid.Column="5" Margin="10 0"/>
 
                             <Button Click="Remove_Error" Grid.Column="6" Command="{Binding NewDepartment}" Content="Ajouter" HorizontalAlignment="Right" Width="120" Height="35"/>
                         </Grid>
@@ -95,14 +95,14 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock FontSize="20" Grid.Column="0" Text="Nom :" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Selected.Name, Mode=TwoWay}" MaxLength="50" FontSize="20" Grid.Column="1" Margin="10 0"/>
+                        <TextBlock FontSize="30" Grid.Column="0" Text="Nom :" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding Edit.Name, Mode=TwoWay}" MaxLength="50" FontSize="20" Grid.Column="1" Margin="10 0"/>
 
-                        <TextBlock FontSize="20" Grid.Column="2" Text="Bâtiment :" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Selected.Building, Mode=TwoWay}" PreviewTextInput="Building_PreviewTextInput" FontSize="20" Grid.Column="3" Margin="10 0"/>
+                        <TextBlock FontSize="30" Grid.Column="2" Text="Bâtiment :" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding Edit.Building, Mode=TwoWay}" PreviewTextInput="Building_PreviewTextInput" MaxLength="1" FontSize="20" Grid.Column="3" Margin="10 0"/>
 
-                        <TextBlock FontSize="20" Grid.Column="4" Text="Étage :" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Selected.Floor, Mode=TwoWay}" PreviewTextInput="Floor_PreviewTextInput" FontSize="20" Grid.Column="5" Margin="10 0"/>
+                        <TextBlock FontSize="30" Grid.Column="4" Text="Étage :" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding Edit.Floor, Mode=TwoWay}" PreviewTextInput="Floor_PreviewTextInput" MaxLength="1" FontSize="20" Grid.Column="5" Margin="10 0"/>
 
                         <Button Grid.Column="6" Click="Save_Button_Click" Command="{Binding EditDepartment}" Content="Modifier" HorizontalAlignment="Right" Width="120" Height="35"/>
                     </Grid>
@@ -124,7 +124,7 @@
                     </Grid>
                 </Border>
 
-                <Border x:Name="ErrorPopUp" Grid.Row="3" Background="#ff6666" Padding="10" CornerRadius="10" Margin="0 0 0 10" Visibility="Collapsed">
+                <Border x:Name="ErrorPopUp" Grid.Row="3" Background="#ffb066" Padding="10" CornerRadius="10" Margin="0 0 0 10" Visibility="Collapsed">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>

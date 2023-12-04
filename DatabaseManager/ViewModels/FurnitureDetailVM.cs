@@ -17,10 +17,12 @@ namespace DatabaseManager.ViewModels
         public Furniture Target { get; set; }
 
         public List<Room> RoomList { get; set; }
+        public Furniture Editable { get; set; }
 
         public ICommand Edit { get; set; }
         public ICommand Delete { get; set; }
         public ICommand Rooms { get; set; }
+        public ICommand EditView { get; set; }
 
 
         public FurnitureDetailVM() 
@@ -32,15 +34,44 @@ namespace DatabaseManager.ViewModels
             this.Edit = new CommandLink(Edit_Execute, Dummy_CanExecute);
             this.Delete = new CommandLink(Delete_Execute, Dummy_CanExecute);
             this.Rooms = new CommandLink(Rooms_Execute, Dummy_CanExecute);
+            this.EditView = new CommandLink(EditView_Execute, Dummy_CanExecute);
         }
 
         private void Edit_Execute(object parameter)
         {
-            DAL.Furnitures.Update(Target);
+            string error = null;
 
-            Target = DAL.Furnitures.ById(Target.Id);
+            if (string.IsNullOrWhiteSpace(Editable.Brand) || Editable.Brand == "")
+            {
+                error = "Une marque est requise.";
+            }
+            else if (string.IsNullOrWhiteSpace(Editable.Type) || Editable.Type == "")
+            {
+                error = "Un type est requis.";
+            }
+            else if (Editable.Length < 1 || Editable.Height < 1 || Editable.Width < 1)
+            {
+                error = "Les dimensions sont requises";
+            }
+            else if (Editable.Room_Id == 0)
+            {
+                error = "Un local de référence est requis.";
+            }
 
-            ChangeValue("Target");
+            if (error != null)
+            {
+                Navigator.FurnitureDetailView.ShowError(error);
+            }
+            else
+            {
+                DAL.Furnitures.Update(Editable);
+
+                Target = DAL.Furnitures.ById(Target.Id);
+
+                Navigator.FurnitureDetailView.Edit_Stuff_Button_Click();
+
+                ChangeValue("Target");
+            }
         }
 
         private void Delete_Execute(object parameter)
@@ -53,6 +84,13 @@ namespace DatabaseManager.ViewModels
         private void Rooms_Execute(object parameter)
         {
             Navigator.FurnitureList();
+        }
+
+        private void EditView_Execute(object parameter)
+        {
+            Editable = DAL.Furnitures.ById(Target.Id);
+
+            ChangeValue("Editable");
         }
 
     }
