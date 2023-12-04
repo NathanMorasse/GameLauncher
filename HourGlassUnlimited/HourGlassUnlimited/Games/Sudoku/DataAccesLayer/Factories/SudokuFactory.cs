@@ -16,6 +16,7 @@ using HourGlassUnlimited.Models;
 using MySql.Data.MySqlClient;
 using HourGlassUnlimited.Tools;
 using System.Reflection.PortableExecutable;
+using HourGlassUnlimited.Exceptions;
 
 namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
 {
@@ -35,25 +36,40 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
 
         public static SudokuGame CreateFromSave(MySqlDataReader reader)
         {
-            int id = (int)reader["Id"];
-            string title = reader["Title"].ToString() ?? string.Empty;
-            string timePassed = reader["Time"].ToString() ?? string.Empty;
-            string boardString = reader["Save"].ToString() ?? string.Empty;
-            Board board = BoardEncoder.DecodeBoard(boardString);
-            board.Seed = reader["Seed"].ToString() ?? string.Empty;
-            board.Notes = reader["Notes"].ToString() ?? string.Empty;
-            bool isDaily = reader["IsDaily"].ToString() == "True";
-            DateTime date = DateTime.Parse(reader["Date"].ToString());
+            try
+            {
+                int id = (int)reader["Id"];
+                string title = reader["Title"].ToString() ?? string.Empty;
+                string timePassed = reader["Time"].ToString() ?? string.Empty;
+                string boardString = reader["Save"].ToString() ?? string.Empty;
+                Board board = BoardEncoder.DecodeBoard(boardString);
+                board.Seed = reader["Seed"].ToString() ?? string.Empty;
+                board.Notes = reader["Notes"].ToString() ?? string.Empty;
+                bool isDaily = reader["IsDaily"].ToString() == "True";
+                DateTime date = DateTime.Parse(reader["Date"].ToString());
 
-            return new SudokuGame() { Id=id, Title=title, TimePassed = timePassed, GameBoard=board, IsDaily = isDaily, Date = date};
+                return new SudokuGame() { Id=id, Title=title, TimePassed = timePassed, GameBoard=board, IsDaily = isDaily, Date = date};
+            }
+            catch (Exception e)
+            {
+                throw new ModelCreationFromReaderException("Échec de création d'une nouvelle partie de Sudoku à partir d'une sauvegarde", e);
+            }
         }
 
         public static SudokuGame CreateFromReader(MySqlDataReader reader)
         {
-            int id = (int)reader["Id"];
-            string title = reader["Title"].ToString() ?? string.Empty;
+            try
+            {
+                int id = (int)reader["Id"];
+                string title = reader["Title"].ToString() ?? string.Empty;
 
-            return new SudokuGame() { Id = id, Title = title};
+                return new SudokuGame() { Id = id, Title = title};
+            }
+            catch (Exception e)
+            {
+
+                throw new ModelCreationFromReaderException("Échec de création d'une nouvelle partie de Sudoku", e);
+            }
         }
 
         public async Task<Board> GenerateBoard(string difficulty, bool isDaily, string paramSeed, string notes)
@@ -164,7 +180,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             }
             catch (Exception e)
             {
-                throw new Exception("Echec de la sauvegarde: "+e.Message);
+                throw new Exception("Echec de la sauvegarde ", e);
             }
             finally
             {
@@ -202,7 +218,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             }
             catch (Exception e)
             {
-                throw new Exception("Echec du chargement de sauvegarde: " + e.Message);
+                throw new Exception("Echec du chargement de sauvegarde", e.InnerException);
             }
             finally
             {
@@ -257,7 +273,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             }
             catch (Exception e)
             {
-                throw new Exception("Imposible d'avoir les temps : " + e.Message);
+                throw new Exception("Imposible d'avoir les meilleurs temps ", e.InnerException);
             }
             finally
             {

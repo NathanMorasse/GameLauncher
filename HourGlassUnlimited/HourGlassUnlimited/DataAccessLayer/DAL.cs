@@ -13,7 +13,6 @@ namespace HourGlassUnlimited.DataAccessLayer
         private static DepartmentFactory? _DepartmentFact;
         private static GameFactory? _GameFact;
         private static ScoreFactory? _ScoreFact;
-        private static SaveFactory? _SaveFact;
 
         public UserFactory? Users
         {
@@ -60,18 +59,6 @@ namespace HourGlassUnlimited.DataAccessLayer
                     _ScoreFact = new ScoreFactory();
                 }
                 return _ScoreFact;
-            }
-        }
-
-        public SaveFactory? Saves
-        {
-            get
-            {
-                if (_SaveFact == null)
-                {
-                    _SaveFact = new SaveFactory();
-                }
-                return _SaveFact;
             }
         }
     }

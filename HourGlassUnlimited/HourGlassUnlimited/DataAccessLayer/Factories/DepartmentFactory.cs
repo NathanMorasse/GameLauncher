@@ -33,6 +33,11 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
                 {
                     departments.Add(FactoryHelper.DepartmentFromReader(reader));
                 }
+
+                if (departments.Count() == 0)
+                {
+                    throw new Exception("Il n'y a aucun département dans la base de données");
+                }
             }
             catch (Exception e) 
             {
@@ -68,7 +73,7 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
 
                 if (department == null)
                 {
-                    throw new Exception("Le département n'existe pas");
+                    throw new ObjectNotFoundException("Le département pour l'utilisateur avec l'ID "+ userId+" n'existe pas.");
                 }
             }
             catch (Exception e)

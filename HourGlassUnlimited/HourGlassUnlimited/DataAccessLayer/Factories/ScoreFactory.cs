@@ -35,7 +35,7 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
             }
             catch (Exception e)
             {
-                throw new Exception("Echec de l'enregistrement: " + e.Message);
+                throw new Exception("Echec de l'enregistrement du nouveau score.",  e.InnerException);
             }
         }
 
@@ -67,7 +67,7 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
             }
             catch (Exception e)
             {
-                throw new Exception("Echec de l'enregistrement: " + e.Message);
+                throw new Exception("Echec de mise a jour des points pour le jeu avec l'ID "+gameId, e.InnerException);
             }
         }
 
@@ -136,7 +136,7 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
             }
             catch (Exception e)
             {
-                throw new Exception("Erreur de validation du score du joueur " + ConnectionHelper.User.Username+" :"+e.Message);
+                throw new Exception("Erreur de validation du score du joueur " + ConnectionHelper.User.Username+" :", e.InnerException);
             }
             finally
             {

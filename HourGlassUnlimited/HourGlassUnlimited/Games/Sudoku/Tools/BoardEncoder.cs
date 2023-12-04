@@ -12,7 +12,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Tools
     {
         public static Board DecodeBoard(string sudokuString)
         {
-            if (sudokuString.Length != 81) throw new ArgumentException("Invalid Sudoku string length.");
+            if (sudokuString.Length != 81) throw new ArgumentException("Longueur de string de sudoku invalide");
 
             Board board = new Board();
 
@@ -35,7 +35,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Tools
                     }
                     else
                     {
-                        throw new ArgumentException($"Invalid character '{currentChar}' in Sudoku string.");
+                        throw new ArgumentException($"Charactère invalide '{currentChar}' dans la string de sudoku");
                     }
 
                     row.Add(cell);
@@ -51,7 +51,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Tools
         {
             if (board == null) throw new ArgumentNullException(nameof(board));
             if (board.Grid.Count != 9 || board.Grid.Any(row => row.Count != 9))
-                throw new ArgumentException("Invalid board dimensions.");
+                throw new ArgumentException("Dimensions de grille invalide");
 
             StringBuilder result = new StringBuilder();
 
@@ -69,7 +69,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Tools
                     }
                     else
                     {
-                        throw new ArgumentException($"Invalid cell value {cell.Value} in board.");
+                        throw new ArgumentException($"valeur de cellule invalide {cell.Value} dans la grille");
                     }
                 }
             }

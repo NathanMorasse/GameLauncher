@@ -1,16 +1,6 @@
-Cacher les notes quand il y a un chiffre
 Gestion d'exception
+Feedback de l'interface
 erreurs de connexion
-Tests unitaires
 Doc
-
-
-
-
-
-ON Notes button checked: 
-	find pos of cell
-	 if not 0:
-		DisableNote(pos of cell)
-
-DisableNote
+Tests unitaires
+Cacher les notes quand il y a un chiffre

@@ -1,5 +1,6 @@
 ﻿using HourGlassUnlimited.DataAccessLayer.Factories.Base;
 using HourGlassUnlimited.DataAccessLayer.Factories.Helper;
+using HourGlassUnlimited.Exceptions;
 using HourGlassUnlimited.Models;
 using HourGlassUnlimited.Models;
 using MySql.Data.MySqlClient;
@@ -44,12 +45,12 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
 
                 if (game == null)
                 {
-                    throw new Exception("Le jeu n'existe pas");
+                    throw new ObjectNotFoundException("Le jeu avec le titre: "+title+" n'existe pas");
                 }
             }
             catch (Exception e)
             {
-                throw new Exception("Chargement du jeu impossible: " + e.Message);
+                throw new Exception("Échec du chargement du jeu avec le titre: " + title, e.InnerException);
             }
             finally
             {
@@ -81,12 +82,12 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
 
                 if (game == null)
                 {
-                    throw new Exception("Le jeu n'existe pas");
+                    throw new ObjectNotFoundException("Le jeu avec l'ID "+id+" n'existe pas");
                 }
             }
             catch (Exception e)
             {
-                throw new Exception("Chargement du jeu impossible: " + e.Message);
+                throw new Exception("Échec du chargement du jeu avec l'ID: " + id, e.InnerException);
             }
             finally
             {
