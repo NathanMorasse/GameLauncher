@@ -11,6 +11,7 @@ using HourGlassUnlimited.Tools;
 using System.Windows;
 using HourGlassUnlimited.Models;
 using HourGlassUnlimited.DataAccessLayer;
+using HourGlassUnlimited.Exceptions;
 
 namespace HourGlassUnlimited.Games.Sudoku.ViewModels
 {
@@ -134,7 +135,17 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         private async void Validate_Execute(object parameter)
         {
             SudokuDAL dal = new SudokuDAL();
-            string result = await dal.SudokuFact.ValidateBoard(CurrentGame.GameBoard);
+            string result;
+            try
+            {
+                result = await dal.SudokuFact.ValidateBoard(CurrentGame.GameBoard);
+            }
+            catch (BoardValidationException e)
+            {
+                MessageBox.Show("Une erreur est survenu lors de la validation de votre grille. \nErreur interne: " + e.Message + "\nErreur interne: " + e.InnerException.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Warning); MessageBox.Show("Échec de création d'une partie quotidienne. \nErreur interne: " + e.Message + "\nErreur interne: " + e.InnerException.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Warning);
+                result = "invalide";
+            }
+
             if (result == "valid")
             {
                 GameResult = "Grille complétée correctement!";
@@ -169,16 +180,23 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                SudokuDAL sudokuDal = new SudokuDAL();
-                DAL dal = new DAL();
-                GameBase game = dal.Games.GetByTitle("Sudoku");
-                SudokuGame newGame = new SudokuGame { Id=game.Id, Title=game.Title };
-                Board newBoard = await sudokuDal.SudokuFact.GenerateBoard(CurrentGame.GameBoard.Difficulty, false, string.Empty, "");
-                newGame.GameBoard = newBoard;
-                SudokuNavigator.GamePage.SetGame(newGame);
-                GameStatusVisibility = "Collapsed";
-                await Task.Delay(100);
-                await SudokuNavigator.GamePage.ResetGrid();
+                try
+                {
+                    SudokuDAL sudokuDal = new SudokuDAL();
+                    DAL dal = new DAL();
+                    GameBase game = dal.Games.GetByTitle("Sudoku");
+                    SudokuGame newGame = new SudokuGame { Id=game.Id, Title=game.Title };
+                    Board newBoard = await sudokuDal.SudokuFact.GenerateBoard(CurrentGame.GameBoard.Difficulty, false, string.Empty, "");
+                    newGame.GameBoard = newBoard;
+                    SudokuNavigator.GamePage.SetGame(newGame);
+                    GameStatusVisibility = "Collapsed";
+                    await Task.Delay(100);
+                    await SudokuNavigator.GamePage.ResetGrid();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Échec création d'une nouvelle partie. \nErreur interne: " + e.Message + "\nErreur interne: " + e.InnerException.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
         }
 

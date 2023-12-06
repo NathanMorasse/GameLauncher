@@ -8,6 +8,8 @@ using HourGlassUnlimited.Games.Sudoku.Models;
 using HourGlassUnlimited.Games.Sudoku.DataAccesLayer;
 using HourGlassUnlimited.DataAccessLayer;
 using HourGlassUnlimited.Models;
+using Microsoft.Win32;
+using System.Windows;
 
 namespace HourGlassUnlimited.Games.Sudoku.ViewModels
 {
@@ -29,7 +31,17 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         private async void Select_Classic_Execute(object parameter)
         {
             SudokuDAL dal = new SudokuDAL();
-            SudokuGame savedGame = dal.SudokuFact.LoadSave(false);
+            SudokuGame savedGame;
+            try
+            {
+                savedGame = dal.SudokuFact.LoadSave(false);
+            }
+            catch (Exception e)
+            {
+                savedGame=null;
+                MessageBox.Show("La sauvegarde de votre dernière partie n'a pas chargé correctement vous pouvez commencer une nouvelle partie ou contacter un administrateur. \nErreur interne: "+e.InnerException.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
             if (savedGame == null)
             {
                 SudokuNavigator.PartialDifficultyView();
@@ -46,26 +58,50 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         {
             DAL dal = new DAL();
             SudokuDAL sudokuDal = new SudokuDAL();
-            SudokuGame savedGame = sudokuDal.SudokuFact.LoadSave(true);
+            SudokuGame savedGame;
+            try
+            {
+                savedGame = sudokuDal.SudokuFact.LoadSave(true);
+            }
+            catch (Exception e)
+            {
+                savedGame = null;
+                MessageBox.Show("La sauvegarde de votre dernière partie n'a pas chargé correctement. Vous pouvez commencer une nouvelle partie ou contacter un administrateur. \nErreur interne: " + e.InnerException.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
             if (savedGame == null || savedGame.Date.Date != DateTime.Now.Date)
             {
-                GameBase gameBase = dal.Games.GetByTitle("Sudoku");
-                SudokuGame game = new SudokuGame { Id = gameBase.Id, Title = gameBase.Title, Date= DateTime.Now};
-                game.IsDaily = true;
-                game.GameBoard = await sudokuDal.SudokuFact.GenerateBoard("hard", true, string.Empty, string.Empty);
-                SudokuNavigator.GamePage.SetGame(game);
-                SudokuNavigator.GamePageView();
+                try
+                {
+                    GameBase gameBase = dal.Games.GetByTitle("Sudoku");
+                    SudokuGame game = new SudokuGame { Id = gameBase.Id, Title = gameBase.Title, Date= DateTime.Now};
+                    game.IsDaily = true;
+                    game.GameBoard = await sudokuDal.SudokuFact.GenerateBoard("hard", true, string.Empty, string.Empty);
+                    SudokuNavigator.GamePage.SetGame(game);
+                    SudokuNavigator.GamePageView();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Échec de création d'une nouvelle partie quotidienne. \nErreur interne: "+e.Message+"\nErreur interne: "+e.InnerException.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
             else
             {
-                Board temp = savedGame.GameBoard;
-                savedGame.GameBoard = await sudokuDal.SudokuFact.GenerateBoard("hard", savedGame.IsDaily, savedGame.GameBoard.Seed, savedGame.GameBoard.Notes);
-                SudokuNavigator.GamePage.SetGame(savedGame);
-                SudokuNavigator.GamePageView();
-                await Task.Delay(100);
-                GamePageVM vm = (GamePageVM)SudokuNavigator.GamePage.DataContext;
-                vm.LoadSavedCells(temp.Grid);
-                SudokuNavigator.GamePage.LoadNotes(savedGame.GameBoard.Notes);
+                try
+                {
+                    Board temp = savedGame.GameBoard;
+                    savedGame.GameBoard = await sudokuDal.SudokuFact.GenerateBoard("hard", savedGame.IsDaily, savedGame.GameBoard.Seed, savedGame.GameBoard.Notes);
+                    SudokuNavigator.GamePage.SetGame(savedGame);
+                    SudokuNavigator.GamePageView();
+                    await Task.Delay(100);
+                    GamePageVM vm = (GamePageVM)SudokuNavigator.GamePage.DataContext;
+                    vm.LoadSavedCells(temp.Grid);
+                    SudokuNavigator.GamePage.LoadNotes(savedGame.GameBoard.Notes);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Échec de création d'une partie quotidienne. \nErreur interne: " + e.Message + "\nErreur interne: " + e.InnerException.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
         }
 
@@ -80,15 +116,22 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
             {
                 if (NewGame != null)
                 {
-                    game = NewGame;
-                    Board temp = NewGame.GameBoard;
-                    game.GameBoard = await sudokuDAL.SudokuFact.GenerateBoard(game.GameBoard.Difficulty, game.IsDaily, game.GameBoard.Seed, game.GameBoard.Notes);
-                    SudokuNavigator.GamePage.SetGame(game);
-                    SudokuNavigator.GamePageView();
-                    await Task.Delay(100);
-                    GamePageVM vm = (GamePageVM)SudokuNavigator.GamePage.DataContext;
-                    vm.LoadSavedCells(temp.Grid);
-                    SudokuNavigator.GamePage.LoadNotes(game.GameBoard.Notes);
+                    try
+                    {
+                        game = NewGame;
+                        Board temp = NewGame.GameBoard;
+                        game.GameBoard = await sudokuDAL.SudokuFact.GenerateBoard(game.GameBoard.Difficulty, game.IsDaily, game.GameBoard.Seed, game.GameBoard.Notes);
+                        SudokuNavigator.GamePage.SetGame(game);
+                        SudokuNavigator.GamePageView();
+                        await Task.Delay(100);
+                        GamePageVM vm = (GamePageVM)SudokuNavigator.GamePage.DataContext;
+                        vm.LoadSavedCells(temp.Grid);
+                        SudokuNavigator.GamePage.LoadNotes(game.GameBoard.Notes);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("Échec de chargement de partie. \nErreur interne: " + e.Message + "\nErreur interne: " + e.InnerException.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
                 }
             }
             else
@@ -99,9 +142,16 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                 }
                 else
                 {
-                    game.GameBoard = await sudokuDAL.SudokuFact.GenerateBoard(parameter.ToString(), false, string.Empty, string.Empty);
-                    SudokuNavigator.GamePage.SetGame(game);
-                    SudokuNavigator.GamePageView();
+                    try
+                    {
+                        game.GameBoard = await sudokuDAL.SudokuFact.GenerateBoard(parameter.ToString(), false, string.Empty, string.Empty);
+                        SudokuNavigator.GamePage.SetGame(game);
+                        SudokuNavigator.GamePageView();
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("Échec de création d'une nouvelle partie. \nErreur interne: " + e.Message + "\nErreur interne: " + e.InnerException.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
                 }
             }
         }

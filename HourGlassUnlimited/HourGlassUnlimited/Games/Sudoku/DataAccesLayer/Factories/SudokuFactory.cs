@@ -47,7 +47,6 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
                 board.Notes = reader["Notes"].ToString() ?? string.Empty;
                 bool isDaily = reader["IsDaily"].ToString() == "True";
                 DateTime date = DateTime.Parse(reader["Date"].ToString());
-
                 return new SudokuGame() { Id=id, Title=title, TimePassed = timePassed, GameBoard=board, IsDaily = isDaily, Date = date};
             }
             catch (Exception e)
@@ -137,6 +136,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
                     var body = await response.Content.ReadAsStringAsync();
                     dynamic data = JObject.Parse(body);
                     string solvedBoardString = data.solution;
+                    throw new Exception("Test (a enlever pas oublier)"); // a enlever pas oublier
                     if (boardString == solvedBoardString)
                     {
                         return "valid";
@@ -146,7 +146,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             }
             catch (Exception e)
             {
-                throw new Exception("Échec de la validation de grille", e);
+                throw new BoardValidationException("Échec de la validation de grille", e);
             }
         }
 
@@ -180,7 +180,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             }
             catch (Exception e)
             {
-                throw new Exception("Echec de la sauvegarde ", e);
+                throw new Exception("Échec de la sauvegarde ", e);
             }
             finally
             {
@@ -218,7 +218,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             }
             catch (Exception e)
             {
-                throw new Exception("Echec du chargement de sauvegarde", e.InnerException);
+                throw new Exception("Échec du chargement de sauvegarde", e.InnerException);
             }
             finally
             {

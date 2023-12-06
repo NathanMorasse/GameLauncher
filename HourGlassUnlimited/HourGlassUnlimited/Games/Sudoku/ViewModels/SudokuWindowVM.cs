@@ -62,7 +62,14 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
-                    dal.SudokuFact.SaveGame(vm.CurrentGame, vm.TimePassed);
+                    try
+                    {
+                        dal.SudokuFact.SaveGame(vm.CurrentGame, vm.TimePassed);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("Une erreur est survenue lors de la sauvegarde de votre partie. \nErreur interne: " + e.Message + "\nErreur interne: " + e.InnerException.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
                 }
             }
             else
