@@ -18,7 +18,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using HourGlassUnlimited.DataAccessLayer;
+using HourGlassUnlimited.Games.Sudoku.DataAccesLayer;
 using HourGlassUnlimited.Games.Sudoku.Models;
+using HourGlassUnlimited.Games.Sudoku.Tools;
 using HourGlassUnlimited.Games.Sudoku.ViewModels;
 using HourGlassUnlimited.Models;
 
@@ -54,8 +56,7 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
         {
             if (vm.CurrentGame.IsDaily)
             {
-                ResetButton.Visibility = Visibility.Hidden;
-                ClearButton.Visibility = Visibility.Visible;
+                ResetButton.Visibility = Visibility.Collapsed;
                 DAL dal = new DAL();
                 GameBase game = dal.Games.GetByTitle("Sudoku");
                 if (dal.Scores.UserCompletedDaily(game.Id))
@@ -278,8 +279,14 @@ namespace HourGlassUnlimited.Games.Sudoku.Views
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
-            ClearBoard(BoardGrid);
-            ClearNotes(NotesGrid);
+            if (MessageBox.Show("Êtes-vous sur de vouloir éffacer tous les chiffres et les notes que vous avez ajouter sur la grille?",
+                    "Éffacer la grille",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                ClearBoard(BoardGrid);
+                ClearNotes(NotesGrid);
+            }
         }
 
         private void ClearBoard(DependencyObject parent)

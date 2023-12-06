@@ -165,11 +165,12 @@
                             <ColumnDefinition />
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
                         <Button Name="ValidateButton" IsEnabled="{Binding CanValidate}" ToolTip="Valider votre grille" Grid.Column="0" Command="{Binding Validate}" Style="{StaticResource StandardButton}" Margin="0 0 5 0" HorizontalAlignment="Stretch" >Vérifier</Button>
-                        <ToggleButton Name="NotesButton" Checked="NotesButton_Checked" Unchecked="NotesButton_Unchecked" ToolTip="Activer les notes" Grid.Column="1" Style="{StaticResource StandardToggleButton}" HorizontalAlignment="Right" FontFamily="Segoe mdl2 assets" Width="80">&#xE70F;</ToggleButton>
-                        <Button Name="ResetButton" ToolTip="Redémarer une partie" Grid.Column="2" Command="{Binding Reset}" Style="{StaticResource StandardButton}" Margin="5 0 0 0" Width="80" HorizontalAlignment="Right" FontFamily="Segoe mdl2 assets">&#xE72C;</Button>
-                        <Button Name="ClearButton" Visibility="Hidden" Click="ClearButton_Click" ToolTip="Vider la grille une partie" Grid.Column="2" Style="{StaticResource StandardButton}" HorizontalAlignment="Right" FontFamily="Segoe mdl2 assets" Width="80">&#xE74D;</Button>
+                        <ToggleButton Name="NotesButton" Checked="NotesButton_Checked" Unchecked="NotesButton_Unchecked" ToolTip="Activer les notes" Grid.Column="1" Style="{StaticResource StandardToggleButton}" HorizontalAlignment="Right" FontFamily="Segoe mdl2 assets" Width="80" Margin="0,0,5,0">&#xE70F;</ToggleButton>
+                        <Button Name="ResetButton" ToolTip="Redémarer une partie" Grid.Column="2" Command="{Binding Reset}" Style="{StaticResource StandardButton}" Margin="0 0 5 0" Width="80"  FontFamily="Segoe mdl2 assets">&#xE72C;</Button>
+                        <Button Name="ClearButton" Click="ClearButton_Click" ToolTip="Vider la grille une partie" Grid.Column="3" Style="{StaticResource StandardButton}" HorizontalAlignment="Right" FontFamily="Segoe mdl2 assets" Width="80">&#xE74D;</Button>
                     </Grid>
                 </Grid>
             </Grid>
