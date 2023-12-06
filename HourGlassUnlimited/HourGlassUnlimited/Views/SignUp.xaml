@@ -27,50 +27,63 @@
                 <DropShadowEffect ShadowDepth="25" Color="Gray" Opacity="1" BlurRadius="50"/>
             </Border.Effect>
             <Grid Margin="20">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0">
-                    <TextBlock Foreground="White" FontSize="50" VerticalAlignment="Center" TextAlignment="Center">Créer un compte</TextBlock>
+                        <Grid Grid.Row="0">
+                            <TextBlock Foreground="White" FontSize="50" VerticalAlignment="Center" TextAlignment="Center">Créer un compte</TextBlock>
 
-                </Grid>
-                <Border Grid.Row="1" BorderThickness="0.5" Height="1" BorderBrush="Gray" Margin="0"/>
+                        </Grid>
+                        <Border Grid.Row="1" BorderThickness="0.5" Height="1" BorderBrush="Gray" Margin="0"/>
 
-                <StackPanel Grid.Row="2" Margin="0 0 0 0">
-                    <Label Foreground="White">Nom d'utilisateur</Label>
-                    <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Username, Mode=OneWayToSource}"></TextBox>
-                    <TextBlock x:Name="Usename_Alert" Visibility="Hidden"></TextBlock>
-                </StackPanel>
+                        <Border x:Name="General_Alert" Grid.Row="2" Visibility="Visible" Background="#e60000" CornerRadius="10" Margin="10 0 10 10">
+                            <Label Content="Insert text" Foreground="White" HorizontalAlignment="Center"/>
+                        </Border>
 
-                <StackPanel Grid.Row="3">
-                    <Label Foreground="White">Mot de passe</Label>
-                    <PasswordBox PasswordChanged="PasswordBox_PasswordChanged" Style="{StaticResource PasswordBoxStyle}"></PasswordBox>
-                    <TextBlock x:Name="Password_Alert" Visibility="Hidden"></TextBlock>
-                </StackPanel>
+                        <StackPanel Grid.Row="3" Margin="0 0 0 0">
+                            <Label Foreground="White">Nom d'utilisateur</Label>
+                            <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Username, Mode=OneWayToSource}"></TextBox>
+                            <Border x:Name="Username_Alert" Visibility="Visible" Background="#e60000" CornerRadius="0 0 10 10" Margin="20 -4 20 10">
+                                <Label Content="Insert text" Foreground="White" HorizontalAlignment="Center"/>
+                            </Border>
+                        </StackPanel>
 
-                <StackPanel Grid.Row="4">
-                    <Label Foreground="White">Confirmation du mot de pass</Label>
-                    <PasswordBox PasswordChanged="PasswordBox_ConfirmationChanged" Style="{StaticResource PasswordBoxStyle}"></PasswordBox>
-                    <TextBlock x:Name="Confirmation_Alert" Visibility="Hidden"></TextBlock>
-                </StackPanel>
+                        <StackPanel Grid.Row="4">
+                            <Label Foreground="White">Mot de passe</Label>
+                            <PasswordBox PasswordChanged="PasswordBox_PasswordChanged" Style="{StaticResource PasswordBoxStyle}"></PasswordBox>
+                            <Border x:Name="Password_Alert" Visibility="Visible" Background="#e60000" CornerRadius="0 0 10 10" Margin="20 -4 20 10">
+                                <Label Content="Insert text" Foreground="White" HorizontalAlignment="Center"/>
+                            </Border>
+                        </StackPanel>
 
-                <StackPanel Grid.Row="5">
-                    <Label Foreground="White">Département</Label>
-                    <ComboBox SelectedItem="{Binding Department, Mode=TwoWay}" ItemsSource="{Binding Departments, Mode=OneWay}"></ComboBox>
-                    <TextBlock x:Name="Department_Alert" Visibility="Hidden"></TextBlock>
-                </StackPanel>
+                        <StackPanel Grid.Row="5">
+                            <Label Foreground="White">Confirmation du mot de pass</Label>
+                            <PasswordBox PasswordChanged="PasswordBox_ConfirmationChanged" Style="{StaticResource PasswordBoxStyle}"></PasswordBox>
+                            <Border x:Name="Confirmation_Alert" Visibility="Visible" Background="#e60000" CornerRadius="0 0 10 10" Margin="20 -4 20 10">
+                                <Label Content="Insert text" Foreground="White" HorizontalAlignment="Center"/>
+                            </Border>
+                        </StackPanel>
 
-                <Button x:Name="SignUp_Button" Height="55" Command="{Binding SignUp}" Style="{StaticResource StandardButton}" Grid.Row="7" Content="Créer"></Button>
-                <Button x:Name="GoBack_Button" Command="{Binding GoBack}" Style="{StaticResource LinkButton}" Grid.Row="8" Content="Annuler" Margin="10"></Button>
+                        <StackPanel Grid.Row="6">
+                            <Label Foreground="White">Département</Label>
+                            <ComboBox SelectedItem="{Binding Department, Mode=TwoWay}" ItemsSource="{Binding Departments, Mode=OneWay}"></ComboBox>
+                        </StackPanel>
+
+                        <Button x:Name="SignUp_Button" Height="55" Command="{Binding SignUp}" Style="{StaticResource StandardButton}" Grid.Row="7" Content="Créer" Margin="0 20 0 0"></Button>
+                        <Button x:Name="GoBack_Button" Command="{Binding GoBack}" Style="{StaticResource LinkButton}" Grid.Row="8" Content="Annuler" Margin="10"></Button>
+                    </Grid>
+                </ScrollViewer>
             </Grid>
         </Border>
     </Grid>

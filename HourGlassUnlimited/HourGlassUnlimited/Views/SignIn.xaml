@@ -31,6 +31,7 @@
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -42,20 +43,29 @@
                 </Grid>
                 <Border Grid.Row="1" BorderThickness="0.5" Height="1" BorderBrush="Gray" Margin="0"/>
 
-                <StackPanel Grid.Row="2" Margin="0 0 0 0">
+                <Border x:Name="General_Alert" Visibility="{Binding General_Feedback}" Grid.Row="2" Background="#e60000" CornerRadius="10" Margin="10 0 10 10">
+                    <Label Content="{Binding General_Error}" Foreground="White" HorizontalAlignment="Center"/>
+                </Border>
+                
+
+                <StackPanel Grid.Row="3" Margin="0 0 0 0">
                     <Label Foreground="White">Nom d'utilisateur</Label>
                     <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Username, Mode=OneWayToSource}"></TextBox>
-                    <TextBlock x:Name="Usename_Alert" Visibility="Hidden"></TextBlock>
+                    <Border x:Name="Username_Alert" Visibility="{Binding Username_Feedback}" Background="#e60000" CornerRadius="0 0 10 10" Margin="20 -4 20 10">
+                        <Label Content="{Binding Username_Error}" Foreground="White" HorizontalAlignment="Center"/>
+                    </Border>
                 </StackPanel>
 
-                <StackPanel Grid.Row="3">
+                <StackPanel Grid.Row="4">
                     <Label Foreground="White">Mot de passe</Label>
                     <PasswordBox PasswordChanged="PasswordBox_PasswordChanged" Style="{StaticResource PasswordBoxStyle}"></PasswordBox>
-                    <TextBlock x:Name="Password_Alert" Visibility="Hidden"></TextBlock>
+                    <Border x:Name="Password_Alert" Visibility="{Binding Password_Feedback}" Background="#e60000" CornerRadius="0 0 10 10" Margin="20 -4 20 10">
+                        <Label Content="{Binding Password_Error}" Foreground="White" HorizontalAlignment="Center"/>
+                    </Border>
                 </StackPanel>
 
-                <Button x:Name="SignIn_Button" Height="55" Command="{Binding SignIn}" Style="{StaticResource StandardButton}" Grid.Row="5" Content="Connexion"></Button>
-                <Button x:Name="SignUp_Button" Command="{Binding GoToSignUp}" Style="{StaticResource LinkButton}" Grid.Row="6" Content="Créer un compte" Margin="10"></Button>
+                <Button x:Name="SignIn_Button" Height="55" Command="{Binding SignIn}" Style="{StaticResource StandardButton}" Grid.Row="6" Content="Connexion"></Button>
+                <Button x:Name="SignUp_Button" Command="{Binding GoToSignUp}" Style="{StaticResource LinkButton}" Grid.Row="7" Content="Créer un compte" Margin="10"></Button>
             </Grid>
         </Border>
     </Grid>
