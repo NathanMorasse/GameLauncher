@@ -45,7 +45,7 @@ namespace HourGlassUnlimited.Tools
             //Verify if the Username is already taken
             if (user.Username == dal.Users.ByUsername(user.Username).Username)
             {
-                return new string[] { "Unauthorize", "Le nom d'utilisateur est déjà utilisé." };
+                return new string[] { "Unauthorized", "Le nom d'utilisateur est déjà utilisé." };
             }
 
 

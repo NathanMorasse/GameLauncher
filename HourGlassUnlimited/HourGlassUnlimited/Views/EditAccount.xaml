@@ -7,7 +7,7 @@
       xmlns:viewModel="clr-namespace:HourGlassUnlimited.ViewModels"
       d:DataContext="{d:DesignInstance Type=viewModel:EditAccountVM}"
       mc:Ignorable="d" 
-      d:DesignHeight="540" d:DesignWidth="960"
+      d:DesignHeight="700" d:DesignWidth="700"
       Title="EditAccount"
       FontFamily="Bahnschrift">
 
@@ -19,7 +19,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.001*"/>
-            <RowDefinition MaxHeight="600" MinHeight="300"/>
+            <RowDefinition MaxHeight="650" MinHeight="300"/>
             <RowDefinition Height="0.001*"/>
         </Grid.RowDefinitions>
         <Border Grid.Column="1" Grid.Row="1" Background="#262626" CornerRadius="25">
@@ -38,6 +38,7 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
 
                         <Grid Grid.Row="0">
@@ -46,37 +47,43 @@
                         </Grid>
                         <Border Grid.Row="1" BorderThickness="0.5" Height="1" BorderBrush="Gray" Margin="0"/>
 
-                        <StackPanel Grid.Row="2" Margin="0 0 0 0">
+                        <Border x:Name="General_Alert" Grid.Row="2" Visibility="{Binding General_Feedback}" Background="#e60000" CornerRadius="10" Margin="10 0 10 10">
+                            <Label Content="{Binding General_Error}" Foreground="White" HorizontalAlignment="Center"/>
+                        </Border>
+
+                        <StackPanel Grid.Row="3" Margin="0 0 0 0">
                             <Label Foreground="White">Nom d'utilisateur</Label>
                             <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Username, Mode=TwoWay}"></TextBox>
-                            <TextBlock x:Name="Usename_Alert" Visibility="Hidden"></TextBlock>
-                        </StackPanel>
-
-                        <StackPanel Grid.Row="3">
-                            <Label Foreground="White">Mot de passe</Label>
-                            <PasswordBox PasswordChanged="PasswordBox_PasswordChanged" Style="{StaticResource PasswordBoxStyle}"></PasswordBox>
-                            <TextBlock x:Name="Password_Alert" Visibility="Hidden"></TextBlock>
+                            <Border x:Name="Username_Alert" Visibility="{Binding Username_Feedback}" Background="#e60000" CornerRadius="0 0 10 10" Margin="20 -4 20 10">
+                                <Label Content="{Binding Username_Error}" Foreground="White" HorizontalAlignment="Center"/>
+                            </Border>
                         </StackPanel>
 
                         <StackPanel Grid.Row="4">
-                            <Label Foreground="White">Confirmation du mot de passe</Label>
-                            <PasswordBox PasswordChanged="PasswordBox_ConfirmationChanged" Style="{StaticResource PasswordBoxStyle}"></PasswordBox>
-                            <TextBlock x:Name="Confirmation_Alert" Visibility="Hidden"></TextBlock>
+                            <Label Foreground="White">Mot de passe</Label>
+                            <PasswordBox PasswordChanged="PasswordBox_PasswordChanged" Style="{StaticResource PasswordBoxStyle}"></PasswordBox>
                         </StackPanel>
 
                         <StackPanel Grid.Row="5">
+                            <Label Foreground="White">Confirmation du mot de passe</Label>
+                            <PasswordBox PasswordChanged="PasswordBox_ConfirmationChanged" Style="{StaticResource PasswordBoxStyle}"></PasswordBox>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="6">
                             <Label Foreground="White">Département</Label>
                             <ComboBox SelectedItem="{Binding Department, Mode=TwoWay}" ItemsSource="{Binding Departments, Mode=OneWay}"></ComboBox>
                             <TextBlock x:Name="Department_Alert" Visibility="Hidden"></TextBlock>
                         </StackPanel>
 
-                        <StackPanel Grid.Row="6">
+                        <StackPanel Grid.Row="7">
                             <Label Foreground="White">Mot de passe actuel</Label>
                             <PasswordBox PasswordChanged="PasswordBox_CurrentChanged" Style="{StaticResource PasswordBoxStyle}"></PasswordBox>
-                            <TextBlock x:Name="Current_Alert" Visibility="Hidden"></TextBlock>
+                            <Border x:Name="Password_Alert" Visibility="{Binding Current_Feedback}" Background="#e60000" CornerRadius="0 0 10 10" Margin="20 -4 20 10">
+                                <Label Content="{Binding Current_Error}" Foreground="White" HorizontalAlignment="Center"/>
+                            </Border>
                         </StackPanel>
 
-                        <Button x:Name="Edit_Button" Height="55" Command="{Binding Edit}" Style="{StaticResource StandardButton}" Grid.Row="7" Content="Modifier"></Button>
+                        <Button x:Name="Edit_Button" Height="55" Command="{Binding Edit}" Style="{StaticResource StandardButton}" Grid.Row="8" Content="Modifier"></Button>
                     </Grid>
                 </ScrollViewer>
             </Grid>
