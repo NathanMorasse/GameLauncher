@@ -63,7 +63,7 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
 
                 if (unknown.Id > 0)
                 {
-                    return new string[] {"Unauthorize", "Le nom d'utilisateur est déjà utilisé." };
+                    return new string[] {"Unauthorized", "Le nom d'utilisateur est déjà utilisé." };
                 }
 
                 if (unknown.Id < 0)
@@ -105,7 +105,7 @@ namespace HourGlassUnlimited.DataAccessLayer.Factories
 
                 if (unknown.Id > 0 && unknown.Id != user.Id)
                 {
-                    return new string[] { "Unauthorize", "Le nom d'utilisateur est déjà utilisé." };
+                    return new string[] { "Unauthorized", "Le nom d'utilisateur est déjà utilisé." };
                 }
 
                 if (unknown.Id < 0)

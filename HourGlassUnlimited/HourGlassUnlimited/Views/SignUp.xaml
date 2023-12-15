@@ -7,7 +7,7 @@
       xmlns:viewModel="clr-namespace:HourGlassUnlimited.ViewModels"
       d:DataContext="{d:DesignInstance Type=viewModel:SignUpVM}"
       mc:Ignorable="d" 
-      d:DesignHeight="540" d:DesignWidth="960"
+      d:DesignHeight="700" d:DesignWidth="700"
       Title="SignUp"
       FontFamily="Bahnschrift">
 
@@ -19,7 +19,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.001*"/>
-            <RowDefinition MaxHeight="600" MinHeight="300"/>
+            <RowDefinition MaxHeight="620" MinHeight="300"/>
             <RowDefinition Height="0.001*"/>
         </Grid.RowDefinitions>
         <Border Grid.Column="1" Grid.Row="1" Background="#262626" CornerRadius="25">
@@ -47,31 +47,31 @@
                         </Grid>
                         <Border Grid.Row="1" BorderThickness="0.5" Height="1" BorderBrush="Gray" Margin="0"/>
 
-                        <Border x:Name="General_Alert" Grid.Row="2" Visibility="Visible" Background="#e60000" CornerRadius="10" Margin="10 0 10 10">
-                            <Label Content="Insert text" Foreground="White" HorizontalAlignment="Center"/>
+                        <Border x:Name="General_Alert" Grid.Row="2" Visibility="{Binding General_Feedback}" Background="#e60000" CornerRadius="10" Margin="10 0 10 10">
+                            <Label Content="{Binding General_Error}" Foreground="White" HorizontalAlignment="Center"/>
                         </Border>
 
                         <StackPanel Grid.Row="3" Margin="0 0 0 0">
                             <Label Foreground="White">Nom d'utilisateur</Label>
                             <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Username, Mode=OneWayToSource}"></TextBox>
-                            <Border x:Name="Username_Alert" Visibility="Visible" Background="#e60000" CornerRadius="0 0 10 10" Margin="20 -4 20 10">
-                                <Label Content="Insert text" Foreground="White" HorizontalAlignment="Center"/>
+                            <Border x:Name="Username_Alert" Visibility="{Binding Username_Feedback}" Background="#e60000" CornerRadius="0 0 10 10" Margin="20 -4 20 10">
+                                <Label Content="{Binding Username_Error}" Foreground="White" HorizontalAlignment="Center"/>
                             </Border>
                         </StackPanel>
 
                         <StackPanel Grid.Row="4">
                             <Label Foreground="White">Mot de passe</Label>
                             <PasswordBox PasswordChanged="PasswordBox_PasswordChanged" Style="{StaticResource PasswordBoxStyle}"></PasswordBox>
-                            <Border x:Name="Password_Alert" Visibility="Visible" Background="#e60000" CornerRadius="0 0 10 10" Margin="20 -4 20 10">
-                                <Label Content="Insert text" Foreground="White" HorizontalAlignment="Center"/>
+                            <Border x:Name="Password_Alert" Visibility="{Binding Password_Feedback}" Background="#e60000" CornerRadius="0 0 10 10" Margin="20 -4 20 10">
+                                <Label Content="{Binding Password_Error}" Foreground="White" HorizontalAlignment="Center"/>
                             </Border>
                         </StackPanel>
 
                         <StackPanel Grid.Row="5">
                             <Label Foreground="White">Confirmation du mot de pass</Label>
                             <PasswordBox PasswordChanged="PasswordBox_ConfirmationChanged" Style="{StaticResource PasswordBoxStyle}"></PasswordBox>
-                            <Border x:Name="Confirmation_Alert" Visibility="Visible" Background="#e60000" CornerRadius="0 0 10 10" Margin="20 -4 20 10">
-                                <Label Content="Insert text" Foreground="White" HorizontalAlignment="Center"/>
+                            <Border x:Name="Confirmation_Alert" Visibility="{Binding Confirmation_Feedback}" Background="#e60000" CornerRadius="0 0 10 10" Margin="20 -4 20 10">
+                                <Label Content="{Binding Confirmation_Error}" Foreground="White" HorizontalAlignment="Center"/>
                             </Border>
                         </StackPanel>
 

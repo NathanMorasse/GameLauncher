@@ -45,6 +45,10 @@ namespace HourGlassUnlimited.ViewModels
             Password_Feedback = Visibility.Collapsed;
             Confirmation_Feedback = Visibility.Collapsed;
 
+            Username_Error = "Nom d'utilisateur requis";
+            Password_Error = "Mot de passe requis";
+            Confirmation_Error = "Confirmation du mot de passe requise";
+
             SignUp = new CommandLink(SignUp_Execute, SignUp_CanExecute);
             GoBack = new CommandLink(GoBack_Execute, GoBack_CanExecute);
 
@@ -74,15 +78,15 @@ namespace HourGlassUnlimited.ViewModels
             Password_Status = Validate(Password);
             Confirmation_Status = Validate(Confirmation);
 
-            if (!(string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password) || string.IsNullOrEmpty(Confirmation)))
-            {
-                if (Password == Confirmation)
-                {
-                    string[] result = ConnectionHelper.SignUp(new User(0, Username, Password, Department));
+            General_Status = (Password == Confirmation);
 
-                    Navigator.SignInView();
-                }
+            if (General_Status && Username_Status && Password_Status && Confirmation_Status)
+            {
+                ProcessSignUp();
             }
+
+            General_Error = "Le mot de passe et la confirmation doivent correspondent";
+            DisplayFeedBack();
         }
 
         private bool GoBack_CanExecute(object parameter) { return true; }
@@ -98,5 +102,58 @@ namespace HourGlassUnlimited.ViewModels
             return true;
         }
 
+        private void ProcessSignUp()
+        {
+            string[] result = ConnectionHelper.SignUp(new User(0, Username, Password, Department));
+            if (result[0] != "Success")
+            {
+                General_Status = false;
+                AssignErrors(result);
+            }
+            else
+            {
+                Navigator.SignInView();
+            }
+        }
+
+        private void DisplayFeedBack()
+        {
+            if (Username_Status) { Username_Feedback = Visibility.Collapsed; }
+            else { Username_Feedback = Visibility.Visible; }
+            ChangeValue("Username_Feedback");
+            ChangeValue("Username_Error");
+
+            if (Password_Status) { Password_Feedback = Visibility.Collapsed; }
+            else { Password_Feedback = Visibility.Visible; }
+            ChangeValue("Password_Feedback");
+            ChangeValue("Password_Error");
+
+            if (Confirmation_Status) { Confirmation_Feedback = Visibility.Collapsed; }
+            else { Confirmation_Feedback = Visibility.Visible; }
+            ChangeValue("Confirmation_Feedback");
+            ChangeValue("Confirmation_Error");
+
+            if (General_Status) { General_Feedback = Visibility.Collapsed; }
+            else { General_Feedback = Visibility.Visible; }
+            ChangeValue("General_Feedback");
+            ChangeValue("General_Error");
+        }
+
+        private void AssignErrors(string[] result)
+        {
+            if (!General_Status)
+            {
+                if (result[0] == "Unauthorized")
+                {
+                    Username_Status = false;
+                    Username_Error = result[1];
+                }
+                else
+                {
+                    General_Status = false;
+                    General_Error = result[1];
+                }
+            }
+        }
     }
 }
