@@ -136,7 +136,6 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
                     var body = await response.Content.ReadAsStringAsync();
                     dynamic data = JObject.Parse(body);
                     string solvedBoardString = data.solution;
-                    throw new Exception("Test (a enlever pas oublier)"); // a enlever pas oublier
                     if (boardString == solvedBoardString)
                     {
                         return "valid";
@@ -150,7 +149,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             }
         }
 
-        public async void SaveGame(SudokuGame game, string timespan)
+        public async Task SaveGame(SudokuGame game, string timespan)
         {
             MySqlConnection? connection = null;
             string boardString = BoardEncoder.EncodeBoard(game.GameBoard);
@@ -163,7 +162,6 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             {
                 connection = new MySqlConnection(CnnStr);
                 connection.Open();
-
 
                 MySqlCommand command = connection.CreateCommand();
                 command.CommandText = "INSERT INTO saves(User, Game, Save, Time, Date, IsDaily, Seed, Notes) VALUES(@User, @Game, @Save, @Time, @Date, @IsDaily, @Seed, @Notes);";
@@ -181,10 +179,6 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             catch (Exception e)
             {
                 throw new Exception("Échec de la sauvegarde ", e);
-            }
-            finally
-            {
-                connection?.Close();
             }
         }
 
@@ -218,7 +212,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             }
             catch (Exception e)
             {
-                throw new Exception("Échec du chargement de sauvegarde", e.InnerException);
+                throw new Exception("Échec du chargement de sauvegarde", e);
             }
             finally
             {
@@ -273,7 +267,7 @@ namespace HourGlassUnlimited.Games.Sudoku.DataAccesLayer.Factories
             }
             catch (Exception e)
             {
-                throw new Exception("Imposible d'avoir les meilleurs temps ", e.InnerException);
+                throw new Exception("Imposible d'avoir les meilleurs temps ", e);
             }
             finally
             {

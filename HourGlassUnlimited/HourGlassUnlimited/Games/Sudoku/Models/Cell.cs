@@ -21,8 +21,11 @@ namespace HourGlassUnlimited.Games.Sudoku.Models
                 {
                     _value = value;
                     OnPropertyChanged(nameof(Value));
-                    GamePageVM vm = (GamePageVM)SudokuNavigator.GamePage.DataContext;
-                    vm.CanValidate = vm.IsBoardFilled();
+                    if (SudokuNavigator.GamePage != null)
+                    {
+                        GamePageVM vm = (GamePageVM)SudokuNavigator.GamePage.DataContext;
+                        vm.CanValidate = vm.IsBoardFilled();                        
+                    }
                 }
             }
         }

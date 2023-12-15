@@ -50,7 +50,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
             SudokuNavigator.GamePage = new Views.GamePage();
         }
 
-        public void Save()
+        public async void Save()
         {
             SudokuDAL dal = new SudokuDAL();
             GamePageVM vm = (GamePageVM)SudokuNavigator.GamePage.DataContext;
@@ -64,7 +64,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
                 {
                     try
                     {
-                        dal.SudokuFact.SaveGame(vm.CurrentGame, vm.TimePassed);
+                        await dal.SudokuFact.SaveGame(vm.CurrentGame, vm.TimePassed);
                     }
                     catch (Exception e)
                     {
@@ -74,7 +74,14 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
             }
             else
             {
-                dal.SudokuFact.SaveGame(vm.CurrentGame, vm.TimePassed);
+                try
+                {
+                    await dal.SudokuFact.SaveGame(vm.CurrentGame, vm.TimePassed);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Une erreur est survenue lors de la sauvegarde de votre partie. \nErreur interne: " + e.Message + "\nErreur interne: " + e.InnerException.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
         }
     }

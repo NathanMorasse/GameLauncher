@@ -38,11 +38,18 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
         private void GetRanking()
         {
             SudokuDAL dal = new SudokuDAL();
-            List<string> temp = dal.SudokuFact.GetBestTimes();
+            try
+            {
+                List<string> temp = dal.SudokuFact.GetBestTimes();
+                Global = temp[0];
+                Personnal = temp[1];
+                Daily = temp[2];
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Une erreur est survenu lors de la récupération des meilleurs scores. \nErreur interne: " + e.Message + "\nErreur interne: " + e.InnerException.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Warning); 
+            }
 
-            Global = temp[0];
-            Personnal = temp[1];
-            Daily = temp[2];
         }
 
         public SudokuGame CurrentGame
@@ -142,7 +149,7 @@ namespace HourGlassUnlimited.Games.Sudoku.ViewModels
             }
             catch (BoardValidationException e)
             {
-                MessageBox.Show("Une erreur est survenu lors de la validation de votre grille. \nErreur interne: " + e.Message + "\nErreur interne: " + e.InnerException.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Warning); MessageBox.Show("Échec de création d'une partie quotidienne. \nErreur interne: " + e.Message + "\nErreur interne: " + e.InnerException.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Une erreur est survenu lors de la validation de votre grille. \nErreur interne: " + e.Message + "\nErreur interne: " + e.InnerException.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Warning); 
                 result = "invalide";
             }
 
